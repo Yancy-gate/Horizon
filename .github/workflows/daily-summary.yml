@@ -43,8 +43,47 @@ jobs:
           HORIZON_WEBHOOK_URL: ${{ secrets.HORIZON_WEBHOOK_URL }}
         run: uv run horizon --hours 24
 
+      - name: Commit daily summaries to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/summaries/*.md docs/_posts/*.md || true
+          if git diff --staged --quiet; then
+            echo "No summary changes to commit."
+          else
+            git commit -m "📝 Daily summaries: $(date +'%Y-%m-%d')"
+            git push
+          fi
+
       - name: Set current date as environment variable
         run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Sync Chinese summary to Obsidian vault
+        if: ${{ vars.OBSIDIAN_SYNC_ENABLED == 'true' }}
+        env:
+          OBSIDIAN_SYNC_TOKEN: ${{ secrets.OBSIDIAN_SYNC_TOKEN }}
+          OBSIDIAN_REPO: ${{ vars.OBSIDIAN_REPO || 'Yancy-gate/obsidian_cloud' }}
+          OBSIDIAN_SUMMARY_DIR: ${{ vars.OBSIDIAN_SUMMARY_DIR || '其他/内参日报' }}
+        run: |
+          TODAY=$(date +'%Y-%m-%d')
+          SUMMARY_FILE="data/summaries/horizon-${TODAY}-zh.md"
+          if [ ! -f "$SUMMARY_FILE" ]; then
+            echo "No Chinese summary found for ${TODAY}, skipping Obsidian sync."
+            exit 0
+          fi
+          git clone "https://x-access-token:${OBSIDIAN_SYNC_TOKEN}@github.com/${OBSIDIAN_REPO}.git" obsidian-vault
+          mkdir -p "obsidian-vault/${OBSIDIAN_SUMMARY_DIR}"
+          cp "$SUMMARY_FILE" "obsidian-vault/${OBSIDIAN_SUMMARY_DIR}/horizon-${TODAY}-zh.md"
+          cd obsidian-vault
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${OBSIDIAN_SUMMARY_DIR}/horizon-${TODAY}-zh.md"
+          if git diff --staged --quiet; then
+            echo "Obsidian vault already up to date."
+          else
+            git commit -m "🌅 Horizon daily briefing ${TODAY}"
+            git push
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
