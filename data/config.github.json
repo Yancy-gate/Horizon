@@ -12,8 +12,8 @@
       "zh",
       "en"
     ],
-    "analysis_concurrency": 1,
-    "enrichment_concurrency": 1
+    "analysis_concurrency": 2,
+    "enrichment_concurrency": 2
   },
   "sources": {
     "github": [
@@ -23,24 +23,81 @@
         "enabled": true
       },
       {
-        "type": "repo_releases",
-        "owner": "vllm-project",
-        "repo": "vllm",
+        "type": "user_events",
+        "username": "ylecun",
+        "enabled": true
+      },
+      {
+        "type": "user_events",
+        "username": "DrJimFan",
+        "enabled": true
+      },
+      {
+        "type": "user_events",
+        "username": "pytorch",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "sgl-project",
-        "repo": "sglang",
+        "owner": "ultralytics",
+        "repo": "ultralytics",
+        "enabled": true
+      },
+      {
+        "type": "repo_releases",
+        "owner": "open-mmlab",
+        "repo": "mmdetection",
+        "enabled": true
+      },
+      {
+        "type": "repo_releases",
+        "owner": "opencv",
+        "repo": "opencv",
+        "enabled": true
+      },
+      {
+        "type": "repo_releases",
+        "owner": "vllm-project",
+        "repo": "vllm",
         "enabled": true
       }
     ],
     "hackernews": {
       "enabled": true,
-      "fetch_top_stories": 25,
-      "min_score": 120
+      "fetch_top_stories": 30,
+      "min_score": 100
     },
     "rss": [
+      {
+        "name": "Lil'Log（科研写作·综述）",
+        "url": "https://lilianweng.github.io/index.xml",
+        "enabled": true,
+        "category": "research-method"
+      },
+      {
+        "name": "Quanta Magazine（科学报道）",
+        "url": "https://api.quantamagazine.org/feed/",
+        "enabled": true,
+        "category": "research-method"
+      },
+      {
+        "name": "Nature 研究亮点",
+        "url": "https://www.nature.com/nature.rss",
+        "enabled": true,
+        "category": "research-method"
+      },
+      {
+        "name": "IEEE Spectrum · Robotics",
+        "url": "https://spectrum.ieee.org/feeds/topic/robotics/rss",
+        "enabled": true,
+        "category": "robotics-vision"
+      },
+      {
+        "name": "OpenCV Blog",
+        "url": "https://opencv.org/blog/feed/",
+        "enabled": true,
+        "category": "robotics-vision"
+      },
       {
         "name": "Simon Willison",
         "url": "https://simonwillison.net/atom/everything/",
@@ -51,24 +108,88 @@
         "name": "GitHub Trending - Daily",
         "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
         "enabled": true,
-        "category": "github-trending"
+        "category": "ai-tools"
       },
       {
-        "name": "Lil'Log",
-        "url": "https://lilianweng.github.io/index.xml",
+        "name": "Farnam Street（思维·决策）",
+        "url": "https://fs.blog/feed/",
         "enabled": true,
-        "category": "machine-learning"
+        "category": "communication"
+      },
+      {
+        "name": "Seth Godin（表达·叙事）",
+        "url": "https://seths.blog/feed/",
+        "enabled": true,
+        "category": "communication"
+      },
+      {
+        "name": "Paul Graham Essays",
+        "url": "https://www.aaronsw.com/2000/07/10/gdne/rss",
+        "enabled": true,
+        "category": "role-models"
+      },
+      {
+        "name": "Marginal Revolution（经济学）",
+        "url": "https://feeds.feedburner.com/marginalrevolution",
+        "enabled": true,
+        "category": "economics"
+      },
+      {
+        "name": "BBC World News",
+        "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+        "enabled": true,
+        "category": "politics"
+      },
+      {
+        "name": "Aeon（哲学·文化·艺术）",
+        "url": "https://aeon.co/feed",
+        "enabled": true,
+        "category": "culture"
+      },
+      {
+        "name": "The Marginalian（艺术·人文）",
+        "url": "https://www.themarginalian.org/feed/",
+        "enabled": true,
+        "category": "culture"
+      },
+      {
+        "name": "The Conversation（跨学科洞察）",
+        "url": "https://theconversation.com/us/articles.atom",
+        "enabled": true,
+        "category": "worldview"
+      },
+      {
+        "name": "量子位",
+        "url": "https://wechat2rss.xlab.app/feed/7131b577c61365cb47e81000738c10d872685908.xml",
+        "enabled": true,
+        "category": "ai-news"
       }
     ],
     "reddit": {
       "enabled": true,
       "subreddits": [
         {
-          "subreddit": "MachineLearning",
+          "subreddit": "computervision",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 12,
+          "min_score": 25
+        },
+        {
+          "subreddit": "robotics",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 12,
+          "min_score": 30
+        },
+        {
+          "subreddit": "MachineLearning",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 10,
           "min_score": 50
         },
         {
@@ -76,34 +197,89 @@
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
-          "fetch_limit": 12,
+          "fetch_limit": 8,
+          "min_score": 40
+        },
+        {
+          "subreddit": "GradSchool",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 8,
           "min_score": 40
         }
       ],
       "users": [],
-      "fetch_comments": 8
+      "fetch_comments": 6
     },
     "telegram": {
       "enabled": false,
       "channels": []
+    },
+    "google_news": {
+      "enabled": true,
+      "query": "(robotics OR \"computer vision\" OR \"machine vision\") AND (industry OR research)",
+      "language": "en",
+      "country": "US",
+      "max_results": 30,
+      "category": "robotics-vision"
     }
   },
   "filtering": {
     "ai_score_threshold": 6.5,
     "time_window_hours": 24,
-    "max_items": 15,
+    "max_items": 25,
     "category_groups": {
+      "robotics_vision": {
+        "name": "机器人视觉",
+        "limit": 5,
+        "categories": [
+          "robotics-vision"
+        ]
+      },
+      "research_method": {
+        "name": "科研方法论",
+        "limit": 4,
+        "categories": [
+          "research-method"
+        ]
+      },
+      "role_models": {
+        "name": "大牛追踪",
+        "limit": 4,
+        "categories": [
+          "role-models"
+        ]
+      },
+      "communication": {
+        "name": "沟通表达协作",
+        "limit": 3,
+        "categories": [
+          "communication"
+        ]
+      },
+      "worldview": {
+        "name": "世界观（政经人文）",
+        "limit": 5,
+        "categories": [
+          "politics",
+          "economics",
+          "culture",
+          "worldview"
+        ]
+      },
       "ai": {
-        "limit": 8,
+        "name": "AI / 工具",
+        "limit": 4,
         "categories": [
           "ai-tools",
-          "machine-learning",
-          "github-trending"
+          "ai-news",
+          "machine-learning"
         ]
       }
     },
     "default_group": "other",
-    "default_group_limit": 5
+    "default_group_limit": 4
   },
   "webhook": {
     "enabled": false
