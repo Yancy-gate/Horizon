@@ -12,40 +12,43 @@
 - Obsidian Git 插件：已写入自动 Pull（60 分钟）+ 启动时 Pull
 - 本地同步脚本：`scripts/sync-to-obsidian.ps1`
 
-## 你需要完成的 3 步
+## 你需要完成的 1 步（关键）
 
-### 1. Fork 并推送（约 2 分钟）
+### 配置 AI API Key
 
-在终端执行（若 gh 未登录，先完成浏览器授权）：
-
-```powershell
-gh auth login -h github.com -p https -w
-gh repo fork Thysrael/Horizon --clone=false
-cd C:\Users\hproy\Projects\Horizon
-git remote rename origin upstream
-git remote add origin https://github.com/<你的用户名>/Horizon.git
-git push -u origin main
-```
-
-### 2. 配置 GitHub Secrets
-
-进入 **你 Fork 的仓库** → Settings → Secrets and variables → Actions：
+进入 [Yancy-gate/Horizon Settings → Secrets](https://github.com/Yancy-gate/Horizon/settings/secrets/actions)：
 
 | Secret | 说明 |
 |--------|------|
-| `DEEPSEEK_API_KEY` | 推荐。DeepSeek 便宜且稳定 |
-| 或 `OPENAI_API_KEY` | 需账户有余额（当前本地 key 已超额） |
+| `DEEPSEEK_API_KEY` | **必填**。在 [platform.deepseek.com](https://platform.deepseek.com/) 创建，约 ¥10 可用很久 |
 
-可选（Obsidian 全自动同步）：
+本地设置：
 
-| 名称 | 类型 | 值 |
-|------|------|-----|
-| `OBSIDIAN_SYNC_TOKEN` | Secret | GitHub PAT，对 `obsidian_cloud` 有写权限 |
-| `OBSIDIAN_SYNC_ENABLED` | Variable | `true` |
+```powershell
+gh secret set DEEPSEEK_API_KEY -R Yancy-gate/Horizon --body "sk-你的密钥"
+gh workflow run "Daily Horizon Summary" -R Yancy-gate/Horizon
+```
 
-### 3. 启用 Actions
+### 已自动配置（无需再改）
 
-Fork 仓库 → Actions → 允许工作流 → 手动 Run `Daily Horizon Summary` 测试。
+| 项 | 状态 |
+|----|------|
+| `OBSIDIAN_SYNC_TOKEN` | ✅ 已设置 |
+| `OBSIDIAN_SYNC_ENABLED` | ✅ `true` |
+| `OBSIDIAN_REPO` | ✅ `Yancy-gate/obsidian_cloud` |
+| `OBSIDIAN_SUMMARY_DIR` | ✅ `其他/内参日报` |
+| Obsidian Git 自动 Pull | ✅ 每 60 分钟 |
+| Windows 定时同步 | ✅ 每天 7:30（备用） |
+
+## 为什么之前没推送？
+
+1. **从未运行过 Actions**（workflow 运行次数为 0）
+2. **缺少 `DEEPSEEK_API_KEY`** — AI 步骤直接失败，后续 Obsidian 同步被跳过
+3. **Obsidian 直推开关未开** — 现已开启 `OBSIDIAN_SYNC_ENABLED=true`
+
+## 自定义抓取
+
+见 [`docs/自定义抓取指南.md`](docs/自定义抓取指南.md)
 
 ## 本地运行
 
