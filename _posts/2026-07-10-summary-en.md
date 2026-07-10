@@ -5,286 +5,512 @@ date: 2026-07-10
 lang: en
 ---
 
-> From 95 items, 12 important content pieces were selected
+> From 130 items, 23 important content pieces were selected
 
 ---
 
-1. [AI Generates Videos to Maximally Activate Specific Brain Regions](#item-1) ⭐️ 9.0/10
-2. [OpenAI releases GPT-5.6 family: Luna, Terra, Sol](#item-2) ⭐️ 9.0/10
-3. [Semantic Alignment Outperforms VAE for Video Tokenization in Robotics](#item-3) ⭐️ 9.0/10
-4. [EU: Instagram, Facebook addictive design violates DSA](#item-4) ⭐️ 8.0/10
-5. [Nature Guide Compares AI Scientist Tools for Labs](#item-5) ⭐️ 8.0/10
-6. [Large Study Finds Preprints Are Reliable](#item-6) ⭐️ 8.0/10
-7. [Lab-grown sperm created from stem cells in mouse kidney](#item-7) ⭐️ 8.0/10
-8. [NSF plans cuts to core science programs for White House initiative](#item-8) ⭐️ 8.0/10
-9. [China lands reusable rocket for first time](#item-9) ⭐️ 8.0/10
-10. [GoPro Bike Camera Enables Georeferenced Road Survey](#item-10) ⭐️ 8.0/10
-11. [Nilay Patel: AR Glasses Require Privacy Trade-offs](#item-11) ⭐️ 7.0/10
-12. [New Infrastructure Enables AI Portability Across Robots](#item-12) ⭐️ 7.0/10
+1. [OpenAI launches GPT-5.6 family with Sol, Terra, Luna](#item-1) ⭐️ 9.0/10
+2. [EU preliminarily finds Instagram, Facebook addictive design violates DSA](#item-2) ⭐️ 8.0/10
+3. [AI generates videos to maximally stimulate target brain regions](#item-3) ⭐️ 8.0/10
+4. [Profiling Attention in PyTorch for Transformer Optimization](#item-4) ⭐️ 8.0/10
+5. [Meta's Superintelligence Progress: RL Startup, Compute Ramp](#item-5) ⭐️ 8.0/10
+6. [SK Hynix's Record $26.5B US IPO Fuels AI Chip Boom](#item-6) ⭐️ 8.0/10
+7. [AI Agent Startup Lyzr Uses Its Own Agent to Raise $100M](#item-7) ⭐️ 8.0/10
+8. [NYT accuses OpenAI of hiding evidence in copyright trial](#item-8) ⭐️ 8.0/10
+9. [Government's opaque safety review of OpenAI's frontier model questioned](#item-9) ⭐️ 8.0/10
+10. [China lands reusable rocket for first time](#item-10) ⭐️ 8.0/10
+11. [Governments must fund boring open source maintenance](#item-11) ⭐️ 8.0/10
+12. [Health system learning enables generalist neuroimaging models](#item-12) ⭐️ 8.0/10
+13. [CMU Builds Infrastructure for AI Transfer Between Robots](#item-13) ⭐️ 8.0/10
+14. [Linux Foundation Launches Akrites to Defend Open Source from AI Threats](#item-14) ⭐️ 8.0/10
+15. [Microsoft Aurora 1.5: Enhanced open foundation model for weather](#item-15) ⭐️ 8.0/10
+16. [Simple Fluids Can Fracture, Challenging Long-Held Belief](#item-16) ⭐️ 7.0/10
+17. [Ollama Raises $65M Series B, Reaches 8.9M Developers](#item-17) ⭐️ 7.0/10
+18. [NVIDIA Integrates Isaac AI Tools into Hugging Face LeRobot](#item-18) ⭐️ 7.0/10
+19. [Mistral Releases Apache 2.0 Open Source Leanstral 1.5](#item-19) ⭐️ 7.0/10
+20. [Aurora supercomputer enables autonomous chemistry simulations](#item-20) ⭐️ 7.0/10
+21. [LingBot-World-Infinity: Open Causal World Model with Agentic Harness](#item-21) ⭐️ 7.0/10
+22. [Tyler Cowen Interviews Joel Mokyr on Economic History](#item-22) ⭐️ 6.0/10
+23. [Tree Rings: Nature's Historical Archive](#item-23) ⭐️ 6.0/10
 
 ---
 
 <a id="item-1"></a>
-## [AI Generates Videos to Maximally Activate Specific Brain Regions](https://nevo-project.epfl.ch/) ⭐️ 9.0/10
+## [OpenAI launches GPT-5.6 family with Sol, Terra, Luna](https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/) ⭐️ 9.0/10
 
-Researchers at EPFL developed NEvo, an AI system that generates videos optimized to maximally activate a target brain region, using a digital twin model trained on fMRI data. This breakthrough provides a powerful tool for neuroscience research, enabling precise mapping of brain function and potentially leading to new therapies for neurological disorders, while also raising ethical concerns about misuse in social media or advertising. The system first trains an encoding model (digital twin) that predicts brain region responses to any video, then uses that model as a reward function to search for videos that maximize activation of a chosen region. The approach reduces experimenter bias by letting the AI discover stimuli without human preconceptions.
+OpenAI released the GPT-5.6 model family on July 9, 2026, featuring three tiers: Luna, Terra, and Sol, with pricing from $1 to $5 per million input tokens. The models boast a million-token context window, 128,000 maximum output tokens, and a February 16, 2026 knowledge cutoff. This release marks a significant step in making advanced AI more accessible and affordable, with the smallest model Luna outperforming Claude Fable 5 at roughly one-sixteenth the cost on agentic benchmarks. The new API features like programmatic tool calling and multi-agent support could reshape how developers build autonomous AI systems. On the SWE-Bench Pro coding benchmark, GPT-5.6 Sol scored 64.6% compared to Claude Fable 5's 80%, but OpenAI published a separate article claiming ~30% of SWE-Bench Pro tasks are broken. The models introduce programmatic tool calling, multi-agent sub-agents, and prompt cache breakpoints in the API.
 
-hackernews · smusamashah · Jul 10, 07:39 · [Discussion](https://news.ycombinator.com/item?id=48856904)
+rss · TechCrunch AI · Jul 9, 22:24
 
-**Background**: Functional magnetic resonance imaging (fMRI) measures brain activity by detecting changes in blood flow. A digital twin is a virtual model that simulates a real system; here, it predicts how visual brain regions respond to videos. NEvo uses this twin to generate novel video stimuli, advancing beyond traditional methods that rely on pre-existing videos.
+**Background**: GPT-5.6 is OpenAI's latest flagship model family, succeeding GPT-5.5. It comes in three sizes: Luna (smallest, fastest, cheapest), Terra (balanced), and Sol (largest, most capable). The models use reasoning tokens, which are hidden tokens used for step-by-step reasoning before generating a final answer, and can be set to low, medium, or high reasoning effort.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://nevo.systems/">Nevo — Self-Improving AI That Evolves With You</a></li>
+<li><a href="https://www.datacamp.com/blog/gpt-5-6-sol-luna-terra">GPT-5.6 Sol, Terra, and Luna: OpenAI's Next-Gen Model Family</a></li>
+<li><a href="https://cryptobriefing.com/openai-gpt-56-pricing-tiers/">OpenAI sets GPT-5.6 pricing at $5 input, $30 output per 1M tokens with three-tier model family</a></li>
+<li><a href="https://community.openai.com/t/introducing-gpt-5-6-series-sol-terra-and-luna/1384931">Introducing GPT-5.6 series: Sol, Terra and Luna. Coming July ...</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Commenters expressed both excitement and concern: some highlighted the potential for abuse by social media platforms to create addictive content, while others emphasized the tool's value for unbiased neuroscience research. A few noted the similarity to recent mind-reading AI and stressed the importance of reading the paper to understand the scientific intent.
+**Discussion**: The community discussion on OpenAI's forum is not provided in the input, so no summary is available.
 
-**Tags**: `#AI`, `#neuroscience`, `#video generation`, `#brain-computer interface`, `#ethics`
+**Tags**: `#AI`, `#OpenAI`, `#GPT-5.6`, `#cybersecurity`, `#machine learning`
 
 ---
 
 <a id="item-2"></a>
-## [OpenAI releases GPT-5.6 family: Luna, Terra, Sol](https://simonwillison.net/2026/Jul/9/gpt-5-6/#atom-everything) ⭐️ 9.0/10
+## [EU preliminarily finds Instagram, Facebook addictive design violates DSA](https://ec.europa.eu/commission/presscorner/home/en) ⭐️ 8.0/10
 
-OpenAI released the GPT-5.6 family of models on July 9, 2026, consisting of three sizes: Luna (smallest), Terra (mid), and Sol (largest). The models feature a 1M token context window, 128K output tokens, and claim strong agentic performance on the Agents' Last Exam benchmark. This release intensifies competition with Anthropic's Claude models, especially in agentic AI capabilities, and offers tiered pricing that could make advanced AI more accessible. The new API features like programmatic tool calling and multi-agent support may reshape how developers build AI-powered applications. Pricing per 1M tokens is Luna $1/$6, Terra $2.50/$15, Sol $5/$30 (input/output). On Agents' Last Exam, Sol scored 53.6, outperforming Claude Fable 5 by 13.1 points, but on SWE-Bench Pro, Fable 5 scored 80% vs Sol's 64.6%. OpenAI also published a critique of SWE-Bench Pro, estimating ~30% of its tasks are broken.
+The European Commission has issued a preliminary finding that Meta's Instagram and Facebook violate the Digital Services Act (DSA) due to their addictive design, which exploits minors' vulnerabilities and creates behavioral addiction risks. This marks the first major enforcement action under the DSA targeting addictive design, potentially forcing Meta to redesign core features across the EU and setting a precedent for regulating algorithmic manipulation of user behavior. The preliminary finding focuses on Meta's use of personalized recommendations, infinite scroll, and notification algorithms that maximize user engagement without adequate risk mitigation for minors. Meta now has the right to respond before a final decision is made.
 
-rss · Simon Willison · Jul 9, 19:46
+hackernews · jeroenhd · Jul 10, 11:00 · [Discussion](https://news.ycombinator.com/item?id=48858292)
 
-**Background**: GPT-5.6 is OpenAI's latest flagship model family, following GPT-5.5 released two months earlier. The models are designed for agentic tasks, where AI systems autonomously perform multi-step workflows. Agents' Last Exam is a benchmark that evaluates long-horizon, economically valuable tasks with verifiable outcomes. Reasoning tokens are internal tokens used by models to plan and reason before producing a final response, and their count can vary significantly between models for the same task, making price-per-token comparisons less straightforward.
+**Background**: The Digital Services Act (DSA) is an EU regulation that came into force in 2022, imposing strict obligations on very large online platforms (VLOPs) like Instagram and Facebook to assess and mitigate systemic risks, including risks to minors' mental health. Addictive design refers to interface patterns engineered to maximize time spent on the platform, often exploiting psychological vulnerabilities such as variable rewards and social validation loops.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://openai.com/index/gpt-5-6/">GPT - 5 . 6 : Frontier intelligence that scales with your ambition | OpenAI</a></li>
-<li><a href="https://arxiv.org/abs/2606.05405">Abstract page for arXiv paper 2606.05405: Agents ' Last Exam</a></li>
-<li><a href="https://snorkel.ai/leaderboard/agents-last-exam/">Agents ' Last Exam | Snorkel AI</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Digital_Services_Act">Digital Services Act</a></li>
+<li><a href="https://petrieflom.law.harvard.edu/2024/10/14/addictive-design-and-social-media-legal-opinions-and-research-roundup/">Addictive Design and Social Media: Legal Opinions and ...</a></li>
+<li><a href="https://digital-strategy.ec.europa.eu/en/policies/digital-services-act">The Digital Services Act | Shaping Europe’s digital future</a></li>
 
 </ul>
 </details>
 
-**Discussion**: The article author notes that GPT-5.6 Sol is competent but not yet better than Claude Fable 5 for complex coding tasks. The community may debate the validity of benchmarks like SWE-Bench Pro, especially given OpenAI's own critique.
+**Discussion**: Commenters expressed mixed views: some argued the enforcement should focus on giving users a choice between addictive and ethical algorithms rather than banning addictive design outright, while others praised the approach as more effective than age limits. A notable point highlighted the mismatch between optimizing for engagement and relying on dismissible time-limit popups as mitigation.
 
-**Tags**: `#OpenAI`, `#GPT-5.6`, `#AI models`, `#benchmarks`, `#agentic AI`
+**Tags**: `#EU regulation`, `#Digital Services Act`, `#social media`, `#addictive design`, `#privacy`
 
 ---
 
 <a id="item-3"></a>
-## [Semantic Alignment Outperforms VAE for Video Tokenization in Robotics](https://www.reddit.com/r/computervision/comments/1ustn7f/aligning_video_latents_to_a_frozen_perception/) ⭐️ 9.0/10
+## [AI generates videos to maximally stimulate target brain regions](https://nevo-project.epfl.ch/) ⭐️ 8.0/10
 
-A new tokenizer design for robot video-action models, which adds a semantic alignment loss to pull video latents toward a frozen perception encoder (e.g., DINOv2), achieves 86.6% average success on a 50-task bimanual benchmark, compared to 78.0% with a plain reconstruction VAE. The gap widens with longer prediction horizons, reaching 92.0% vs 67.2% at horizon 3. This result demonstrates that aligning video latents to a frozen perception encoder is a simple yet powerful alternative to reconstruction-based tokenization, significantly improving long-horizon action prediction in robotics. The recipe—freezing a strong encoder as an alignment target—could generalize to other sequential prediction tasks beyond robotics. The tokenizer retains a reconstruction objective but adds a semantic alignment loss and a latent-action term that extracts compact transition variables between frames. The 78.0 to 86.6 improvement is from simulation; real-robot clips in the paper are in-house demos, not independent evidence.
+Researchers at EPFL developed NEvo, an AI system that generates videos designed to maximally activate specific brain regions, using a digital twin model trained on fMRI data. This tool could revolutionize neuroscience by enabling precise mapping of brain function, but it also raises ethical concerns about potential misuse for creating hyper-addictive content on social media platforms. NEvo uses an encoding model (digital twin) that predicts neural responses to videos, then searches for the video that maximizes activation of a chosen region. The system requires a person to sit in an fMRI scanner for hours to train the model.
 
-reddit · r/computervision · /u/AbbreviationsEast776 · Jul 10, 17:06
+hackernews · smusamashah · Jul 10, 07:39 · [Discussion](https://news.ycombinator.com/item?id=48856904)
 
-**Background**: Video tokenization is a key component in robot learning, compressing video frames into latent representations for downstream action prediction. Traditional reconstruction VAEs aim to minimize pixel-level error, but may discard semantic information crucial for long-horizon tasks. Frozen perception encoders like DINOv2 provide rich semantic features without fine-tuning, and aligning latents to them preserves that information.
+**Background**: Functional magnetic resonance imaging (fMRI) measures brain activity by detecting changes in blood flow. Encoding models in neuroscience predict brain responses to stimuli, and generative AI can create novel stimuli. NEvo combines these to produce targeted visual content.
 
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.arxiv.org/pdf/2512.04483">DeRA: Decoupled Representation Alignment for Video Tokenization Pengbo Guo1,2</a></li>
-<li><a href="https://arxiv.org/abs/2410.11758">[2410.11758] Latent Action Pretraining from Videos</a></li>
-<li><a href="https://arxiv.org/pdf/2504.13181">Perception Encoder: The best visual embeddings are not at ...</a></li>
+**Discussion**: Comments highlight both the scientific potential and ethical risks. Some users worry about social media platforms using similar AI to generate maximally addictive videos, while others emphasize that NEvo is a research tool to reduce experimenter bias in neuroscience.
 
-</ul>
-</details>
-
-**Discussion**: The Reddit post author notes the widening gap with horizon and asks whether the same long-horizon payoff appears outside control tasks. They also caution that the main results are from simulation and real-robot demos should be viewed as demonstrations, not independent evidence.
-
-**Tags**: `#video tokenization`, `#representation learning`, `#robotics`, `#perception encoder`, `#VAE`
+**Tags**: `#AI`, `#neuroscience`, `#ethics`, `#video generation`, `#brain-computer interface`
 
 ---
 
 <a id="item-4"></a>
-## [EU: Instagram, Facebook addictive design violates DSA](https://ec.europa.eu/commission/presscorner/home/en) ⭐️ 8.0/10
+## [Profiling Attention in PyTorch for Transformer Optimization](https://huggingface.co/blog/torch-attention-profile) ⭐️ 8.0/10
 
-The European Commission has preliminarily found that Meta's Instagram and Facebook platforms violate the Digital Services Act (DSA) due to their addictive design features. This marks the first major enforcement action under the DSA targeting addictive design, potentially forcing Meta to redesign core user interfaces and setting a precedent for regulating algorithmic manipulation across the EU. The preliminary finding focuses on features like infinite scroll, personalized recommendations without adequate transparency, and notification systems that exploit psychological vulnerabilities to maximize user engagement.
+A new Hugging Face blog post provides a detailed guide on profiling attention operations in PyTorch to identify bottlenecks and optimize transformer model performance. This guide is significant because attention mechanisms are a critical performance bottleneck in transformer models, and effective profiling can lead to substantial speedups and memory savings for AI practitioners. The blog covers the use of PyTorch's built-in profiler (torch.profiler) to trace attention operations, analyze kernel execution times, and identify memory allocation patterns specific to attention layers.
 
-hackernews · jeroenhd · Jul 10, 11:00 · [Discussion](https://news.ycombinator.com/item?id=48858292)
+rss · Hugging Face Blog · Jul 10, 00:00
 
-**Background**: The Digital Services Act (DSA) is an EU regulation that came into force in 2022, requiring large online platforms to assess and mitigate systemic risks such as addictive design. Addictive design refers to UI/UX patterns intentionally crafted to prolong user engagement, often through variable rewards and attention-grabbing notifications.
+**Background**: Profiling is the process of measuring a program's resource usage (time, memory) to find performance bottlenecks. PyTorch's profiler module provides tools to record and analyze GPU kernel execution and memory events. Attention mechanisms, especially in transformers, are computationally intensive and often become the main bottleneck in training and inference.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Digital_Services_Act">Digital Services Act - Wikipedia</a></li>
-<li><a href="https://digital-strategy.ec.europa.eu/en/policies/digital-services-act">The Digital Services Act | Shaping Europe’s digital future</a></li>
-<li><a href="https://edaa.eu/digital-services-act/">What is DSA: The Digital Services Act Explained - EDAA</a></li>
+<li><a href="https://docs.pytorch.org/tutorials/beginner/profiler.html">Profiling your PyTorch Module — PyTorch Tutorials 2.13.0+cu130...</a></li>
+<li><a href="https://medium.com/biased-algorithms/mastering-memory-profiling-in-pytorch-40007ced2e46">Mastering Memory Profiling in PyTorch | by Hey Amit | Medium</a></li>
+<li><a href="https://www.compilenrun.com/docs/library/pytorch/pytorch-performance-optimization/pytorch-profiling/">PyTorch Profiling | Compile N Run</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Commenters debated the enforcement approach: some argued for mandating a choice between addictive and ethical algorithms, while others supported the Commission's focus on reducing addictiveness. A user noted that Instagram's algorithm reset option can help reduce doom-scrolling, and another highlighted the mismatch between engagement-optimized surfaces and dismissible time-limit popups.
-
-**Tags**: `#regulation`, `#social media`, `#DSA`, `#addictive design`, `#EU`
+**Tags**: `#PyTorch`, `#profiling`, `#attention`, `#transformers`, `#performance`
 
 ---
 
 <a id="item-5"></a>
-## [Nature Guide Compares AI Scientist Tools for Labs](https://www.nature.com/articles/d41586-026-02091-6) ⭐️ 8.0/10
+## [Meta's Superintelligence Progress: RL Startup, Compute Ramp](https://newsletter.semianalysis.com/p/the-future-of-meta-superintelligence) ⭐️ 8.0/10
 
-Nature published a guide comparing general-purpose AI tools for scientific research, such as Claude Science, to help researchers choose the right one for their lab. This guide addresses a timely need as AI tools proliferate in research, helping labs make informed decisions to accelerate scientific discovery. Claude Science is a public beta app that integrates commonly used scientific tools and packages, produces auditable artifacts, and provides flexible compute access. Other tools like Gemini for Science also offer specialized capabilities.
+A top-tier reinforcement learning environment startup has emerged, Meta is executing the most aggressive compute ramp ever seen with 2000km+ scale-across, and the article offers strategic advice for Google DeepMind. These developments signal a major acceleration in AI infrastructure and training capabilities, potentially reshaping the competitive landscape among leading AI labs and startups. The RL environment startup is described as 'spawning out of thin air,' and the compute ramp involves a 2000km+ scale-across network, likely referring to geographically distributed data centers for AI training.
 
-rss · Nature 研究亮点 · Jul 10, 00:00
+rss · Semianalysis（半导体·AI 风向标） · Jul 9, 19:16
 
-**Background**: General-purpose AI tools for science, such as Claude Science, promise to accelerate research by automating tasks like data analysis and literature review. However, researchers need guidance to navigate the growing landscape of options.
+**Background**: Reinforcement learning environments are sandboxes where AI models learn by interacting with simulated or real-world scenarios. Scale-across networking connects multiple data centers over long distances to aggregate compute resources for large-scale AI training.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.anthropic.com/news/claude-science-ai-workbench">Claude Science, an AI workbench for scientists \ Anthropic</a></li>
-<li><a href="https://claude.com/product/claude-science">Claude Science beta | Claude by Anthropic</a></li>
+<li><a href="https://benanderson.work/blog/dont-build-rl-env-startup/">Don't Build an RL Environment Startup</a></li>
+<li><a href="https://www.naddod.com/blog/a-complete-guide-to-scale-across-the-third-pillar-of-ai-computing">What Is Scale-Across? A Complete Guide to the “Third Pillar ...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI`, `#science`, `#research tools`, `#Nature`
+**Tags**: `#AI`, `#Meta`, `#superintelligence`, `#reinforcement learning`, `#compute`
 
 ---
 
 <a id="item-6"></a>
-## [Large Study Finds Preprints Are Reliable](https://www.nature.com/articles/d41586-026-02167-3) ⭐️ 8.0/10
+## [SK Hynix's Record $26.5B US IPO Fuels AI Chip Boom](https://techcrunch.com/2026/07/10/sk-hynix-raises-26-5b-in-the-biggest-foreign-ipo-in-us-history-is-urged-to-build-new-us-fabs/) ⭐️ 8.0/10
 
-A Nature-commissioned analysis of 70,000 biomedical preprints reveals that their central conclusions rarely change after peer-reviewed publication, challenging common skepticism about preprint reliability. This finding supports the use of preprints for rapid dissemination of research, especially in fast-moving fields like biomedicine, and could shift researcher and public trust in open science practices. The analysis compared preprints with their final published versions across multiple biomedical journals, focusing on changes to central conclusions rather than minor textual edits.
+SK Hynix raised $26.5 billion in the largest foreign IPO in US history by listing American depositary receipts on the Nasdaq on July 10, 2026. The company is now being urged to build new US fabs alongside Samsung. This record-breaking IPO underscores the surging demand for AI chips and provides SK Hynix with a powerful new funding channel to expand production. It also intensifies pressure on the company to establish US manufacturing facilities, which could reshape the global semiconductor supply chain. The IPO consisted of 177.9 million ADRs priced at $149 each, with one ADR representing one-tenth of an ordinary share traded in Seoul. SK Hynix has already broken ground on a $3.87 billion advanced packaging plant in Indiana, targeting HBM production for US big tech customers by Q2 2028.
 
-rss · Nature 研究亮点 · Jul 10, 00:00
+rss · TechCrunch AI · Jul 10, 17:17
 
-**Background**: Preprints are unreviewed manuscripts posted publicly before peer review. During the COVID-19 pandemic, their use surged, raising concerns about reliability. This study provides large-scale evidence that preprints are generally trustworthy.
+**Background**: SK Hynix is the world's second-largest memory chipmaker, specializing in DRAM and NAND flash, and is a key supplier of high-bandwidth memory (HBM) used in AI accelerators. The company's US listing via ADRs makes it easier for American investors to trade its stock without dealing with foreign exchanges.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://casrai.org/news/preprint-vs-peer-review/">Preprint vs Peer Review : What 40 Studies Show — CASRAI</a></li>
-<li><a href="https://journalistsresource.org/media/two-studies-examine-preprints/">How different are preprints from their published versions?</a></li>
+<li><a href="https://techcrunch.com/2026/07/10/sk-hynix-raises-26-5b-in-the-biggest-foreign-ipo-in-us-history-is-urged-to-build-new-us-fabs/">SK Hynix raises $26.5B in the biggest foreign IPO in US ...</a></li>
+<li><a href="https://en.sedaily.com/finance/2026/04/21/sk-hynix-breaks-ground-on-387-billion-us-chip-fab">SK hynix Breaks Ground on $3.87 Billion US Chip Fab</a></li>
+<li><a href="https://www.cnbc.com/2026/07/09/meet-sk-hynix-the-trillion-dollar-chipmaker-debuting-on-us-markets-.html">SK Hynix, a South Korean chipmaker, to debut on Nasdaq - CNBC</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#preprints`, `#biomedical research`, `#open science`, `#reproducibility`, `#peer review`
+**Tags**: `#semiconductors`, `#AI chips`, `#IPO`, `#manufacturing`, `#SK Hynix`
 
 ---
 
 <a id="item-7"></a>
-## [Lab-grown sperm created from stem cells in mouse kidney](https://www.nature.com/articles/d41586-026-02172-6) ⭐️ 8.0/10
+## [AI Agent Startup Lyzr Uses Its Own Agent to Raise $100M](https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/) ⭐️ 8.0/10
 
-Scientists have successfully generated immature human sperm cells from stem cells by implanting them into a mouse's kidney, marking a step toward in vitro spermatogenesis. 这一突破最终可能帮助因遗传疾病或癌症治疗导致不育的男性产生自己的精子，提供新的生育治疗选择。 The procedure used spermatogonial stem cells (SSCs) placed in a mouse kidney, which provided the necessary microenvironment for differentiation into immature sperm. The sperm were not yet fully mature or functional.
+Lyzr, an AI agent startup, used its own autonomous AI agent to successfully raise a $100 million Series B funding round, handling outreach to over 130 investors and responding to queries. This is a strong proof-of-concept that AI agents can handle complex, high-stakes business tasks like fundraising, potentially transforming how startups and enterprises operate. It also validates the market for autonomous AI agents in enterprise settings. Lyzr's platform is described as an 'agent factory in a box' that lets companies build autonomous AI systems within their own infrastructure. The agent managed the entire fundraising process, including investor outreach and Q&A.
 
-rss · Nature 研究亮点 · Jul 10, 00:00
+rss · TechCrunch AI · Jul 9, 22:08
 
-**Background**: Spermatogenesis is a complex process requiring specific signals from testicular cells. In vitro spermatogenesis aims to recreate this outside the body. Previous attempts have only achieved early stages; using a living organ as a bioreactor is a novel approach.
+**Background**: AI agents are autonomous software systems that can perform tasks without human intervention, using natural language processing and decision-making capabilities. Unlike simple chatbots, they can execute multi-step workflows. Lyzr builds such agents for enterprise use, aiming to enable 'one-person billion-dollar companies' as envisioned by Sam Altman.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/In_vitro_spermatogenesis">In vitro spermatogenesis</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Spermatogonial_stem_cell">Spermatogonial stem cell - Wikipedia</a></li>
+<li><a href="https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pJelluSUVSRmRGeUVpNzRkdmp5Z0FQAQ?hl=en-IL&gl=IL&ceid=IL:en">Google News - Lyzr Inc. uses AI agent to raise $100 million - Overview</a></li>
+<li><a href="https://www.bloomberg.com/news/articles/2026-07-09/a-startup-that-builds-ai-agents-used-one-to-raise-100-million">A Startup That Builds AI Agents Used One to Raise $100... - Bloomberg</a></li>
+<li><a href="https://www.linkedin.com/pulse/lyzr-ai-start-up-building-100-autonomous-agents-businesses-pcnyc">Lyzr AI Start - up : Building 100% Autonomous AI Agents for Businesses</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#stem cells`, `#fertility`, `#reproductive biology`, `#biotechnology`
+**Tags**: `#AI agents`, `#startup`, `#fundraising`, `#enterprise AI`, `#proof of concept`
 
 ---
 
 <a id="item-8"></a>
-## [NSF plans cuts to core science programs for White House initiative](https://www.nature.com/articles/d41586-026-02135-x) ⭐️ 8.0/10
+## [NYT accuses OpenAI of hiding evidence in copyright trial](https://techcrunch.com/2026/07/09/new-york-times-says-openai-hid-evidence-in-chatgpt-copyright-trial/) ⭐️ 8.0/10
 
-The US National Science Foundation (NSF) has proposed cutting funding for core science programs and clawing back already distributed research funds to finance a White House initiative, amid a severe budget squeeze and a growing backlog of grant applications. This policy shift could disrupt ongoing research projects and reduce future funding opportunities for scientists across the US, potentially weakening the nation's scientific competitiveness and innovation capacity. The proposed clawback of already distributed funds is unprecedented and comes as NSF struggles with a grant backlog and reduced staff; the agency has already relaxed some grant-review rules to cope with the backlog.
+The New York Times and other news publishers have filed a motion for sanctions against OpenAI, alleging that the company deliberately hid internal tools and datasets that could identify copyrighted journalism in ChatGPT outputs. This escalation in a major copyright lawsuit could set a precedent for how AI companies handle training data and evidence disclosure, impacting the future of AI and journalism. The publishers claim OpenAI obstructed access to logs and distorted evidence to shield its fair use claims, and the court has described OpenAI's sample as 'unusable'.
 
-rss · Nature 研究亮点 · Jul 10, 00:00
+rss · TechCrunch AI · Jul 9, 19:05
 
-**Background**: The National Science Foundation (NSF) is a major US government agency that funds fundamental research and education in science and engineering. It has faced budget constraints in recent years, with its FY2024 enacted budget at $9.06 billion. The agency is also dealing with a backlog of grant applications and reduced staffing, leading to changes in review processes.
+**Background**: The New York Times sued OpenAI in late 2023, alleging that ChatGPT was trained on copyrighted articles without permission. The case is closely watched because it could determine whether training AI on copyrighted content constitutes fair use. The recent sanctions motion adds a new layer of alleged misconduct beyond the core copyright dispute.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.nature.com/articles/d41586-025-04067-4">NSF softens grant-review rules to cope with backlog</a></li>
-<li><a href="https://www.nsf.gov/resumption-operations">Resumption of Operations at NSF | NSF - U.S. National Science Foundation</a></li>
+<li><a href="https://techcrunch.com/2026/07/09/new-york-times-says-openai-hid-evidence-in-chatgpt-copyright-trial/">New York Times says OpenAI hid evidence in... | TechCrunch</a></li>
+<li><a href="https://arstechnica.com/tech-policy/2026/07/openai-faked-inability-to-search-training-data-hid-billions-of-logs-nyt-says/">OpenAI may have made a fatal misstep in copyright... - Ars Technica</a></li>
+<li><a href="https://apnews.com/article/openai-new-york-times-ai-copyright-lawsuit-7ce19c7a25aad60d4c94556d36e96cc9">News outlets ask judge to sanction OpenAI in copyright fight ...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#NSF`, `#research funding`, `#science policy`, `#US government`
+**Tags**: `#AI`, `#copyright`, `#legal`, `#OpenAI`, `#journalism`
 
 ---
 
 <a id="item-9"></a>
+## [Government's opaque safety review of OpenAI's frontier model questioned](https://techcrunch.com/2026/07/09/how-did-the-government-decide-openais-frontier-model-was-safe-to-release/) ⭐️ 8.0/10
+
+A TechCrunch article questions the lack of transparency in how the U.S. government decided that OpenAI's frontier model was safe to release, noting that the dialogue between the government and AI companies like Anthropic and OpenAI remains unclear. This matters because frontier models pose significant risks, and opaque government decisions could undermine public trust in AI safety regulation and set a precedent for future model releases. The article specifically highlights that the exact nature of discussions between the government and companies like Anthropic and OpenAI is unknown, raising concerns about accountability and the criteria used for safety approvals.
+
+rss · TechCrunch AI · Jul 9, 18:22
+
+**Background**: Frontier models are the most advanced general-purpose AI models, capable of reasoning, multimodal generation, and agentic workflows. As these models become more powerful, governments worldwide are grappling with how to regulate their release to prevent misuse or catastrophic risks. The U.S. government has been engaging with leading AI labs to assess safety before deployment, but the lack of public disclosure about these assessments has drawn criticism.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://www.nvidia.com/en-us/glossary/frontier-models/">What Are Frontier AI Models and How They Work - NVIDIA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Anthropic">Anthropic - Wikipedia</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#AI safety`, `#government regulation`, `#OpenAI`, `#frontier models`
+
+---
+
+<a id="item-10"></a>
 ## [China lands reusable rocket for first time](https://www.bbc.co.uk/news/articles/cm2rmmx86pdo?at_medium=RSS&at_campaign=rss) ⭐️ 8.0/10
 
-China has successfully landed a reusable rocket for the first time, according to state media, marking a milestone in the country's space technology development. This achievement positions China among the few nations with reusable rocket technology, following SpaceX and Blue Origin, and could reduce launch costs and increase access to space. The landing follows similar achievements by US companies SpaceX and Blue Origin, but specific details about the rocket model, landing method, and date have not been disclosed.
+China successfully landed a reusable rocket for the first time, marking a milestone in its aerospace program. The achievement follows similar landings by US companies SpaceX and Blue Origin. This demonstrates China's progress in reusable rocket technology, a field previously dominated by US firms. It could reduce launch costs and increase China's competitiveness in the global space industry. The specific rocket model and landing details have not been disclosed by state media. The landing is China's first, but it follows years of development and testing by Chinese aerospace entities.
 
 rss · BBC World News · Jul 10, 06:44
 
-**Background**: Reusable rockets are designed to land after launch so that their components can be recovered and reflown, significantly reducing the cost of space access. SpaceX's Falcon 9 first stage landings and Blue Origin's New Shepard suborbital landings are pioneering examples.
+**Background**: Reusable rockets are designed to land after launch so they can be flown again, significantly reducing the cost of access to space. SpaceX first achieved a vertical landing of an orbital rocket stage in 2015, and Blue Origin has landed its suborbital New Shepard multiple times. China's success adds a third major player to the reusable rocket landscape.
 
 <details><summary>References</summary>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Reusable_launch_vehicle">Reusable launch vehicle - Wikipedia</a></li>
 <li><a href="https://en.wikipedia.org/wiki/SpaceX_reusable_launch_system_development_program">SpaceX reusable launch system development program - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/New_Shepard">New Shepard - Wikipedia</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#space technology`, `#reusable rockets`, `#China`, `#aerospace`
-
----
-
-<a id="item-10"></a>
-## [GoPro Bike Camera Enables Georeferenced Road Survey](https://www.reddit.com/r/computervision/comments/1uslmex/turn_a_gopro_on_a_bike_into_a_georeferenced/) ⭐️ 8.0/10
-
-A developer has created a pipeline that uses a single GoPro mounted on a bike to produce metric, georeferenced measurements of road surface defects, without LiDAR or stereo cameras. This approach dramatically lowers the cost and complexity of road condition surveying, making it accessible to municipalities and citizen scientists. It also advances monocular depth estimation for real-world metric applications. The pipeline addresses the challenge of ground plane drift in monocular depth estimation by iteratively optimizing the fit. The author notes it is not perfect but shares the current progress to encourage community feedback.
-
-reddit · r/computervision · /u/k4meamea · Jul 10, 12:00
-
-**Background**: Monocular depth estimation infers 3D structure from a single 2D image, but metric scale and georeferencing typically require additional sensors like LiDAR or GPS/INS. Ground plane drift occurs when the estimated ground plane gradually deviates from the true surface over time, a common issue in long-range monocular reconstruction.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://arxiv.org/html/2312.06021">GenDepth: Generalizing Monocular Depth Estimation for Arbitrary...</a></li>
-<li><a href="https://www.emergentmind.com/topics/ground-aware-monocular-perception">Ground -Aware Monocular Perception</a></li>
-<li><a href="https://www.aimodels.fyi/papers/arxiv/monopp-metric-scaled-self-supervised-monocular-depth">MonoPP: Metric-Scaled Self-Supervised Monocular Depth Estimation ...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#computer vision`, `#monocular depth estimation`, `#road surveying`, `#georeferencing`, `#open source`
+**Tags**: `#aerospace`, `#reusable rocket`, `#China`, `#space technology`
 
 ---
 
 <a id="item-11"></a>
-## [Nilay Patel: AR Glasses Require Privacy Trade-offs](https://simonwillison.net/2026/Jul/10/nilay-patel/#atom-everything) ⭐️ 7.0/10
+## [Governments must fund boring open source maintenance](https://www.reddit.com/r/opensource/comments/1usifz2/governments_keep_calling_open_source_critical/) ⭐️ 8.0/10
 
-Nilay Patel argues that practical augmented reality glasses must continuously record and send camera data to the cloud for processing, as no on-device chip can meet the power and performance requirements. He warns that this inherently invades user privacy and questions whether such products should be built at all. This commentary highlights a fundamental tension between AR innovation and privacy, affecting companies like Meta, Apple, and Google developing AR glasses. It forces a critical societal debate on whether the privacy cost of ubiquitous AR is acceptable. Patel states that current choices are either cloud-dependent glasses or a bulky device like Apple Vision Pro with an external battery pack. He emphasizes that no chip small enough to fit in a glasses stem can perform real-time processing locally.
+The EU's new AI cybersecurity plan includes a campaign to secure critical open-source software, but the article argues that funding should go to boring maintenance work like release engineering and dependency updates, not just audits. This matters because many critical open-source projects are maintained by exhausted volunteers, and without proper funding for unglamorous work, systemic risks remain unaddressed. The article recommends funding multi-year maintainer contracts, reproducible builds, coordinated disclosure, independent audits with remediation budgets, dependency mapping, and succession plans for single-maintainer projects.
 
-rss · Simon Willison · Jul 10, 17:05
+reddit · r/opensource · /u/Crescitaly · Jul 10, 09:15
 
-**Background**: Augmented reality glasses overlay digital information onto the real world, requiring continuous camera input and real-time processing. On-device processing preserves privacy but is limited by battery and thermal constraints, while cloud processing offers more power but raises privacy concerns. Companies like Meta and Apple are racing to develop lightweight AR glasses, but technical hurdles remain.
+**Background**: Open source software is widely used in critical infrastructure, but many projects rely on unpaid volunteers. Governments have started recognizing open source as critical infrastructure, but often fund audits rather than the ongoing maintenance work that prevents vulnerabilities.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://floridareading.com/blogs/news/on-device-vs-cloud-processing-which-privacy-model-protects-your-visual-data-better">On - Device vs Cloud Processing : Which Privacy Model Protects Your...</a></li>
-<li><a href="https://www.rayneo.com/blogs/news/ai-powered-smart-glasses-what-artificial-intelligence-actually-does-for-you">AI-Powered Smart Glasses : What Artificial Intelligence Actually Does...</a></li>
-<li><a href="https://inairspace.com/blogs/learn-with-inair/machine-learning-vs-augmented-reality-the-silent-war-for-our-digital-future">Machine Learning vs Augmented Reality: The Silent War for Our Digital...</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Reproducible_builds">Reproducible builds</a></li>
+<li><a href="https://reproducible-builds.org/">Reproducible Builds — a set of software development practices ...</a></li>
+<li><a href="https://aws.amazon.com/what-is/dependency-mapping/">What Is Dependency Mapping? - Dependency Mapping Explained - AWS</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#augmented reality`, `#privacy`, `#cloud computing`, `#hardware`
+**Tags**: `#open source`, `#cybersecurity`, `#maintainer funding`, `#policy`, `#infrastructure`
 
 ---
 
 <a id="item-12"></a>
-## [New Infrastructure Enables AI Portability Across Robots](https://news.google.com/rss/articles/CBMic0FVX3lxTE1JWEpNTXV2bEJhY0djZ1ZmWDRZU3ZOWGNYNFFqQU9fR09yNUNPSTgxTE5ZNGowMTZick1kSFJCLW1MS3V2MjAzV3BIbHo5Y3pfWHNnTURsaUF3OHl5amZ6eFlxNml0R2FseVNKbU1KSERiM3M?oc=5) ⭐️ 7.0/10
+## [Health system learning enables generalist neuroimaging models](https://news.google.com/rss/articles/CBMiX0FVX3lxTE5aYTlITG9pTHRTOFE3Y3JQUUVXaWo4Zlc3bHZJaUhrS2UtVkR2aFN2QWhvbTFOWjhjeG55Wk1NWi0wTE9QT2syemZ4c3p2NVBEX0JvUHpJcmM2ZTdMbWtN?oc=5) ⭐️ 8.0/10
 
-Researchers have developed a missing infrastructure that allows AI models to be transferred and run across different robot platforms without extensive re-engineering. This breakthrough addresses a critical bottleneck in robotics AI deployment, potentially accelerating the adoption of AI in diverse robotic systems and reducing development costs. The infrastructure likely involves standardized interfaces or middleware that abstracts hardware differences, similar to ONNX for model portability in other domains.
+A Nature paper introduces a paradigm called health system learning, which trains generalist neuroimaging models directly from uncurated clinical data, achieving high performance across diverse tasks. This approach could reduce physician burnout and turnaround times by enabling AI models that generalize across hospitals and diseases, potentially transforming neuroimaging diagnostics. The model, NeuroVFM, was trained on the UM-NeuroImages dataset containing 5.24 million volumes from 566,915 studies, and outperformed frontier models on neuroimaging tasks.
 
-google_news · Tech Xplore · Jul 10, 12:20
+google_news · Nature · Jul 10, 09:26
 
-**Background**: Currently, AI models trained for one robot often cannot be directly used on another due to differences in hardware, sensors, and control systems. This fragmentation forces developers to retrain or adapt models for each platform, slowing innovation. Model portability is a well-known challenge in AI, with solutions like ONNX emerging for general AI, but robotics has lacked a similar standard.
+**Background**: Neuroimaging, especially MRI, is critical for diagnosing neurological diseases but places heavy strain on health systems. Traditional AI models often fail to generalize across different clinical settings. Health system learning leverages large-scale, real-world clinical data to build robust models.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://aicompetence.org/modelcat-ai-announces-ai-model-portability-across-silicon-devices/">ModelCat AI Announces AI Model Portability Across Silicon Devices</a></li>
-<li><a href="https://www.linkedin.com/pulse/onnx-unlock-ai-model-portability-accelerate-inference-rahim-khoja-xotuc">ONNX: Unlock AI Model Portability , Accelerate Inference, and...</a></li>
-<li><a href="https://neuralwired.com/2026/04/05/agentic-ai-robotics-deployment/">Agentic AI Robotics Deployment : Why 70% Fail in 2026</a></li>
+<li><a href="https://arxiv.org/html/2511.18640v1">Health system learning achieves generalist neuroimaging models</a></li>
+<li><a href="https://www.nature.com/articles/s41551-025-01608-0?error=cookies_not_supported&code=861c06bc-0bd1-411d-b3ed-a78f523bb080">Learning neuroimaging models from health system -scale data</a></li>
+<li><a href="https://neurovfm.mlins.org/">Generalist neuroimaging models from health system learning.</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#robotics`, `#AI`, `#model portability`, `#infrastructure`
+**Tags**: `#AI`, `#neuroimaging`, `#healthcare`, `#machine learning`, `#medical imaging`
+
+---
+
+<a id="item-13"></a>
+## [CMU Builds Infrastructure for AI Transfer Between Robots](https://news.google.com/rss/articles/CBMivwFBVV95cUxNWTJybm9UQlhFSENnOUs2ME43ODFPUDN2RnNuS1ZYZlpFR2RfS3NRN0twN052NHhEUlMzLVQ3cGNKNjM1RDJSTm4zWnFJbzFWWGZYRjh4am1vV1VXNllfeVd0UVpDZ2FjdzFoOThudXBOUVNkQ0U4VWFDSTNXdVpMVXM2RkRsT2JSMjJaZWFMZnFfYjk1MmtUUnl6ZnZxcUVodkpPUExzWDF1VzU4NFE5bjdjN0VhZk40NXBUeUVqSQ?oc=5) ⭐️ 8.0/10
+
+Researchers at Carnegie Mellon University have developed a modular infrastructure that enables AI models to be transferred and reused across different robot hardware, reducing the need to rebuild systems from scratch. This breakthrough addresses a critical gap in robotics interoperability, potentially accelerating development and lowering costs by allowing AI models to work across diverse robot platforms. The infrastructure is designed to be modular, letting researchers combine existing components and customize systems for specific needs, improving consistency and reproducibility across experiments.
+
+google_news · Carnegie Mellon University · Jul 9, 20:00
+
+**Background**: Traditionally, AI models for robots are tightly coupled to specific hardware, requiring significant rework when switching platforms. Efforts like Open X-Embodiment and DROID datasets aim to pool data for positive transfer, but infrastructure for seamless model migration has been lacking. This CMU work provides the missing layer to enable such transfer.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://www.cmu.edu/news/stories/archives/2026/july/cmu-researchers-build-missing-infrastructure-to-move-ai-between-robots">CMU Researchers Build Missing Infrastructure to Move AI ...</a></li>
+<li><a href="https://spectrum.ieee.org/machine-learning-and-robotics">One AI Model to Rule All Robots</a></li>
+<li><a href="https://github.com/robotic-infrastructure/robot-interoperability">GitHub - robotic-infrastructure/robot-interoperability ...</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#robotics`, `#AI`, `#infrastructure`, `#transfer learning`, `#CMU`
+
+---
+
+<a id="item-14"></a>
+## [Linux Foundation Launches Akrites to Defend Open Source from AI Threats](https://news.google.com/rss/articles/CBMidEFVX3lxTFBsak91UEZTbjNtajROSjg3VzdJNzl0eFVrd3h2emIwRkZTV21KMXBzRVlRU1RTX2xfUEk5TG9KWHEzZDVXSmZ1X0kyeUhwNThjeDRfc01MVTlfNjMxVGlBeGFJOFQtN1RjNUtzam9nNUpncnZj?oc=5) ⭐️ 8.0/10
+
+On June 25, 2026, the Linux Foundation announced Akrites, a new project aimed at coordinating the remediation and disclosure of vulnerabilities in critical open source software, specifically to counter AI-powered cyber threats. As AI-powered attacks become more sophisticated, traditional open source security models relying on volunteer efforts are under strain; Akrites provides a structured, industry-backed approach to protect widely used open source components, potentially preventing large-scale supply chain compromises. Akrites offers a secure workspace, identity management, and tamper-evident audit infrastructure for vulnerability coordination. Members must be current Linux Foundation members and sign a participation agreement and NDA, and may contribute in-kind compute or AI resources in lieu of dues.
+
+google_news · infoq.com · Jul 10, 12:00
+
+**Background**: Open source software underpins much of the digital infrastructure, but its security often relies on unpaid volunteers. AI-powered tools can now autonomously find and exploit vulnerabilities at scale, outpacing traditional patch cycles. Projects like Google's Big Sleep and CodeMender demonstrate AI's potential for both defense and offense, highlighting the need for coordinated responses.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://www.linuxfoundation.org/press/linux-foundation-and-industry-leaders-launch-akrites-to-defend-critical-open-source-software-against-ai-enabled-cyber-threats">Linux Foundation and Industry Leaders Launch Akrites to ...</a></li>
+<li><a href="https://www.securityweek.com/linux-foundation-unveils-new-open-source-security-project-akrites/">Linux Foundation Unveils New Open Source Security Project Akrites</a></li>
+<li><a href="https://akrites.org/">Akrites | Patch the Commons, Together</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#open source`, `#security`, `#AI threats`, `#Linux Foundation`, `#cybersecurity`
+
+---
+
+<a id="item-15"></a>
+## [Microsoft Aurora 1.5: Enhanced open foundation model for weather](https://news.google.com/rss/articles/CBMizAFBVV95cUxNWVJZLXNUaV82NF9CdmJwdnRrekQza3d1QmFsRzlXNFFLclJ1aGNjX09YOUJXdVZDTnlLTlN4eGlTek56WE1aUmR6N2pjak9fSDhSVThpZC1GV1VRczFGTmdQUnNDT3U4S0tKN0ZOekFsTjF1bGpOMTRtYmxSOEJlYVBHX1ljNmZya1JfanE4Q1FYUTlyeHBhQURtbjB0czVjRDBGcEk2WGhqeTBfWmNvSzNvYXNmeklBZ19TcTFCNDZ3VmRQSVgzN2F1aFU?oc=5) ⭐️ 8.0/10
+
+Microsoft released Aurora 1.5, a major update to its open Earth-system foundation model, adding 22 new weather variables, hourly forecasts, and probabilistic ensemble forecasting. Aurora 1.5 bridges open research with operational weather services, potentially improving forecast accuracy and accessibility for researchers and industry, while reducing computational costs compared to traditional models. The model now supports 22 additional atmospheric variables, enabling a broader view of conditions, and introduces hourly forecast granularity and ensemble predictions to quantify uncertainty.
+
+google_news · Microsoft · Jul 9, 16:46
+
+**Background**: Foundation models are large AI models trained on vast datasets that can be adapted for multiple tasks. Aurora is a specialized foundation model for Earth-system applications, designed to outperform traditional numerical weather prediction models at lower computational cost.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/">Aurora 1.5: Extending open foundation models for weather and Earth-system applications - Microsoft Research</a></li>
+<li><a href="https://www.nature.com/articles/s41586-025-09005-y">A foundation model for the Earth system | Nature</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#AI`, `#weather modeling`, `#foundation models`, `#climate science`, `#Microsoft`
+
+---
+
+<a id="item-16"></a>
+## [Simple Fluids Can Fracture, Challenging Long-Held Belief](https://www.quantamagazine.org/we-know-simple-fluids-can-flow-turns-out-some-can-fracture-20260710/) ⭐️ 7.0/10
+
+Researchers have discovered that simple fluids, which were thought to only flow, can actually fracture under certain conditions, overturning the assumption that only elastic complex fluids exhibit this behavior. This finding challenges fundamental theories in fluid dynamics and materials science, potentially impacting fields like hydraulic fracturing, inkjet printing, and industrial processing where fluid fracture could occur unexpectedly. The discovery was made by observing cracks in a nonelastic simple fluid, contradicting the previous belief that elasticity was necessary for fracture in fluids. The exact mechanism remains under investigation.
+
+rss · Quanta Magazine · Jul 10, 14:51
+
+**Background**: Fluids are typically divided into simple fluids (like water or oil) that flow and deform continuously, and complex fluids (like polymer solutions or gels) that have elastic properties and can fracture. Fracture in fluids was thought to require elasticity to store energy and drive crack propagation. This new observation blurs the line between simple and complex fluid behavior.
+
+**Tags**: `#fluid dynamics`, `#physics`, `#materials science`, `#research breakthrough`
+
+---
+
+<a id="item-17"></a>
+## [Ollama Raises $65M Series B, Reaches 8.9M Developers](https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVG51dm5INGFxTE43Y21GWDZHdnJjZ0pQYVFRSmIwM0xmWVBiakxmWENzOUtTTXFfZWZtNGx1cWJVeFRHeTZVZHdNVkNCVjVkT2xRbXJzcmZJZG1ySlVGZnM1dXNWM0o3MlhKVDViR0ZiY3h3VEFQeWNiTEFuV0F0bGgtTFIyUmRGVzhES1NoSE5EZi1LWThwS1U0X3JvRlF5aC1lemhTTTZqSV9IN1ktVGtFYnJEYTdJb2FYTy13bjFSX0U?oc=5) ⭐️ 7.0/10
+
+Ollama has closed a $65 million Series B funding round, bringing its total funding to $88 million, and now serves 8.9 million developers for running open-weight AI models locally. This milestone signals strong market validation for local open-weight AI, empowering developers to run models privately and cost-effectively without relying on cloud APIs. The Series B follows a previous $15 million round, and Ollama, launched in 2023, provides a command-line interface, native GUI, REST API, and model management tools for open-weight models like Llama and Mistral.
+
+google_news · Tech Times · Jul 10, 15:45
+
+**Background**: Ollama is an open-source platform that simplifies running large language models on local hardware, offering privacy and offline capabilities. Open-weight models have publicly available weights but may have usage restrictions, distinguishing them from fully open-source models. The growing demand for local AI tools reflects concerns about data privacy and cloud dependency.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://techcrunch.com/2026/07/09/popular-open-source-ai-developer-tool-ollama-raises-65m-grows-to-nearly-9m-users/">Popular open source AI developer tool Ollama raises $65M, grows to nearly 9M users | TechCrunch</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ollama">Ollama - Wikipedia</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#Ollama`, `#funding`, `#open-weight AI`, `#developer tools`, `#local AI`
+
+---
+
+<a id="item-18"></a>
+## [NVIDIA Integrates Isaac AI Tools into Hugging Face LeRobot](https://news.google.com/rss/articles/CBMimwFBVV95cUxOTTh1dG5veHdSY3pkNUtwV2thTFZmeVV6VzF0T0Q4Zkx1a2lFZGtDNkl1Uzlldll6Z0M5anFNdmwxTk5WUXdoZVZmSmY1U0doa0kzTldPdktvZks1ZHRJdExmNUN2TGY2R3dfQkFJdnNqa3M2bGE2ZDlLNFVnRWNVU2oyNmRSbXZ4YTZaTS1iSUxNX0p1LWUzRDhNQQ?oc=5) ⭐️ 7.0/10
+
+NVIDIA has integrated its Isaac AI tools into Hugging Face's LeRobot, an open-source robotics library, enabling developers to leverage NVIDIA's simulation and AI capabilities for robotics development. This integration combines NVIDIA's industry-leading hardware and software with a popular open-source platform, democratizing access to advanced robotics AI tools and accelerating innovation in the robotics community. The integration allows LeRobot users to access NVIDIA Isaac Sim for simulation and synthetic data generation, as well as other Isaac AI tools, directly from the Hugging Face ecosystem.
+
+google_news · Yahoo Finance · Jul 9, 18:38
+
+**Background**: Hugging Face LeRobot is an open-source library that provides models, datasets, and tools for real-world robotics using PyTorch. NVIDIA Isaac AI tools include Isaac Sim, a robotics simulation platform, and other AI-powered utilities for robot development.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://developer.nvidia.com/isaac/sim">Isaac Sim - Robotics Simulation and Synthetic... | NVIDIA Developer</a></li>
+<li><a href="https://huggingface.co/lerobot">lerobot ( LeRobot )</a></li>
+<li><a href="https://github.com/huggingface/lerobot">GitHub - huggingface/ lerobot : LeRobot : Making AI for Robotics...</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#NVIDIA`, `#Isaac AI`, `#Hugging Face`, `#LeRobot`, `#robotics`
+
+---
+
+<a id="item-19"></a>
+## [Mistral Releases Apache 2.0 Open Source Leanstral 1.5](https://news.google.com/rss/articles/CBMimAFBVV95cUxOdHRzcFVLNEtRRlFmaGVGQXZNVFRfZVVBSGJacHNKVklBQmwyQXlxUE9DTXEzcC1uN2VVYlFvN0liWlNPLUlhZzFuUmR2VUFsNWlQN0ZhdWY3SGFyLVFoNWY0ZmN4ZHZMazBSU0NIclZSNEdwd2hHZzRvS2plWVhUbmFqMElfU1NubWgyYm1BTlVaYjhtbUNxTA?oc=5) ⭐️ 7.0/10
+
+Mistral AI has released Leanstral 1.5, an open-source model under the permissive Apache 2.0 license, designed for formal mathematical proof verification in Lean 4. This release advances AI-assisted formal verification, making powerful proof-checking tools freely available to researchers and developers, which could accelerate progress in mathematics and software verification. Leanstral 1.5 is a Mixture-of-Experts model with 119B total parameters and 6.5B active per token, supporting a 256k token context length, and it saturates the miniF2F benchmark.
+
+google_news · Open Source For You · Jul 10, 08:33
+
+**Background**: Formal verification uses mathematical proofs to ensure software or hardware correctness. Lean 4 is an interactive theorem prover that helps write and check such proofs. Mistral AI is a French company known for open-weight LLMs.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://mistral.ai/news/leanstral-1-5/">Leanstral 1 . 5 : Proof Abundance for All</a></li>
+<li><a href="https://devops.com/mistral-releases-leanstral-1-5-an-open-model-that-solved-587-of-672-putnam-math-problems/">Mistral Releases Leanstral 1 . 5 , an Open Model That... - DevOps.com</a></li>
+<li><a href="https://huggingface.co/mistralai/Leanstral-1.5-119B-A6B">mistralai/ Leanstral - 1 . 5 -119B-A6B · Hugging Face</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#Mistral`, `#open source`, `#AI`, `#LLM`, `#Apache 2.0`
+
+---
+
+<a id="item-20"></a>
+## [Aurora supercomputer enables autonomous chemistry simulations](https://news.google.com/rss/articles/CBMilgFBVV95cUxQRFVZQUdLNGlrR3BCNG16NFhSWDRPUTFqcUVJMFFnZGVRMFM2b1R0ZldFdy15bk1GQUNqRmlEd3VZVGVGMEhnZW5qbkU2Mzl1TDFrUDhtX1d0UWpnNm5VWkl2WjNteEppNzlYRm9MS09BRXF0ZWJBbUc3R0lBWVdXNl9mMzZQNWN4eER2aXY2b2xtQ3c0ZUE?oc=5) ⭐️ 7.0/10
+
+Aurora, an exascale supercomputer at Argonne National Laboratory, now powers an autonomous platform called ChemGraph that uses AI to design, execute, and analyze complex chemistry simulations without human intervention. This breakthrough accelerates materials and battery research by automating simulations, reducing the need for costly lab experiments and enabling faster discovery of new compounds. ChemGraph leverages Aurora's exascale computing power to perform over a quintillion calculations per second, enabling simulations that were previously impractical. The platform integrates molecular dynamics and quantum calculations into an autonomous workflow.
+
+google_news · Interesting Engineering · Jul 9, 19:04
+
+**Background**: Exascale supercomputers like Aurora can perform at least one exaflop, or a quintillion floating-point operations per second, making them ideal for large-scale scientific simulations. Traditional chemistry simulations require significant manual effort and computational resources, often limiting the scope of research. Autonomous platforms like ChemGraph aim to streamline this process by using AI to handle repetitive tasks and optimize simulation parameters.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://interestingengineering.com/ai-robotics/aurora-supercomputer-computational-chemistry">Aurora supercomputer powers autonomous chemistry simulations</a></li>
+<li><a href="https://www.anl.gov/aurora">Aurora Exascale Supercomputer - Argonne National Laboratory</a></li>
+<li><a href="https://www.anl.gov/article/argonne-teams-chemgraph-unlocks-ai-for-chemistry-and-materials-science">Argonne team’s ChemGraph unlocks AI for chemistry and ...</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#supercomputing`, `#chemistry simulations`, `#autonomous platform`, `#HPC`
+
+---
+
+<a id="item-21"></a>
+## [LingBot-World-Infinity: Open Causal World Model with Agentic Harness](https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVHlYcV95aElzSE5sYURKSkhqc1lPYnZhZmswTFpYdU5XWnVkLVU3T3R3bkhxMlFZTWJZdFJBRlhtN3hNd2MxUTBtdVZ6U1FzV3NwSmtKNXE3VkNtR2wzNHRZWmN0WS1kYVlGTDA3Rldad1BJNlQzRDU5eGpIYVM5WEttMlY0OWYwd29UcmlVUGNzQktVZDB0Zy1MaGtCcnhvOW9KWjhNNGlqNktfT05rT2swRU9jU0E4RVE0?oc=5) ⭐️ 7.0/10
+
+LingBot-World-Infinity is an open-source causal world model that includes an agentic harness, allowing AI agents to reason and act within simulated environments. It was introduced by MarkTechPost as a novel approach to world modeling. This model advances AI's ability to understand cause-and-effect in virtual worlds, which is crucial for developing more autonomous and reliable agents. Its open-source nature encourages community collaboration and accelerates research in causal reasoning and embodied AI. The model combines a causal world model with an agentic harness, which manages the LLM's context, tool execution, and feedback loops. It is designed to be open and accessible, enabling researchers to experiment with causal reasoning in simulated environments.
+
+google_news · MarkTechPost · Jul 10, 04:38
+
+**Background**: A causal world model learns to represent and predict the physical world by modeling cause-and-effect relationships, going beyond simple pattern recognition. An agentic harness is the software infrastructure that wraps around an LLM to turn it into an agent, handling state, tools, and constraints. Together, they enable more robust and interpretable AI agents.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://causalworldmodel.com/">Causal World Model</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Agent_harness">Agent harness</a></li>
+<li><a href="https://www.langchain.com/blog/the-anatomy-of-an-agent-harness">The Anatomy of an Agent Harness - langchain.com</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#world model`, `#causal reasoning`, `#agentic AI`, `#open source`
+
+---
+
+<a id="item-22"></a>
+## [Tyler Cowen Interviews Joel Mokyr on Economic History](https://marginalrevolution.com/marginalrevolution/2026/07/my-conversation-with-the-excellent-joel-mokyr.html?utm_source=rss&utm_medium=rss&utm_campaign=my-conversation-with-the-excellent-joel-mokyr) ⭐️ 6.0/10
+
+Tyler Cowen published a conversation with economic historian Joel Mokyr, covering topics such as European corporations versus Chinese clans, the Catholic Church's obsession with cousin marriage, and the persistence of cultural trends. This conversation provides insights into long-term economic and cultural dynamics that shape modern institutions, relevant for understanding historical context behind contemporary economic systems. The episode includes audio, video, and transcript, and discusses why Chinese cities became more populous relative to Europe and why European living standards took so long to rise.
+
+rss · Marginal Revolution · Jul 10, 04:44
+
+**Background**: Joel Mokyr is a prominent economic historian known for his work on the Industrial Revolution and the role of culture in economic development. Tyler Cowen is an economist and blogger at Marginal Revolution.
+
+**Tags**: `#economics`, `#history`, `#podcast`, `#culture`
+
+---
+
+<a id="item-23"></a>
+## [Tree Rings: Nature's Historical Archive](https://aeon.co/essays/how-to-decode-the-archive-inside-ancient-tree-rings) ⭐️ 6.0/10
+
+An essay by Valerie Trouet on Aeon explores how tree rings encode historical and environmental data, and how scientists decode this archive using dendrochronology. This article highlights the interdisciplinary importance of dendrochronology for climate science, archaeology, and history, showing how tree rings provide precise dating and environmental records. Dendrochronology can date tree rings to the exact year, with continuous sequences going back over 13,000 years in some regions. New methods like isotope dendrochronology allow analysis of samples unsuitable for traditional ring counting.
+
+rss · Aeon · Jul 10, 10:00
+
+**Background**: Dendrochronology is the scientific method of dating tree rings to the exact year they were formed. Each ring represents one year of growth, and patterns of ring width reflect climate conditions. This technique is used to date wooden artifacts, calibrate radiocarbon dating, and reconstruct past climates.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Dendrochronology">Dendrochronology - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_ring_dating">Tree ring dating</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#dendrochronology`, `#climate science`, `#archaeology`, `#popular science`
 
 ---
