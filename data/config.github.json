@@ -7,13 +7,13 @@
     "api_key_env": "DEEPSEEK_API_KEY",
     "temperature": 0.3,
     "max_tokens": 8192,
-    "throttle_sec": 1,
+    "throttle_sec": 0.8,
     "languages": [
       "zh",
       "en"
     ],
-    "analysis_concurrency": 2,
-    "enrichment_concurrency": 2
+    "analysis_concurrency": 3,
+    "enrichment_concurrency": 3
   },
   "sources": {
     "github": [
@@ -57,17 +57,107 @@
       },
       {
         "type": "repo_releases",
-        "owner": "vllm-project",
-        "repo": "vllm",
+        "owner": "huggingface",
+        "repo": "transformers",
         "enabled": true
       }
     ],
     "hackernews": {
       "enabled": true,
-      "fetch_top_stories": 30,
-      "min_score": 100
+      "fetch_top_stories": 35,
+      "min_score": 80
     },
     "rss": [
+      {
+        "name": "OSS Insight 飙升榜（GitHub 24h）",
+        "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
+        "enabled": true,
+        "category": "oss-discovery"
+      },
+      {
+        "name": "GitHub Trending · Python",
+        "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/python.xml",
+        "enabled": true,
+        "category": "oss-discovery"
+      },
+      {
+        "name": "GitHub Trending · C++",
+        "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/cpp.xml",
+        "enabled": true,
+        "category": "oss-discovery"
+      },
+      {
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog/feed.xml",
+        "enabled": true,
+        "category": "oss-discovery"
+      },
+      {
+        "name": "Hugging Face Daily Papers",
+        "url": "https://huggingface.co/papers/rss",
+        "enabled": true,
+        "category": "oss-discovery"
+      },
+      {
+        "name": "Semianalysis（半导体·AI 风向标）",
+        "url": "https://newsletter.semianalysis.com/feed",
+        "enabled": true,
+        "category": "tech-trends"
+      },
+      {
+        "name": "TechCrunch AI",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "enabled": true,
+        "category": "tech-trends"
+      },
+      {
+        "name": "Simon Willison",
+        "url": "https://simonwillison.net/atom/everything/",
+        "enabled": true,
+        "category": "tech-trends"
+      },
+      {
+        "name": "量子位",
+        "url": "https://wechat2rss.xlab.app/feed/7131b577c61365cb47e81000738c10d872685908.xml",
+        "enabled": true,
+        "category": "tech-trends"
+      },
+      {
+        "name": "新智元",
+        "url": "https://wechat2rss.xlab.app/feed/ede30346413ea70dbef5d485ea5cbb95cca446e7.xml",
+        "enabled": true,
+        "category": "tech-trends"
+      },
+      {
+        "name": "36氪",
+        "url": "https://36kr.com/feed",
+        "enabled": true,
+        "category": "tech-trends"
+      },
+      {
+        "name": "Google News · 技术风向标",
+        "url": "https://news.google.com/rss/search?q=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD+%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF+OR+AI+breakthrough&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "enabled": true,
+        "category": "tech-trends"
+      },
+      {
+        "name": "Google News · 国家政策",
+        "url": "https://news.google.com/rss/search?q=%E5%B7%A5%E4%BFa1%E9%83%A8+%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD+%E6%94%BF%E7%AD%96+OR+%E5%9B%BD%E5%AE%B6+%E7%A7%91%E6%8A%80&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "enabled": true,
+        "category": "policy-cn"
+      },
+      {
+        "name": "Google News · 就业市场",
+        "url": "https://news.google.com/rss/search?q=%E7%A7%91%E6%8A%80+%E6%A0%A1%E6%8B%9B+%E5%B0%B1%E4%B8%9A+OR+%E4%BA%92%E8%81%94%E7%BD%91+%E6%8B%9B%E8%81%98&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "enabled": true,
+        "category": "job-market"
+      },
+      {
+        "name": "Google News · Tech Hiring (EN)",
+        "url": "https://news.google.com/rss/search?q=tech+hiring+layoff+software+engineer+2026&hl=en-US&gl=US&ceid=US:en",
+        "enabled": true,
+        "category": "job-market"
+      },
       {
         "name": "Lil'Log（科研写作·综述）",
         "url": "https://lilianweng.github.io/index.xml",
@@ -75,14 +165,8 @@
         "category": "research-method"
       },
       {
-        "name": "Quanta Magazine（科学报道）",
+        "name": "Quanta Magazine",
         "url": "https://api.quantamagazine.org/feed/",
-        "enabled": true,
-        "category": "research-method"
-      },
-      {
-        "name": "Nature 研究亮点",
-        "url": "https://www.nature.com/nature.rss",
         "enabled": true,
         "category": "research-method"
       },
@@ -99,25 +183,13 @@
         "category": "robotics-vision"
       },
       {
-        "name": "Simon Willison",
-        "url": "https://simonwillison.net/atom/everything/",
-        "enabled": true,
-        "category": "ai-tools"
-      },
-      {
-        "name": "GitHub Trending - Daily",
-        "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
-        "enabled": true,
-        "category": "ai-tools"
-      },
-      {
-        "name": "Farnam Street（思维·决策）",
+        "name": "Farnam Street",
         "url": "https://fs.blog/feed/",
         "enabled": true,
         "category": "communication"
       },
       {
-        "name": "Seth Godin（表达·叙事）",
+        "name": "Seth Godin",
         "url": "https://seths.blog/feed/",
         "enabled": true,
         "category": "communication"
@@ -129,7 +201,7 @@
         "category": "role-models"
       },
       {
-        "name": "Marginal Revolution（经济学）",
+        "name": "Marginal Revolution",
         "url": "https://feeds.feedburner.com/marginalrevolution",
         "enabled": true,
         "category": "economics"
@@ -141,48 +213,52 @@
         "category": "politics"
       },
       {
-        "name": "Aeon（哲学·文化·艺术）",
+        "name": "Aeon",
         "url": "https://aeon.co/feed",
         "enabled": true,
         "category": "culture"
       },
       {
-        "name": "The Marginalian（艺术·人文）",
+        "name": "The Marginalian",
         "url": "https://www.themarginalian.org/feed/",
         "enabled": true,
         "category": "culture"
-      },
-      {
-        "name": "The Conversation（跨学科洞察）",
-        "url": "https://theconversation.com/us/articles.atom",
-        "enabled": true,
-        "category": "worldview"
-      },
-      {
-        "name": "量子位",
-        "url": "https://wechat2rss.xlab.app/feed/7131b577c61365cb47e81000738c10d872685908.xml",
-        "enabled": true,
-        "category": "ai-news"
       }
     ],
     "reddit": {
       "enabled": true,
       "subreddits": [
         {
+          "subreddit": "opensource",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 15,
+          "min_score": 20
+        },
+        {
+          "subreddit": "SideProject",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 12,
+          "min_score": 15
+        },
+        {
           "subreddit": "computervision",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 12,
-          "min_score": 25
+          "min_score": 20
         },
         {
           "subreddit": "robotics",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
-          "fetch_limit": 12,
-          "min_score": 30
+          "fetch_limit": 10,
+          "min_score": 25
         },
         {
           "subreddit": "MachineLearning",
@@ -190,7 +266,7 @@
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 10,
-          "min_score": 50
+          "min_score": 45
         },
         {
           "subreddit": "LocalLLaMA",
@@ -198,15 +274,15 @@
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 8,
-          "min_score": 40
+          "min_score": 35
         },
         {
-          "subreddit": "GradSchool",
+          "subreddit": "cscareerquestions",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 8,
-          "min_score": 40
+          "min_score": 50
         }
       ],
       "users": [],
@@ -216,70 +292,103 @@
       "enabled": false,
       "channels": []
     },
+    "ossinsight": {
+      "enabled": true,
+      "period": "past_24_hours",
+      "languages": [
+        "Python",
+        "C++",
+        "Jupyter Notebook",
+        "All"
+      ],
+      "keywords": [],
+      "min_stars": 10,
+      "max_items": 50,
+      "category": "oss-discovery"
+    },
     "google_news": {
       "enabled": true,
-      "query": "(robotics OR \"computer vision\" OR \"machine vision\") AND (industry OR research)",
+      "query": "(open source OR github OR huggingface) AND (vision OR robotics OR detection OR SLAM OR \"computer vision\")",
       "language": "en",
       "country": "US",
-      "max_results": 30,
-      "category": "robotics-vision"
+      "max_results": 40,
+      "category": "oss-discovery"
     }
   },
   "filtering": {
-    "ai_score_threshold": 6.5,
+    "ai_score_threshold": 6.0,
     "time_window_hours": 24,
-    "max_items": 25,
+    "max_items": 40,
     "category_groups": {
+      "oss_discovery": {
+        "name": "开源发现（GitHub/HF）",
+        "limit": 10,
+        "categories": [
+          "oss-discovery"
+        ]
+      },
+      "tech_trends": {
+        "name": "技术风向标",
+        "limit": 6,
+        "categories": [
+          "tech-trends"
+        ]
+      },
+      "policy_cn": {
+        "name": "国家政策导向",
+        "limit": 4,
+        "categories": [
+          "policy-cn"
+        ]
+      },
+      "job_market": {
+        "name": "就业市场",
+        "limit": 4,
+        "categories": [
+          "job-market"
+        ]
+      },
       "robotics_vision": {
         "name": "机器人视觉",
-        "limit": 5,
+        "limit": 4,
         "categories": [
           "robotics-vision"
         ]
       },
       "research_method": {
         "name": "科研方法论",
-        "limit": 4,
+        "limit": 3,
         "categories": [
           "research-method"
         ]
       },
       "role_models": {
         "name": "大牛追踪",
-        "limit": 4,
+        "limit": 3,
         "categories": [
           "role-models"
         ]
       },
       "communication": {
-        "name": "沟通表达协作",
-        "limit": 3,
+        "name": "沟通表达",
+        "limit": 2,
         "categories": [
           "communication"
         ]
       },
       "worldview": {
-        "name": "世界观（政经人文）",
-        "limit": 5,
+        "name": "世界观",
+        "limit": 3,
         "categories": [
           "politics",
           "economics",
           "culture",
           "worldview"
         ]
-      },
-      "ai": {
-        "name": "AI / 工具",
-        "limit": 4,
-        "categories": [
-          "ai-tools",
-          "ai-news",
-          "machine-learning"
-        ]
       }
     },
     "default_group": "other",
-    "default_group_limit": 4
+    "default_group_limit": 3
   },
   "webhook": {
     "enabled": false

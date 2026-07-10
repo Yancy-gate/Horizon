@@ -264,6 +264,7 @@ class OSSInsightConfig(BaseModel):
     keywords: List[str] = Field(default_factory=list)
     min_stars: int = 5
     max_items: int = 30
+    category: Optional[str] = None
 
 
 class GDELTConfig(BaseModel):
