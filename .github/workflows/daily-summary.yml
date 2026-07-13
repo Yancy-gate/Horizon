@@ -45,18 +45,20 @@ jobs:
 
       - name: Commit daily summaries to repository
         run: |
+          BJ_DATE=$(TZ=Asia/Shanghai date +'%Y-%m-%d')
+          echo "BJ_DATE=${BJ_DATE}" >> $GITHUB_ENV
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/summaries/*.md docs/_posts/*.md || true
           if git diff --staged --quiet; then
             echo "No summary changes to commit."
           else
-            git commit -m "📝 Daily summaries: $(date +'%Y-%m-%d')"
+            git commit -m "📝 Daily summaries: ${BJ_DATE}"
             git push
           fi
 
       - name: Set current date as environment variable
-        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        run: echo "DATE=${BJ_DATE:-$(TZ=Asia/Shanghai date +'%Y-%m-%d')}" >> $GITHUB_ENV
 
       - name: Sync Chinese summary to Obsidian vault
         if: ${{ vars.OBSIDIAN_SYNC_ENABLED == 'true' }}
@@ -65,9 +67,13 @@ jobs:
           OBSIDIAN_REPO: ${{ vars.OBSIDIAN_REPO || 'Yancy-gate/obsidian_cloud' }}
           OBSIDIAN_SUMMARY_DIR: ${{ vars.OBSIDIAN_SUMMARY_DIR || '其他/内参日报' }}
         run: |
-          TODAY=$(date +'%Y-%m-%d')
+          TODAY="${BJ_DATE:-$(TZ=Asia/Shanghai date +'%Y-%m-%d')}"
           SUMMARY_FILE="data/summaries/horizon-${TODAY}-zh.md"
           if [ ! -f "$SUMMARY_FILE" ]; then
+            # Fallback: newest Chinese summary (legacy UTC-named files)
+            SUMMARY_FILE=$(ls -t data/summaries/horizon-*-zh.md 2>/dev/null | head -1 || true)
+          fi
+          if [ -z "$SUMMARY_FILE" ] || [ ! -f "$SUMMARY_FILE" ]; then
             echo "No Chinese summary found for ${TODAY}, skipping Obsidian sync."
             exit 0
           fi
