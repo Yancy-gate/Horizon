@@ -39,35 +39,46 @@ try {
     Write-Log ("Vault pull: " + $r.Out)
     if ($r.Code -ne 0) { throw "vault git pull failed: $($r.Code)" }
 
-    # Also refresh Horizon repo and copy latest ZH briefing if needed
     if (Test-Path -LiteralPath $HorizonRoot) {
         $h = Invoke-GitNoProxy $HorizonRoot @("pull", "--ff-only", "origin", "main")
         Write-Log ("Horizon pull: " + $h.Out)
+    }
 
-        $bj = Get-Date -Format "yyyy-MM-dd"
-        $briefDir = Get-ChildItem -LiteralPath $VaultRoot -Recurse -Directory -ErrorAction SilentlyContinue |
-            Where-Object { $_.Name -eq "内参日报" } |
-            Select-Object -First 1 -ExpandProperty FullName
-        if (-not $briefDir) {
-            $briefDir = Join-Path $VaultRoot "其他\内参日报"
-            New-Item -ItemType Directory -Force -Path $briefDir | Out-Null
+    $bj = Get-Date -Format "yyyy-MM-dd"
+
+    # Briefing dir = folder that already contains horizon-*.md (avoid creating a duplicate Unicode path)
+    $sample = Get-ChildItem -LiteralPath $VaultRoot -Recurse -Filter "horizon-*-zh.md" -ErrorAction SilentlyContinue |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1
+    if (-not $sample) { throw "No horizon-*-zh.md found in vault; wait for Actions sync." }
+    $briefDir = $sample.DirectoryName
+    Write-Log "Briefing dir: $briefDir"
+
+    $target = Join-Path $briefDir "horizon-$bj-zh.md"
+    if (Test-Path -LiteralPath $target) {
+        Write-Log "Briefing already present: horizon-$bj-zh.md ($((Get-Item -LiteralPath $target).Length) bytes)"
+    } else {
+        $candidates = @()
+        $candidates += Get-ChildItem -LiteralPath $briefDir -Filter "horizon-*-zh.md" -ErrorAction SilentlyContinue
+        $srcDir = Join-Path $HorizonRoot "data\summaries"
+        if (Test-Path -LiteralPath $srcDir) {
+            $candidates += Get-ChildItem -LiteralPath $srcDir -Filter "horizon-*-zh.md" -ErrorAction SilentlyContinue
         }
 
-        $target = Join-Path $briefDir "horizon-$bj-zh.md"
-        $srcDir = Join-Path $HorizonRoot "data\summaries"
-        $latest = Get-ChildItem -LiteralPath $srcDir -Filter "horizon-*-zh.md" -ErrorAction SilentlyContinue |
-            Sort-Object LastWriteTime -Descending |
-            Select-Object -First 1
-
-        if ($latest) {
-            if (-not (Test-Path -LiteralPath $target)) {
-                Copy-Item -LiteralPath $latest.FullName -Destination $target -Force
-                Write-Log "Copied $($latest.Name) -> horizon-$bj-zh.md"
-            } else {
-                Write-Log "Briefing already present: horizon-$bj-zh.md"
+        $ranked = foreach ($c in $candidates) {
+            if ($c.Name -match 'horizon-(\d{4}-\d{2}-\d{2})-zh\.md') {
+                [PSCustomObject]@{
+                    File = $c
+                    Date = [datetime]::ParseExact($Matches[1], 'yyyy-MM-dd', $null)
+                }
             }
+        }
+        $latest = $ranked | Sort-Object Date -Descending | Select-Object -First 1
+        if ($latest) {
+            Copy-Item -LiteralPath $latest.File.FullName -Destination $target -Force
+            Write-Log ("Copied {0} ({1} bytes) -> horizon-{2}-zh.md" -f $latest.File.Name, $latest.File.Length, $bj)
         } else {
-            Write-Log "No ZH summary in Horizon data/summaries yet."
+            Write-Log "No ZH summary available to copy for $bj."
         }
     }
 
