@@ -77,6 +77,18 @@ try {
         if ($latest) {
             Copy-Item -LiteralPath $latest.File.FullName -Destination $target -Force
             Write-Log ("Copied {0} ({1} bytes) -> horizon-{2}-zh.md" -f $latest.File.Name, $latest.File.Length, $bj)
+
+            # Push calendar-aligned copy so Obsidian Git / other devices can pull it
+            $rel = $target.Substring($VaultRoot.Length).TrimStart('\', '/').Replace('\', '/')
+            $add = Invoke-GitNoProxy $VaultRoot @("add", "--", $rel)
+            $diff = Invoke-GitNoProxy $VaultRoot @("diff", "--cached", "--quiet")
+            if ($diff.Code -ne 0) {
+                $null = Invoke-GitNoProxy $VaultRoot @("commit", "-m", "🌅 Horizon daily briefing $bj (calendar align)")
+                $push = Invoke-GitNoProxy $VaultRoot @("push", "origin", "master")
+                Write-Log ("Vault push: " + $push.Out)
+            } else {
+                Write-Log "Vault already has calendar-aligned briefing committed."
+            }
         } else {
             Write-Log "No ZH summary available to copy for $bj."
         }
