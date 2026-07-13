@@ -6,8 +6,12 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from typing import List, Dict, Optional
 from urllib.parse import urlparse
+from zoneinfo import ZoneInfo
 import httpx
 from rich.console import Console
+
+# Briefing filenames use Asia/Shanghai so morning cron (~06:00 CST) matches the calendar date.
+_BRIEFING_TZ = ZoneInfo("Asia/Shanghai")
 
 from .models import Config, ContentItem
 from .storage.manager import StorageManager
@@ -146,7 +150,7 @@ class HorizonOrchestrator:
             await self._enrich_important_items(important_items)
 
             # 7. Generate and save daily summaries for each configured language
-            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            today = datetime.now(_BRIEFING_TZ).strftime("%Y-%m-%d")
             for lang in self.config.ai.languages:
                 summarizer = DailySummarizer()
                 summary = await summarizer.generate_summary(important_items, today, len(all_items), language=lang)
