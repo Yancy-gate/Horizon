@@ -420,6 +420,11 @@ class FilteringConfig(BaseModel):
     category_groups: Dict[str, CategoryGroupConfig] = Field(default_factory=dict)
     default_group: str = "other"
     default_group_limit: Optional[int] = Field(default=None, gt=0)
+    # INTEREST_BOOST: user interest fields injected by interest-boost sidecar
+    user_interests: Optional[str] = None
+    user_interests_list: List[str] = Field(default_factory=list)
+    negative_interests: List[str] = Field(default_factory=list)
+    persona_summary: Optional[str] = None
 
 
 class Config(BaseModel):

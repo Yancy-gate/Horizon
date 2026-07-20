@@ -17,6 +17,8 @@ def _pangu(text: str) -> str:
     return text
 
 
+CSIG_CATEGORY = "csig-camera"
+
 LABELS = {
     "en": {
         "header": "Horizon Daily",
@@ -37,6 +39,13 @@ LABELS = {
             "2. Adding more diverse information sources\n"
             "3. Checking if the AI model is working correctly\n"
         ),
+        "csig_section_title": "CSIG Camera Prep Radar",
+        "csig_section_blurb": (
+            "For CSIG Camera Academic Star: Diffusion 4K enhancement / "
+            "lightweight models / contest updates"
+        ),
+        "csig_section_empty": "No related updates today.",
+        "general_toc_title": "Other highlights",
     },
     "zh": {
         "header": "Horizon 每日速递",
@@ -57,6 +66,12 @@ LABELS = {
             "2. 添加更多多样化的信息源\n"
             "3. 检查 AI 模型是否正常工作\n"
         ),
+        "csig_section_title": "CSIG Camera 备赛雷达",
+        "csig_section_blurb": (
+            "面向 CSIG「Camera学术之星」：Diffusion 4K 增强 / 轻量模型 / 赛事动态"
+        ),
+        "csig_section_empty": "今日无相关动态。",
+        "general_toc_title": "其他资讯",
     },
 }
 
@@ -67,6 +82,61 @@ class DailySummarizer:
     def __init__(self):
         pass
 
+    @staticmethod
+    def _split_csig_items(items: List[ContentItem]) -> tuple[List[ContentItem], List[ContentItem]]:
+        """Split digest items into CSIG prep radar vs the rest."""
+        csig: List[ContentItem] = []
+        rest: List[ContentItem] = []
+        for item in items:
+            if item.metadata.get("category") == CSIG_CATEGORY:
+                csig.append(item)
+            else:
+                rest.append(item)
+        return csig, rest
+
+    def _toc_line(self, item: ContentItem, language: str, index: int) -> str:
+        _t = item.metadata.get(f"title_{language}") or item.title
+        t = str(_t).replace("[", "(").replace("]", ")")
+        if language == "zh":
+            t = _pangu(t)
+        score = item.ai_score or "?"
+        return f"{index}. [{t}](#item-{index}) \u2b50\ufe0f {score}/10"
+
+    def _render_csig_section(
+        self,
+        csig_items: List[ContentItem],
+        labels: dict,
+        language: str,
+        start_index: int = 1,
+    ) -> tuple[str, int]:
+        """Render the fixed CSIG prep radar block; returns markdown and next index."""
+        lines = [
+            f"## {labels['csig_section_title']}",
+            "",
+            f"> {labels['csig_section_blurb']}",
+            "",
+        ]
+        if not csig_items:
+            lines.append(labels["csig_section_empty"])
+            lines.append("")
+            lines.append("---")
+            lines.append("")
+            return "\n".join(lines), start_index
+
+        toc_entries = [
+            self._toc_line(item, language, start_index + i)
+            for i, item in enumerate(csig_items)
+        ]
+        lines.extend(toc_entries)
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+        body = "".join(
+            self._format_item(item, labels, language, start_index + i)
+            for i, item in enumerate(csig_items)
+        )
+        return "\n".join(lines) + body, start_index + len(csig_items)
+
     async def generate_summary(
         self,
         items: List[ContentItem],
@@ -76,7 +146,8 @@ class DailySummarizer:
     ) -> str:
         """Generate daily summary in Markdown format.
 
-        Items are rendered in score-descending order (already sorted by orchestrator).
+        Always opens with a fixed CSIG Camera prep-radar section, then the
+        remaining items in score-descending order (already sorted by orchestrator).
 
         Args:
             items: High-scoring content items (already enriched)
@@ -88,30 +159,44 @@ class DailySummarizer:
             str: Markdown formatted summary
         """
         labels = LABELS.get(language, LABELS["en"])
-
-        if not items:
-            return self._generate_empty_summary(date, total_fetched, labels)
+        csig_items, rest_items = self._split_csig_items(items)
 
         header = (
             f"# {labels['header']} - {date}\n\n"
             f"> {labels['selected_items'].format(total=total_fetched, selected=len(items))}\n\n"
             "---\n\n"
         )
+        csig_md, next_index = self._render_csig_section(
+            csig_items, labels, language, start_index=1
+        )
 
-        # TOC
-        toc_entries = []
-        for i, item in enumerate(items):
-            _t = item.metadata.get(f"title_{language}") or item.title
-            t = str(_t).replace("[", "(").replace("]", ")")
-            if language == "zh":
-                t = _pangu(t)
-            score = item.ai_score or "?"
-            toc_entries.append(f"{i + 1}. [{t}](#item-{i + 1}) \u2b50\ufe0f {score}/10")
-        toc = "\n".join(toc_entries) + "\n\n---\n\n"
+        if not items:
+            return (
+                f"# {labels['header']} - {date}\n\n"
+                f"> {labels['empty_analyzed'].format(total=total_fetched)}\n\n"
+                "---\n\n"
+                + csig_md
+                + labels["empty_body"]
+            )
 
-        parts = [self._format_item(item, labels, language, i + 1) for i, item in enumerate(items)]
+        if not rest_items:
+            return header + csig_md
 
-        return header + toc + "".join(parts)
+        toc_entries = [
+            self._toc_line(item, language, next_index + i)
+            for i, item in enumerate(rest_items)
+        ]
+        toc = (
+            f"## {labels['general_toc_title']}\n\n"
+            + "\n".join(toc_entries)
+            + "\n\n---\n\n"
+        )
+        parts = [
+            self._format_item(item, labels, language, next_index + i)
+            for i, item in enumerate(rest_items)
+        ]
+
+        return header + csig_md + toc + "".join(parts)
 
     def generate_webhook_overview(
         self,

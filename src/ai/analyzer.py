@@ -8,7 +8,7 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCompleteColumn
 
 from .client import AIClient
-from .prompts import CONTENT_ANALYSIS_SYSTEM, CONTENT_ANALYSIS_USER
+from .prompts import CONTENT_ANALYSIS_SYSTEM, CONTENT_ANALYSIS_USER, build_analysis_system_prompt
 from .utils import parse_json_response
 from ..models import ContentItem
 
@@ -16,10 +16,17 @@ DEFAULT_THROTTLE_SEC = 0.0
 
 
 class ContentAnalyzer:
-    """Analyzes content items using AI to determine importance."""
+    """Analyzes content items using AI to determine importance. # INTEREST_BOOST: accepts interest context"""
 
-    def __init__(self, ai_client: AIClient):
+    def __init__(self, ai_client: AIClient,
+                 user_interests: str | None = None,
+                 negative_interests: list[str] | None = None,
+                 persona_summary: str | None = None) -> None:
         self.client = ai_client
+        # INTEREST_BOOST: store interest context for personalized scoring
+        self._user_interests = user_interests
+        self._negative_interests = negative_interests or []
+        self._persona_summary = persona_summary
 
     @staticmethod
     def _parse_json_response(response: str) -> Optional[dict]:
@@ -139,9 +146,15 @@ class ContentAnalyzer:
             discussion_section=discussion_section
         )
 
+        # INTEREST_BOOST: use personalized system prompt if interests are set
+        system_prompt = build_analysis_system_prompt(
+            user_interests=self._user_interests,
+            negative_interests=self._negative_interests if self._negative_interests else None,
+            persona_summary=self._persona_summary,
+        )
         # Get AI completion
         response = await self.client.complete(
-            system=CONTENT_ANALYSIS_SYSTEM,
+            system=system_prompt,
             user=user_prompt,
         )
 

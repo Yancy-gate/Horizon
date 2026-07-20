@@ -183,6 +183,36 @@
         "category": "robotics-vision"
       },
       {
+        "name": "CSIG · 赛事与天池动态",
+        "url": "https://news.google.com/rss/search?q=CSIG+Camera%E5%AD%A6%E6%9C%AF%E4%B9%8B%E6%98%9F+OR+%E5%A4%A9%E6%B1%A0+%E5%BD%B1%E5%83%8F%E7%AE%97%E6%B3%95+OR+%E5%9B%BE%E5%83%8F%E5%9B%BE%E5%BD%A2%E6%8A%80%E6%9C%AF%E6%8C%91%E6%88%98%E8%B5%9B&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "enabled": true,
+        "category": "csig-camera"
+      },
+      {
+        "name": "CSIG · Diffusion 图像增强",
+        "url": "https://news.google.com/rss/search?q=%22diffusion+image+enhancement%22+OR+OSEDiff+OR+DiffBIR+OR+StableSR+OR+%22generative+image+restoration%22&hl=en-US&gl=US&ceid=US:en",
+        "enabled": true,
+        "category": "csig-camera"
+      },
+      {
+        "name": "CSIG · 轻量 Diffusion / JIT",
+        "url": "https://news.google.com/rss/search?q=%22diffusion+distillation%22+OR+%22efficient+diffusion%22+OR+%22torch.jit%22+diffusion+OR+%22knowledge+distillation%22+diffusion&hl=en-US&gl=US&ceid=US:en",
+        "enabled": true,
+        "category": "csig-camera"
+      },
+      {
+        "name": "CSIG · 华为 XMAGE / 4K 增强",
+        "url": "https://news.google.com/rss/search?q=%E5%8D%8E%E4%B8%BA+XMAGE+OR+4K+%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA+OR+%E7%94%9F%E6%88%90%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%81%A2%E5%A4%8D&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "enabled": true,
+        "category": "csig-camera"
+      },
+      {
+        "name": "CSIG · arXiv cs.CV（图像增强相关）",
+        "url": "https://export.arxiv.org/api/query?search_query=cat:cs.CV+AND+(all:diffusion+AND+(all:enhancement+OR+all:restoration+OR+all:OSEDiff+OR+all:Distillation))&sortBy=submittedDate&sortOrder=descending&max_results=30",
+        "enabled": true,
+        "category": "csig-camera"
+      },
+      {
         "name": "Farnam Street",
         "url": "https://fs.blog/feed/",
         "enabled": true,
@@ -318,8 +348,15 @@
   "filtering": {
     "ai_score_threshold": 6.0,
     "time_window_hours": 24,
-    "max_items": 40,
+    "max_items": 45,
     "category_groups": {
+      "csig_camera": {
+        "name": "CSIG Camera 备赛雷达",
+        "limit": 5,
+        "categories": [
+          "csig-camera"
+        ]
+      },
       "oss_discovery": {
         "name": "开源发现（GitHub/HF）",
         "limit": 10,
@@ -388,7 +425,31 @@
       }
     },
     "default_group": "other",
-    "default_group_limit": 3
+    "default_group_limit": 3,
+    "user_interests": "CSIG Camera学术之星, diffusion image enhancement, generative image restoration, OSEDiff, DiffBIR, StableSR, 4K image enhancement, torch.jit diffusion, diffusion distillation, efficient diffusion, image quality assessment, Real-ESRGAN, 天池影像算法竞赛, 华为 XMAGE, knowledge distillation pruning",
+    "user_interests_list": [
+      "CSIG Camera学术之星",
+      "diffusion image enhancement",
+      "generative image restoration",
+      "OSEDiff",
+      "DiffBIR",
+      "StableSR",
+      "4K image enhancement",
+      "torch.jit diffusion",
+      "diffusion distillation",
+      "efficient diffusion",
+      "image quality assessment",
+      "Real-ESRGAN",
+      "天池影像算法竞赛",
+      "华为 XMAGE",
+      "knowledge distillation pruning"
+    ],
+    "negative_interests": [
+      "celebrity gossip",
+      "sports betting",
+      "crypto pump"
+    ],
+    "persona_summary": "备赛 CSIG Camera学术之星：关注 Diffusion 4K 图像增强、OSEDiff/DiffBIR 等生成式恢复、轻量蒸馏与 torch.jit 部署，以及天池/CSIG/华为影像赛况。"
   },
   "webhook": {
     "enabled": false
