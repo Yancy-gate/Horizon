@@ -358,9 +358,9 @@
     }
   },
   "filtering": {
-    "ai_score_threshold": 6.0,
+    "ai_score_threshold": 5.5,
     "time_window_hours": 24,
-    "max_items": 45,
+    "max_items": 60,
     "category_groups": {
       "csig_camera": {
         "name": "CSIG Camera 备赛雷达",
@@ -373,63 +373,63 @@
       },
       "oss_discovery": {
         "name": "开源发现（GitHub/HF）",
-        "limit": 10,
+        "limit": 14,
         "categories": [
           "oss-discovery"
         ]
       },
       "tech_trends": {
         "name": "技术风向标",
-        "limit": 6,
+        "limit": 10,
         "categories": [
           "tech-trends"
         ]
       },
       "policy_cn": {
         "name": "国家政策导向",
-        "limit": 4,
+        "limit": 5,
         "categories": [
           "policy-cn"
         ]
       },
       "job_market": {
         "name": "就业市场",
-        "limit": 4,
+        "limit": 5,
         "categories": [
           "job-market"
         ]
       },
       "robotics_vision": {
         "name": "机器人视觉",
-        "limit": 4,
+        "limit": 6,
         "categories": [
           "robotics-vision"
         ]
       },
       "research_method": {
         "name": "科研方法论",
-        "limit": 3,
+        "limit": 5,
         "categories": [
           "research-method"
         ]
       },
       "role_models": {
         "name": "大牛追踪",
-        "limit": 3,
+        "limit": 4,
         "categories": [
           "role-models"
         ]
       },
       "communication": {
         "name": "沟通表达",
-        "limit": 2,
+        "limit": 3,
         "categories": [
           "communication"
         ]
       },
       "worldview": {
         "name": "世界观",
-        "limit": 3,
+        "limit": 4,
         "categories": [
           "politics",
           "economics",
@@ -439,7 +439,7 @@
       }
     },
     "default_group": "other",
-    "default_group_limit": 3,
+    "default_group_limit": 6,
     "user_interests": "CSIG Camera学术之星, diffusion image enhancement, generative image restoration, OSEDiff, DiffBIR, StableSR, 4K image enhancement, torch.jit diffusion, diffusion distillation, efficient diffusion, image quality assessment, Real-ESRGAN, 天池影像算法竞赛, 华为 XMAGE, knowledge distillation pruning",
     "user_interests_list": [
       "CSIG Camera学术之星",
