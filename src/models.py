@@ -140,6 +140,8 @@ class RSSSourceConfig(BaseModel):
     url: HttpUrl
     enabled: bool = True
     category: Optional[str] = None
+    # Optional per-source lookback; when set, overrides global filtering.time_window_hours.
+    time_window_hours: Optional[int] = Field(default=None, gt=0)
 
 
 class RedditSubredditConfig(BaseModel):
@@ -409,6 +411,11 @@ class CategoryGroupConfig(BaseModel):
     name: Optional[str] = None
     limit: int = Field(gt=0)
     categories: List[str] = Field(min_length=1)
+    # Soft floor: if fewer than this many items pass the global threshold,
+    # backfill from analyzed items of this group's categories (lower bar).
+    min_items: Optional[int] = Field(default=None, ge=0)
+    # Threshold used only for min_items backfill (defaults to 0 if unset).
+    score_threshold: Optional[float] = Field(default=None, ge=0, le=10)
 
 
 class FilteringConfig(BaseModel):

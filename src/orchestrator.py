@@ -121,6 +121,9 @@ class HorizonOrchestrator:
                 f"⭐️ {len(important_items)} items scored ≥ {threshold}\n"
             )
 
+            # 5.4 Category floors (e.g. CSIG): backfill sparse groups below min_items
+            important_items = self.ensure_category_floors(important_items, analyzed_items)
+
             # 5.5 Semantic deduplication: drop items covering the same topic
             deduped_items = await self.merge_topic_duplicates(important_items)
             if len(deduped_items) < len(important_items):
@@ -506,6 +509,76 @@ class HorizonOrchestrator:
                 drop_indices.add(dup_idx)
 
         return [item for i, item in enumerate(items) if i not in drop_indices]
+
+    def ensure_category_floors(
+        self,
+        important_items: List[ContentItem],
+        analyzed_items: List[ContentItem],
+        *,
+        log: bool = True,
+    ) -> List[ContentItem]:
+        """Backfill category groups that declare ``min_items``.
+
+        Used for sparse topics (e.g. CSIG Camera prep) so the daily digest
+        still surfaces at least one relevant item when the global threshold
+        would otherwise leave the section empty.
+        """
+        groups = self.config.filtering.category_groups
+        if not groups:
+            return important_items
+
+        selected_ids = {item.id for item in important_items}
+        result = list(important_items)
+
+        for group_key, group in groups.items():
+            min_items = group.min_items
+            if not min_items:
+                continue
+
+            categories = set(group.categories)
+            current = [
+                item
+                for item in result
+                if isinstance(item.metadata.get("category"), str)
+                and item.metadata.get("category") in categories
+            ]
+            need = min_items - len(current)
+            if need <= 0:
+                continue
+
+            floor = group.score_threshold if group.score_threshold is not None else 0.0
+            candidates = [
+                item
+                for item in analyzed_items
+                if item.id not in selected_ids
+                and isinstance(item.metadata.get("category"), str)
+                and item.metadata.get("category") in categories
+                and (item.ai_score or 0) >= floor
+            ]
+            candidates.sort(key=lambda x: x.ai_score or 0, reverse=True)
+            picked = candidates[:need]
+            if not picked:
+                if log:
+                    label = group.name or group_key
+                    self.console.print(
+                        f"[yellow]⚠️  {label}: need {need} more for min_items={min_items}, "
+                        f"but no candidates ≥ {floor}[/yellow]"
+                    )
+                continue
+
+            for item in picked:
+                selected_ids.add(item.id)
+                result.append(item)
+            if log:
+                label = group.name or group_key
+                scores = ", ".join(f"{(i.ai_score or 0):.1f}" for i in picked)
+                self.console.print(
+                    f"📌 {label}: backfilled {len(picked)} item(s) to meet "
+                    f"min_items={min_items} (scores: {scores})\n"
+                )
+
+        result.sort(key=lambda x: x.ai_score or 0, reverse=True)
+        return result
 
     def apply_balanced_digest(
         self,

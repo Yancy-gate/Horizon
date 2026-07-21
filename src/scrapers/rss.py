@@ -5,7 +5,7 @@ import hashlib
 import logging
 import os
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import List
 from email.utils import parsedate_to_datetime
 import httpx
@@ -40,12 +40,19 @@ class RSSScraper(BaseScraper):
         """
         items = []
         sources = self.config["sources"]
+        now = datetime.now(timezone.utc)
 
         for source in sources:
             if not source.enabled:
                 continue
 
-            feed_items = await self._fetch_feed(source, since)
+            # Per-source lookback can be wider than the global window (sparse topics).
+            if source.time_window_hours:
+                source_since = now - timedelta(hours=source.time_window_hours)
+            else:
+                source_since = since
+
+            feed_items = await self._fetch_feed(source, source_since)
             items.extend(feed_items)
 
         return items

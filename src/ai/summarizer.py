@@ -42,9 +42,9 @@ LABELS = {
         "csig_section_title": "CSIG Camera Prep Radar",
         "csig_section_blurb": (
             "For CSIG Camera Academic Star: Diffusion 4K enhancement / "
-            "lightweight models / contest updates"
+            "lightweight models / contest updates (≈14-day window, ≥1 item floor)"
         ),
-        "csig_section_empty": "No related updates today.",
+        "csig_section_empty": "No related updates in the last 14 days.",
         "general_toc_title": "Other highlights",
     },
     "zh": {
@@ -69,8 +69,9 @@ LABELS = {
         "csig_section_title": "CSIG Camera 备赛雷达",
         "csig_section_blurb": (
             "面向 CSIG「Camera学术之星」：Diffusion 4K 增强 / 轻量模型 / 赛事动态"
+            "（检索窗口约 14 天，保底 ≥1 条）"
         ),
-        "csig_section_empty": "今日无相关动态。",
+        "csig_section_empty": "近 14 天仍无相关动态。",
         "general_toc_title": "其他资讯",
     },
 }

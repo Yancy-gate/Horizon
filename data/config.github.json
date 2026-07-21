@@ -184,33 +184,45 @@
       },
       {
         "name": "CSIG · 赛事与天池动态",
-        "url": "https://news.google.com/rss/search?q=CSIG+Camera%E5%AD%A6%E6%9C%AF%E4%B9%8B%E6%98%9F+OR+%E5%A4%A9%E6%B1%A0+%E5%BD%B1%E5%83%8F%E7%AE%97%E6%B3%95+OR+%E5%9B%BE%E5%83%8F%E5%9B%BE%E5%BD%A2%E6%8A%80%E6%9C%AF%E6%8C%91%E6%88%98%E8%B5%9B&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "url": "https://news.google.com/rss/search?q=when%3A14d+(CSIG+OR+%E4%B8%AD%E5%9B%BD%E5%9B%BE%E5%83%8F%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%BC%9A+OR+%E5%A4%A9%E6%B1%A0)+(%E5%BD%B1%E5%83%8F%E7%AE%97%E6%B3%95+OR+Camera%E5%AD%A6%E6%9C%AF%E4%B9%8B%E6%98%9F+OR+%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA+OR+%E5%9B%BE%E5%83%8F%E5%9B%BE%E5%BD%A2%E6%8A%80%E6%9C%AF%E6%8C%91%E6%88%98%E8%B5%9B)&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
         "enabled": true,
-        "category": "csig-camera"
+        "category": "csig-camera",
+        "time_window_hours": 336
       },
       {
-        "name": "CSIG · Diffusion 图像增强",
-        "url": "https://news.google.com/rss/search?q=%22diffusion+image+enhancement%22+OR+OSEDiff+OR+DiffBIR+OR+StableSR+OR+%22generative+image+restoration%22&hl=en-US&gl=US&ceid=US:en",
+        "name": "CSIG · Diffusion / 生成式图像恢复",
+        "url": "https://news.google.com/rss/search?q=when%3A14d+(diffusion+OR+OSEDiff+OR+DiffBIR+OR+StableSR+OR+Real-ESRGAN+OR+SUPIR)+(%22image+enhancement%22+OR+%22image+restoration%22+OR+%22generative+restoration%22+OR+denoise+OR+%22low-light%22)&hl=en-US&gl=US&ceid=US:en",
         "enabled": true,
-        "category": "csig-camera"
+        "category": "csig-camera",
+        "time_window_hours": 336
       },
       {
-        "name": "CSIG · 轻量 Diffusion / JIT",
-        "url": "https://news.google.com/rss/search?q=%22diffusion+distillation%22+OR+%22efficient+diffusion%22+OR+%22torch.jit%22+diffusion+OR+%22knowledge+distillation%22+diffusion&hl=en-US&gl=US&ceid=US:en",
+        "name": "CSIG · 轻量 Diffusion / 蒸馏部署",
+        "url": "https://news.google.com/rss/search?q=when%3A14d+(diffusion)+(distillation+OR+efficient+OR+lightweight+OR+%22torch.jit%22+OR+TensorRT+OR+ONNX)+(%22image+restoration%22+OR+enhancement+OR+super-resolution)&hl=en-US&gl=US&ceid=US:en",
         "enabled": true,
-        "category": "csig-camera"
+        "category": "csig-camera",
+        "time_window_hours": 336
       },
       {
-        "name": "CSIG · 华为 XMAGE / 4K 增强",
-        "url": "https://news.google.com/rss/search?q=%E5%8D%8E%E4%B8%BA+XMAGE+OR+4K+%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA+OR+%E7%94%9F%E6%88%90%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%81%A2%E5%A4%8D&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "name": "CSIG · 华为 XMAGE / 手机影像",
+        "url": "https://news.google.com/rss/search?q=when%3A14d+(%E5%8D%8E%E4%B8%BA+OR+Huawei)+(XMAGE+OR+%E5%BD%B1%E5%83%8F+OR+4K+%E5%A2%9E%E5%BC%BA+OR+%E7%94%9F%E6%88%90%E5%BC%8F%E5%9B%BE%E5%83%8F)&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
         "enabled": true,
-        "category": "csig-camera"
+        "category": "csig-camera",
+        "time_window_hours": 336
       },
       {
-        "name": "CSIG · arXiv cs.CV（图像增强相关）",
-        "url": "https://export.arxiv.org/api/query?search_query=cat:cs.CV+AND+(all:diffusion+AND+(all:enhancement+OR+all:restoration+OR+all:OSEDiff+OR+all:Distillation))&sortBy=submittedDate&sortOrder=descending&max_results=30",
+        "name": "CSIG · arXiv cs.CV（增强/恢复/Diffusion）",
+        "url": "https://export.arxiv.org/api/query?search_query=cat:cs.CV+AND+(all:enhancement+OR+all:restoration+OR+all:denois+OR+all:%22super-resolution%22+OR+all:%22low-light%22+OR+(all:diffusion+AND+(all:image+OR+all:vision)))&sortBy=submittedDate&sortOrder=descending&max_results=50",
         "enabled": true,
-        "category": "csig-camera"
+        "category": "csig-camera",
+        "time_window_hours": 336
+      },
+      {
+        "name": "CSIG · Papers With Code · Image Restoration",
+        "url": "https://paperswithcode.com/rss/task/image-restoration",
+        "enabled": true,
+        "category": "csig-camera",
+        "time_window_hours": 336
       },
       {
         "name": "Farnam Street",
@@ -353,6 +365,8 @@
       "csig_camera": {
         "name": "CSIG Camera 备赛雷达",
         "limit": 5,
+        "min_items": 1,
+        "score_threshold": 3.0,
         "categories": [
           "csig-camera"
         ]
