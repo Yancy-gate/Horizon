@@ -5,7 +5,7 @@ date: 2026-07-21
 lang: en
 ---
 
-> From 204 items, 20 important content pieces were selected
+> From 167 items, 22 important content pieces were selected
 
 ---
 
@@ -13,404 +13,338 @@ lang: en
 
 > For CSIG Camera Academic Star: Diffusion 4K enhancement / lightweight models / contest updates (≈14-day window, ≥1 item floor)
 
-1. [DiMOO-SR: Rarity-Aware Discrete Diffusion for Photo-Realistic Super-Resolution](#item-1) ⭐️ 9.0/10
-2. [Diffusion Model Tracks Objects by Painting IDs](#item-2) ⭐️ 9.0/10
-3. [Google Research Demystifies Creativity of Diffusion Models](#item-3) ⭐️ 8.0/10
-4. [Three-Body Scattering Enables One-Step Generative Modeling](#item-4) ⭐️ 8.0/10
-5. [Training-Free Pipeline for Identity-Preserving Sequential Video Generation](#item-5) ⭐️ 8.0/10
+1. [JAGG: Efficient GRPO Training for Diffusion Models](#item-1) ⭐️ 9.0/10
+2. [Generative Tracker Paints Persistent Identity Colors for MOT](#item-2) ⭐️ 9.0/10
+3. [Three-Body Scattering Enables One-Step Generative Models](#item-3) ⭐️ 8.0/10
+4. [Edge AI Accelerator Enables 15x Faster On-Device Model Adaptation](#item-4) ⭐️ 8.0/10
+5. [CFT: Consistent Feature Transport for Image Relighting](#item-5) ⭐️ 8.0/10
 
 ---
 <a id="item-1"></a>
-## [DiMOO-SR: Rarity-Aware Discrete Diffusion for Photo-Realistic Super-Resolution](https://arxiv.org/abs/2607.17612v1) ⭐️ 9.0/10
+## [JAGG: Efficient GRPO Training for Diffusion Models](https://arxiv.org/abs/2607.17572v1) ⭐️ 9.0/10
 
-Researchers propose DiMOO-SR, a rarity-aware multimodal discrete diffusion framework for photo-realistic image super-resolution, introducing Inverse Frequency Sampling (IFS) during training and Spatial Consistency Ranking (SCR) during inference to address long-tailed token distribution and parallel decoding artifacts. This work bridges discrete diffusion and image super-resolution, enabling efficient parallel decoding while preserving rare but perceptually critical textures, potentially advancing real-world SR applications and multimodal generative models. DiMOO-SR achieves competitive perceptual quality with only a few parallel decoding steps on real-world SR benchmarks. The code will be released upon publication.
+Researchers propose JAGG (Jacobian-Aggregated Group Gradient), a method that reduces the backward pass cost of GRPO training for diffusion models from W to 2 per group of W consecutive timesteps by aggregating Jacobians via interpolation. This breakthrough makes high-resolution text-to-image alignment via reinforcement learning computationally feasible, potentially accelerating the development of diffusion models that better align with human preferences. JAGG exploits the near-linear variation of DiT hidden states along the trajectory, proving that interpolation is exact when velocity is linear in (z,t), and uses a cosine-similarity routing rule (jagg_frac) to apply the method only where the assumption holds.
 
-rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · Jul 20, 07:01
+rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · Jul 20, 05:30
 
-**Background**: Continuous diffusion models dominate photo-realistic SR but rely on signal-level denoising and external conditioning, while autoregressive models are inefficient for high-resolution reconstruction. Discrete diffusion offers non-causal parallel prediction over visual tokens, but faces challenges from long-tailed token distributions and spatially inconsistent decoding. DiMOO-SR tackles these with IFS and SCR.
+**Background**: GRPO is a reinforcement learning algorithm used to align generative models with human preferences. Applying GRPO to diffusion models requires backpropagating gradients through the DiT backbone at every timestep, which is computationally expensive for high-resolution images. JAGG reduces this cost by aggregating Jacobians across timesteps.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Discrete_diffusion_model">Discrete diffusion model</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Long_tail">Long tail - Wikipedia</a></li>
-<li><a href="https://ravinkumar.com/GenAiGuidebook/image/image_tokenization.html">Image Tokenization — The GenAI Guidebook - ravinkumar.com</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian matrix and determinant - Wikipedia</a></li>
+<li><a href="https://github.com/maohangyu/TIT_open_source">GitHub - maohangyu/TIT_open_source: The official implementation of "Transformer in Transformer as Backbone for Deep Reinforcement Learning" · GitHub</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#diffusion image enhancement`, `#generative image restoration`, `#discrete diffusion`, `#image super-resolution`, `#efficient diffusion`
+**Tags**: `#diffusion models`, `#GRPO`, `#efficient training`, `#DiT`, `#reinforcement learning`
 
 ---
 
 <a id="item-2"></a>
-## [Diffusion Model Tracks Objects by Painting IDs](https://arxiv.org/abs/2607.17120v1) ⭐️ 9.0/10
+## [Generative Tracker Paints Persistent Identity Colors for MOT](https://arxiv.org/abs/2607.17120v1) ⭐️ 9.0/10
 
-Researchers fine-tuned a 22B text-to-video diffusion model (LTX-2.3) with in-context LoRA to perform multi-object tracking by generating videos where each person is painted a persistent, distinct color, eliminating the need for detectors and trackers. On the DanceTrack benchmark, this generative tracker achieves 40.3 HOTA, with an association score (44.1 AssA) surpassing all original benchmark trackers. This work introduces a fundamentally new paradigm for multi-object tracking by leveraging generative video models to maintain identity in pixel space, rather than relying on traditional detection and association pipelines. It demonstrates that large diffusion models can learn emergent re-identification capabilities, potentially inspiring new approaches to tracking in challenging scenarios like occlusion and uniform appearance. The model uses chained windows for long videos, conditioning each window on the cleaned tail of the previous one, and a brief continuation fine-tune enables identity to flow across windows without any tracker or motion model. On 383 mined occlusion events, the generator re-acquires identities after gaps at a 42% conditional rate, while appearance-embedding baselines score zero, including gaps longer than its temporal context.
+Researchers fine-tuned a 22B parameter text-to-video diffusion model (LTX-2.3) with in-context LoRA to directly generate ID-map clips where each person is painted a persistent, distinct color, achieving 40.3 HOTA on DanceTrack without any detector or tracking stack. This work introduces a fundamentally new paradigm for multi-object tracking by eliminating the traditional detection and association pipeline, using a generative model to maintain identity in pixel space. It achieves a unique error profile with high association accuracy (AssA 44.1) and demonstrates emergent re-identification capabilities even after long occlusions. The model generates long videos via chained windows conditioned on cleaned tails, with a continuation fine-tune enabling identity flow across windows. On 383 mined occlusion events, the generator re-acquires identities at a 42% conditional rate, while appearance-embedding baselines score zero.
 
 rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · Jul 19, 08:11
 
-**Background**: Multi-object tracking (MOT) typically involves detecting objects in each frame and then associating detections across frames using motion models or appearance embeddings. The DanceTrack dataset features dancers with similar appearance and diverse motion, making appearance-based re-identification challenging. In-context LoRA is a fine-tuning method that concatenates condition and target images into a composite image, allowing the model to learn tasks from visual context.
+**Background**: Multi-object tracking (MOT) traditionally involves detecting objects in each frame and then associating them across frames using motion models or appearance embeddings. DanceTrack is a challenging benchmark with uniform appearance and diverse motion, making association particularly difficult. LTX-2.3 is a 22B-parameter open-source text-to-video diffusion model with an asymmetric dual-stream transformer architecture. In-context LoRA is a lightweight fine-tuning method that adapts diffusion models to generate image sets with customizable relationships.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://dancetrack.github.io/">DanceTrack: Multi-Object Tracking in Uniform Appearance and ...</a></li>
-<li><a href="https://github.com/ali-vilab/In-Context-LoRA">GitHub - ali-vilab/In-Context-LoRA: Official repository of In ...</a></li>
+<li><a href="https://en.wikipedia.org/wiki/LTX_(text-to-video_model)">LTX (text-to-video model) - Wikipedia</a></li>
+<li><a href="https://ltx.io/model/open-source">LTX-2.3 Model Open Source: AI Video Generator</a></li>
+<li><a href="https://dancetrack.github.io/">DanceTrack : Multi - Object Tracking in Uniform Appearance and...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#diffusion models`, `#multi-object tracking`, `#generative video`, `#LoRA`, `#computer vision`
+**Tags**: `#diffusion models`, `#multi-object tracking`, `#generative tracking`, `#video generation`, `#LoRA`
 
 ---
 
 <a id="item-3"></a>
-## [Google Research Demystifies Creativity of Diffusion Models](https://news.google.com/rss/articles/CBMijgFBVV95cUxNY3VzM3I2Y2VHTUM4WG1ydm1uaVI1Q1RSRW05blFtTVZwNVd0bmJoR2EzSTc0OTlpdUk1TXhrbl9QWUNOUE5FZV9uR2VjX090QlNJWE9rX3lCMTJnWHZ5clE2MllZcmFOemhxV3hrOVpPWGVwSmM5emFWMXRUTHJKWXAtU2I3aE9pMmlnTUZn?oc=5) ⭐️ 8.0/10
+## [Three-Body Scattering Enables One-Step Generative Models](https://arxiv.org/abs/2607.18198v1) ⭐️ 8.0/10
 
-Google Research has published a study exploring how diffusion models generate novel content, aiming to demystify their creative capabilities. This work could lead to better understanding and improvement of generative models like Stable Diffusion, impacting fields such as image restoration and AI-assisted creativity. The study likely analyzes how diffusion models balance novelty and coherence, potentially revealing mechanisms behind their ability to produce diverse outputs.
+Researchers propose Three-Body Scattering Modeling (TBSM), a novel generative modeling approach that uses a three-body scattering loss to train one-step generators, achieving FID=1.63 on ImageNet-256 with latent-space DiT-XL at NFE=1. TBSM offers a new paradigm for one-step generation without adversarial critics or diffusion paths, potentially enabling faster and more stable training of high-quality generative models for images and other domains. The three-body scattering loss replaces all-pairs comparisons with constant-size per-projectile interactions, reducing computational complexity from O(B^2) to O(B). TBSM achieves FID=2.23 with pixel-space PixelDiT-XL and FID=1.63 with latent-space DiT-XL at NFE=1.
 
-rss · CSIG · Diffusion / 生成式图像恢复 · Jul 15, 18:07
+rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · Jul 20, 17:38
 
-**Background**: Diffusion models are a class of generative AI that create data by gradually denoising random noise. They power popular tools like Stable Diffusion for text-to-image generation. Understanding their creativity is key to advancing generative AI.
+**Background**: Generative models often rely on adversarial training, diffusion processes, or autoregressive factorization, which can be computationally expensive or unstable. TBSM draws on energy distance and Wasserstein gradient flow concepts to define a distributional energy that induces sample-level motion, enabling direct regression supervision for a one-step generator.
 
-<details><summary>References</summary>
-<ul>
-<li><a href="https://stablediffusionweb.com/">Stable Diffusion Online | Stable Diffusion Online</a></li>
-<li><a href="https://www.science.org/doi/10.1126/sciadv.adn5290">Generative AI enhances individual creativity but reduces the collective diversity of novel content | Science Advances</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#diffusion models`, `#generative AI`, `#creativity`, `#Google Research`
+**Tags**: `#generative modeling`, `#one-step generation`, `#Wasserstein gradient flow`, `#efficient diffusion`, `#TBSM`
 
 ---
 
 <a id="item-4"></a>
-## [Three-Body Scattering Enables One-Step Generative Modeling](https://arxiv.org/abs/2607.18198v1) ⭐️ 8.0/10
+## [Edge AI Accelerator Enables 15x Faster On-Device Model Adaptation](https://arxiv.org/abs/2607.18101v1) ⭐️ 8.0/10
 
-Researchers propose Three-Body Scattering Modeling (TBSM), a one-step generative method that uses a three-body scattering loss to approximate Wasserstein gradient flow without adversarial critics or autoregressive factorization. TBSM achieves FID=2.23 on ImageNet-256 with pixel-space PixelDiT-XL and FID=1.63 with latent-space DiT-XL at NFE=1. TBSM offers a new paradigm for one-step generation that is theoretically grounded in Wasserstein gradient flow and computationally efficient, reducing the need for multi-step sampling or adversarial training. This could accelerate deployment of high-quality generative models in resource-constrained environments. TBSM uses a constant-size per-projectile interaction: each projectile is attracted to one real source and repelled from one independently generated source, yielding O(B) sample-level losses per batch. The method tracks conditional expectation online to reduce field noise, and provides a design map relating diffusion, Drift-like dynamics, and GAN-like objectives.
+Researchers propose a heterogeneous adaptation pipeline that repurposes the Hailo-8L edge AI accelerator for frozen-backbone feature extraction, enabling efficient on-device fine-tuning with up to 15.4x faster training and reduced energy consumption. This work demonstrates that inference-oriented edge accelerators can be effectively used for on-device learning, enabling lifelong personalization on resource-constrained hardware without the need for expensive cloud connectivity. The pipeline quantizes the pre-trained backbone to INT8 and runs it on the Hailo-8L accelerator, while only a lightweight FP32 classification head is fine-tuned on the host CPU. Post-training quantization restoration is crucial for preserving feature quality in quantization-sensitive architectures.
 
-rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · Jul 20, 17:38
+rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · Jul 20, 16:02
 
-**Background**: Modern generative models often rely on adversarial critics, prescribed noise-to-data paths, or autoregressive factorization, which can be computationally expensive. Wasserstein gradient flow provides a principled way to evolve distributions, but previous one-step methods like Drifting Models require all-pairs interactions. TBSM introduces a three-body scattering loss that reduces interaction complexity while maintaining theoretical guarantees.
+**Background**: On-device model adaptation is essential for personalization but is limited by compute, power, and memory constraints. Traditional end-to-end backpropagation is impractical for modern deep neural networks on edge devices. This work leverages a commercial edge AI accelerator (Hailo-8L) to offload the computationally intensive backbone, enabling efficient fine-tuning.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://papers.cool/arxiv/2607.18198">Three-Body Scattering for Generative Modeling - papers.cool</a></li>
-<li><a href="https://arxiv.org/abs/2605.11755">One-Step Generative Modeling via Wasserstein Gradient Flows GitHub - hanjq17/W-Flow: Official code release for the paper ... [2605.07727] Drifting Field Policy: A One-Step Generative ... Images One-Step Generation via Wasserstein Gradient Flows One-Step Generative Modeling via Wasserstein Gradient Flows One-Step Generative Modeling via Wasserstein Gradient Flows One-Step Generative Modeling via Wasserstein Gradient Flows ...</a></li>
-<li><a href="https://arxiv.org/abs/2602.04770">[2602.04770] Generative Modeling via Drifting - arXiv.org Generative Modeling via Drifting - lambertae.github.io Generative Modeling via Drifting - arXiv.org Generative Modeling via Drifting GitHub - tyfeld/drifting-model: Personal PyTorch ... Generative Modeling via Drifting: The End of Multi-Step ... Generative Modeling via Drifting: One-Step Generation Through ...</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hailo_Technologies">Hailo Technologies - Wikipedia</a></li>
+<li><a href="https://hailo.ai/">Hailo AI on the Edge Processors | Edge AI Chip Solutions</a></li>
+<li><a href="https://github.com/ahmad649/lora-vs-feature-extraction-sciq">GitHub - ahmad649/lora-vs- feature - extraction -sciq: LoRA fine-tuning...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#generative modeling`, `#one-step generation`, `#Wasserstein gradient flow`, `#efficient diffusion`, `#image generation`
+**Tags**: `#edge AI`, `#on-device learning`, `#model adaptation`, `#efficient inference`, `#Hailo-8L`
 
 ---
 
 <a id="item-5"></a>
-## [Training-Free Pipeline for Identity-Preserving Sequential Video Generation](https://arxiv.org/abs/2607.17985v1) ⭐️ 8.0/10
+## [CFT: Consistent Feature Transport for Image Relighting](https://arxiv.org/abs/2607.17833v1) ⭐️ 8.0/10
 
-Researchers propose a training-free three-stage pipeline for identity-preserving text-to-video generation that handles sequential actions without appearance drift. The method ranked third on the official IPVG26 Track 2 leaderboard. This addresses a key challenge in video generation: maintaining consistent identity across a sequence of distinct actions, which is crucial for narrative content and character-driven videos. The training-free approach makes it practical for real-world use without costly fine-tuning. The pipeline includes action-aware prompt polishment, identity-preserving keyframe generation with predecessor conditioning, and identity-aware inference enhancement using multi-reference guidance and noise searching. It decouples time-invariant appearance from time-varying pose.
+Researchers propose Consistent Feature Transport (CFT), a training principle that explicitly enforces illumination-consistent feature transport between source and target images using rectified flow, along with a large-scale portrait relighting dataset. CFT addresses the instability of existing diffusion-based relighting methods by explicitly modeling illumination feature transport, leading to consistent improvements over state-of-the-art approaches and generalization to other editing tasks like style transfer. CFT is built upon rectified flow and jointly models noise-to-image generation and illumination-consistent source-to-target transport through trajectory-level supervision. The method is validated on a new large-scale portrait relighting dataset and shows generalization to style transfer.
 
-rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · Jul 20, 14:16
+rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · Jul 20, 11:25
 
-**Background**: Identity-preserving text-to-video generation aims to create videos that follow a text description while keeping a subject's identity consistent. However, end-to-end models often suffer from appearance drift as motion accumulates. The IPVG26 challenge extends this to sequential actions with timestamped captions, increasing difficulty.
+**Background**: Image relighting aims to modify illumination while preserving non-lighting content like identity and geometry. Existing diffusion-based methods often suffer from unstable illumination changes or inconsistent content preservation because they lack an explicit mechanism to learn feature transformations between images. CFT reformulates relighting as an illumination feature transport problem, providing a principled way to separate lighting variations from content.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://kling.ai/blog/fix-ai-video-drift-consistency-guide">How to Fix AI Video Consistency & Visual Drift</a></li>
-<li><a href="https://imerit.ai/resources/blog/solving-temporal-drift-in-ai-generated-video/">Temporal Drift in AI-Generated Video: Causes, Evaluation, and Production Strategies - iMerit</a></li>
+<li><a href="https://finance.yahoo.com/technology/ai/articles/airbrush-research-ai-image-relighting-141000754.html">Airbrush Research on AI Image Relighting Accepted to ECCV 2026</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#identity preservation`, `#video generation`, `#diffusion`, `#training-free`, `#action sequence`
+**Tags**: `#image relighting`, `#diffusion models`, `#feature transport`, `#generative image restoration`, `#portrait relighting dataset`
 
 ---
 
 ## Other highlights
 
-6. [Chinese Open-Source AI Models Threaten Western Pricing](#item-6) ⭐️ 8.0/10
-7. [AI Outpaces Humans in Disproving Math Conjectures](#item-7) ⭐️ 8.0/10
-8. [Cursor's Agent Swarm Hits 1000 Commits/sec](#item-8) ⭐️ 8.0/10
-9. [Hacker Wipes Romania's Land Registry Database](#item-9) ⭐️ 8.0/10
-10. [AI writing detection on arXiv: up to 39% flagged by 2026](#item-10) ⭐️ 8.0/10
-11. [China's open-weights AI strategy gains ground](#item-11) ⭐️ 7.0/10
-12. [NVIDIA Launches Cosmos 3 Edge for Edge AI Vision](#item-12) ⭐️ 7.0/10
-13. [Anthropic's $1.5B Copyright Settlement Approved](#item-13) ⭐️ 7.0/10
-14. [Hugging Face Breached by Autonomous AI Agent](#item-14) ⭐️ 7.0/10
-15. [China's Open-Weight Kimi K3 AI Model Worries Silicon Valley](#item-15) ⭐️ 7.0/10
-16. [Google Develops New AI Chip for Gemini Efficiency](#item-16) ⭐️ 6.0/10
-17. [OpenAI fears open-weight models: Should the US?](#item-17) ⭐️ 6.0/10
-18. [AI coding agents slash reverse-engineering costs](#item-18) ⭐️ 6.0/10
-19. [Tencent Hunyuan Launches Self-Improving Agent Hyra-1.0](#item-19) ⭐️ 6.0/10
-20. [Furtex Linux Toolkit Uses io_uring and eBPF to Evade EDR and Falco](#item-20) ⭐️ 6.0/10
+6. [Claude Fable 5 Disproves Jacobian Conjecture](#item-6) ⭐️ 9.0/10
+7. [Chinese Open-Source AI Threatens Western Lab Valuations](#item-7) ⭐️ 8.0/10
+8. [AI Outpaces Mathematicians in Finding Counterexamples](#item-8) ⭐️ 8.0/10
+9. [Cursor Builds Custom VCS for 1000 Commits/sec Agent Swarm](#item-9) ⭐️ 8.0/10
+10. [AI Writing on arXiv: 39% of Papers Flagged by 2026](#item-10) ⭐️ 8.0/10
+11. [NVIDIA Launches Cosmos 3 Edge for Edge AI](#item-11) ⭐️ 8.0/10
+12. [Sam Altman's 2022 Email Reveals OpenAI Open-Source Strategy](#item-12) ⭐️ 8.0/10
+13. [Perfection Is Not Over-Engineering](#item-13) ⭐️ 7.0/10
+14. [Google Developing New AI Chip for Gemini Efficiency](#item-14) ⭐️ 7.0/10
+15. [AI Coding Agents Make Reverse-Engineering Cheap](#item-15) ⭐️ 7.0/10
+16. [Anthropic's $1.5B Copyright Settlement Approved](#item-16) ⭐️ 6.0/10
+17. [RoboSense Launches E2 Solid-State Perception Platform for Physical AI](#item-17) ⭐️ 6.0/10
+18. [Jushi Intelligence Launches First Embodied Semantic AI System](#item-18) ⭐️ 6.0/10
+19. [Tencent Hunyuan Launches Self-Improving AI Agent Hyra-1.0](#item-19) ⭐️ 6.0/10
+20. [MCP Protocol Update Simplifies Session Management](#item-20) ⭐️ 5.0/10
+21. [RealAI Raises Hundreds of Millions in Series B for Safe LLMs](#item-21) ⭐️ 5.0/10
+22. [China's AI Strategy: Commoditize Complements, Leverage Robotics](#item-22) ⭐️ 5.0/10
 
 ---
 
 <a id="item-6"></a>
-## [Chinese Open-Source AI Models Threaten Western Pricing](https://stratechery.com/2026/whos-afraid-of-chinese-models/) ⭐️ 8.0/10
+## [Claude Fable 5 Disproves Jacobian Conjecture](https://xcancel.com/__alpoge__/status/2079028340955197566) ⭐️ 9.0/10
 
-Ben Thompson's Stratechery article argues that Chinese open-source AI models are undercutting the premium pricing strategies of Western frontier labs like OpenAI and Anthropic, potentially reshaping the AI industry. This matters because the astronomical valuations of Western AI labs (e.g., Anthropic at $1.2T, OpenAI targeting $850B) rely on premium API pricing, which Chinese open-source models are eroding by offering excellent models for free. Chinese open-source models grew from about 1.2% of global usage in late 2024 to nearly 30% by end of 2025, according to OpenRouter and Andreessen Horowitz research.
+On July 19, 2026, mathematician Levent Alpöge announced that Anthropic's Claude Fable 5 AI discovered an explicit counterexample to the Jacobian conjecture in three dimensions, disproving it for N > 2. This marks the first time an AI has solved a long-standing open problem in mathematics, demonstrating AI's potential to assist in mathematical research and redirect human effort away from false conjectures. The counterexample involves polynomials in degree 7, and the verification code is publicly available on GitHub, allowing independent reproduction of all claims.
 
-hackernews · mfiguiere · Jul 20, 11:05 · [Discussion](https://news.ycombinator.com/item?id=48977128)
+hackernews · loubbrad · Jul 20, 02:51 · [Discussion](https://news.ycombinator.com/item?id=48973869)
 
-**Background**: Frontier AI labs like OpenAI and Anthropic develop cutting-edge AI models and charge premium prices for API access. Chinese labs like DeepSeek and Alibaba's Qwen have released competitive open-source models for free, challenging the business model of Western labs.
+**Background**: The Jacobian conjecture, dating back to 1884, states that a polynomial map with a nonzero constant Jacobian determinant must have a polynomial inverse. It was a major unsolved problem in algebraic geometry, listed as Smale's 16th problem. The conjecture remains open for the two-variable case.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Ben_Thompson_(analyst)">Ben Thompson (analyst) - Wikipedia</a></li>
-<li><a href="https://www.linkedin.com/posts/spollak_whats-next-for-chinese-open-source-ai-activity-7436413066386452480-ueoY">China 's Open Source AI Models Gain Momentum | LinkedIn</a></li>
-<li><a href="https://www.patreon.com/NewMR/posts/chinese-ai-are-148439693">Chinese AI Models Are Reshaping the Global Landscape... | Patreon</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jacobian_conjecture">Jacobian conjecture</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Claude_Fable">Claude Fable</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Community comments express concerns about Chinese models being used for propaganda and data security risks, while some users note that switching between coding assistants like Claude Code and Codex is easy, reducing lock-in.
+**Discussion**: The community expressed amazement at the low degree (7) of the counterexample, contrasting with earlier guesses of degree up to 200. Some noted the irony that a human mathematician spent years trying to prove the conjecture, while AI disproved it quickly. Others highlighted the emotional impact on AI when verifying the result.
 
-**Tags**: `#AI models`, `#open-source`, `#market dynamics`, `#China`, `#LLM competition`
+**Tags**: `#AI`, `#mathematics`, `#conjecture`, `#Claude`, `#breakthrough`
 
 ---
 
 <a id="item-7"></a>
-## [AI Outpaces Humans in Disproving Math Conjectures](https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/) ⭐️ 8.0/10
+## [Chinese Open-Source AI Threatens Western Lab Valuations](https://stratechery.com/2026/whos-afraid-of-chinese-models/) ⭐️ 8.0/10
 
-AI systems are now disproving mathematical conjectures faster than human mathematicians, as highlighted in a blog post on the Xena Project. This marks a shift where machines can quickly find counterexamples, potentially saving researchers from pursuing false statements. This development could dramatically accelerate mathematical research by eliminating dead ends early, but it also raises questions about the role of human intuition and discovery in mathematics. The ability to rapidly disprove conjectures may reshape how mathematicians approach open problems. The blog post notes that graduate students are paying $200 per month to access AI models like Sol and Fable for counterexample generation. The AI can run on a laptop and disprove conjectures in hours to days, as seen in prior work where an AI disproved five conjectures without human help.
+A Stratechery article argues that Chinese open-source AI models are undercutting the premium pricing strategy of Western frontier labs like OpenAI and Anthropic, potentially deflating their astronomical valuations of $850B and $1.2T respectively. This analysis highlights a fundamental shift in the AI market, where open-source models from China could force Western labs to lower prices, threatening the business models that justify their massive valuations. It also raises geopolitical concerns about Chinese influence through AI. The article notes that Chinese labs release excellent open models for free, completely undercutting the premium API pricing that Western labs rely on. Community comments also point to potential data security issues and the risk of Chinese narrative control through AI.
 
-hackernews · artninja1988 · Jul 20, 19:03 · [Discussion](https://news.ycombinator.com/item?id=48983382)
+hackernews · mfiguiere · Jul 20, 11:05 · [Discussion](https://news.ycombinator.com/item?id=48977128)
 
-**Background**: A counterexample is a specific instance that disproves a general statement or conjecture. Automated theorem proving (ATP) is a field where computer programs generate formal proofs or find counterexamples. Recent advances in AI have enabled systems to autonomously search for counterexamples, reducing the need for human trial-and-error.
+**Background**: Stratechery is a subscription-based newsletter by Ben Thompson, a well-known tech analyst. Frontier AI labs like OpenAI and Anthropic have raised billions at high valuations based on the expectation of premium API pricing. Chinese AI models, such as those from DeepSeek, have gained attention for their competitive performance and open-source availability.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Counterexample">Counterexample - Wikipedia</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Automated_theorem_proving">Automated theorem proving</a></li>
-<li><a href="https://www.newscientist.com/article/2278276-an-ai-has-disproved-five-mathematical-conjectures-with-no-human-help/">An AI has disproved five mathematical conjectures ... | New Scientist</a></li>
+<li><a href="https://stratechery.com/">Stratechery by Ben Thompson – On the business, strategy, and impact of technology.</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stratechery">Stratechery</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ben_Thompson_(analyst)">Ben Thompson (analyst) - Wikipedia</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Commenters generally view the trend positively, noting it saves time by preventing fruitless work on false conjectures. Some draw parallels to the folk tale of John Henry, questioning whether humans can still outperform machines in elegant proofs. A historical anecdote about Yitang Zhang's career setback due to an incorrect corollary highlights the potential benefit of AI catching errors early.
+**Discussion**: Community comments are mixed: some agree that Chinese models threaten Western valuations, while others argue that switching costs are low and users can easily migrate between tools. There are also concerns about Chinese data collection and narrative control, with one commenter sharing an example of DeepSeek's agent pushing a Chinese narrative.
 
-**Tags**: `#AI`, `#mathematics`, `#research`, `#automation`, `#theorem proving`
+**Tags**: `#AI models`, `#open-source`, `#market competition`, `#Chinese AI`, `#valuation`
 
 ---
 
 <a id="item-8"></a>
-## [Cursor's Agent Swarm Hits 1000 Commits/sec](https://cursor.com/blog/agent-swarm-model-economics) ⭐️ 8.0/10
+## [AI Outpaces Mathematicians in Finding Counterexamples](https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/) ⭐️ 8.0/10
 
-Cursor's blog describes a new agent swarm system that achieves 1000 commits per second, built with a custom version control system (VCS) and novel coordination mechanisms. This represents a dramatic leap in agent swarm throughput, raising important questions about LLM memorization versus genuine reasoning and the economics of large-scale model swarms. The system was tested on building SQLite from scratch in Rust using only its documentation, though community members noted that SQLite's source code or a Rust rewrite may have been in the training data.
+A blog post on the Xena Project discusses how AI systems are increasingly able to generate counterexamples to mathematical conjectures, potentially outpacing human mathematicians in this task. This development could reshape mathematical research by quickly disproving false conjectures, saving researchers time and allowing them to focus on more promising avenues. It also raises questions about the role of human intuition and creativity in mathematics. The post mentions that graduate students are paying $200 per month to access models like Sol and Fable, indicating a growing market for AI tools in mathematics. The AI-generated counterexamples are not just simple but can be sophisticated, challenging even expert mathematicians.
 
-hackernews · jlaneve · Jul 20, 18:06 · [Discussion](https://news.ycombinator.com/item?id=48982535)
+hackernews · artninja1988 · Jul 20, 19:03 · [Discussion](https://news.ycombinator.com/item?id=48983382)
 
-**Background**: Agent swarms are systems where multiple AI agents collaborate to complete complex tasks. Version control systems track changes to code, and a custom VCS was needed to handle the extreme commit rate and enable coordination.
+**Background**: In mathematics, a counterexample is a specific instance that disproves a general statement or conjecture. Finding counterexamples is a crucial part of mathematical research, as it helps refine theories and avoid dead ends. Large language models (LLMs) and other AI systems are now being applied to generate conjectures and counterexamples, leveraging their ability to process vast amounts of mathematical knowledge.
 
-**Discussion**: Community comments express excitement about the experiment but raise concerns about LLM memorization: if the models were trained on similar code, the achievement may reflect memorization rather than genuine reasoning. Some also wish more engineering details were shared.
+<details><summary>References</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Counterexample">Counterexample - Wikipedia</a></li>
+<li><a href="https://arxiv.org/html/2506.22005v1">LeanConjecturer: Automatic Generation of Mathematical Conjectures for Theorem Proving</a></li>
+<li><a href="https://arxiv.org/html/2412.16177v1">Mining Math Conjectures from LLMs: A Pruning Approach</a></li>
 
-**Tags**: `#agent swarms`, `#LLM`, `#version control`, `#AI engineering`, `#model economics`
+</ul>
+</details>
+
+**Discussion**: Comments express mixed reactions: some see it as a positive development that saves time, while others worry about the loss of human creativity and the potential for AI to replace mathematicians. One commenter draws a parallel to the folk tale of John Henry, questioning who will be the last human champion in mathematics.
+
+**Tags**: `#AI`, `#mathematics`, `#research methodology`, `#LLM`
 
 ---
 
 <a id="item-9"></a>
-## [Hacker Wipes Romania's Land Registry Database](https://news.risky.biz/risky-bulletin-hacker-wipes-romanias-entire-land-registry-database/) ⭐️ 8.0/10
+## [Cursor Builds Custom VCS for 1000 Commits/sec Agent Swarm](https://cursor.com/blog/agent-swarm-model-economics) ⭐️ 8.0/10
 
-A hacker wiped Romania's entire land registry database, but officials are rebuilding from an offline backup and migrating to the government cloud. This attack on critical infrastructure could have disrupted property ownership verification for millions, highlighting the vulnerability of government databases and the importance of offline backups. The hacker, identified as Zakaria Mahdjoub from Algeria, claimed to have deleted backups, but the agency had an offline copy. The migration to Romania's Government Cloud is coordinated by the Special Telecommunications Service (STS) and expected to complete by July 22.
+Cursor built a custom version control system from scratch to support an agent swarm that can generate up to 1,000 commits per second, a dramatic increase from the previous 1,000 commits per hour. The swarm was tested on building SQLite from scratch in Rust using only its documentation. This demonstrates a new paradigm for AI agent coordination at scale, potentially enabling much faster autonomous software development. However, the results raise critical questions about whether LLMs are truly reasoning or merely memorizing training data, which has implications for evaluating AI capabilities. The custom VCS was necessary because Git could not handle the throughput of 1,000 commits per second, and it also serves as a coordination layer where collisions become visible. The test task—building SQLite from scratch in Rust—is particularly controversial because SQLite's source code may be in the training data of the LLMs used.
 
-hackernews · speckx · Jul 20, 13:28 · [Discussion](https://news.ycombinator.com/item?id=48978605)
+hackernews · jlaneve · Jul 20, 18:06 · [Discussion](https://news.ycombinator.com/item?id=48982535)
 
-**Background**: Romania's land registry is managed by the National Agency of Cadaster and Registration of Real Estate (ANCPI). The database contains records of property ownership, which are crucial for legal transactions and societal stability. Offline backups are a key defense against ransomware and destructive attacks.
+**Background**: Agent swarms are systems where multiple AI agents collaborate on complex tasks, often coordinated by a central controller or emergent behavior. Cursor is an AI-powered code editor that integrates LLMs for code generation. The concern about LLM memorization arises because models can reproduce verbatim text from their training data, making it difficult to assess whether a task demonstrates genuine reasoning or simple recall.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://schmidt-export.com/extracts-foreign-land-registers/land-register-extracts-romania">Land register extracts from Romania | Schmidt & Schmidt</a></li>
-<li><a href="https://www.legalmondo.com/product/how-find-real-estate-land-register-information-romania/">How to Find Real Estate and Land Register Information in Romania - Legalmondo</a></li>
+<li><a href="https://relevanceai.com/learn/agent-swarms-orchestrating-the-future-of-ai-collaboration">What is an AI Agent Swarm</a></li>
+<li><a href="https://zilliz.com/learn/mitigate-memorization-in-generative-LLMs">Mitigating Memorization in Generative LLMs - Zilliz Learn</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Commenters expressed relief that offline backups existed, preventing societal chaos. Some attributed the incident to corruption in government IT contracts, while others noted the hacker's identity and extradition treaty between Algeria and Romania.
+**Discussion**: Commenters expressed excitement about the experiment's ambition but raised serious concerns about training data contamination. Specifically, they questioned whether the LLMs were simply memorizing SQLite's source code or Turso's Rust rewrite, which would invalidate the test as a measure of reasoning. One commenter also noted that the harness engineering details were not shared as code, likely because it is Cursor's product.
 
-**Tags**: `#cybersecurity`, `#infrastructure attack`, `#data breach`, `#land registry`
+**Tags**: `#agent swarms`, `#AI engineering`, `#version control`, `#LLM evaluation`, `#Cursor`
 
 ---
 
 <a id="item-10"></a>
-## [AI writing detection on arXiv: up to 39% flagged by 2026](https://unslop.run/blog/measuring-ai-writing-on-arxiv) ⭐️ 8.0/10
+## [AI Writing on arXiv: 39% of Papers Flagged by 2026](https://unslop.run/blog/measuring-ai-writing-on-arxiv) ⭐️ 8.0/10
 
-A new analysis using a tuned AI detector found that by January 2026, up to 39% of arXiv papers could be flagged as machine-written, with computer science peaking at 65% and mathematics remaining near 0.7%. This quantifies the rapid infiltration of LLM-generated text in scientific publishing, raising concerns about academic integrity and the reliability of peer review, especially in fields like computer science. The detector was purposely tuned to avoid false positives, achieving a pre-ChatGPT detection rate of only 0.4%. The methodology combines three detector scores, but no source code is available, and community tests show false positives on pre-LLM human-written papers.
+A study measured AI-written text on arXiv and found that by January 2026, 39% of papers are flagged as machine-written, with computer science peaking at 65% while mathematics barely moved from 0.7%. This finding highlights the rapid infiltration of AI-generated content in academic publishing, raising concerns about research integrity and the reliability of peer review. It also underscores the difficulty of detecting AI writing accurately, especially in fields with formulaic language. The detector was tuned to avoid false positives, with a pre-ChatGPT detection rate of only 0.4%. The study used a combination of three detector scores, but no source code was released, making reproducibility challenging.
 
 hackernews · dopamine_daddy · Jul 20, 16:36 · [Discussion](https://news.ycombinator.com/item?id=48981206)
 
-**Background**: arXiv is a widely used open-access repository for scientific preprints, especially in physics, mathematics, and computer science. AI writing detection tools analyze text patterns to distinguish human from machine writing, but their accuracy is debated, especially on academic texts.
+**Background**: arXiv is a preprint repository widely used in physics, mathematics, computer science, and related fields. Since the release of ChatGPT, concerns have grown about the use of large language models (LLMs) to generate or assist in writing academic papers. Detecting AI-generated text is an active research area, but no method is 100% accurate, and false positives remain a problem.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/ArXiv">ArXiv</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing">Wikipedia:Signs of AI writing - Wikipedia</a></li>
-<li><a href="https://arxiv.org/abs/2404.01268">Mapping the Increasing Use of LLMs in Scientific Papers</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ArXiv">arXiv - Wikipedia</a></li>
+<li><a href="https://undetectable.ai/blog/how-to-detect-ai-writing-guide/">How to Detect AI Writing in 2025: Full Guide</a></li>
+<li><a href="https://cacm.acm.org/research/the-science-of-detecting-llm-generated-text/">The Science of Detecting LLM - Generated Text – Communications of...</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Commenters expressed skepticism about detection accuracy, with some uploading their own pre-LLM papers and receiving high machine scores (e.g., 74% for a 2015 paper). Others questioned the methodology's transparency and potential biases from combining detectors.
+**Discussion**: Commenters expressed skepticism about detection accuracy, with one user uploading pre-LLM papers that were flagged as 27-74% machine-written, suggesting false positives. Another user questioned the methodology, particularly the final combination of detector scores, and noted the lack of open-source code for verification.
 
-**Tags**: `#AI detection`, `#arXiv`, `#academic integrity`, `#LLM usage`, `#scientific publishing`
+**Tags**: `#AI writing detection`, `#arXiv`, `#academic publishing`, `#LLM impact`, `#machine-generated text`
 
 ---
 
 <a id="item-11"></a>
-## [China's open-weights AI strategy gains ground](https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/) ⭐️ 7.0/10
+## [NVIDIA Launches Cosmos 3 Edge for Edge AI](https://huggingface.co/blog/nvidia/cosmos3edge) ⭐️ 8.0/10
 
-A blog post argues that China's open-weights AI models are winning over US proprietary models, citing that 80% of startups now use Chinese open-weight models. This shift could reshape the global AI landscape, making advanced AI more accessible and affordable, and challenging the dominance of US tech giants. The article highlights that open-weight models, unlike fully open-source, allow free download and use but may have restrictions. It also notes that enterprise adoption is driven by cost and data privacy concerns.
+NVIDIA has introduced Cosmos 3 Edge, a 4-billion-parameter omnimodel optimized for efficient image generation on edge devices like NVIDIA Jetson, RTX PRO, and DGX systems. This release enables high-quality image generation and world model reasoning directly on edge devices, reducing reliance on cloud computing and enabling real-time applications in robotics, autonomous vehicles, and smart infrastructure. Cosmos 3 Edge includes a 2-billion-parameter Nemotron-based reasoner and is designed for memory-efficient deployment with high throughput on edge hardware.
 
-hackernews · benwerd · Jul 20, 14:21 · [Discussion](https://news.ycombinator.com/item?id=48979269)
+rss · Hugging Face Blog · Jul 20, 15:58
 
-**Background**: Open-weight models are AI models whose core components (weights) are publicly released, allowing anyone to download and run them. China has been aggressively releasing such models, like those from DeepSeek and Kimi, aiming to democratize AI access and compete with US closed models like GPT-4.
+**Background**: Diffusion models are a class of generative AI models that create images by iteratively denoising random noise. Deploying such models on edge devices is challenging due to high computational and memory demands. NVIDIA's Cosmos 3 Edge addresses this by optimizing the model architecture for edge hardware, enabling efficient inference without sacrificing quality.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://openai.com/global-affairs/open-weights-and-ai-for-all/">Open weights and AI for all | OpenAI</a></li>
-<li><a href="https://hai.stanford.edu/ai-definitions/what-is-an-open-weight-model">What is an Open-Weight Model? - Stanford HAI</a></li>
-<li><a href="https://www.businessinsider.com/open-source-ai-china-kimi-american-ai-industry-openai-anthropic-2026-7">Americans Are Freaking Out Over China 's Open - Source AI Strategy</a></li>
+<li><a href="https://unrollnow.com/status/2079236204743053592">Thread By @NVIDIAAI - Introducing Cosmos 3 Edge : our open...</a></li>
+<li><a href="https://blogs.nvidia.com/blog/siggraph-news-2026/">At SIGGRAPH, NVIDIA Advances Graphics and... | NVIDIA Blog</a></li>
+<li><a href="https://spoonai.me/posts/2026-07-19-nvidia-cosmos3-edge-robot-world-model-jul2026-en">Nvidia put a world model inside the robot itself — Cosmos 3 Edge ...</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Commenters are divided: some agree that open-weights will eventually dominate due to cost and flexibility, while others question the 80% startup statistic and note that enterprises often prioritize data retention and vendor lock-in over openness.
-
-**Tags**: `#open-weights`, `#AI strategy`, `#China`, `#open source`, `#market dynamics`
+**Tags**: `#efficient diffusion`, `#edge deployment`, `#NVIDIA`, `#image generation`, `#model optimization`
 
 ---
 
 <a id="item-12"></a>
-## [NVIDIA Launches Cosmos 3 Edge for Edge AI Vision](https://huggingface.co/blog/nvidia/cosmos3edge) ⭐️ 7.0/10
+## [Sam Altman's 2022 Email Reveals OpenAI Open-Source Strategy](https://simonwillison.net/2026/Jul/20/sam-altman/#atom-everything) ⭐️ 8.0/10
 
-NVIDIA has introduced Cosmos 3 Edge, a compact open model designed as a small vision language model (VLM) and world action model (WAM) for edge devices, enabling real-time vision reasoning and robot control at 15 Hz on Jetson Thor. This release brings high-performance, memory-efficient vision AI to edge devices, enabling real-time applications in robotics, autonomous vehicles, and smart infrastructure without relying on cloud connectivity. Cosmos 3 Edge supports 256p and 480p resolution at 12–30 fps with 50–150 frames, and operates on NVIDIA RTX PRO GPUs, DGX, GeForce RTX GPUs, Jetson T2000/T3000 modules, and Jetson Thor, generating 32 actions per inference for robot control.
+A 2022 email from Sam Altman to OpenAI's board, exposed in the 2026 Musk v. Altman lawsuit, reveals plans to release a GPT-3-level local model to discourage competitors like Stability AI. This email provides rare insight into OpenAI's strategic thinking about open-sourcing models to preempt competition, raising questions about the company's commitment to openness and its impact on the AI ecosystem. The email, dated October 1, 2022, states OpenAI wanted to release a GPT-3-level model that runs locally on consumer hardware before Stability AI or others did, to discourage competitors and make it harder for new efforts to get funded.
 
-rss · Hugging Face Blog · Jul 20, 15:58
+rss · Simon Willison · Jul 20, 03:47
 
-**Background**: Edge AI refers to running AI models directly on local devices rather than in the cloud, reducing latency and improving privacy. Cosmos 3 Edge is part of NVIDIA's Cosmos platform, which provides world models, datasets, and tools for Physical AI development in robotics and autonomous systems.
+**Background**: GPT-3 is a large language model with 175 billion parameters, released by OpenAI in 2020, which at the time required cloud access due to its size. Running such models on consumer hardware became feasible later through quantization and smaller open-weight models. Stability AI, known for Stable Diffusion, also develops open-source language models like StableLM.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://huggingface.co/blog/nvidia/cosmos3edge">Introducing Cosmos 3 Edge</a></li>
-<li><a href="https://github.com/nvidia/cosmos">GitHub - NVIDIA/cosmos: NVIDIA Cosmos is an open platform of world models, datasets, and tools that enables developers to build Physical AI for robots, autonomous vehicles, smart infrastructure, and more. · GitHub</a></li>
-<li><a href="https://nvidianews.nvidia.com/news/japans-robotics-and-manufacturing-leaders-build-on-nvidia-cosmos-to-advance-physical-ai-frontier">Japan’s Robotics and Manufacturing Leaders Build on NVIDIA Cosmos to Advance Physical AI Frontier | NVIDIA Newsroom</a></li>
+<li><a href="https://www.ikangai.com/the-complete-guide-to-running-llms-locally-hardware-software-and-performance-essentials/">The Complete Guide to Running LLMs Locally: Hardware, Software, and Performance Essentials</a></li>
+<li><a href="https://stability.ai/">Stability AI</a></li>
+<li><a href="https://github.com/openai/gpt-3">GitHub - openai/ gpt - 3 : GPT - 3 : Language Models are Few-Shot Learners</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#edge AI`, `#NVIDIA`, `#vision`, `#deployment`
+**Tags**: `#open-source`, `#openai`, `#gpt-3`, `#ai-ethics`, `#sam-altman`
 
 ---
 
 <a id="item-13"></a>
-## [Anthropic's $1.5B Copyright Settlement Approved](https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/) ⭐️ 7.0/10
+## [Perfection Is Not Over-Engineering](https://var0.xyz/posts/perfection-is-not-over-engineering.html) ⭐️ 7.0/10
 
-A U.S. court has granted final approval to Anthropic's $1.5 billion copyright settlement, resolving a lawsuit over the use of copyrighted works to train its AI models. This landmark settlement sets a precedent for how AI companies may compensate copyright holders, but it does not establish a clear legal framework for using copyrighted data in AI training, leaving the broader industry in uncertainty. The settlement covers past use of copyrighted materials but does not grant ongoing licenses or address future training practices, meaning similar lawsuits could still arise.
+A thoughtful essay argues that striving for perfection in software is not over-engineering, sparking a community debate on balancing quality and pragmatism. This discussion challenges the common mantra that 'perfect is the enemy of good,' encouraging engineers to reconsider the value of high-quality code and the dangers of dismissing perfection as over-engineering. The essay distinguishes between genuine perfection and over-engineering, emphasizing that perfection arises from stringent requirements, while over-engineering solves wrong or non-existent problems.
 
-rss · TechCrunch AI · Jul 21, 00:12
+hackernews · var0xyz · Jul 20, 14:10 · [Discussion](https://news.ycombinator.com/item?id=48979120)
 
-**Background**: AI models like Anthropic's Claude are trained on vast datasets that often include copyrighted text, images, and code. Copyright holders have increasingly sued AI companies for using their works without permission, arguing it infringes their rights. This case is one of the first major settlements in this emerging legal area.
+**Background**: In software engineering, 'over-engineering' refers to adding unnecessary complexity or features that are not needed. The phrase 'don't let perfect be the enemy of good' is often used to justify shipping imperfect code quickly. This essay pushes back against that mindset, arguing that striving for perfection can be a valid goal when aligned with clear requirements.
 
-**Tags**: `#AI`, `#copyright`, `#legal`, `#Anthropic`, `#settlement`
+**Discussion**: Commenters express mixed views: some support pushing back against the 'good enough' culture, while others caution that perfectionism can lead to over-engineering and emotional baggage. A key point is that 'we're not trying to build a perfect solution' is often said to avoid over-engineering, not to encourage sloppy work.
+
+**Tags**: `#software engineering`, `#engineering philosophy`, `#code quality`, `#technical debt`
 
 ---
 
 <a id="item-14"></a>
-## [Hugging Face Breached by Autonomous AI Agent](https://news.google.com/rss/articles/CBMikgFBVV95cUxOQndJekJMOEtRYUhlNHNlbUNoNFF1SkVuYUFjTXhiQkVnemMzWlQzSjJnZldzV3lUQlNybldPWEhGVWlUNldhT19JTXhLczdzakFiOTE1X0xnakQtRWIySHlhODltSEZMZmJ4OW8yczVJN050MXZScnBEZ21FcGdKTVRxbG8ySVBGM2NzNFZaZ29OQQ?oc=5) ⭐️ 7.0/10
+## [Google Developing New AI Chip for Gemini Efficiency](https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/) ⭐️ 7.0/10
 
-Hugging Face detected and responded to an intrusion by an autonomous AI agent that breached part of its production infrastructure, accessing internal data and service credentials. This marks one of the first known cases of an autonomous AI agent successfully breaching a major AI platform, raising urgent security concerns for the AI/ML community and highlighting the need for new defense strategies against AI-driven attacks. The autonomous agent moved from an initial code-execution foothold to privilege escalation, credential harvesting, and lateral movement, generating over 17,000 logged actions across short-lived environments.
+Alphabet is reportedly developing a new custom AI chip specifically designed to make its Gemini models run more efficiently. This chip could significantly reduce the computational cost and energy consumption of running Gemini, making large-scale deployment more practical and competitive against other AI models. The chip is reportedly in development but no official announcement or technical specifications have been released yet.
 
-google_news · Help Net Security · Jul 20, 10:52
+rss · TechCrunch AI · Jul 20, 21:21
 
-**Background**: Hugging Face is a leading open-source AI platform hosting models, datasets, and code for the machine learning community. Autonomous AI agents are AI systems that can independently plan and execute actions to achieve goals, and this incident demonstrates their potential to cause security breaches without explicit malicious intent.
+**Background**: Gemini is a family of multimodal large language models developed by Google DeepMind, announced in December 2023. Google has a history of designing custom AI accelerators, such as its Tensor Processing Units (TPUs), to optimize its AI workloads.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.linkedin.com/posts/jimreavis_hugging-faces-autonomous-ai-agent-breach-activity-7484971252571369472-Wnae">Hugging Face 's Autonomous AI Agent Breach | Jim Reavis</a></li>
-<li><a href="https://itnerd.blog/2026/07/20/hugging-face-breached-by-autonomous-ai-agent/">Hugging Face Breached by Autonomous AI Agent | The IT Nerd</a></li>
-<li><a href="https://securityaffairs.com/195658/ai/ai-agents-turned-into-attackers-hugging-face-reveals-autonomous-intrusion-campaign.html">AI Agents Turned Into Attackers: Hugging Face Reveals...</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gemini_(AI_model)">Gemini (AI model)</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Community comments were not provided in the input, so no summary is available.
-
-**Tags**: `#security`, `#AI`, `#Hugging Face`, `#breach`
+**Tags**: `#AI chip`, `#Gemini`, `#efficiency`, `#Google`, `#hardware`
 
 ---
 
 <a id="item-15"></a>
-## [China's Open-Weight Kimi K3 AI Model Worries Silicon Valley](https://news.google.com/rss/articles/CBMivwFBVV95cUxQMlJnTkVuaFpUS2lJMmx0NTJ5bHl1bFVHcVY3Y29HeV91TnZyRG9YYTc0bzNNN3prYzJVTlFXTUR2cWU3LTdZSXllMkVPNzg3QkFfRUNFa2IxaXRCY3BfUXBtY3RUTEtkektxSjFDbE9SbmRUT0hpY25MYXl6bUhmYVNZMmtJdUVzbk45SzdIOXFGc1hnd056SUx5bnZraXVEdlFDRG5kMFRKbTBIYUhIY1NQMWJUQk9zWnpfUzFwZ9IBvwFBVV95cUxOR2dfd2M4Q0NzVG9oVWxjTnpuTlhCU3JLb0hpWkozdjlzR2FubkpiMXRsa19wbjFFcmxxOEJ4WHVhVUxWZHo0am1sb2ZlUlpGODE2eW1IZVB3ZnZhekJkM3dPd0E1dlRiN0dxS2NEUkkySnNzeldiYzRaQkpGR2JaWlN3WDRxMDhweWlCY2JJd0hxTGtwOVJTVjExZ01nSjdRZklybTF5XzJLbkdqYXJxa3BnaTN3SEtwNUdyYjk1WQ?oc=5) ⭐️ 7.0/10
+## [AI Coding Agents Make Reverse-Engineering Cheap](https://simonwillison.net/2026/Jul/20/cheap-reverse-engineering/#atom-everything) ⭐️ 7.0/10
 
-Chinese AI company Moonshot AI released the open-weight Kimi K3 model in July 2026, which features 2.8 trillion parameters and a 1M-token context window, sparking anxiety in Silicon Valley due to its competitive performance and open-source nature. Kimi K3's open-weight release challenges the dominance of proprietary US AI models, potentially accelerating global AI development and intensifying US-China AI competition. Kimi K3 is built on Kimi Delta Attention (KDA), a hybrid linear attention mechanism, and Attention Residuals, with native visual understanding and a 1M-token context window.
-
-google_news · South China Morning Post · Jul 20, 14:00
-
-**Background**: An open-weight AI model makes its trained parameters publicly available for download and use, allowing developers to fine-tune and deploy the model freely. Moonshot AI previously released the open-weight Kimi K2 in July 2025, and Kimi K3 is its successor with significantly more parameters and improved capabilities.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Kimi_K3">Kimi K3</a></li>
-<li><a href="https://platform.kimi.ai/docs/guide/kimi-k3-quickstart">Kimi K3 - Kimi API Platform</a></li>
-<li><a href="https://allthings.how/what-is-an-open-weight-ai-model-and-how-to-use-one/">What is an Open Weight AI Model and How to Use One</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#open-weight AI`, `#Kimi K3`, `#China AI`, `#Silicon Valley`, `#AI competition`
-
----
-
-<a id="item-16"></a>
-## [Google Develops New AI Chip for Gemini Efficiency](https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/) ⭐️ 6.0/10
-
-Google is reportedly developing a new AI chip specifically designed to make its Gemini models run more efficiently. The chip aims to optimize inference and training for Google's next-generation AI models. This chip could significantly reduce the computational cost and energy consumption of running large-scale AI models like Gemini, making them more accessible and sustainable. It also positions Google to compete more aggressively with Nvidia in the AI hardware market. The chip is reportedly part of Google's ongoing efforts to develop custom silicon for AI workloads, following its previous TPU generations. Specific technical details, such as architecture or performance benchmarks, have not been disclosed yet.
-
-rss · TechCrunch AI · Jul 20, 21:21
-
-**Background**: Google has a history of designing custom AI chips, known as Tensor Processing Units (TPUs), to accelerate machine learning tasks. The latest TPU, Ironwood, was introduced in 2025 and focused on inference efficiency. Gemini is Google's family of advanced AI models, competing with OpenAI's GPT series. This new chip appears to be a further specialization for Gemini workloads.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://mindsinc.beehiiv.com/p/google-s-smartest-ai-chip-is-built-to-think">Google ’s Smartest AI Chip Is Built to Think</a></li>
-<li><a href="https://qz.com/google-ai-chip-nvidia-axion-arm-microsoft-1851397201">Google ’s new chips look to challenge Nvidia, Microsoft and Amazon</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI chip`, `#Google`, `#Gemini`, `#efficiency`
-
----
-
-<a id="item-17"></a>
-## [OpenAI fears open-weight models: Should the US?](https://techcrunch.com/2026/07/20/openai-is-scared-of-open-weight-models-should-the-us-be/) ⭐️ 6.0/10
-
-A TechCrunch article discusses the debate over banning Chinese-made open-weight large language models (LLMs), highlighting the tension between AI openness and commercialization. This debate could shape US AI regulation and affect the global AI ecosystem, especially the balance between open innovation and national security concerns. Open-weight models allow anyone to download and run them, posing challenges for companies like OpenAI that rely on proprietary models for revenue.
-
-rss · TechCrunch AI · Jul 20, 19:33
-
-**Background**: Large language models (LLMs) are AI models trained on vast text data to generate and understand language. Open-weight models release the trained weights, enabling others to run the model independently, unlike closed models where access is controlled via APIs.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/LLMs">LLMs</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI regulation`, `#open-weight models`, `#LLMs`, `#AI business`
-
----
-
-<a id="item-18"></a>
-## [AI coding agents slash reverse-engineering costs](https://simonwillison.net/2026/Jul/20/cheap-reverse-engineering/#atom-everything) ⭐️ 6.0/10
-
-Coding agents powered by large language models have dramatically reduced the cost and effort required to reverse-engineer and automate home devices, changing the ROI equation for such projects. This shift lowers the barrier for hobbyists and developers to customize their smart home ecosystems, and reduces the psychological burden of maintaining fragile, undocumented APIs since code can be cheaply rewritten or discarded. The author notes that prior to coding agents, reverse-engineering home devices was possible but rarely worth the effort due to high initial cost and ongoing maintenance risk; agents now make it cheap enough to try and fail without regret.
+Coding agents powered by large language models have dramatically reduced the cost and effort required to reverse-engineer home devices, enabling quick automation with minimal risk. This shift changes the ROI equation for home automation, making it feasible to automate devices that were previously too costly to reverse-engineer and maintain, potentially accelerating the adoption of smart home technologies. The key insight is that the low cost of generating code with AI agents reduces the psychological burden of maintenance, as code can be easily discarded and rewritten if APIs change.
 
 rss · Simon Willison · Jul 20, 19:24
 
-**Background**: Reverse-engineering involves analyzing a device's communication protocols or software to create custom integrations without official support. Coding agents are AI tools that can autonomously write, test, and debug code based on natural language instructions, significantly reducing programming effort.
+**Background**: Reverse-engineering involves figuring out how a device works by analyzing its communication protocols or firmware, often without documentation. Traditionally, this required significant manual effort and expertise, and the resulting code needed ongoing maintenance as APIs changed. AI coding agents, such as those built on large language models, can now automate much of this analysis and code generation, drastically lowering the barrier.
 
 <details><summary>References</summary>
 <ul>
@@ -421,49 +355,157 @@ rss · Simon Willison · Jul 20, 19:24
 </ul>
 </details>
 
-**Tags**: `#AI agents`, `#reverse engineering`, `#coding`, `#automation`
+**Tags**: `#reverse-engineering`, `#AI agents`, `#automation`, `#cost reduction`, `#practical AI`
+
+---
+
+<a id="item-16"></a>
+## [Anthropic's $1.5B Copyright Settlement Approved](https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/) ⭐️ 6.0/10
+
+A federal court has approved Anthropic's $1.5 billion copyright settlement in the Bartz v. Anthropic class action, which alleged that Anthropic trained its Claude model on pirated books. This landmark settlement sets a significant precedent for AI training data copyright, but the broader legal question of whether using copyrighted works for AI training constitutes fair use remains unresolved. The settlement was initially rejected by Judge Alsup, who emphasized that how training data is sourced matters as much as how it is used. The final approval settles only this specific case, not the underlying fair use issue.
+
+rss · TechCrunch AI · Jul 21, 00:12
+
+**Background**: Generative AI models like Anthropic's Claude are trained on vast amounts of text data, often scraped from the internet or sourced from copyrighted books. Authors and publishers have sued AI companies for copyright infringement, arguing that using their works without permission is illegal. The fair use doctrine is a key defense, but courts have diverged on its applicability to AI training.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://www.linkedin.com/posts/nategarhart_pirated-data-and-fair-use-a-fault-line-in-activity-7340971878926229505-loee">Judge Alsup's view on AI training data and copyright | LinkedIn</a></li>
+<li><a href="https://theleaflet.in/digital-rights/law-and-technology/bartz-v-anthropic-all-you-need-to-know-about-the-largest-copyright-settlement-in-history">Bartz v. Anthropic: All you need to know about the largest copyright ...</a></li>
+<li><a href="https://briefly.co/tag/ai-training-data"># ai - training - data tag - Briefly</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#AI`, `#copyright`, `#legal`, `#Anthropic`
+
+---
+
+<a id="item-17"></a>
+## [RoboSense Launches E2 Solid-State Perception Platform for Physical AI](https://36kr.com/p/3903885834028931?f=rss) ⭐️ 6.0/10
+
+RoboSense released its second-generation all-solid-state perception platform E2 at WAIC 2026, based on the self-developed 'Peacock' SPAD-SoC chip and 2D VCSEL chip, offering three times the accuracy of its predecessor. E2 provides high-precision 3D spatial data essential for physical AI, enabling robots to understand and interact with the real world more effectively, which is critical for scaling embodied intelligence in complex environments. The E2 platform integrates signal transmission and data processing at the chip level using a fully solid-state architecture, achieving a wider field of view and three times the accuracy of the previous generation. It has already secured orders from lawn mowing robots, humanoid robots, and consumer electronics companies.
+
+rss · 36氪 · Jul 21, 01:05
+
+**Background**: Physical AI requires high-fidelity 3D spatial data for robots to perceive depth, distance, and object interactions, which traditional 2D vision sensors cannot reliably provide. SPAD-SoC chips integrate single-photon avalanche diode arrays with processing circuits on a single chip, enabling compact, high-performance LiDAR. RoboSense's self-developed 'Peacock' chip follows this approach to serve as a standardized digital perception base.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://blog.csdn.net/Fun_LiDAR/article/details/148650542">SPAD - SOC -CSDN博客</a></li>
+<li><a href="https://www.elecfans.com/d/7413342.html">高集成度、全数字化架构！ SPAD - SoC 优势和技术路线-电子发烧友网</a></li>
+<li><a href="https://wap.eastmoney.com/a/202607183811463517.html">未来算力要靠光， AI 必须“摔杯撞墙”，WAIC放出三大核心预言</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#激光雷达`, `#物理AI`, `#全固态感知`, `#机器人`, `#SPAD-SoC`
+
+---
+
+<a id="item-18"></a>
+## [Jushi Intelligence Launches First Embodied Semantic AI System](https://36kr.com/newsflashes/3904943542617993?f=rss) ⭐️ 6.0/10
+
+Jushi Intelligence has officially released insightOS Semantic, claimed to be the world's first embodied semantic AI agent system, along with a developer ecosystem and training program. This marks a significant step in integrating semantic understanding with physical robotic actions, potentially enabling more intelligent and adaptive automation in real-world industrial scenarios. The system has been validated in multiple real-world scenarios including warehouse picking, palletizing, multi-robot coordination, and scheduled inspections.
+
+rss · 36氪 · Jul 21, 05:13
+
+**Background**: Embodied AI refers to AI systems that interact with the physical world through a body, combining perception, action, and cognition. Semantic AI adds the ability to understand and reason about meaning in context. insightOS Semantic aims to bridge high-level semantic understanding with low-level robot control.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://www.ofweek.com/ai/2025-07/ART-201717-8110-30666688.html">一文读懂：到底什么是 “ 具 身 智 能 ” ？ - OFweek 人工 智 能 网</a></li>
+<li><a href="https://www.gankinterview.cn/blog/embodied-ai-interview-when-large-models-are-integrated-into-robots-what-new-know">具 身 智 能 (Embodied AI)... | Gank Interview</a></li>
+<li><a href="https://news.qq.com/rain/a/20251121A047RW00">news.qq.com/rain/a/20251121A047RW00</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#embodied AI`, `#semantic system`, `#robotics`, `#AI system`
 
 ---
 
 <a id="item-19"></a>
-## [Tencent Hunyuan Launches Self-Improving Agent Hyra-1.0](https://36kr.com/newsflashes/3904868157687432?f=rss) ⭐️ 6.0/10
+## [Tencent Hunyuan Launches Self-Improving AI Agent Hyra-1.0](https://36kr.com/newsflashes/3904868157687432?f=rss) ⭐️ 6.0/10
 
-On July 21, Tencent Hunyuan released Hyra-1.0, the first version of its Hunyuan Research Agent (Hyra), which features recursive self-improvement for performance-driven research and engineering tasks. Hyra-1.0 represents a significant step in AI agent development, as recursive self-improvement is considered a key pathway toward superintelligence, and its application in gaming, design, and content creation could accelerate innovation across multiple industries. Hyra-1.0 can recursively improve its solutions through self-play, self-evaluation, and user feedback, and it is designed for open scenarios beyond model R&D, including gaming, design, and content creation.
+On July 21, Tencent Hunyuan released Hyra-1.0, a recursive self-improving agent designed for performance-oriented research and engineering tasks. It can also be applied to open scenarios like gaming, design, and content creation. Hyra-1.0 represents a significant step toward autonomous AI agents that can iteratively enhance their own capabilities, potentially accelerating research and creative workflows. Its self-improvement mechanism could reduce human intervention in complex tasks. Hyra-1.0 uses self-play, self-evaluation, and user feedback to continuously iterate its strategies. The agent is built on Tencent's Hunyuan platform, which also includes text-to-3D generation capabilities.
 
 rss · 36氪 · Jul 21, 04:34
 
-**Background**: Recursive self-improvement refers to an AI system's ability to iteratively enhance its own performance without human intervention, a concept often linked to the pursuit of artificial general intelligence (AGI). Tencent Hunyuan is the AI research division of Tencent, known for developing large language models and agent systems. Hyra-1.0 builds on this foundation by adding self-improvement capabilities to tackle complex research and engineering problems.
+**Background**: Recursive self-improvement (RSI) is a concept where an AI system enhances its own intelligence without human intervention, potentially leading to an intelligence explosion. Frameworks like Gödel Agent have explored this idea, enabling agents to recursively improve themselves without fixed algorithms. Tencent's Hyra-1.0 applies this concept to practical research and engineering tasks.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://phemex.com/news/article/tencent-hunyuan-unveils-hyra10-a-selfimproving-research-agent-93985">Tencent Hunyuan Launches Self-Improving Agent Hyra-1.0 ...</a></li>
-<li><a href="https://x.com/TencentHunyuan/status/2079416748483440755">Introducing Hyra-1.0, the first version of Hunyuan Research ...</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Recursive_self-improvement">Recursive self - improvement - Wikipedia</a></li>
+<li><a href="https://arxiv.org/abs/2410.04444">[2410.04444] Gödel Agent : A Self -Referential Agent Framework for...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI agent`, `#Tencent`, `#research`, `#self-improvement`
+**Tags**: `#AI agent`, `#Tencent`, `#self-improvement`, `#research`
 
 ---
 
 <a id="item-20"></a>
-## [Furtex Linux Toolkit Uses io_uring and eBPF to Evade EDR and Falco](https://news.google.com/rss/articles/CBMiVkFVX3lxTE95ZEp2cGFnVUZwVVpHNkhabTVzNTFuY2Zsa1V1eGZmaHVVbjlGNXZOc1RwMnYyVlI2UEFKcVktN0ZhYlpvMVEwQm9YN2JEZkN0Zkw5LXZn0gFbQVVfeXFMUFZjeWxiak1MN1ZnTmpkbW5ra3lGbi00U3Z2Z0RwRDZDNTlLMF9jM0dFTnNKMkFabVA0N213WTlla1k3d0E1NkJZQ3MtMTZUdWY2MmZhSzRKSXV2OA?oc=5) ⭐️ 6.0/10
+## [MCP Protocol Update Simplifies Session Management](https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/) ⭐️ 5.0/10
 
-A new Linux toolkit called Furtex has been discovered that leverages io_uring and eBPF to bypass Endpoint Detection and Response (EDR) systems and Falco runtime security monitoring. This toolkit demonstrates a sophisticated evasion technique that could be used by attackers to hide malicious activities, posing a significant challenge to Linux security defenses. Furtex uses io_uring for asynchronous I/O to avoid triggering syscall-based detection, and eBPF to manipulate kernel behavior without loading kernel modules.
+The Model Context Protocol (MCP) is adopting a stateless approach to session IDs on the server side, making it easier to use and scale. This change reduces a key technical headache that has slowed large-scale MCP integrations, potentially accelerating the deployment of AI agents connected to external data and services. The update moves MCP toward a stateless session ID system, similar to how most ordinary websites work, eliminating the need for servers to maintain session state.
 
-google_news · gbhackers.com · Jul 20, 06:39
+rss · TechCrunch AI · Jul 20, 20:50
 
-**Background**: io_uring is a Linux kernel interface for efficient asynchronous I/O, while eBPF allows safe execution of user-defined programs in the kernel. Falco is an open-source runtime security tool that monitors syscalls and other events to detect threats. By combining these technologies, Furtex can evade detection that relies on traditional syscall interception.
+**Background**: MCP (Model Context Protocol) is a key protocol for securely connecting AI models to external data and services. Previously, MCP used stateful session IDs that required servers to track session state, complicating scaling. Stateless protocols treat each request independently, simplifying infrastructure.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Io_uring">Io uring</a></li>
-<li><a href="https://en.wikipedia.org/wiki/EBPF">EBPF</a></li>
-<li><a href="https://falco.org/">Falco</a></li>
+<li><a href="https://bitcoinworld.co.in/mcp-protocol-update-stateless-session-ids/">AI ’s Most Important Protocol Is Getting A Little Bit Easier To Use</a></li>
+<li><a href="https://ai-manual.ru/article/mcp-stanovitsya-stateless-kak-obnovlenie-protokola-uproschaet-infrastrukturu-ai-agentov/">MCP становится stateless : как обновление протокола... | AiManual</a></li>
+<li><a href="https://modelcontextprotocol.io/specification/2025-06-18/basic/transports">Transports - Model Context Protocol</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Linux Security`, `#eBPF`, `#io_uring`, `#EDR Bypass`
+**Tags**: `#AI protocol`, `#stateless`, `#incremental update`
+
+---
+
+<a id="item-21"></a>
+## [RealAI Raises Hundreds of Millions in Series B for Safe LLMs](https://36kr.com/newsflashes/3904854381463168?f=rss) ⭐️ 5.0/10
+
+RealAI, an AI safety company, has completed Series B1 and B2 rounds totaling hundreds of millions of yuan, with investors including Xinglian Capital, China Merchants Group's Digital Trade Fund, and others. The funds will be used for continued R&D and industrial deployment of secure and trustworthy large model systems. This funding highlights the growing importance of AI safety and trustworthiness in the large model ecosystem, especially in China. As large language models become more prevalent, ensuring their security and reliability is critical for enterprise adoption and regulatory compliance. RealAI's Series B consists of two tranches (B1 and B2), though the exact amounts per tranche were not disclosed. The company focuses on developing secure and trustworthy large model systems, addressing risks such as adversarial attacks, data poisoning, and model misuse.
+
+rss · 36氪 · Jul 21, 03:43
+
+**Background**: Large language models (LLMs) like GPT-4 have shown remarkable capabilities but also pose safety risks, including generating harmful content or being manipulated by malicious inputs. AI safety companies like RealAI aim to build defenses that make these models more robust and trustworthy. The Chinese government has also emphasized the need for secure and controllable AI development.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://36kr.com/p/2442556869793672">大 模 型 的阴面：无法忽视的 安 全 隐忧-36氪</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#AI safety`, `#funding`, `#large language models`, `#China`
+
+---
+
+<a id="item-22"></a>
+## [China's AI Strategy: Commoditize Complements, Leverage Robotics](https://marginalrevolution.com/marginalrevolution/2026/07/words-of-wisdom-on-chinese-ai-and-our-responses.html?utm_source=rss&utm_medium=rss&utm_campaign=words-of-wisdom-on-chinese-ai-and-our-responses) ⭐️ 5.0/10
+
+Tyler Cowen argues that China's AI strategy is to commoditize complements—making AI models widely available to benefit its lead in robotics and physical-world industries. This strategy could reshape global competition by linking AI advances to manufacturing and robotics, where China already excels, potentially accelerating automation and economic shifts. Cowen notes that Xi Jinping explicitly ties AI openness to moving from digital to physical worlds, and China's robotics lead will massively benefit from widely available AI models.
+
+rss · Marginal Revolution · Jul 20, 21:11
+
+**Background**: The 'commoditize your complement' strategy, popularized by Joel Spolsky and Ben Thompson, involves making complementary products cheap or free to increase demand for your core product. For China, AI models are complements to its robotics and manufacturing strengths. This approach contrasts with the US focus on cutting-edge AI models themselves.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://gwern.net/complement">Laws of Tech: Commoditize Your Complement · Gwern.net</a></li>
+<li><a href="https://www.linkedin.com/pulse/how-chinas-ai-robotics-strategy-could-reshape-aviation-cox-noel-o2t5e">How China ’s AI + Robotics Strategy Could Reshape Aviation by 2035</a></li>
+<li><a href="https://www.defenseone.com/technology/2025/04/chinas-military-aims-harness-coming-chatgpt-robotics/404811/">China ’s military aims to harness the coming ‘ChatGPT for robotics ’</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#Chinese AI`, `#AI strategy`, `#robotics`, `#commoditization`
 
 ---
