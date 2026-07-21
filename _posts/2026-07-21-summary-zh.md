@@ -5,340 +5,330 @@ date: 2026-07-21
 lang: zh
 ---
 
-> 从 142 条内容中筛选出 15 条重要资讯。
+> 从 204 条内容中筛选出 14 条重要资讯。
 
 ---
 
 ## CSIG Camera 备赛雷达
 
-> 面向 CSIG「Camera学术之星」：Diffusion 4K 增强 / 轻量模型 / 赛事动态
+> 面向 CSIG「Camera学术之星」：Diffusion 4K 增强 / 轻量模型 / 赛事动态（检索窗口约 14 天，保底 ≥1 条）
 
-今日无相关动态。
-
----
-## 其他资讯
-
-1. [中国开放权重 AI 策略正在获胜](#item-1) ⭐️ 8.0/10
-2. [arXiv 上 AI 写作比例高达 39%](#item-2) ⭐️ 8.0/10
-3. [本·汤普森提议美国立法合法化 AI 数据抓取](#item-3) ⭐️ 8.0/10
-4. [Sam Altman 2022 年邮件揭示 OpenAI 开源策略](#item-4) ⭐️ 8.0/10
-5. [中国开源权重 AI 模型 Kimi K3 引发硅谷担忧](#item-5) ⭐️ 8.0/10
-6. [AI 在反例生成上超越人类数学家](#item-6) ⭐️ 7.0/10
-7. [谷歌开发新 AI 芯片提升 Gemini 效率](#item-7) ⭐️ 7.0/10
-8. [OpenAI 担忧开放权重模型；美国应担忧吗？](#item-8) ⭐️ 7.0/10
-9. [AI 编程代理大幅降低家用设备逆向工程成本](#item-9) ⭐️ 7.0/10
-10. [NVIDIA 在 SIGGRAPH 上发布智能体与物理 AI](#item-10) ⭐️ 7.0/10
-11. [Hugging Face 遭 AI 代理入侵，用 AI 反击](#item-11) ⭐️ 7.0/10
-12. [NVIDIA 发布面向边缘 AI 的 Cosmos 3 Edge](#item-12) ⭐️ 6.0/10
-13. [中国量子计算初创公司获数亿元融资，打破原子捕获世界纪录](#item-13) ⭐️ 6.0/10
-14. [Furtex 工具包利用 io_uring 和 eBPF 绕过 EDR 与 Falco 检测](#item-14) ⭐️ 6.0/10
-15. [中国 AI 模型因需求过大暂停新订阅](#item-15) ⭐️ 6.0/10
+1. [DiMOO-SR：面向超分辨率的稀有感知离散扩散模型](#item-1) ⭐️ 9.0/10
+2. [生成式追踪器通过持久身份颜色进行多目标追踪](#item-2) ⭐️ 9.0/10
+3. [谷歌研究揭示扩散模型的创造力机制](#item-3) ⭐️ 8.0/10
+4. [三体散射用于一步生成模型](#item-4) ⭐️ 8.0/10
+5. [边缘 AI 加速器实现 15 倍更快的设备端模型适配](#item-5) ⭐️ 8.0/10
 
 ---
-
 <a id="item-1"></a>
-## [中国开放权重 AI 策略正在获胜](https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/) ⭐️ 8.0/10
+## [DiMOO-SR：面向超分辨率的稀有感知离散扩散模型](https://arxiv.org/abs/2607.17612v1) ⭐️ 9.0/10
 
-这一转变可能重塑全球 AI 格局，使先进 AI 更易获取，并减少 OpenAI 和 Anthropic 等昂贵专有模型的市场份额。 开放权重模型并非完全开源；它们允许免费下载和使用，但通常需要为托管付费。文章称 80%的初创公司使用中国模型，但一些评论者对此提出质疑。
+研究人员提出了 DiMOO-SR，一种用于逼真图像超分辨率的稀有感知离散扩散框架，在训练中引入逆频率采样（IFS），在推理中引入空间一致性排序（SCR），以解决长尾 token 分布和并行解码伪影问题。 这项工作弥合了离散扩散与图像超分辨率之间的差距，实现了高效的并行解码，同时保留了稀有但感知上关键的纹理，有望推动多模态模型中的生成式图像修复。 DiMOO-SR 在真实世界超分辨率基准上仅需少量并行解码步骤即可达到有竞争力的感知质量。代码将在论文发表后开源。
 
-hackernews · benwerd · 7月20日 14:21 · [社区讨论](https://news.ycombinator.com/item?id=48979269)
+rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · 7月20日 07:01
 
-**背景**: 开放权重模型公开发布其训练参数，使任何人都能在自己的基础设施上运行、微调和定制。这与 GPT-4 等专有模型形成对比，后者只能通过 API 访问并由开发者控制。历史上，免费和低端解决方案（如 Linux vs. Unix）往往主导市场。
+**背景**: 连续扩散模型主导图像超分辨率，但依赖于信号级去噪和外部条件。离散扩散模型在离散视觉 token 上操作，支持非因果并行预测，但面临长尾 token 分布和并行解码中的空间不一致性等挑战。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://openai.com/global-affairs/open-weights-and-ai-for-all/">Open weights and AI for all | OpenAI</a></li>
-<li><a href="https://hai.stanford.edu/ai-definitions/what-is-an-open-weight-model">What is an Open-Weight Model? - Stanford HAI</a></li>
-<li><a href="https://medium.com/@simplenight/open-source-vs-proprietary-ai-models-whos-winning-the-race-in-2025-1370ef81e4bc">Open Source vs Proprietary AI Models: Who’s Winning the Race in 2025? | by Simplenight | Medium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Discrete_diffusion_model">Discrete diffusion model</a></li>
+<li><a href="https://arxiv.org/abs/2310.16834">Discrete Diffusion Modeling by Estimating the Ratios of the Data ...</a></li>
+<li><a href="https://medium.com/@cartelgouabou/mastering-long-tailed-distribution-in-deep-learning-for-image-classification-solutions-unveiled-63e00d2a1924">Mastering Long - Tailed Distribution in Deep Learning for... | Medium</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 评论者普遍同意开放权重模型将占主导地位，但有人质疑 80%初创公司使用中国模型的说法，指出他们自己的经验中使用的是美国模型。其他人强调开放权重并非真正的开源，推理成本仍然可能很高。
-
-**标签**: `#AI`, `#open-source`, `#open-weights`, `#China`, `#market dynamics`
+**标签**: `#diffusion image enhancement`, `#generative image restoration`, `#image super-resolution`, `#discrete diffusion`, `#visual tokens`
 
 ---
 
 <a id="item-2"></a>
-## [arXiv 上 AI 写作比例高达 39%](https://unslop.run/blog/measuring-ai-writing-on-arxiv) ⭐️ 8.0/10
+## [生成式追踪器通过持久身份颜色进行多目标追踪](https://arxiv.org/abs/2607.17120v1) ⭐️ 9.0/10
 
-一项研究使用调校过的检测器测量了 arXiv 上 AI 生成的文本，发现到 2026 年 1 月，39%的论文被标记为机器写作，其中计算机科学领域高达 65%，而数学领域仍接近 0.7%。 这量化了 AI 写作在学术出版中的快速渗透，引发了对研究诚信和同行评审可靠性的担忧，尤其是在计算机科学等采用率最高的领域。 该检测器经过调校以避免误报，在 ChatGPT 出现前的检测率仅为 0.4%。该研究分析了 2021 年至 2026 年间的 12,750 篇 arXiv 论文，显示在 ChatGPT 发布后急剧增加。
+研究人员通过上下文 LoRA 微调了一个 22B 参数量的文本到视频扩散模型（LTX-2.3），通过为每个人绘制独特且持久的颜色来实现多目标追踪，消除了传统的检测和关联模块。在 DanceTrack 上，它达到了 40.3 HOTA，其关联分数（AssA 44.1）超过了所有原始基准追踪器。 这项工作通过利用生成式视频模型引入了一种多目标追踪的新范式，有可能统一追踪和视频生成。其独特的错误分布——强关联但弱检测——为改进追踪系统指明了新方向。 该模型通过链式窗口生成长视频，每个窗口以前一个窗口的清理尾部为条件，从而在没有追踪器或运动模型的情况下实现身份持久性。在 383 个挖掘出的遮挡事件中，生成器在间隙后以 42%的条件率重新获取身份，优于得分为零的外观嵌入基线。
 
-hackernews · dopamine_daddy · 7月20日 16:36 · [社区讨论](https://news.ycombinator.com/item?id=48981206)
+rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · 7月19日 08:11
 
-**背景**: arXiv 是一个免费、开放获取的科学预印本库，涵盖物理、数学和计算机科学等领域。AI 生成文本的检测方法从统计分析到深度学习分类器不等，但其可靠性在不同情境下存在差异。
+**背景**: 多目标追踪（MOT）传统上将检测和关联分开，使用外部状态如轨迹缓冲区和运动模型。扩散模型通过迭代去噪随机噪声来生成视频，LoRA 是一种参数高效的微调方法。DanceTrack 是一个专注于追踪外观统一、运动动态的人类的基准，其中关联尤其具有挑战性。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/ArXiv">ArXiv</a></li>
-<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S1574013725000693">AI-generated text detection: A comprehensive review of methods, datasets, and applications - ScienceDirect</a></li>
-<li><a href="https://arxiv.org/html/2403.05750v1">Decoding the AI Pen: Techniques and Challenges in Detecting AI-Generated Text</a></li>
+<li><a href="https://ltx.io/model/ltx-2-3">LTX-2.3: Introducing LTX's Latest AI Video Model | LTX</a></li>
+<li><a href="https://dancetrack.github.io/">DanceTrack : Multi - Object Tracking in Uniform Appearance and...</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 评论者对检测器的有效性表示怀疑，有人指出其 2011 年的论文被评 27%为机器写作，2015 年的论文则高达 74%，表明检测器可能误判人类写作。另一位评论者认为仅凭文本无法可靠检测，因为人类和 LLM 可能写出完全相同的句子。
-
-**标签**: `#AI detection`, `#arXiv`, `#academic integrity`, `#LLM`, `#machine writing`
+**标签**: `#diffusion models`, `#multi-object tracking`, `#generative tracking`, `#video generation`, `#computer vision`
 
 ---
 
 <a id="item-3"></a>
-## [本·汤普森提议美国立法合法化 AI 数据抓取](https://simonwillison.net/2026/Jul/20/afraid-of-chinese-models/#atom-everything) ⭐️ 8.0/10
+## [谷歌研究揭示扩散模型的创造力机制](https://news.google.com/rss/articles/CBMijgFBVV95cUxNY3VzM3I2Y2VHTUM4WG1ydm1uaVI1Q1RSRW05blFtTVZwNVd0bmJoR2EzSTc0OTlpdUk1TXhrbl9QWUNOUE5FZV9uR2VjX090QlNJWE9rX3lCMTJnWHZ5clE2MllZcmFOemhxV3hrOVpPWGVwSmM5emFWMXRUTHJKWXAtU2I3aE9pMmlnTUZn?oc=5) ⭐️ 8.0/10
 
-本·汤普森提议美国通过一项法律，明确将 AI 训练的数据收集视为合理使用，并禁止禁止蒸馏的服务条款，以帮助美国开放模型与中国同行竞争。 该提案解决了 AI 实验室在未经许可数据上训练却禁止蒸馏的虚伪问题，可能重塑美国 AI 政策，以促进创新并提升与 Qwen 等中国开放模型的竞争力。 汤普森还指出，阿里巴巴决定以开放权重发布 Qwen 3.8 Max 可能受到习近平鼓励开源和合作的讲话影响。
+谷歌研究发表了一篇题为《揭开扩散模型创造力之谜》的论文，旨在理解这些模型如何生成超越简单复制的创新性输出。 这项工作揭示了扩散模型（现代生成式 AI 的核心）的创造能力，有望在艺术、设计和科学领域带来更可控、更具创新性的应用。 该研究可能分析了扩散模型的生成过程，识别出有助于创造力的因素，如噪声调度、模型架构和训练数据多样性。
 
-rss · Simon Willison · 7月20日 17:09
+rss · CSIG · Diffusion / 生成式图像恢复 · 7月15日 18:07
 
-**背景**: 模型蒸馏是一种技术，通过 API 查询让小模型从大模型的输出中学习。许多 AI 公司在服务条款中禁止蒸馏，但执行几乎不可能。美国目前缺乏 AI 训练数据的明确版权规则，导致法律不确定性。
+**背景**: 扩散模型是一类生成式 AI，通过逐步将随机噪声去噪为连贯样本来生成数据。它们在图像、视频和音频生成方面取得了最先进的结果。理解其创造力对于推动 AI 在创意领域的应用至关重要。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://medium.com/stream-zero/understanding-the-essentials-of-model-distillation-in-ai-1e97403bee8a">Understanding the Essentials of Model Distillation in AI | Medium</a></li>
-<li><a href="https://www.fbm.com/copyright/publications/ruling-against-fair-use-defense-for-ai-training-seems-to-be-narrow-but-is-it/">Ruling Against Fair Use Defense for AI Training Seems To Be Narrow...</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Diffusion_model">Diffusion model - Wikipedia</a></li>
+<li><a href="https://www.geeksforgeeks.org/artificial-intelligence/what-are-diffusion-models/">What are Diffusion Models? - GeeksforGeeks</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI policy`, `#distillation`, `#open models`, `#copyright`, `#US-China competition`
+**标签**: `#diffusion models`, `#generative AI`, `#Google Research`, `#creativity`, `#image generation`
 
 ---
 
 <a id="item-4"></a>
-## [Sam Altman 2022 年邮件揭示 OpenAI 开源策略](https://simonwillison.net/2026/Jul/20/sam-altman/#atom-everything) ⭐️ 8.0/10
+## [三体散射用于一步生成模型](https://arxiv.org/abs/2607.18198v1) ⭐️ 8.0/10
 
-在 2026 年 Musk 诉 Altman 案中曝光的一封 2022 年邮件显示，Sam Altman 向 OpenAI 董事会提议发布一个能在消费级硬件上本地运行的 GPT-3 级别模型，以抢先于 Stability AI 等竞争对手。 这一披露罕见地揭示了 OpenAI 在开源模型方面的战略思考，表明他们曾考虑发布强大的本地模型以阻止竞争对手并阻碍对手获得融资。 这封日期为 2022 年 10 月 1 日的邮件称，OpenAI 希望“在 Stability 或其他公司之前”尽快发布这样的模型，并指出发布 GPT-3 级别的本地模型将“使新项目更难获得资金”。
+研究者提出三体散射建模（TBSM），一种新颖的一步生成方法，利用分布能量诱导样本级运动，在 ImageNet-256 上使用像素空间 PixelDiT-XL 实现 FID=2.23，使用潜空间 DiT-XL 实现 FID=1.63，NFE=1。 TBSM 为一步生成提供了新范式，与 Drifting Models 等全对方法相比降低了噪声，可能实现更快、更高效的高质量图像合成，无需迭代采样。 TBSM 将能量距离转化为每个抛射体的恒定大小交互：每个抛射体被吸引到一个真实源，并被一个独立生成的源排斥，使用 O(B)个样本级损失，而非小批量全对场。
 
-rss · Simon Willison · 7月20日 03:47
+rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · 7月20日 17:38
 
-**背景**: GPT-3 是一个拥有 1750 亿参数的大型语言模型，通常需要云服务器才能运行。在消费级硬件上运行这样的模型需要大量优化或使用更小的变体。Stability AI 以其开源图像模型 Stable Diffusion 而闻名，展示了开源 AI 的力量。
+**背景**: 扩散模型等生成模型通常需要多次迭代步骤才能生成高质量样本。一步生成旨在通过单次前向传播生成样本，速度更快但通常精度较低。能量距离是衡量两个概率分布差异的统计度量。物理学中的三体问题描述三个质点在相互引力作用下的运动，TBSM 借用这一概念来建模生成样本、真实样本和参考样本之间的交互。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://huggingface.co/openai/gpt-oss-20b">openai/ gpt -oss-20b · Hugging Face</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Stability_AI">Stability AI</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Three-body_problem">Three-body problem - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Energy_distance">Energy distance</a></li>
+<li><a href="https://lizhidan00.github.io/files/optimization/B-Wasserstein+gradient+flow.pdf">Lecture B. Wasserstein Gradient Flow</a></li>
 
 </ul>
 </details>
 
-**标签**: `#open-source`, `#AI strategy`, `#GPT-3`, `#OpenAI`, `#local deployment`
+**标签**: `#generative modeling`, `#one-step generation`, `#Wasserstein gradient flow`, `#energy distance`, `#efficient diffusion`
 
 ---
 
 <a id="item-5"></a>
-## [中国开源权重 AI 模型 Kimi K3 引发硅谷担忧](https://news.google.com/rss/articles/CBMivwFBVV95cUxQMlJnTkVuaFpUS2lJMmx0NTJ5bHl1bFVHcVY3Y29HeV91TnZyRG9YYTc0bzNNN3prYzJVTlFXTUR2cWU3LTdZSXllMkVPNzg3QkFfRUNFa2IxaXRCY3BfUXBtY3RUTEtkektxSjFDbE9SbmRUT0hpY25MYXl6bUhmYVNZMmtJdUVzbk45SzdIOXFGc1hnd056SUx5bnZraXVEdlFDRG5kMFRKbTBIYUhIY1NQMWJUQk9zWnpfUzFwZ9IBvwFBVV95cUxOR2dfd2M4Q0NzVG9oVWxjTnpuTlhCU3JLb0hpWkozdjlzR2FubkpiMXRsa19wbjFFcmxxOEJ4WHVhVUxWZHo0am1sb2ZlUlpGODE2eW1IZVB3ZnZhekJkM3dPd0E1dlRiN0dxS2NEUkkySnNzeldiYzRaQkpGR2JaWlN3WDRxMDhweWlCY2JJd0hxTGtwOVJTVjExZ01nSjdRZklybTF5XzJLbkdqYXJxa3BnaTN3SEtwNUdyYjk1WQ?oc=5) ⭐️ 8.0/10
+## [边缘 AI 加速器实现 15 倍更快的设备端模型适配](https://arxiv.org/abs/2607.18101v1) ⭐️ 8.0/10
 
-中国 AI 初创公司 Moonshot AI 发布了开源权重的大语言模型 Kimi K3，该模型拥有 100 万 token 的上下文窗口和具有竞争力的性能，引发了硅谷的焦虑。 Kimi K3 的开源权重特性和强大性能挑战了美国前沿模型的主导地位，可能加速 AI 商品化并改变竞争格局。 Kimi K3 拥有 100 万 token 的上下文窗口，专为长周期编程和知识工作设计。它是同样开源权重的 Kimi K2 的后续版本。
+研究人员提出了一种异构适配流水线，利用 Hailo-8L 边缘 AI 加速器进行冻结主干特征提取，在树莓派 5 上实现了高达 15.4 倍的训练加速并降低了能耗。 这项工作使资源受限的边缘设备上的模型适配变得可行，实现了无需依赖云端的终身个性化。它证明了仅用于推理的加速器可被重新用于高效训练，为边缘 AI 开辟了新的可能性。 该流水线对模型进行分区：量化为 INT8 的主干网络在 Hailo-8L 加速器上运行，而轻量级 FP32 分类头在主机 CPU 上进行微调。训练后量化恢复对于保持特征质量和减轻量化敏感架构的精度损失至关重要。
 
-google_news · South China Morning Post · 7月20日 14:00
+rss · CSIG · arXiv cs.CV（增强/恢复/Diffusion） · 7月20日 16:02
 
-**背景**: 开源权重模型会发布训练好的神经网络权重，允许他人微调和部署。中国一直在积极发布具有竞争力的开源权重模型，挑战美国的 AI 领导地位。
+**背景**: 设备端模型适配允许 AI 模型在边缘设备上随时间进行个性化，但传统的端到端反向传播对于资源受限的硬件来说计算量过大。Hailo-8L 是一款低成本、无 DRAM 的边缘 AI 加速器，专为高效推理设计。冻结主干特征提取使用预训练模型的早期层作为固定特征提取器，降低了训练成本。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Kimi_(chatbot)">Kimi (chatbot) - Wikipedia</a></li>
-<li><a href="https://platform.kimi.ai/docs/guide/kimi-k3-quickstart">Kimi K3 - Kimi API Platform</a></li>
-<li><a href="https://www.kimi.com/">Kimi AI with K3 | Built for Agentic Coding & Knowledge Work</a></li>
+<li><a href="https://hailo.ai/products/ai-accelerators/hailo-8l-ai-accelerator-for-ai-light-applications/">Hailo-8L AI Accelerator | Low-Cost DRAM-Free Edge AI Chip</a></li>
+<li><a href="https://link.springer.com/article/10.1007/s00371-026-04378-1">Enhancing RGB-IR object detection: a frozen backbone approach with multi-receptive field attention | The Visual Computer | Springer Nature Link</a></li>
+<li><a href="https://arxiv.org/pdf/2204.00484">Proper Reuse of Image Classification Features Improves Object Detection</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 评论者争论开源权重模型是否会商品化 AI，一些人认为前沿实验室仍因略优性能而享有溢价。其他人注意到快速的热点周期，并暗示可能接近平台期。
+**标签**: `#edge AI`, `#on-device adaptation`, `#model efficiency`, `#Hailo-8L`, `#heterogeneous computing`
 
-**标签**: `#AI`, `#open-weight`, `#Kimi K3`, `#China`, `#Silicon Valley`
+---
+
+## 其他资讯
+
+6. [中国开源 AI 模型威胁西方估值](#item-6) ⭐️ 8.0/10
+7. [AI 在寻找数学反例方面超越人类](#item-7) ⭐️ 8.0/10
+8. [黑客清空罗马尼亚全部土地登记数据库](#item-8) ⭐️ 8.0/10
+9. [中国开源权重 AI 模型 Kimi K3 引发硅谷担忧](#item-9) ⭐️ 8.0/10
+10. [NVIDIA 推出 Cosmos 3 Edge 用于设备端 AI](#item-10) ⭐️ 7.0/10
+11. [谷歌开发新 AI 芯片提升 Gemini 效率](#item-11) ⭐️ 7.0/10
+12. [OpenAI 担忧开源权重模型，美国讨论禁令](#item-12) ⭐️ 7.0/10
+13. [AI 编码代理大幅降低逆向工程成本](#item-13) ⭐️ 7.0/10
+14. [Furtex Linux 工具包利用 io_uring 和 eBPF 绕过 EDR 和 Falco 检测](#item-14) ⭐️ 6.0/10
 
 ---
 
 <a id="item-6"></a>
-## [AI 在反例生成上超越人类数学家](https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/) ⭐️ 7.0/10
+## [中国开源 AI 模型威胁西方估值](https://stratechery.com/2026/whos-afraid-of-chinese-models/) ⭐️ 8.0/10
 
-AI 系统现在能够为数学猜想生成反例，这可能节省人类数学家的时间，并改变人类证明的角色。 这一进展可以通过快速证伪错误猜想加速数学研究，使数学家能够专注于更有前景的方向。同时也引发了关于人类直觉和创造力在数学中未来角色的思考。 文章讨论了 AI 生成反例正变得越来越普遍，可能超越人类发现反例的能力。这可能导致 AI 处理证伪猜想的“苦力活”，而人类专注于更深刻的洞察。
+中国实验室免费发布高质量的开源 AI 模型，削弱了 OpenAI 和 Anthropic 等西方实验室的高价 API 策略。 这迫使价格战，威胁到依赖高价策略的西方 AI 实验室的天价估值（如 Anthropic 估值 1.2 万亿美元，OpenAI 目标 8500 亿美元）。 文章指出，Claude Code 和 Codex 等工具的用户粘性可能低于预期，用户容易切换，从而削弱了竞争壁垒。
 
-hackernews · artninja1988 · 7月20日 19:03 · [社区讨论](https://news.ycombinator.com/item?id=48983382)
+hackernews · mfiguiere · 7月20日 11:05 · [社区讨论](https://news.ycombinator.com/item?id=48977128)
 
-**背景**: 在数学中，反例是证伪一般性陈述或猜想的特例。传统上，寻找反例是人类的任务，通常需要深刻的洞察力。AI 搜索巨大组合空间的能力使其非常适合这项任务。
+**背景**: 开源 AI 模型是指源代码和权重公开可用的模型，任何人都可以使用、修改和分发。中国实验室一直在发布具有竞争力的开源模型，挑战西方 AI 公司的闭源高价模式。
 
-**社区讨论**: 评论者普遍认为这是积极的发展，指出它节省了时间和精力。一些人分享了人类数学家因错误猜想浪费多年时间的轶事，另一些人则推测 AI 最终将在所有数学推理中超越人类。
+**社区讨论**: 评论者担心中国模型可能被用于地缘政治影响和数据安全风险，其他人则讨论编码工具的用户粘性以及对风险投资估值的影响。
 
-**标签**: `#AI`, `#mathematics`, `#research`, `#automation`
+**标签**: `#Chinese AI`, `#open-source models`, `#AI market`, `#geopolitics`, `#valuation`
 
 ---
 
 <a id="item-7"></a>
-## [谷歌开发新 AI 芯片提升 Gemini 效率](https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/) ⭐️ 7.0/10
+## [AI 在寻找数学反例方面超越人类](https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/) ⭐️ 8.0/10
 
-据报道，Alphabet 正在开发一款新 AI 芯片，专门用于提高其 Gemini 模型的运行效率。 这款芯片可能减少谷歌对 Nvidia GPU 的依赖，降低运行大型语言模型的成本，使 AI 更易获取。 该芯片很可能是谷歌 TPU 的新一代产品，继 2025 年推出的 Ironwood TPU 之后，其速度比前代快四倍以上。
+Xena 项目的一篇博客文章指出，AI 系统越来越能够为数学猜想生成反例，有时甚至超越人类数学家。这一趋势正在重塑数学研究的方式。 这一发展可以通过快速证伪错误猜想，为数学家节省大量时间，使他们能够专注于更有前景的方向。同时，它也引发了关于人类直觉和创造力在数学中未来角色的思考。 文章提到，一些研究生每月支付 200 美元使用 Sol 和 Fable 等 AI 模型来生成反例。AI 寻找反例的能力被视为对 Lean 等形式化证明助手的补充。
 
-rss · TechCrunch AI · 7月20日 21:21
+hackernews · artninja1988 · 7月20日 19:03 · [社区讨论](https://news.ycombinator.com/item?id=48983382)
 
-**背景**: 自 2016 年以来，谷歌一直在设计名为 TPU 的定制 AI 芯片，以加速机器学习工作负载。最新一代 Ironwood 于 2025 年发布，旨在与 Nvidia 主导的 GPU 竞争。Gemini 是谷歌的大型语言模型系列，提高硬件效率对于规模化部署至关重要。
+**背景**: 在数学中，反例是证伪某个猜想或陈述的具体实例。寻找反例通常比证明猜想为真更容易，因为只需要一个有效的反例。经过数学数据训练的 AI 模型现在可以生成合理的猜想并对其进行测试，从而加速反例的发现。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Tensor_Processing_Unit">Tensor Processing Unit - Wikipedia</a></li>
-<li><a href="https://www.cnbc.com/2025/11/06/google-unveils-ironwood-seventh-generation-tpu-competing-with-nvidia.html">Google's rolling out its most powerful AI chip, taking aim at Nvidia with custom silicon</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Counterexample">Counterexample - Wikipedia</a></li>
+<li><a href="https://arxiv.org/abs/2506.22005">[2506.22005] LeanConjecturer: Automatic Generation of ... Lean Conjecturer: Revolutionizing Mathematics Research LeanConjecturer: Automatic Generation of Mathematical ... Top Stories OpenAI's AI Didn't Solve A Math Problem—It Broke A Theory An OpenAI model has disproved a central conjecture in ... A New Breakthrough in AI Solving Mathematical Conjectures ... AI Solved A Mathematical Problem That Had Stumped ... - Forbes</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI chip`, `#Gemini`, `#efficiency`, `#Google`, `#hardware`
+**社区讨论**: 评论者普遍认为这是一个积极的发展，指出它可以节省时间和精力。一位评论者将其与民间传说《约翰·亨利》相提并论，质疑人类是否还能在提供优雅证明方面胜过机器。另一位分享了一个关于数学家因错误猜想而职业生涯受挫的警示性轶事，暗示 AI 可以防止此类悲剧。
+
+**标签**: `#AI`, `#mathematics`, `#research methodology`, `#counterexamples`
 
 ---
 
 <a id="item-8"></a>
-## [OpenAI 担忧开放权重模型；美国应担忧吗？](https://techcrunch.com/2026/07/20/openai-is-scared-of-open-weight-models-should-the-us-be/) ⭐️ 7.0/10
+## [黑客清空罗马尼亚全部土地登记数据库](https://news.risky.biz/risky-bulletin-hacker-wipes-romanias-entire-land-registry-database/) ⭐️ 8.0/10
 
-TechCrunch 上的一篇文章讨论了美国关于禁止中国制造的开放权重大语言模型（LLM）的辩论，凸显了开源 AI 与商业利益之间的紧张关系。 这场辩论可能影响美国 AI 政策，进而影响开放权重模型的可用性以及全球 AI 开发的竞争格局。 开放权重模型的参数公开可用，任何人都可以下载和使用，这与 OpenAI 的 GPT-4 等闭源模型形成对比。
+一名黑客在勒索未遂后入侵罗马尼亚国家地籍与房地产广告局（ANCPI），清空了整个土地登记数据库，导致全国所有房产交易停滞。 此事件使罗马尼亚房地产市场瘫痪并威胁到产权记录，凸显了离线备份和安全政府 IT 系统的关键必要性。 官员们正在从离线备份中恢复数据，并将应用程序迁移至罗马尼亚政府云，由特别电信服务局（STS）协调，预计于 2026 年 7 月 22 日完成。
 
-rss · TechCrunch AI · 7月20日 19:33
+hackernews · speckx · 7月20日 13:28 · [社区讨论](https://news.ycombinator.com/item?id=48978605)
 
-**背景**: 大语言模型（LLM）是在海量文本数据上训练的 AI 系统，能够生成类似人类的文本。开放权重模型发布训练好的权重，允许定制和本地部署，但也引发了对滥用和国家安全的担忧。
+**背景**: ANCPI 运营着支撑罗马尼亚所有房产交易的 e-Terra 系统。黑客被确认为来自阿尔及利亚的 Zakaria Mahdjoub，声称也删除了备份，但一份离线副本幸存。阿尔及利亚与罗马尼亚签有引渡条约。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://medium.com/@kimanited73/open-weight-models-f504be677b1c">Open Weight Models . What are they, and why should you... | Medium</a></li>
-<li><a href="https://en.wikipedia.org/wiki/LLM">LLM</a></li>
+<li><a href="https://cybernews.com/security/hacker-deletes-romanian-land-registry-database/">Hacker deletes country’s entire land registry database after ...</a></li>
+<li><a href="https://byteiota.com/romania-land-registry-hack-wipe/">Romania’s Land Registry Was Wiped. One Backup Saved It.</a></li>
+<li><a href="https://news.risky.biz/risky-bulletin-hacker-wipes-romanias-entire-land-registry-database/">Hacker wipes Romania's entire land registry database</a></li>
 
 </ul>
 </details>
 
-**标签**: `#open-weight models`, `#AI policy`, `#LLM`, `#geopolitics`, `#open source`
+**社区讨论**: 评论者对存在离线备份感到欣慰，避免了土地所有权方面的社会混乱。一些罗马尼亚用户将此次入侵归咎于政府 IT 合同中的腐败，其他人则关注黑客身份及引渡问题。
+
+**标签**: `#cybersecurity`, `#data breach`, `#infrastructure`, `#hacking`, `#Romania`
 
 ---
 
 <a id="item-9"></a>
-## [AI 编程代理大幅降低家用设备逆向工程成本](https://simonwillison.net/2026/Jul/20/cheap-reverse-engineering/#atom-everything) ⭐️ 7.0/10
+## [中国开源权重 AI 模型 Kimi K3 引发硅谷担忧](https://news.google.com/rss/articles/CBMivwFBVV95cUxQMlJnTkVuaFpUS2lJMmx0NTJ5bHl1bFVHcVY3Y29HeV91TnZyRG9YYTc0bzNNN3prYzJVTlFXTUR2cWU3LTdZSXllMkVPNzg3QkFfRUNFa2IxaXRCY3BfUXBtY3RUTEtkektxSjFDbE9SbmRUT0hpY25MYXl6bUhmYVNZMmtJdUVzbk45SzdIOXFGc1hnd056SUx5bnZraXVEdlFDRG5kMFRKbTBIYUhIY1NQMWJUQk9zWnpfUzFwZ9IBvwFBVV95cUxOR2dfd2M4Q0NzVG9oVWxjTnpuTlhCU3JLb0hpWkozdjlzR2FubkpiMXRsa19wbjFFcmxxOEJ4WHVhVUxWZHo0am1sb2ZlUlpGODE2eW1IZVB3ZnZhekJkM3dPd0E1dlRiN0dxS2NEUkkySnNzeldiYzRaQkpGR2JaWlN3WDRxMDhweWlCY2JJd0hxTGtwOVJTVjExZ01nSjdRZklybTF5XzJLbkdqYXJxa3BnaTN3SEtwNUdyYjk1WQ?oc=5) ⭐️ 8.0/10
 
-Simon Willison 认为，AI 编程代理使得逆向工程家用设备的成本大幅降低，足以变得值得投入，显著降低了投资回报率门槛和维护负担。 这一转变使得爱好者和开发者能够以更少的精力自动化更多家用设备，可能加速智能家居生态系统的发展，并减少对专有 API 的依赖。 关键洞察在于，编程代理既降低了实现简单自动化的初始工作量，也降低了未来维护的心理成本，因为代码现在足够便宜，可以丢弃并重写。
+中国 AI 初创公司 Moonshot AI 于 2026 年 7 月发布了开源权重的 Kimi K3 模型，该模型拥有 2.8 万亿参数和 100 万 token 的上下文窗口。 Kimi K3 的竞争性表现和开源权重特性允许任何人下载并在本地运行，挑战了美国科技巨头的统治地位，并引发了对 AI 安全和地缘政治竞争的担忧。 Kimi K3 采用名为 Kimi Delta Attention (KDA)的混合线性注意力机制和 Attention Residuals，能够高效处理长上下文。它专为智能编码和知识工作而设计。
 
-rss · Simon Willison · 7月20日 19:24
+google_news · South China Morning Post · 7月20日 14:00
 
-**背景**: 逆向工程家用设备涉及分析未文档化的 API 或协议，以通过编程方式控制它们。传统上，这需要大量精力和持续维护，使得小型项目缺乏吸引力。AI 编程代理能够根据自然语言描述生成代码，大幅降低了这一成本。
+**背景**: 开源权重模型公开发布训练后的神经网络权重，允许用户在自有硬件上运行模型。与 GPT-4 等封闭模型不同，开源权重模型支持定制和离线使用，但也引发了对滥用的担忧。Kimi K3 是中国 AI 模型系列中的最新产品，其性能已可与美国领先模型相媲美。
 
-**标签**: `#reverse-engineering`, `#coding agents`, `#automation`, `#cost of code`
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Kimi_K3">Kimi K3</a></li>
+<li><a href="https://platform.kimi.ai/docs/guide/kimi-k3-quickstart">Kimi K3 - Kimi API Platform</a></li>
+<li><a href="https://hai.stanford.edu/ai-definitions/what-is-an-open-weight-model">What is an Open-Weight Model? - Stanford HAI</a></li>
+
+</ul>
+</details>
+
+**标签**: `#AI`, `#open-weight model`, `#China`, `#Silicon Valley`, `#Kimi K3`
 
 ---
 
 <a id="item-10"></a>
-## [NVIDIA 在 SIGGRAPH 上发布智能体与物理 AI](https://news.google.com/rss/articles/CBMiXkFVX3lxTFB5OFAwb0RQNlFtQ3RCY0Q1ZFlNQjhnZnNGUTVJU2lxdWtpY083SmQzM1E5eTE3YWVmRnNtMnlWN1ZkREx5b1U2T3BBYTRTVmVIVnpwaGxnWXlhOXJCMUE?oc=5) ⭐️ 7.0/10
+## [NVIDIA 推出 Cosmos 3 Edge 用于设备端 AI](https://huggingface.co/blog/nvidia/cosmos3edge) ⭐️ 7.0/10
 
-在 SIGGRAPH 2025 上，NVIDIA 宣布了在图形和仿真领域智能体 AI 与物理 AI 的新进展，包括用于生成式图像修复和高效部署 AI 模型的工具。 这些进展实现了更自主和逼真的仿真，通过改善 AI 与物理环境的交互方式，影响游戏、机器人、自动驾驶等行业。 智能体 AI 指能够自主追求目标并使用工具的 AI 代理，而物理 AI 则将 AI 与机器人、传感器等硬件集成，以与现实世界交互。
+NVIDIA 发布了 Cosmos 3 Edge，这是一个拥有 40 亿参数的小型语言模型，专为机器人和自动驾驶汽车等边缘设备上的实时推理而优化。 该版本使得在资源受限的硬件上直接进行强大的物理 AI 推理成为可能，通过将数据保留在设备端来降低延迟并增强隐私，这对自主系统和机器人技术至关重要。 Cosmos 3 Edge 是 Cosmos 3 系列的一部分，针对必须在不依赖数据中心的情况下感知、推理和行动的计算受限模块，可实现低至 5-15 毫秒的首 token 延迟。
 
-google_news · NVIDIA Blog · 7月20日 15:02
+rss · Hugging Face Blog · 7月20日 15:58
 
-**背景**: 智能体 AI 是一类智能代理，能在人类定义的目标内以不同程度的自主性运行。物理 AI 涉及使用运动技能理解并与现实世界交互的模型，通常部署在机器人或自动驾驶汽车等自主机器中。
+**背景**: 小型语言模型（SLM）通常参数规模在 5 亿到 140 亿之间，旨在高效运行在消费级硬件或边缘设备上。设备端推理消除了网络跳转，提高了响应速度和数据隐私。NVIDIA 的 Cosmos 3 是一个面向物理 AI 的开放前沿基础模型，将语言与图像和视频相结合，实现更深入的物理推理。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Agentic_AI">Agentic AI</a></li>
-<li><a href="https://grokipedia.com/page/Physical_AI">Physical AI</a></li>
-<li><a href="https://www.nvidia.com/en-us/glossary/generative-physical-ai/">What is Physical AI? | NVIDIA Glossary</a></li>
+<li><a href="https://research.nvidia.com/labs/cosmos-lab/cosmos3/">Cosmos 3 — Cosmos Lab - research.nvidia.com</a></li>
+<li><a href="https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai">NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model ...</a></li>
+<li><a href="https://kie.ai/blog/what-is-cosmos-3-edge">What Is Cosmos 3 Edge? NVIDIA's 4B Robot Model - kie.ai</a></li>
 
 </ul>
 </details>
 
-**标签**: `#NVIDIA`, `#SIGGRAPH`, `#agentic AI`, `#physical AI`, `#graphics`
+**标签**: `#edge AI`, `#small language model`, `#NVIDIA`, `#efficient deployment`
 
 ---
 
 <a id="item-11"></a>
-## [Hugging Face 遭 AI 代理入侵，用 AI 反击](https://news.google.com/rss/articles/CBMirgFBVV95cUxNMmw4ZHI3RFhiYVRfR0dRd1llUEhtY3V0WVRZOFpWR3JFaDlrQ0pWaEl6TF9VdnY2SnRvcUxuS24tM3dtRXVIX05iZ0pfbEtObHctd25hLWJ0THBaZERXaTJkNE9YWjZfOTFvb255ek9ZM0t3a21xamZfWktjZGhtLXM5aVRqWlFWNTdkVWdMUUFiaERJaUs0TkF1T0lJRUxkVk1mcllIWUVKRUlDWXc?oc=5) ⭐️ 7.0/10
+## [谷歌开发新 AI 芯片提升 Gemini 效率](https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/) ⭐️ 7.0/10
 
-Hugging Face 报告称，一个自主 AI 代理入侵了其基础设施，这是已知首次针对主要 AI 平台的端到端 AI 驱动攻击。该公司使用自己的 AI 系统检测并缓解了入侵。 这一事件凸显了网络安全中完全自主 AI 代理的新兴威胁，攻击可以在无需人工干预的情况下执行。同时，它也展示了 AI 驱动的防御潜力，为组织如何应对 AI 驱动的威胁树立了先例。 攻击发生在一个周末，完全自主进行，人类仅作为旁观者。Hugging Face 的 AI 防御系统能够识别并阻止恶意活动，但入侵和响应的具体技术细节尚未完全披露。
+据报道，Alphabet 正在开发一款新的 AI 芯片，专门用于提高其 Gemini 模型的运行效率。 这款芯片可能大幅降低运行 Gemini 的计算成本和能耗，使先进 AI 更易获取且更可持续。 该芯片针对 Gemini 的架构进行了定制，可能比 GPU 等通用硬件提供更高的性能提升。
 
-google_news · the-decoder.com · 7月20日 12:15
+rss · TechCrunch AI · 7月20日 21:21
 
-**背景**: Hugging Face 是一个流行的 AI 模型托管和共享平台，被全球研究人员和公司使用。AI 代理是能够自主执行任务的软件程序，包括利用大语言模型和其他 AI 工具进行网络攻击。这一事件是 AI 驱动网络事件增长趋势的一部分，其他近期案例涉及自主勒索软件和间谍活动。
+**背景**: 谷歌的 Gemini 是一系列多模态大语言模型，与 OpenAI 的 GPT-4 竞争。定制 AI 芯片（如谷歌的 TPU）旨在比通用处理器更高效地加速机器学习工作负载。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://www.rt.com/news/643261-autonomous-ai-agent-system-hacks-major-ai-model-repository/">Autonomous AI agent attacks major model hub — RT World News</a></li>
-<li><a href="https://www.iaps.ai/research/autonomous-cyber-attacks">The Emergence of Autonomous Cyber Attacks: Analysis and Implications — Institute for AI Policy and Strategy</a></li>
-<li><a href="https://cybermagazine.com/news/ai-agents-drive-first-large-scale-autonomous-cyberattack">AI Agents Drive First Large-Scale Autonomous Cyberattack | Cybersecurity Magazine</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gemini_(language_model)">Gemini (language model) - Wikipedia</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/models">Models | Gemini API | Google AI for Developers</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI security`, `#Hugging Face`, `#AI agents`, `#cybersecurity`
+**标签**: `#AI chip`, `#Gemini`, `#hardware efficiency`, `#Google`
 
 ---
 
 <a id="item-12"></a>
-## [NVIDIA 发布面向边缘 AI 的 Cosmos 3 Edge](https://huggingface.co/blog/nvidia/cosmos3edge) ⭐️ 6.0/10
+## [OpenAI 担忧开源权重模型，美国讨论禁令](https://techcrunch.com/2026/07/20/openai-is-scared-of-open-weight-models-should-the-us-be/) ⭐️ 7.0/10
 
-NVIDIA 推出了 Cosmos 3 Edge，这是一个紧凑型开放模型，旨在作为小型视觉语言模型（VLM）和世界动作模型（WAM），用于边缘端的实时推理。 该发布使得在边缘设备上实现实时 AI 推理成为可能，降低了机器人、自动驾驶等安全关键应用的延迟，并将 NVIDIA 的 Physical AI 生态系统扩展到资源受限的环境。 Cosmos 3 Edge 在其尺寸下提供了同类最佳的吞吐量和准确性，并且可以作为后训练的世界动作模型在机器人控制频率下运行。
+一篇 TechCrunch 文章报道称，美国正在辩论是否禁止中国制造的开源权重大型语言模型，凸显了 AI 安全担忧与商业利益之间的紧张关系。 这场辩论可能通过限制对强大开源权重模型的访问来重塑全球 AI 发展，影响依赖自托管 LLM 的研究人员、初创企业和企业。 开源权重模型允许用户下载并在本地运行 AI 模型，与封闭 API 不同。文章暗示，OpenAI 从其专有模型中获利，可能支持对开源权重竞争对手的限制。
 
-rss · Hugging Face Blog · 7月20日 15:58
+rss · TechCrunch AI · 7月20日 19:33
 
-**背景**: 边缘 AI 在设备本地处理数据而非云端，从而为实时应用提供低延迟响应。NVIDIA 的 Cosmos 平台提供开放的世界模型、数据集和工具，用于构建 Physical AI，包括机器人和自主系统。Cosmos 3 Edge 是 Cosmos 3 系列中最小的变体，补充了更大的 Super 和 Nano 模型。
+**背景**: 开源权重模型是公开权重的 AI 模型，允许任何人在自己的硬件上运行。它们与 OpenAI 的 GPT-4 等仅通过 API 访问的封闭模型形成对比。美国政府出于国家安全考虑，正在考虑禁止中国开源权重 LLM。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://huggingface.co/blog/nvidia/cosmos3edge">Introducing Cosmos 3 Edge</a></li>
-<li><a href="https://github.com/nvidia/cosmos">GitHub - NVIDIA/cosmos: NVIDIA Cosmos is an open platform of world models, datasets, and tools that enables developers to build Physical AI for robots, autonomous vehicles, smart infrastructure, and more. · GitHub</a></li>
-<li><a href="https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai">NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI | NVIDIA Newsroom</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Large_language_model">Large language model - Wikipedia</a></li>
+<li><a href="https://github.com/xigh/open-weight-models">GitHub - xigh/open-weight-models: Curated list of open-weight ...</a></li>
 
 </ul>
 </details>
 
-**标签**: `#NVIDIA`, `#edge AI`, `#model release`
+**标签**: `#AI policy`, `#open-weight models`, `#LLMs`, `#geopolitics`
 
 ---
 
 <a id="item-13"></a>
-## [中国量子计算初创公司获数亿元融资，打破原子捕获世界纪录](https://36kr.com/p/3903756643255940?f=rss) ⭐️ 6.0/10
+## [AI 编码代理大幅降低逆向工程成本](https://simonwillison.net/2026/Jul/20/cheap-reverse-engineering/#atom-everything) ⭐️ 7.0/10
 
-清华系量子计算企业两仪万象完成数亿元 A+轮融资，由君联资本领投，并宣布实现了 11000 个原子的捕获，打破了加州理工学院此前保持的 6100 个原子的世界纪录。 此次融资和世界纪录凸显了中国在中性原子量子计算赛道上的竞争力，这是超导和离子阱之外的重要技术路线，也表明投资者对该技术商业化的信心。 该公司第一代原子量子计算机采用光镊囚禁超冷铷原子阵列，单、双比特门保真度追平全球最好水平，并自主研发了集成原子源和光学超表面，用于大规模原子阵列。
+由大型语言模型驱动的编码代理大幅降低了逆向工程和自动化家庭设备所需的成本与精力，使得之前不经济的项目现在变得可行。 这一转变降低了个体和小团队自动化其环境的门槛，可能加速智能家居自动化和自定义集成的普及。同时，它减轻了维护脆弱、无文档 API 的心理负担，因为代码可以低成本重写。 关键洞察在于逆向工程的投资回报率计算方式已经改变：初始工作和持续维护成本现在足够低，即使是短期的自动化也值得。作者指出，编码代理使得尝试和失败的成本很低，消除了对浪费精力的恐惧。
 
-rss · 36氪 · 7月20日 09:08
+rss · Simon Willison · 7月20日 19:24
 
-**背景**: 量子计算旨在解决经典计算机无法处理的问题。中性原子量子计算利用激光捕获和操控单个原子作为量子比特。两仪万象成立于 2024 年，孵化自清华大学原子量子计算研究团队，该团队自 2000 年前后开始冷原子物理研究。
+**背景**: 逆向工程涉及分析设备或软件以理解其内部工作原理，通常用于创建自定义集成或自动化。传统上，这需要大量的人工努力和专业知识，生成的代码往往依赖无文档的 API，这些 API 可能因更新而失效，导致高昂的维护成本。编码代理——能够生成、调试和重构代码的 AI 工具——自动化了大部分分析和代码生成过程，大幅减少了所需的时间和技能。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://www.bjnews.com.cn/detail/1783498123129347.html">冷 原 子 量 子 计 算 北京市重点实验室成立，专访实验室主任翟荟 — 新京报</a></li>
-<li><a href="https://www.163.com/dy/article/L2A10OTS05118DFD.html">163.com/dy/article/L2A10OTS05118DFD.html</a></li>
-<li><a href="https://kfqgw.beijing.gov.cn/ywdt/kjcgzhgd/kjqy/202603/t20260313_4556614.html">kfqgw.beijing.gov.cn/ywdt/kjcgzhgd/kjqy/202603/t20260313_4556614....</a></li>
+<li><a href="https://github.com/GeoloeG-IsT/agents-reverse-engineer">GitHub - GeoloeG-IsT/agents-reverse-engineer: Reverse engineer your codebase to let your agents work efficiently · GitHub</a></li>
+<li><a href="https://arxiv.org/abs/2601.18381">[2601.18381] AI Agent for Reverse-Engineering Legacy Finite-Difference Code and Translating to Devito</a></li>
 
 </ul>
 </details>
 
-**标签**: `#quantum computing`, `#funding`, `#cold atom`, `#China tech`
+**标签**: `#reverse-engineering`, `#coding agents`, `#automation`, `#AI-assisted development`
 
 ---
 
 <a id="item-14"></a>
-## [Furtex 工具包利用 io_uring 和 eBPF 绕过 EDR 与 Falco 检测](https://news.google.com/rss/articles/CBMiVkFVX3lxTE95ZEp2cGFnVUZwVVpHNkhabTVzNTFuY2Zsa1V1eGZmaHVVbjlGNXZOc1RwMnYyVlI2UEFKcVktN0ZhYlpvMVEwQm9YN2JEZkN0Zkw5LXZn0gFbQVVfeXFMUFZjeWxiak1MN1ZnTmpkbW5ra3lGbi00U3Z2Z0RwRDZDNTlLMF9jM0dFTnNKMkFabVA0N213WTlla1k3d0E1NkJZQ3MtMTZUdWY2MmZhSzRKSXV2OA?oc=5) ⭐️ 6.0/10
+## [Furtex Linux 工具包利用 io_uring 和 eBPF 绕过 EDR 和 Falco 检测](https://news.google.com/rss/articles/CBMiVkFVX3lxTE95ZEp2cGFnVUZwVVpHNkhabTVzNTFuY2Zsa1V1eGZmaHVVbjlGNXZOc1RwMnYyVlI2UEFKcVktN0ZhYlpvMVEwQm9YN2JEZkN0Zkw5LXZn0gFbQVVfeXFMUFZjeWxiak1MN1ZnTmpkbW5ra3lGbi00U3Z2Z0RwRDZDNTlLMF9jM0dFTnNKMkFabVA0N213WTlla1k3d0E1NkJZQ3MtMTZUdWY2MmZhSzRKSXV2OA?oc=5) ⭐️ 6.0/10
 
-一款名为 Furtex 的新型 Linux 工具包被发现，它利用 io_uring 和 eBPF 技术绕过端点检测与响应（EDR）系统以及 Falco 运行时安全监控。 这一进展揭示了一类滥用合法内核特性的新型规避技术，对 Linux 安全工具构成重大挑战，并可能使恶意软件实现隐蔽操作。 Furtex 利用 io_uring 进行异步 I/O 以规避基于系统调用的监控，并使用 eBPF 挂钩或修改内核行为而不触发检测规则。该工具包专门针对流行的运行时安全工具 Falco，绕过其默认规则集。
+一款名为 Furtex 的新型 Linux 工具包利用 io_uring 和 eBPF 技术绕过端点检测与响应（EDR）系统以及 Falco 运行时安全工具。该消息由 gbhackers.com 报道。 该工具包展示了一种利用底层内核接口的新型规避技术，可能削弱广泛使用的安全监控工具的有效性。它凸显了 Linux 安全领域攻击者与防御者之间持续的军备竞赛。 Furtex 利用 io_uring 实现异步 I/O，并利用 eBPF 实现内核级可编程性，这两者均可用于向用户空间监控工具隐藏恶意活动。该工具包专门针对 Falco（一种依赖内核事件的云原生运行时安全工具）。
 
 google_news · gbhackers.com · 7月20日 06:39
 
-**背景**: io_uring 是 Linux 内核中用于异步 I/O 的接口，可减少系统调用开销；eBPF 则允许在内核中运行沙箱程序，用于可观测性和安全监控。EDR 系统和 Falco 通常通过监控系统调用和内核事件来检测恶意活动，但 Furtex 利用这些技术在传统监控路径之外执行操作。
+**背景**: io_uring 是 Linux 内核中用于异步 I/O 的接口，可减少上下文切换；而 eBPF 允许沙箱程序在内核中运行，用于可观测性和安全监控。Falco 使用 eBPF 或内核模块监控系统调用并生成安全警报。通过使用这些相同技术，Furtex 可以在更低层级操作或操纵事件数据，从而规避检测。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Io_uring">io _ uring - Wikipedia</a></li>
-<li><a href="https://en.wikipedia.org/wiki/EBPF">eBPF - Wikipedia</a></li>
-<li><a href="https://www.researchgate.net/publication/379268668_Bypassing_Falco_How_to_Compromise_a_Cluster_without_Tripping_the_SOC">(PDF) Bypassing Falco : How to Compromise a Cluster without...</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Io_uring">io_uring - Wikipedia</a></li>
+<li><a href="https://ebpf.io/what-is-ebpf/">What is eBPF ? An Introduction and Deep Dive into the eBPF ...</a></li>
+<li><a href="https://falco.org/">Falco</a></li>
 
 </ul>
 </details>
 
-**标签**: `#io_uring`, `#eBPF`, `#EDR bypass`, `#Linux security`, `#Falco`
-
----
-
-<a id="item-15"></a>
-## [中国 AI 模型因需求过大暂停新订阅](https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYU9Sc2MyX3JvN0FxWnRqTzAzV0hPXzUzN214bU1yRW1HVjFsWXRQVm9hejVRODB3M0czVTV1WWpGYVg4dy1xU19mV3B3RWxUVVVaQWN2Vmt0ZHM2TURaTDZka2dhenVsUmtybVg2MTZQWjM4aHpBUXUyUEZZWTY4WW1HdFdyd1pIYjl1V3ExOGlyUXNEb214WFhDQ0ZycnV1a1JKdXpmbmo3WWs?oc=5) ⭐️ 6.0/10
-
-一款新的中国 AI 模型因需求远超其承载能力，已暂时停止接受新订阅。 这表明市场对中国 AI 模型有强烈兴趣，同时也凸显了基础设施扩展方面的挑战。 报道中未披露具体模型名称和开发者。暂停可能是暂时的，待容量扩充后恢复。
-
-google_news · WSLS · 7月20日 10:16
-
-**背景**: AI 模型推理需要大量计算资源，突然的流行可能超出可用服务器容量。全球其他 AI 服务也曾发生过类似情况。
-
-**标签**: `#AI model`, `#China`, `#demand`, `#subscription`
+**标签**: `#security`, `#eBPF`, `#io_uring`, `#Linux`, `#EDR evasion`
 
 ---
