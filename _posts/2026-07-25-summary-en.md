@@ -5,7 +5,7 @@ date: 2026-07-25
 lang: en
 ---
 
-> Analyzed 233 items, but none met the importance threshold.
+> Analyzed 173 items, but none met the importance threshold.
 
 ---
 
