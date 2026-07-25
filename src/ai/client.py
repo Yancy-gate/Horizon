@@ -314,6 +314,10 @@ class OpenAIClient(AIClient):
             request_kwargs["temperature"] = temperature
         if self.provider not in self._NO_RESPONSE_FORMAT:
             request_kwargs["response_format"] = {"type": "json_object"}
+        # DeepSeek V4 enables thinking by default; disable for scoring/JSON tasks
+        # (replaces retired deepseek-chat non-thinking behavior).
+        if self.provider == "deepseek" and self.model.startswith("deepseek-v4"):
+            request_kwargs["extra_body"] = {"thinking": {"type": "disabled"}}
         return await self.client.chat.completions.create(**request_kwargs)
 
     @staticmethod

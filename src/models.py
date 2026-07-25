@@ -86,7 +86,7 @@ AI_PROVIDER_DEFAULTS = {
         "api_key_env": "MINIMAX_API_KEY",
     },
     AIProvider.DEEPSEEK: {
-        "model": "deepseek-chat",
+        "model": "deepseek-v4-flash",
         "api_key_env": "DEEPSEEK_API_KEY",
     },
     AIProvider.OLLAMA: {
