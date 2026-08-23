@@ -1,0 +1,59 @@
+name: Backfill Horizon summaries to Obsidian
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - cursor/backfill-obsidian-dailies-6b63
+    paths:
+      - .github/workflows/backfill-obsidian.yml
+      - scripts/backfill-obsidian.sh
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout backfill tooling
+        uses: actions/checkout@v6
+
+      - name: Checkout published Horizon summaries
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          path: horizon-pages
+
+      - name: Backfill missing summaries
+        env:
+          OBSIDIAN_SYNC_TOKEN: ${{ secrets.OBSIDIAN_SYNC_TOKEN }}
+          OBSIDIAN_REPO: ${{ vars.OBSIDIAN_REPO || 'Yancy-gate/obsidian_cloud' }}
+          OBSIDIAN_SUMMARY_DIR: ${{ vars.OBSIDIAN_SUMMARY_DIR || '其他/内参日报' }}
+        run: |
+          if [[ -z "$OBSIDIAN_SYNC_TOKEN" ]]; then
+            echo "OBSIDIAN_SYNC_TOKEN is not configured." >&2
+            exit 1
+          fi
+
+          git clone \
+            "https://x-access-token:${OBSIDIAN_SYNC_TOKEN}@github.com/${OBSIDIAN_REPO}.git" \
+            obsidian-vault
+
+          scripts/backfill-obsidian.sh \
+            horizon-pages/_posts \
+            obsidian-vault \
+            "$OBSIDIAN_SUMMARY_DIR"
+
+          cd obsidian-vault
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OBSIDIAN_SUMMARY_DIR"/horizon-*-zh.md
+
+          if git diff --staged --quiet; then
+            echo "Obsidian vault already contains every published Chinese summary."
+            exit 0
+          fi
+
+          git commit -m "🌅 Backfill Horizon daily briefings through $(TZ=Asia/Shanghai date +'%Y-%m-%d')"
+          git push
