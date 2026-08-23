@@ -1,0 +1,62 @@
+name: Lumohub API smoke test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - cursor/use-lumohub-gpt56-6b63
+    paths:
+      - .github/workflows/lumohub-smoke.yml
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Verify Lumohub completion
+        env:
+          LUMOHUB_API_KEY: ${{ secrets.LUMOHUB_API_KEY }}
+        run: |
+          uv run python - <<'PY'
+          import asyncio
+          import json
+
+          from src.ai.client import create_ai_client
+          from src.models import AIConfig
+
+          async def main() -> None:
+              config = AIConfig(
+                  provider="openai",
+                  model="gpt-5.6-sol",
+                  base_url="https://api.lumohub.pro/v1",
+                  api_key_env="LUMOHUB_API_KEY",
+                  temperature=0.3,
+                  max_tokens=64,
+              )
+              response = await create_ai_client(config).complete(
+                  system="Return only a valid JSON object.",
+                  user='Return exactly {"status":"ok"}.',
+              )
+              payload = json.loads(response)
+              if payload.get("status") != "ok":
+                  raise RuntimeError("Lumohub returned an unexpected payload")
+              print("Lumohub API smoke test passed")
+
+          asyncio.run(main())
+          PY
