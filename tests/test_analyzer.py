@@ -2,6 +2,8 @@ import asyncio
 from datetime import datetime, timezone
 from types import SimpleNamespace
 
+import pytest
+
 import src.ai.analyzer as analyzer_module
 from src.ai.analyzer import ContentAnalyzer
 from src.models import ContentItem, SourceType
@@ -94,3 +96,44 @@ def test_analyze_batch_concurrent_preserves_order(monkeypatch):
     result = asyncio.run(analyzer.analyze_batch(items))
 
     assert [item.id for item in result] == [item.id for item in items]
+
+
+def test_analyze_batch_allows_failures_at_configured_ratio(monkeypatch):
+    client = SimpleNamespace(
+        config=SimpleNamespace(max_analysis_failure_ratio=0.2)
+    )
+    analyzer = ContentAnalyzer(client)
+    items = [_make_item(f"rss:test:{i}") for i in range(5)]
+
+    async def fake_analyze_item(item):
+        if item.id.endswith(":0"):
+            raise RuntimeError("provider unavailable")
+        item.ai_score = 8.0
+
+    monkeypatch.setattr(analyzer, "_analyze_item", fake_analyze_item)
+
+    result = asyncio.run(analyzer.analyze_batch(items))
+
+    assert len(result) == 5
+    assert result[0].ai_reason == "Analysis failed"
+
+
+def test_analyze_batch_stops_when_failure_ratio_exceeds_limit(monkeypatch):
+    client = SimpleNamespace(
+        config=SimpleNamespace(max_analysis_failure_ratio=0.2)
+    )
+    analyzer = ContentAnalyzer(client)
+    items = [_make_item(f"rss:test:{i}") for i in range(5)]
+
+    async def fake_analyze_item(item):
+        if item.id.endswith((":0", ":1")):
+            raise RuntimeError("provider unavailable")
+        item.ai_score = 8.0
+
+    monkeypatch.setattr(analyzer, "_analyze_item", fake_analyze_item)
+
+    with pytest.raises(
+        RuntimeError,
+        match=r"2/5 \(40\.0%\) > 20\.0%",
+    ):
+        asyncio.run(analyzer.analyze_batch(items))
