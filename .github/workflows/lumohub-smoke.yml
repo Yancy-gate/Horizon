@@ -2,11 +2,6 @@ name: Lumohub API smoke test
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - cursor/use-lumohub-gpt56-6b63
-    paths:
-      - .github/workflows/lumohub-smoke.yml
 
 jobs:
   smoke-test:

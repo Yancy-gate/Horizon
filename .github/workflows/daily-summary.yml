@@ -6,6 +6,11 @@ on:
     # this intentionally runs early to offset the observed schedule delay.
     - cron: '0 22 * * *'
   workflow_dispatch:      # Allow manual trigger
+  push:
+    branches:
+      - cursor/use-lumohub-gpt56-6b63
+    paths:
+      - .github/workflows/daily-summary.yml
 
 jobs:
   daily-summary:
@@ -65,7 +70,7 @@ jobs:
         if: ${{ vars.OBSIDIAN_SYNC_ENABLED == 'true' }}
         env:
           OBSIDIAN_SYNC_TOKEN: ${{ secrets.OBSIDIAN_SYNC_TOKEN }}
-          OBSIDIAN_REPO: ${{ vars.OBSIDIAN_REPO || 'Yancy-gate/obsidian_cloud' }}
+          OBSIDIAN_REPO: Yancy-gate/obsidian-jiudebuqu-xindebulai
           OBSIDIAN_SUMMARY_DIR: ${{ vars.OBSIDIAN_SUMMARY_DIR || '其他/内参日报' }}
         run: |
           TODAY="${BJ_DATE:-$(TZ=Asia/Shanghai date +'%Y-%m-%d')}"
