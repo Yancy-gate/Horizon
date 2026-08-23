@@ -2,12 +2,6 @@ name: Backfill Horizon summaries to Obsidian
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - cursor/backfill-obsidian-dailies-6b63
-    paths:
-      - .github/workflows/backfill-obsidian.yml
-      - scripts/backfill-obsidian.sh
 
 jobs:
   backfill:
