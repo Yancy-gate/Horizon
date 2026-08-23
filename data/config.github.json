@@ -12,8 +12,8 @@
       "zh",
       "en"
     ],
-    "analysis_concurrency": 1,
-    "enrichment_concurrency": 1,
+    "analysis_concurrency": 6,
+    "enrichment_concurrency": 6,
     "max_analysis_failure_ratio": 0.2
   },
   "sources": {
