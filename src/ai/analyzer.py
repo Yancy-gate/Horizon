@@ -48,6 +48,12 @@ class ContentAnalyzer:
         concurrency = getattr(config, "analysis_concurrency", 1)
         return max(concurrency, 1)
 
+    def _get_max_failure_ratio(self) -> float:
+        """Return the configured maximum tolerated API failure ratio."""
+        config = getattr(self.client, "config", None)
+        ratio = getattr(config, "max_analysis_failure_ratio", 1.0)
+        return min(max(float(ratio), 0.0), 1.0)
+
     async def analyze_batch(self, items: List[ContentItem]) -> List[ContentItem]:
         throttle_sec = self._get_throttle_sec()
         concurrency = self._get_concurrency()
@@ -79,6 +85,18 @@ class ContentAnalyzer:
                 _process(item, i, task) for i, item in enumerate(items)
             ]
             analyzed_items = await asyncio.gather(*coros)
+
+        failure_count = sum(
+            item.ai_reason == "Analysis failed" for item in analyzed_items
+        )
+        failure_ratio = failure_count / len(analyzed_items) if analyzed_items else 0.0
+        max_failure_ratio = self._get_max_failure_ratio()
+        if failure_ratio > max_failure_ratio:
+            raise RuntimeError(
+                "AI analysis failure ratio exceeded the configured limit: "
+                f"{failure_count}/{len(analyzed_items)} ({failure_ratio:.1%}) "
+                f"> {max_failure_ratio:.1%}"
+            )
 
         return analyzed_items
 
