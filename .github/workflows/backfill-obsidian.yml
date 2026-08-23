@@ -2,6 +2,11 @@ name: Backfill Horizon summaries to Obsidian
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - cursor/backfill-obsidian-dailies-6b63
+    paths:
+      - .github/workflows/backfill-obsidian.yml
 
 jobs:
   backfill:
@@ -22,7 +27,7 @@ jobs:
       - name: Backfill missing summaries
         env:
           OBSIDIAN_SYNC_TOKEN: ${{ secrets.OBSIDIAN_SYNC_TOKEN }}
-          OBSIDIAN_REPO: ${{ vars.OBSIDIAN_REPO || 'Yancy-gate/obsidian_cloud' }}
+          OBSIDIAN_REPO: Yancy-gate/obsidian-jiudebuqu-xindebulai
           OBSIDIAN_SUMMARY_DIR: ${{ vars.OBSIDIAN_SUMMARY_DIR || '其他/内参日报' }}
         run: |
           if [[ -z "$OBSIDIAN_SYNC_TOKEN" ]]; then
