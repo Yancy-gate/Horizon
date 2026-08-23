@@ -6,11 +6,6 @@ on:
     # this intentionally runs early to offset the observed schedule delay.
     - cron: '0 22 * * *'
   workflow_dispatch:      # Allow manual trigger
-  push:
-    branches:
-      - cursor/use-lumohub-gpt56-6b63
-    paths:
-      - .github/workflows/daily-summary.yml
 
 jobs:
   daily-summary:
