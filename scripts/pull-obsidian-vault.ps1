@@ -1,10 +1,13 @@
-# Pull Obsidian vault + ensure today's Beijing-dated briefing exists.
-# Bypasses HTTP proxy. Scheduled daily at 07:00 / 07:30.
+param(
+    [string]$VaultRoot = "D:\Data\旧的不去新的不来",
+    [string]$Remote = "origin",
+    [string]$Branch = "master"
+)
 
-$ErrorActionPreference = "Continue"
-$LogDir = Join-Path $env:USERPROFILE "Projects\Horizon\scripts\logs"
+# Pull the Git-backed Obsidian vault. Intended for Windows Task Scheduler.
+$ErrorActionPreference = "Stop"
+$LogDir = Join-Path $PSScriptRoot "logs"
 $LogFile = Join-Path $LogDir ("obsidian-pull-{0}.log" -f (Get-Date -Format "yyyy-MM-dd"))
-$HorizonRoot = Join-Path $env:USERPROFILE "Projects\Horizon"
 New-Item -ItemType Directory -Force -Path $LogDir | Out-Null
 
 function Write-Log([string]$msg) {
@@ -24,74 +27,37 @@ function Invoke-GitNoProxy {
 }
 
 try {
-    $obsidianRoot = "D:\Tools\editor\Obsidian"
-    $vault = Get-ChildItem -LiteralPath $obsidianRoot -Directory -ErrorAction Stop |
-        Where-Object {
-            (Test-Path -LiteralPath (Join-Path $_.FullName ".git")) -and
-            ((git -C $_.FullName remote get-url origin 2>$null) -match "obsidian_cloud")
-        } |
-        Select-Object -First 1
-    if (-not $vault) { throw "No obsidian_cloud vault under $obsidianRoot" }
-    $VaultRoot = $vault.FullName
-    Write-Log "Vault: $VaultRoot"
+    if (-not (Test-Path -LiteralPath (Join-Path $VaultRoot ".git"))) {
+        throw "Obsidian vault is not a Git repository: $VaultRoot"
+    }
 
-    $r = Invoke-GitNoProxy $VaultRoot @("pull", "--ff-only", "origin", "master")
+    $remoteUrl = Invoke-GitNoProxy $VaultRoot @("remote", "get-url", $Remote)
+    if ($remoteUrl.Code -ne 0) {
+        throw "Git remote '$Remote' is not configured in $VaultRoot"
+    }
+    if ($remoteUrl.Out -notmatch "obsidian-jiudebuqu-xindebulai") {
+        throw "Unexpected Obsidian remote: $($remoteUrl.Out)"
+    }
+
+    Write-Log "Vault: $VaultRoot"
+    Write-Log "Remote: $($remoteUrl.Out)"
+
+    $r = Invoke-GitNoProxy $VaultRoot @(
+        "pull",
+        "--rebase",
+        "--autostash",
+        $Remote,
+        $Branch
+    )
     Write-Log ("Vault pull: " + $r.Out)
     if ($r.Code -ne 0) { throw "vault git pull failed: $($r.Code)" }
 
-    if (Test-Path -LiteralPath $HorizonRoot) {
-        $h = Invoke-GitNoProxy $HorizonRoot @("pull", "--ff-only", "origin", "main")
-        Write-Log ("Horizon pull: " + $h.Out)
-    }
-
-    $bj = Get-Date -Format "yyyy-MM-dd"
-
-    # Briefing dir = folder that already contains horizon-*.md (avoid creating a duplicate Unicode path)
-    $sample = Get-ChildItem -LiteralPath $VaultRoot -Recurse -Filter "horizon-*-zh.md" -ErrorAction SilentlyContinue |
-        Sort-Object LastWriteTime -Descending |
-        Select-Object -First 1
-    if (-not $sample) { throw "No horizon-*-zh.md found in vault; wait for Actions sync." }
-    $briefDir = $sample.DirectoryName
-    Write-Log "Briefing dir: $briefDir"
-
-    $target = Join-Path $briefDir "horizon-$bj-zh.md"
-    if (Test-Path -LiteralPath $target) {
-        Write-Log "Briefing already present: horizon-$bj-zh.md ($((Get-Item -LiteralPath $target).Length) bytes)"
+    $today = Get-Date -Format "yyyy-MM-dd"
+    $briefing = Join-Path $VaultRoot "其他\内参日报\horizon-$today-zh.md"
+    if (Test-Path -LiteralPath $briefing) {
+        Write-Log "Today's briefing is present: horizon-$today-zh.md ($((Get-Item -LiteralPath $briefing).Length) bytes)"
     } else {
-        $candidates = @()
-        $candidates += Get-ChildItem -LiteralPath $briefDir -Filter "horizon-*-zh.md" -ErrorAction SilentlyContinue
-        $srcDir = Join-Path $HorizonRoot "data\summaries"
-        if (Test-Path -LiteralPath $srcDir) {
-            $candidates += Get-ChildItem -LiteralPath $srcDir -Filter "horizon-*-zh.md" -ErrorAction SilentlyContinue
-        }
-
-        $ranked = foreach ($c in $candidates) {
-            if ($c.Name -match 'horizon-(\d{4}-\d{2}-\d{2})-zh\.md') {
-                [PSCustomObject]@{
-                    File = $c
-                    Date = [datetime]::ParseExact($Matches[1], 'yyyy-MM-dd', $null)
-                }
-            }
-        }
-        $latest = $ranked | Sort-Object Date -Descending | Select-Object -First 1
-        if ($latest) {
-            Copy-Item -LiteralPath $latest.File.FullName -Destination $target -Force
-            Write-Log ("Copied {0} ({1} bytes) -> horizon-{2}-zh.md" -f $latest.File.Name, $latest.File.Length, $bj)
-
-            # Push calendar-aligned copy so Obsidian Git / other devices can pull it
-            $rel = $target.Substring($VaultRoot.Length).TrimStart('\', '/').Replace('\', '/')
-            $add = Invoke-GitNoProxy $VaultRoot @("add", "--", $rel)
-            $diff = Invoke-GitNoProxy $VaultRoot @("diff", "--cached", "--quiet")
-            if ($diff.Code -ne 0) {
-                $null = Invoke-GitNoProxy $VaultRoot @("commit", "-m", "🌅 Horizon daily briefing $bj (calendar align)")
-                $push = Invoke-GitNoProxy $VaultRoot @("push", "origin", "master")
-                Write-Log ("Vault push: " + $push.Out)
-            } else {
-                Write-Log "Vault already has calendar-aligned briefing committed."
-            }
-        } else {
-            Write-Log "No ZH summary available to copy for $bj."
-        }
+        Write-Log "Today's briefing is not on the remote yet; the next scheduled pull will retry."
     }
 
     exit 0
