@@ -9,10 +9,17 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCo
 
 from .client import AIClient
 from .prompts import CONTENT_ANALYSIS_SYSTEM, CONTENT_ANALYSIS_USER, build_analysis_system_prompt
+from .scoring import is_unscored_failure, mark_unscored
 from .utils import parse_json_response
 from ..models import ContentItem
 
 DEFAULT_THROTTLE_SEC = 0.0
+CONTENT_TRUNCATE_CHARS = 1500
+COMMENTS_TRUNCATE_CHARS = 2000
+
+
+class AnalysisError(Exception):
+    """Raised when a single analysis attempt cannot produce a score."""
 
 
 class ContentAnalyzer:
@@ -65,9 +72,10 @@ class ContentAnalyzer:
                     await self._analyze_item(item)
                 except Exception as e:
                     print(f"Error analyzing item {item.id}: {e}")
-                    item.ai_score = 0.0
-                    item.ai_reason = "Analysis failed"
-                    item.ai_summary = item.title
+                    if isinstance(e, AnalysisError):
+                        mark_unscored(item, str(e))
+                    else:
+                        mark_unscored(item, "analysis failed")
                 if throttle_sec > 0 and index < len(items) - 1:
                     await asyncio.sleep(throttle_sec)
             progress.advance(progress_task)
@@ -87,7 +95,7 @@ class ContentAnalyzer:
             analyzed_items = await asyncio.gather(*coros)
 
         failure_count = sum(
-            item.ai_reason == "Analysis failed" for item in analyzed_items
+            is_unscored_failure(item) for item in analyzed_items
         )
         failure_ratio = failure_count / len(analyzed_items) if analyzed_items else 0.0
         max_failure_ratio = self._get_max_failure_ratio()
@@ -117,15 +125,17 @@ class ContentAnalyzer:
             content_text = item.content
             if "--- Top Comments ---" in content_text:
                 main, comments_part = content_text.split("--- Top Comments ---", 1)
-                content_section = f"Content: {main.strip()[:800]}"
+                content_section = f"Content: {main.strip()[:CONTENT_TRUNCATE_CHARS]}"
             else:
-                content_section = f"Content: {content_text[:1000]}"
+                content_section = f"Content: {content_text[:CONTENT_TRUNCATE_CHARS]}"
 
         # Prepare discussion section (comments, engagement)
         discussion_parts = []
         if item.content and "--- Top Comments ---" in item.content:
-            comments_part = item.content.split("--- Top Comments ---", 1)[1]
-            discussion_parts.append(f"Community Comments:\n{comments_part[:1500]}")
+            comments_part = item.content.split("--- Top Comments ---", 1)[1].strip()
+            discussion_parts.append(
+                f"Community Comments:\n{comments_part[:COMMENTS_TRUNCATE_CHARS]}"
+            )
 
         meta = item.metadata
         engagement_items = []
@@ -179,12 +189,7 @@ class ContentAnalyzer:
         # Parse JSON response with robust fallback
         result = self._parse_json_response(response)
         if result is None:
-            print(f"Warning: could not parse analysis response for {item.id}, using defaults")
-            item.ai_score = 0.0
-            item.ai_reason = "Analysis response parse failed"
-            item.ai_summary = item.title
-            item.ai_tags = []
-            return
+            raise AnalysisError("response parse failed")
 
         # Update item with analysis results
         item.ai_score = float(result.get("score", 0))
