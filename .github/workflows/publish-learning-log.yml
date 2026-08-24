@@ -1,7 +1,13 @@
-name: Publish Horizon retrospective to Obsidian
+name: Publish Obsidian Git recovery retrospective
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - cursor/append-obsidian-retro-5c17
+    paths:
+      - docs/retrospectives/obsidian-git-version-recovery-2026-08-24.md
+      - .github/workflows/publish-learning-log.yml
 
 jobs:
   publish:
@@ -26,7 +32,7 @@ jobs:
           python \
             .cursor/skills/obsidian-retrospective/scripts/upsert_daily_learning.py \
             --vault obsidian-vault \
-            --source docs/retrospectives/horizon-obsidian-automation-2026-08-24.md
+            --source docs/retrospectives/obsidian-git-version-recovery-2026-08-24.md
 
       - name: Commit learning log
         run: |
@@ -38,5 +44,5 @@ jobs:
             echo "Learning log is already up to date."
             exit 0
           fi
-          git commit -m "📝 Horizon automation retrospective 2026-08-24"
+          git commit -m "📝 Obsidian Git recovery retrospective 2026-08-24"
           git push origin master
