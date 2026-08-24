@@ -1,39 +1,19 @@
+/* horizon-feedback-endpoint */
+window.HZ_FEEDBACK_CONFIG = window.HZ_FEEDBACK_CONFIG || {
+  endpoint: "https://horizon-feedback.yancy-gate-horizon.workers.dev"
+};
+
 (function () {
   'use strict';
 
   var FEEDBACK_KEY = 'horizon-feedback-v1';
   var feedbackEndpoint = '';
 
-  function feedbackConfigUrl() {
-    var script = document.querySelector('script[src*="horizon.js"]');
-    if (script && script.src) {
-      return script.src.replace(/assets\/js\/horizon\.js(\?.*)?$/, 'assets/js/feedback-endpoint.js');
-    }
-    return 'assets/js/feedback-endpoint.js';
-  }
-
   function loadFeedbackEndpoint() {
     return new Promise(function (resolve) {
-      var existing = window.HZ_FEEDBACK_CONFIG;
-      if (existing && existing.endpoint) {
-        feedbackEndpoint = String(existing.endpoint).replace(/\/$/, '');
-        resolve(feedbackEndpoint);
-        return;
-      }
-
-      var script = document.createElement('script');
-      script.src = feedbackConfigUrl();
-      script.async = true;
-      script.onload = function () {
-        var config = window.HZ_FEEDBACK_CONFIG || {};
-        feedbackEndpoint = config.endpoint ? String(config.endpoint).replace(/\/$/, '') : '';
-        resolve(feedbackEndpoint);
-      };
-      script.onerror = function () {
-        feedbackEndpoint = '';
-        resolve('');
-      };
-      document.head.appendChild(script);
+      var config = window.HZ_FEEDBACK_CONFIG || {};
+      feedbackEndpoint = config.endpoint ? String(config.endpoint).replace(/\/$/, '') : '';
+      resolve(feedbackEndpoint);
     });
   }
 

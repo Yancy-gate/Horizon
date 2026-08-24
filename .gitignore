@@ -36,6 +36,9 @@ ENV/
 # Environment variables
 .env
 
+# Cloudflare Wrangler local cache
+.wrangler/
+
 # Data files (keep structure, ignore content)
 data/config.json
 data/seen.json
