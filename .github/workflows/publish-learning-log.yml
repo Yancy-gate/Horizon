@@ -2,12 +2,6 @@ name: Publish Horizon retrospective to Obsidian
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - cursor/publish-horizon-retro-6b63
-    paths:
-      - .github/workflows/publish-learning-log.yml
-      - docs/retrospectives/horizon-obsidian-automation-2026-08-24.md
 
 jobs:
   publish:
