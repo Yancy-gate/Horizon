@@ -1,0 +1,48 @@
+name: Publish Obsidian Git recovery retrospective
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - cursor/append-obsidian-retro-5c17
+    paths:
+      - docs/retrospectives/obsidian-git-version-recovery-2026-08-24.md
+      - .github/workflows/publish-learning-log.yml
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout retrospective
+        uses: actions/checkout@v6
+
+      - name: Clone active Obsidian vault
+        env:
+          OBSIDIAN_SYNC_TOKEN: ${{ secrets.OBSIDIAN_SYNC_TOKEN }}
+        run: |
+          git clone \
+            "https://x-access-token:${OBSIDIAN_SYNC_TOKEN}@github.com/Yancy-gate/obsidian-jiudebuqu-xindebulai.git" \
+            obsidian-vault
+
+      - name: Upsert numbered daily learning entry
+        run: |
+          python \
+            .cursor/skills/obsidian-retrospective/scripts/upsert_daily_learning.py \
+            --vault obsidian-vault \
+            --source docs/retrospectives/obsidian-git-version-recovery-2026-08-24.md
+
+      - name: Commit learning log
+        run: |
+          cd obsidian-vault
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "其他/每日自主学习"
+          if git diff --staged --quiet; then
+            echo "Learning log is already up to date."
+            exit 0
+          fi
+          git commit -m "📝 Obsidian Git recovery retrospective 2026-08-24"
+          git push origin master
