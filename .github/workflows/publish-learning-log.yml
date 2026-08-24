@@ -1,0 +1,46 @@
+name: Publish Horizon retrospective to Obsidian
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout retrospective
+        uses: actions/checkout@v6
+
+      - name: Clone active Obsidian vault
+        env:
+          OBSIDIAN_SYNC_TOKEN: ${{ secrets.OBSIDIAN_SYNC_TOKEN }}
+        run: |
+          git clone --filter=blob:none --no-checkout \
+            "https://x-access-token:${OBSIDIAN_SYNC_TOKEN}@github.com/Yancy-gate/obsidian-jiudebuqu-xindebulai.git" \
+            obsidian-vault
+          cd obsidian-vault
+          git sparse-checkout init --cone
+          git sparse-checkout set "其他/每日自主学习"
+          git checkout master
+
+      - name: Upsert numbered daily learning entry
+        run: |
+          python \
+            .cursor/skills/obsidian-retrospective/scripts/upsert_daily_learning.py \
+            --vault obsidian-vault \
+            --source docs/retrospectives/horizon-obsidian-automation-2026-08-24.md
+
+      - name: Commit learning log
+        run: |
+          cd obsidian-vault
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "其他/每日自主学习"
+          if git diff --staged --quiet; then
+            echo "Learning log is already up to date."
+            exit 0
+          fi
+          git commit -m "📝 Horizon automation retrospective 2026-08-24"
+          git push origin master
