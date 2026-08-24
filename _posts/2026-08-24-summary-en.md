@@ -5,465 +5,255 @@ date: 2026-08-24
 lang: en
 ---
 
-> From 318 items, 42 important content pieces were selected
+> From 113 items, 28 important content pieces were selected
 
 ---
 
-## HUST AIA Research Radar
+## Preference Radar
 
-> Grouped by the public research directions of faculty at HUST's School of Artificial Intelligence and Automation.
+> Personalized picks from your maintained preference profile (data/preference-radar/profile.json).
 
-### 计算机视觉与多模态感知
-
-1. [NIIAS Unveils Vision Units for Highly Automated Lastochka Trains](#item-1) ⭐️ 7.0/10
-2. [Advantech Introduces Dragonwing IQ9 Industrial Vision Solutions](#item-2) ⭐️ 6.0/10
-3. [Seedance 2.5 and Runway Gen-4.5 Compared for AI Video Production](#item-3) ⭐️ 6.0/10
-4. [Airlines Explore Agentic AI for Faster Rebooking](#item-4) ⭐️ 6.0/10
-
-### 机器人与自主智能
-
-5. [Anthropic Studies Self-Propagating Ideas in Multi-Agent LLMs](#item-5) ⭐️ 7.0/10
-6. [Industry Leaders Identify Bottlenecks to 10,000-Unit Embodied Intelligence Delivery](#item-6) ⭐️ 7.0/10
-7. [Embodied Intelligence Enters the Consumer Market](#item-7) ⭐️ 6.0/10
-8. [Industrial Robots Shift From Stunts to Practical Skills at WRC](#item-8) ⭐️ 6.0/10
-9. [Orbbec Pivots Toward Hardware for Embodied-AI Data Capture](#item-9) ⭐️ 6.0/10
-
-### 工业智能与系统安全
-
-10. [Use Digital Twins to Test Automation Before Investing](#item-10) ⭐️ 7.0/10
-11. [Naver Digital Twin Platform Becomes Saudi National Standard](#item-11) ⭐️ 7.0/10
-12. [KAIST Identifies a Path to Faster-Charging, Longer-Lasting EV Batteries](#item-12) ⭐️ 7.0/10
+No preference-matched updates today.
 
 ---
-<a id="item-1"></a>
-## [NIIAS Unveils Vision Units for Highly Automated Lastochka Trains](https://news.google.com/rss/articles/CBMivgFBVV95cUxNSDRtMWtYMldCRVhuSGxhTThLRG9vUmF6NC1kZjB4NTU1TGQyTkcwMlBPN0VTSkwyNXFwdkdIM3VwYzJ1cnh1aE5FUHFoWDFaYndzemRuVGZXN2VJdkdSNHdMZTR6S3E3cEMtcy1ZS1cwLUR6RXplOXJyeklsN2o4aDE3WjI5UzBuZHZTUjdpR2VhV3podlpDMWY3UVZneHRQa3BHZDE2REx1QUNDYmZwWEoyVXFjdkNMcWhhVjBn?oc=5) ⭐️ 7.0/10
-
-NIIAS has presented computer-vision units intended for series production and installation on highly automated Lastochka electric trains. The system is designed for trains operating at Level 3 automation, or GoA 3, according to the provided search results. Deploying vision systems on production trains could improve their ability to assess track and operating conditions while supporting higher levels of railway automation. The technology is particularly relevant to efforts to increase service capacity, including a potential reduction of train headways on the Moscow Central Circle. The available announcement does not specify the units’ sensors, perception range, software architecture, or safety-certification details. Search results report that 10 Lastochka trains were expected to receive NIIAS systems by the end of the year, while GoA 3 remains below fully driverless operation.
-
-rss · 华科 AIA · 计算机视觉与多模态感知 · Aug 23, 10:34
-
-**Match**: Targeted research feed matched **计算机视觉与多模态感知**.
-
-**Related faculty**: 刘文中, 刘禹良, 唐朝清, 姜军, 孙志刚, 左峥嵘, 张新宇, 张钧 and 27 more
-
-**Background**: Lastochka is a Russian electric multiple-unit train used for commuter and intercity services. Railway automation levels describe how much of the train’s operation is handled by onboard systems rather than a driver; GoA 3 generally denotes highly automated operation with staff still available for fallback or supervision. Computer vision uses cameras and related processing to interpret the train’s surroundings and support operational decisions.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www1.ru/en/news/2026/08/19/429003-lastocki-polucat-texniceskoe-zrenie-10-poezdov-osnastiat-sistemami-niias-do-konca-goda.html">" Lastochka " trains to get technical vision: 10 trains to be equipped.....</a></li>
-<li><a href="https://eng.rzd.ru/en/9657/page/104070?accessible=true&id=306910">Russian Railways launches first automated Lastochka to carry...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#computer vision`, `#autonomous transportation`, `#robotics`, `#intelligent manufacturing`
-
----
-
-<a id="item-2"></a>
-## [Advantech Introduces Dragonwing IQ9 Industrial Vision Solutions](https://news.google.com/rss/articles/CBMi1wFBVV95cUxNSnVRLUlKQUN0TU1laGd3Q0UtdGlvUjdmdGU3c0xvOV83X2ZiR0dWaGlxa1VPOGNRQXlVWDEtVFYzZTA4WmpjZ2ozZ2F3VmhZM2dPUWszVDVlMEtUcDBTV1hmWUZaaGRFSzAySHVtQ0ZKM0htUDZOY20wWHN1QkN3eWZhTU1TMWNhZGpEUzhBcVh0RUY1aFZjSmQ0cmNOZmZwX3F0NFU5V1d3OWEzUDJwYkpYdVF2VUEwUkZKTmctVVFldXNOaUU0NG50UWVKanZYWVZIUzNTMA?oc=5) ⭐️ 6.0/10
-
-Advantech announced edge AI solutions powered by Qualcomm Dragonwing IQ-9075, including the AOM-6741 SMARC module, ASR-A503 and AFE-A503 robotic controller, and AIR-055 edge AI system. The platforms are designed for industrial-grade vision intelligence and edge AI applications. The announcement expands the use of on-device AI for industrial vision, allowing visual analysis to take place closer to cameras, machines, and robots. This could support more responsive and power-efficient intelligent manufacturing systems, although the announcement does not provide independent performance results. The IQ-9075 combines an image signal processor, vision processing unit, and neural processing unit, with MIPI-CSI, USB 3.0, and Gigabit Ethernet interfaces for camera and system connectivity. Qualcomm describes the IQ9 series as supporting high-compute, power-efficient workloads and built-in safety features for demanding industrial environments.
-
-rss · 华科 AIA · 计算机视觉与多模态感知 · Aug 24, 03:55
-
-**Match**: Targeted research feed matched **计算机视觉与多模态感知**.
-
-**Related faculty**: 刘文中, 刘禹良, 唐朝清, 姜军, 孙志刚, 左峥嵘, 张新宇, 张钧 and 27 more
-
-**Background**: Industrial vision uses cameras and computer vision software to inspect products, monitor equipment, or guide robots. Edge AI processes these workloads locally on an industrial device instead of sending all camera data to a remote cloud, which can reduce latency and connectivity requirements. A SMARC module is a compact computer-on-module format that can be integrated into custom industrial systems.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.qualcomm.com/internet-of-things/products/iq9-series">Qualcomm Dragonwing™ IQ9 Series | Qualcomm</a></li>
-<li><a href="https://www.advantech.com/en-us/resources/news/qualcomm-dragonwing-iq9-based-solution-industrial-grade-vision-intelligence">Advantech Unveils Qualcomm® Dragonwing™ IQ9-Base - Advantech</a></li>
-<li><a href="https://www.prnewswire.com/news-releases/advantech-unveils-qualcomm-dragonwing-iq9-based-solutions-for-industrial-vision-intelligence-302857919.html">Advantech Unveils Qualcomm® Dragonwing™ IQ9-Based Solutions ...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#工业视觉`, `#边缘人工智能`, `#计算机视觉`, `#智能制造`, `#Qualcomm Dragonwing`
-
----
-
-<a id="item-3"></a>
-## [Seedance 2.5 and Runway Gen-4.5 Compared for AI Video Production](https://news.google.com/rss/articles/CBMitAFBVV95cUxQSjRZSDdiWUN6c01oczczZDdCSWY2X3ZyUVZobk5kaC03amh6TW5HSjZRMGJqS0Q5VWY5ZTFsZGtZS1l1OTJWb3YzZGVCcXlqamFodkhIcThIWDRkTWUyWVZxNVlGX3BFVlg1SWVJTUdyb21NdWh2dHFCT185eXMxLTMtN21pMHhtVFIweXVlektRRG4tbkNUU0cxTVZfeGxtZWYydHh2WDI2OFhpeDQ1VlpEV3Y?oc=5) ⭐️ 6.0/10
-
-The AI Journal compares Seedance 2.5 and Runway Gen-4.5 on reference-image control, scene continuity, and suitability for production workflows. The comparison focuses on practical differences between two prominent AI video-generation systems rather than introducing a new model or research breakthrough. Reference control and continuity are important for producing usable multi-shot videos, because creators need subjects, objects, and locations to remain consistent across generated scenes. The comparison can help advertisers, filmmakers, and other content teams choose tools according to their workflow requirements. Search results describe Seedance 2.5 as supporting up to 30-second clips, multimodal references such as images, videos, audio, and text, plus multi-shot and extension controls. Runway’s Gen-4 materials emphasize consistency for characters, objects, and locations from a single reference image, but the provided material does not establish a definitive winner across all production tasks.
-
-rss · 华科 AIA · 计算机视觉与多模态感知 · Aug 22, 19:31
-
-**Match**: Targeted research feed matched **计算机视觉与多模态感知**.
-
-**Related faculty**: 刘文中, 刘禹良, 唐朝清, 姜军, 孙志刚, 左峥嵘, 张新宇, 张钧 and 27 more
-
-**Background**: Reference-image control means using an input image to guide the appearance of a generated subject, object, or scene. Scene continuity refers to preserving those visual elements across multiple shots or extended clips. A production workflow includes the practical steps of creating, revising, extending, and preparing generated video for uses such as advertising, social content, or film concepts.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.seedance.tv/seedance-2-5">Seedance 2.5 AI Video Generator — 30s 4K Model Guide</a></li>
-<li><a href="https://runway.com/research/introducing-runway-gen-4">Runway Gen - 4 : AI Video Generation with World Consistency</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI视频生成`, `#计算机视觉`, `#多模态感知`, `#生成式AI`, `#视频工作流`
-
----
-
-<a id="item-4"></a>
-## [Airlines Explore Agentic AI for Faster Rebooking](https://news.google.com/rss/articles/CBMijwFBVV95cUxNaVBpWEFLM1A3c21LQjh0WTBPT0JCTWU3eFd4S0pBM3RyOTgwQlNtNWFETXVPM3FPcTQtOVk1LXk4VlI2dzR4YjVDc1ZYdkY4WFRNa0x4amVHMnlsS3Z0MV9MUVowZFpqOGxJNVNyWXZmMTBrcU5XME1DOHU2aDBWN2l5Um9uZzRjN2hRQ3BRNA?oc=5) ⭐️ 6.0/10
-
-Airlines are exploring agentic AI to automate flight rebooking and manage delays. The reported goal is to improve operational efficiency and reduce passenger waiting times. Disruption management often requires coordinating schedules, available seats, and passenger changes under time pressure. If deployed reliably, agentic AI could reduce manual workload for airline staff and help passengers receive rebooking options more quickly. The supplied report does not provide a specific airline, system architecture, implementation timeline, or independently verified performance data. Search results describe agentic AI as software that can execute multi-step tasks autonomously, but vendor-reported claims about rebooking speed and automation should not be treated as evidence for this particular report.
-
-rss · 华科 AIA · 计算机视觉与多模态感知 · Aug 23, 18:39
-
-**Match**: Targeted research feed matched **计算机视觉与多模态感知**.
-
-**Related faculty**: 刘文中, 刘禹良, 唐朝清, 姜军, 孙志刚, 左峥嵘, 张新宇, 张钧 and 27 more
-
-**Background**: Agentic AI refers to systems designed to do more than provide recommendations: they can coordinate steps and carry out tasks with limited ongoing human instruction. In airline operations, rebooking involves responding to disruptions and finding alternative arrangements, although the supplied material does not explain how much authority such systems would receive or when human staff would intervene.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://teckscaler.com/agentic-ai-autonomous-agents-vs-traditional-ai/">The Ultimate Guide to Agentic AI : Autonomous Agents ... | TeckScaler</a></li>
-<li><a href="https://www.botonomy.ai/blog/agentic-ai/">Agentic AI | Botonomy</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#智能体AI`, `#自主决策`, `#航空智能化`, `#系统优化`
-
----
-
-<a id="item-5"></a>
-## [Anthropic Studies Self-Propagating Ideas in Multi-Agent LLMs](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNbV9lQ0tDWGlPNnlQdFZOVDhEbEZYbWdNOEJxUHQ3X0VXRGM0YXJSUy11RmdwMDBlc185RV96V3AwRjU3d2dTSHplNzBmQWxLTnlmTkZyWHA4cUdQclJwYlBoakxtLU52dnI4d3NGenJ1QlRoMXduS2dYWXpteEpTUk9mZ1RoOGNsU0h4M3dPZkI5amljSUZCUXpSelNPUmJITWNRSC00MVR4QXBMT05aR3d6SzFzZWxn?oc=5) ⭐️ 7.0/10
-
-Anthropic researchers reportedly studied how ideas can self-propagate among interacting multi-agent large language model systems. The work highlights emergent social dynamics that may not appear in evaluations of individual models. If ideas can spread through agent teams, shared chats, or agent marketplaces, they could influence system-wide behavior beyond any individual model’s intended outputs. This creates new safety concerns around coordination, bias amplification, and the control of autonomous AI systems. The available report provides no experimental metrics, model versions, propagation rates, or detailed intervention results, so the novelty and practical severity of the findings cannot yet be independently assessed from the supplied material. Related work indicates that communication topology can affect information propagation and that safety evaluations on isolated models may not transfer directly to multi-agent ensembles.
-
-rss · 华科 AIA · 机器人与自主智能 · Aug 23, 14:36
-
-**Match**: Targeted research feed matched **机器人与自主智能**.
-
-**Related faculty**: 何顶新, 刘智伟, 刘磊, 卢仁智, 姜艺, 岳作功, 左峥嵘, 张新宇 and 22 more
-
-**Background**: A multi-agent LLM system uses several language-model-based agents that communicate, delegate tasks, or coordinate through shared channels. Self-propagating ideas are patterns of information that spread from one agent to others and may persist or influence later decisions. Such systems can exhibit emergent behavior, meaning that the combined group produces dynamics not obvious from testing each agent separately.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://hyper.ai/en/papers/2608.10218">Mind Viruses: Self - Propagating Ideas in Multi - Agent LLM Systems</a></li>
-<li><a href="https://arxiv.org/pdf/2402.01680">Large Language Model based Multi - Agents : A Survey of Progress...</a></li>
-<li><a href="https://arxiv.org/html/2505.23352v1">Understanding the Information Propagation Effects of ...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#多智能体系统`, `#大语言模型`, `#自主智能`, `#涌现行为`, `#AI安全`
-
----
-
-<a id="item-6"></a>
-## [Industry Leaders Identify Bottlenecks to 10,000-Unit Embodied Intelligence Delivery](https://news.google.com/rss/articles/CBMiU0FVX3lxTE8wSERSWjI3SGJqUEdtd1lkMnVVVWdxd0QzRm80UjktQ1N1V1hVNEFXaGc0QW1HaHZzYy1Yd2oxWHZ3WGNxMXVGanp4UGM4eVlCU0hR?oc=5) ⭐️ 7.0/10
-
-A 36Kr article brings together views from five embodied intelligence industry leaders on the core obstacles to delivering robots at a scale of 10,000 units. The discussion focuses on technical challenges, supply-chain constraints, and commercialization barriers. Reaching 10,000-unit deliveries would mark a shift from technical validation and pilot projects toward repeatable industrial deployment. The bottlenecks identified by industry leaders could influence robot manufacturers, component suppliers, integrators, and customers planning large-scale adoption. The available material presents an industry-opinion roundup rather than a study with disclosed experiments, named product versions, or detailed performance data. As a result, it indicates the main categories of obstacles but does not establish quantified solutions or a specific timetable for 10,000-unit delivery.
-
-rss · 华科 AIA · 机器人与自主智能 · Aug 23, 03:11
-
-**Match**: Targeted research feed matched **机器人与自主智能**.
-
-**Related faculty**: 何顶新, 刘智伟, 刘磊, 卢仁智, 姜艺, 岳作功, 左峥嵘, 张新宇 and 22 more
-
-**Background**: Embodied intelligence refers to intelligent systems that have a physical body and interact with the surrounding environment through that body. Robots are a common example because they combine perception, action, and cognition while operating in the physical world. Scaling from demonstrations to thousands of deployed units requires not only capable models and hardware, but also stable manufacturing, supply chains, and viable commercial use cases.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://zh.wikipedia.org/wiki/具身智能">具身智能 - 维基百科，自由的百科全书</a></li>
-<li><a href="https://baike.baidu.com/item/具身智能/63286570">具身智能（智能体通过身体将感知、行动与认知深度融合的智能系统）_...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#具身智能`, `#机器人与自主智能`, `#智能制造`, `#规模化部署`, `#产业分析`
-
----
-
-<a id="item-7"></a>
-## [Embodied Intelligence Enters the Consumer Market](https://news.google.com/rss/articles/CBMiU0FVX3lxTFBVdVctT3l4TVFTZ1VjWS1Ta2NjVnFubzMxM1B1elN3akVOQ3ZrUEFrRjl6QlU3SVRINFAwUkRKQjNhOWE1RlpfalB4U2laOEozYnlR?oc=5) ⭐️ 6.0/10
-
-A 36Kr article describes embodied intelligence as moving from research and development toward commercialization in consumer products. It presents this shift as part of a broader trend in which robots and other physical systems equipped with AI are becoming available to consumers. The transition could expand embodied AI beyond laboratories and industrial settings, creating new consumer markets for robots and related products. It also signals that the robotics industry is increasingly focusing on productization, deployment, and commercial returns rather than research alone. The available material does not provide specific product names, sales figures, technical benchmarks, or commercialization dates, so the article's claim should be treated as a market trend rather than proof of widespread household adoption. Search results also indicate that meaningful home deployment may still face barriers and could take longer than industrial applications.
-
-rss · 华科 AIA · 机器人与自主智能 · Aug 24, 04:04
-
-**Match**: Targeted research feed matched **机器人与自主智能**.
-
-**Related faculty**: 何顶新, 刘智伟, 刘磊, 卢仁智, 姜艺, 岳作功, 左峥嵘, 张新宇 and 22 more
-
-**Background**: Embodied AI integrates artificial intelligence with physical systems so they can perceive and interact with the real world. Examples mentioned in the search results include general-purpose robots, humanoid robots, autonomous vehicles, factories, and warehouses. Embodied intelligence is therefore broader than software-only AI because its performance depends on both intelligent algorithms and physical interaction.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.nvidia.com/en-us/glossary/embodied-ai/">What is Embodied AI? | NVIDIA Glossary</a></li>
-<li><a href="https://www.linkedin.com/pulse/humanoid-robots-reach-nearly-us30-billion-2036-automotive-logistics-9orwe">Humanoid Robots to Reach Nearly US$30 Billion by 2036 as...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#具身智能`, `#机器人与自主智能`, `#消费级机器人`, `#智能制造`, `#产业化`
-
----
-
-<a id="item-8"></a>
-## [Industrial Robots Shift From Stunts to Practical Skills at WRC](https://news.google.com/rss/articles/CBMiU0FVX3lxTE01c0FQT0xIVHA1cTZBc2stMGJ3M0FXZTJ6d1NEanR3djRqbzhZWVEwOW9VQ3k2d18yQl8xVFJPcDVYdGh2aXdDTV9BNnljdTdJZE1r?oc=5) ⭐️ 6.0/10
-
-At the World Robot Conference, industrial robots are being presented through practical work skills rather than mainly through attention-grabbing flip stunts. The demonstrations also highlight efforts to expand robot use beyond traditional factory floors. The shift suggests that robotics showcases are placing greater emphasis on useful deployment and broader working environments, which could support adoption in warehouses and other sectors beyond manufacturing plants. It also reflects a wider industry focus on practical value rather than demonstrations alone. The available report does not identify specific robot models, tasks, performance figures, or deployment results. Therefore, the broader-use claim should be understood as a direction highlighted by the demonstrations, not as evidence of established commercial deployment in every new scenario.
-
-rss · 华科 AIA · 机器人与自主智能 · Aug 24, 03:13
-
-**Match**: Targeted research feed matched **机器人与自主智能**.
-
-**Related faculty**: 何顶新, 刘智伟, 刘磊, 卢仁智, 姜艺, 岳作功, 左峥嵘, 张新宇 and 22 more
-
-**Background**: Industrial robots are commonly used for repeatable tasks in factories, and they are also appearing in warehouses and other sectors. A practical-skills demonstration focuses on what a robot can do in a work process, rather than only showing visually impressive movements. Expanding beyond factory floors means applying these systems in additional working environments.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://eu.36kr.com/en/p/3950405920216708">Industrial Robots Ditch Flip Stunts: Showcase Real Practical Skills at...</a></li>
-<li><a href="https://howtorobot.com/expert-insight/industrial-robot-applications">Top 12 Industrial Robot Applications and Uses | HowToRobot</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#工业机器人`, `#机器人与自主智能`, `#智能制造`, `#机器人应用场景`
-
----
-
-<a id="item-9"></a>
-## [Orbbec Pivots Toward Hardware for Embodied-AI Data Capture](https://news.google.com/rss/articles/CBMidkFVX3lxTE92aTV2U2VDNDhYOW5hWk9OVE41UjYyNm9YQnc1Z0VYU3ZVMk9IRXZKTlFCUkpxSDBfSWFtUmZtZGpKQVhvVUdTM3NUd0k5UE5QNDZRLWdRZTFUam1KQ0twZ1dUMXBiWmlNZ2tjSXVnWkxjZWU1ZEE?oc=5) ⭐️ 6.0/10
-
-The article presents Orbbec’s strategy for addressing data shortages in embodied intelligence by emphasizing data-capture hardware and a broader platform pivot. The available material does not provide specific product versions, deployment figures, or evidence of a completed technical breakthrough. Robots need large amounts of real-world sensory data to learn how to perceive and act, so hardware that helps collect such data could become an important part of the embodied-intelligence ecosystem. The strategy also suggests that 3D-vision companies may seek platform-level roles beyond selling individual sensors. Orbbec describes itself as a provider of 3D vision for robotics, automation, and industry, and its website highlights a robot-free data-collection hardware platform alongside depth cameras, LiDAR, and developer tools. However, the supplied article contains only a headline and does not establish how much data the platform can collect, what modalities it supports, or whether the approach improves model-training results.
-
-rss · 华科 AIA · 机器人与自主智能 · Aug 23, 14:00
-
-**Match**: Targeted research feed matched **机器人与自主智能**.
-
-**Related faculty**: 何顶新, 刘智伟, 刘磊, 卢仁智, 姜艺, 岳作功, 左峥嵘, 张新宇 and 22 more
-
-**Background**: Embodied intelligence refers to intelligent systems that learn or make decisions through interaction with an environment, including robotic systems. In robotics, 3D cameras and other sensors provide information about depth, objects, and surroundings, while multimodal sensing combines different types of inputs to support situational understanding. Orbbec’s products and platform positioning place it within this data-and-perception layer of the robotics stack.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.orbbec.com/">Home - ORBBEC - Leading Provider of Robotics and AI Vision</a></li>
-<li><a href="https://www.orbbec.com/products/">3 D Vision Cameras for Robotics | Orbbec Products</a></li>
-<li><a href="https://www.linkedin.com/pulse/ei-stack-six-domains-define-embodied-intelligence-sean-forbes-30eqe">The EI Stack: The Six Domains That Define Embodied Intelligence</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#具身智能`, `#机器人`, `#多模态感知`, `#数据采集`, `#产业战略`
-
----
-
-<a id="item-10"></a>
-## [Use Digital Twins to Test Automation Before Investing](https://news.google.com/rss/articles/CBMimAFBVV95cUxPM2kwUlFUT2FyMFFVTjdJdTVva3A3ZXhsempkYzhxeXBRU09MRU44RGR5MHVfUVU5SFZ2V2tnSEN3aEw3cE9EaVlrNFhydlRVTkhXNFVtQ002RG9uNjdWMU5rYUJ6c3F5YlZsQ0lYRUNVWHI0bXJmYWVvNkRkU1RqWGdhVVhXR2oybGM5aFo0N0pPS0pRbllNXw?oc=5) ⭐️ 7.0/10
-
-The Robot Report explains how digital twins can simulate and evaluate automation systems before a company commits capital to physical equipment. This approach enables teams to explore feasibility, expected performance, and potential return on investment earlier in the planning process. Early simulation can reduce the risk of costly automation decisions by exposing design issues before hardware is built or deployed. It could help manufacturers shorten planning cycles, limit unnecessary capital expenditure, and make robot and factory-automation projects easier to evaluate. Digital-twin simulations can identify potential problems early, reduce prototype cycles and material waste, and support process improvements before deployment. However, the usefulness of the results depends on how accurately the digital model represents the planned physical system and operating conditions.
-
-rss · 华科 AIA · 工业智能与系统安全 · Aug 23, 12:38
-
-**Match**: Targeted research feed matched **工业智能与系统安全**.
-
-**Related faculty**: 周纯杰, 张征, 彭刚, 来金钢, 王卓, 秦肖臻, 程骋, 胡晓娅 and 1 more
-
-**Background**: A digital twin is a digital representation of a physical system that can be used to examine how the system may behave under different conditions. In industrial automation, it allows engineers to test processes and equipment virtually before building or modifying the real production environment. This makes simulation a planning tool as well as a way to support commissioning and optimization.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.jinway-tech.com/news/digital-twins-in-factory-automation-simulating-success-before-hardware-is-built/">Digital Twins in Factory Automation : Simulating Success Before...</a></li>
-<li><a href="https://www.industrialautomationindia.in/articles/what-do-you-need-to-know-about-digital-twins">industrialautomationindia.in/articles/what-do-you-need-to-know-about...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#数字孪生`, `#工业自动化`, `#机器人系统`, `#智能制造`, `#决策优化`
-
----
-
-<a id="item-11"></a>
-## [Naver Digital Twin Platform Becomes Saudi National Standard](https://news.google.com/rss/articles/CBMiqgFBVV95cUxPWU5xQ0djeHFWQUNWU1h5eEc0ZEJuVkhHR1ZxX29Ld1pCdklPSTVJVFFZWVlBc2I4T19hMW5QeWMxSkFhT2xWQ3F5YVBjc3JKQkptYnJtUVRMN1haZHJEX3FjN1RFZjg5Z09uT2JVek54UF9ObHdIdjlkWU95SkM1R1ZXdEdWaldMTWx0cThja2FnVG04UmVYODRkdEFYY0haVHhYNU9mUTRKdw?oc=5) ⭐️ 7.0/10
-
-Saudi Arabia’s Digital Government Authority has adopted Naver Cloud’s digital twin platform as the country’s national digital twin standard platform. The decision gives Naver’s technology an institutional basis for broader deployment beyond individual projects. A national standard could make it easier for Saudi government agencies and local partners to use a common digital-twin foundation for smart infrastructure, urban systems, and industrial applications. It also strengthens Naver’s position in the international digital-transformation market. The platform is cloud-based, and Naver plans to deepen cooperation with the Saudi government and local partners while adapting the technology to local requirements. The available report does not specify the full standard, deployment timetable, participating agencies, or technical performance requirements.
-
-rss · 华科 AIA · 工业智能与系统安全 · Aug 24, 05:30
-
-**Match**: Targeted research feed matched **工业智能与系统安全**.
-
-**Related faculty**: 周纯杰, 张征, 彭刚, 来金钢, 王卓, 秦肖臻, 程骋, 胡晓娅 and 1 more
-
-**Background**: A digital twin is a virtual representation of a physical object or system that reflects its state and behavior, often using continuously updated data. Digital twins can support monitoring, simulation, prediction, and optimization, making them relevant to urban planning, infrastructure management, and smart-industry operations. A national platform standard can provide a common technical foundation for multiple organizations and projects.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://en.sedaily.com/technology/2026/08/20/naver-wins-saudi-digital-twin-standard-eyes-robots-and">Naver Wins Saudi Digital Twin Standard, Eyes Robots and Super ...</a></li>
-<li><a href="https://en.edaily.co.kr/news/eda202608205389/">Naver’s Digital Twin Platform Becomes a ‘National Standard ...</a></li>
-<li><a href="https://www.sciencedirect.com/science/article/pii/S0166361525001630">A review of digital twins in smart industries: Concepts ...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#digital twins`, `#industrial intelligence`, `#smart infrastructure`, `#systems engineering`, `#Saudi Arabia`
-
----
-
-<a id="item-12"></a>
-## [KAIST Identifies a Path to Faster-Charging, Longer-Lasting EV Batteries](https://news.google.com/rss/articles/CBMiXEFVX3lxTE5UODlmU254dnRMWVgxbmlWWGRkbVc1eThKeFVCWm1wVjlBQ2VIUENQTmRSUUNsVGFtaHNBZDZKb0lqZ19ZZHJXOVJtakVVZk1vWW1fUjlHcS0xVXdJ?oc=5) ⭐️ 7.0/10
-
-KAIST researchers have identified a battery-technology approach that could enable electric vehicles to charge faster while extending battery service life. The available report does not specify the materials, cell design, or validation results involved. Faster charging and longer battery life address two major barriers to broader electric-vehicle adoption: charging time and battery replacement or degradation. If validated and commercialized, the approach could benefit electric-vehicle users, battery manufacturers, and sustainable transportation. The report describes a research pathway rather than a confirmed production-ready battery, and no performance figures, charging-rate increase, cycle-life measurement, or comparison baseline are provided. These missing details make it impossible to assess the technology’s novelty or practical readiness from the supplied information alone.
-
-rss · 华科 AIA · 工业智能与系统安全 · Aug 23, 23:31
-
-**Match**: Targeted research feed matched **工业智能与系统安全**.
-
-**Related faculty**: 周纯杰, 张征, 彭刚, 来金钢, 王卓, 秦肖臻, 程骋, 胡晓娅 and 1 more
-
-**Background**: An electric-vehicle battery must store substantial energy while accepting charge quickly and maintaining performance over many charge cycles. Faster charging can increase convenience, while longer service life can reduce replacement needs and the environmental burden associated with battery production. KAIST is the Korea Advanced Institute of Science and Technology, the research institution named in the report.
-
-**Tags**: `#EV batteries`, `#Energy storage`, `#Battery materials`, `#Energy electronics`, `#KAIST`
-
----
-
 ## Other highlights
 
-13. [Anthropic’s Strong AI Models Struggle Against Cheaper, Simpler Rivals](#item-13) ⭐️ 8.0/10
-14. [How Complex Systems Fail: Why Resilience Requires Learning From Failure](#item-14) ⭐️ 8.0/10
-15. [Malware Infects Android Automotive Head Unit Firmware](#item-15) ⭐️ 8.0/10
-16. [Testing CUDA’s Moat in Agentic Inference](#item-16) ⭐️ 8.0/10
-17. [Tyler Cowen Joins Anthropic’s Claude Constitution Rewrite Workshop](#item-17) ⭐️ 8.0/10
-18. [Ultralytics v8.4.127 Improves Exported Model Reliability](#item-18) ⭐️ 7.0/10
-19. [Reclaiming Control Over the Hardware We Own](#item-19) ⭐️ 7.0/10
-20. [Agent.md Improves LLM-Assisted Code Quality](#item-20) ⭐️ 7.0/10
-21. [AI Training on Copyrighted Books Faces Unsettled Legal Questions](#item-21) ⭐️ 7.0/10
-22. [Inherent Says Faraday Outperformed Leading AI Models at Research Replication](#item-22) ⭐️ 7.0/10
-23. [Linus Torvalds on AI-Assisted Linux Graphics Debugging](#item-23) ⭐️ 7.0/10
-24. [Roblox Contributes Open-Source Safety Models to ROOST](#item-24) ⭐️ 7.0/10
-25. [Google’s Backstory Speeds Up Image Fact-Checking](#item-25) ⭐️ 7.0/10
-26. [Trustworthy Hardware and Manufacturing Drive Physical AI](#item-26) ⭐️ 7.0/10
-27. [AI Model Gaps Make Coding Workflow Design More Important](#item-27) ⭐️ 6.0/10
-28. [Technical Clues Link Anonymous Model to GLM](#item-28) ⭐️ 6.0/10
-29. [Agentic AI Creates a New O-Ring Economy](#item-29) ⭐️ 6.0/10
-30. [AI Coding Harnesses Have Blind Spots in Bug Detection](#item-30) ⭐️ 6.0/10
-31. [Texas Student Builds a High-Precision Robot Sensor for Under $25](#item-31) ⭐️ 6.0/10
-32. [South Korea’s Humanoid Industry Depends on Chinese Hardware and U.S. AI](#item-32) ⭐️ 6.0/10
-33. [Hugging Face Explores Potential $13B Sale](#item-33) ⭐️ 6.0/10
-34. [OpenAI and Anthropic Expand Washington Lobbying Efforts](#item-34) ⭐️ 6.0/10
-35. [Flock Safety CEO Calls for Compromise Amid Surveillance Backlash](#item-35) ⭐️ 5.0/10
-36. [Humanoid Robots Compete in Beijing Sports Games](#item-36) ⭐️ 5.0/10
-37. [Saudi Arabia and France Deepen AI Cooperation](#item-37) ⭐️ 5.0/10
-38. [Open-Source Tool Reportedly Removes Claude Watermarks](#item-38) ⭐️ 5.0/10
-39. [Apple Reportedly Cuts 200 Vision Pro Jobs as Smart Glasses Near](#item-39) ⭐️ 5.0/10
-40. [Türkiye’s Position in Infrared Detector Technology](#item-40) ⭐️ 5.0/10
-41. [Berkeley’s $5,000 Robot Highlights Supply-Chain Dependence](#item-41) ⭐️ 5.0/10
-42. [Open-Source Project Brings macOS to Jailbroken M1 and M2 iPads](#item-42) ⭐️ 5.0/10
+1. [How Complex Systems Fail: Why Resilience Requires Testing Failure](#item-1) ⭐️ 9.0/10
+2. [Reclaiming Control of Consumer Hardware](#item-2) ⭐️ 8.0/10
+3. [What an AI Agent Harness Does](#item-3) ⭐️ 8.0/10
+4. [InferenceXv3 Tests CUDA’s Moat in Agentic Workloads](#item-4) ⭐️ 8.0/10
+5. [Anthropic’s Strongest Model Struggles Against Cheaper AI Tools](#item-5) ⭐️ 7.0/10
+6. [How Staff Engineers Find High-Impact Problems](#item-6) ⭐️ 7.0/10
+7. [A Low-Latency AI Companion Joins Skyrim Adventures](#item-7) ⭐️ 7.0/10
+8. [Copyrighted Books and AI Training: A Complicated Legal Question](#item-8) ⭐️ 7.0/10
+9. [Linus Torvalds Says AI Helped Solve a Difficult Linux Graphics Bug](#item-9) ⭐️ 7.0/10
+10. [Tyler Cowen Advises Anthropic on Claude’s Revised Constitution](#item-10) ⭐️ 7.0/10
+11. [Roblox Contributes Open-Source Safety Models to ROOST](#item-11) ⭐️ 7.0/10
+12. [Hugging Face Reportedly Weighs a $13 Billion Sale.](#item-12) ⭐️ 7.0/10
+13. [OpenAI and Anthropic Expand Washington Lobbying](#item-13) ⭐️ 7.0/10
+14. [Flock CEO Seeks Compromise Amid Surveillance Backlash](#item-14) ⭐️ 6.0/10
+15. [Expensive AI Models Make Coding Harnesses More Important](#item-15) ⭐️ 6.0/10
+16. [The New Agentic O-Ring World](#item-16) ⭐️ 6.0/10
+17. [Etnaviv Driver Adds YOLOX Support for Embedded AI](#item-17) ⭐️ 6.0/10
+18. [AI Coding Harnesses Face Bug-Detection Blind Spots](#item-18) ⭐️ 6.0/10
+19. [Backstory Speeds Up Image Fact-Checking](#item-19) ⭐️ 6.0/10
+20. [Texas Student Builds High-Precision Robot Sensor for Under $25](#item-20) ⭐️ 6.0/10
+21. [South Korea’s Humanoid Robots Depend on Chinese Hardware and U.S. AI](#item-21) ⭐️ 6.0/10
+22. [Open-Source Project Runs macOS on M1 and M2 iPads](#item-22) ⭐️ 6.0/10
+23. [Oliver Sacks on Memory, Narrative, and Personhood](#item-23) ⭐️ 5.0/10
+24. [Trustworthy Hardware Could Drive Physical AI Through Manufacturing](#item-24) ⭐️ 5.0/10
+25. [Saudi Arabia and France Deepen AI Cooperation](#item-25) ⭐️ 5.0/10
+26. [Apple Reportedly Cuts Vision Pro Jobs as Smart Glasses Target 2027](#item-26) ⭐️ 5.0/10
+27. [Roboflow Playground Offers Free Vision Model Comparison](#item-27) ⭐️ 5.0/10
+28. [Türkiye Highlights Emerging Infrared Detector Capabilities](#item-28) ⭐️ 5.0/10
 
 ---
 
-<a id="item-13"></a>
-## [Anthropic’s Strong AI Models Struggle Against Cheaper, Simpler Rivals](https://www.ft.com/content/5ee49718-c258-4f01-aa32-7e5b76ae5245) ⭐️ 8.0/10
+<a id="item-1" class="hz-item-anchor" data-hz-url="https://how.complexsystems.fail/" data-hz-title="How Complex Systems Fail: Why Resilience Requires Testing Failure" data-hz-tags="complex systems,distributed systems,reliability engineering,chaos engineering,systems failure" data-hz-section="other"></a>
+## [How Complex Systems Fail: Why Resilience Requires Testing Failure](https://how.complexsystems.fail/) ⭐️ 9.0/10
 
-The Financial Times examines why Anthropic’s technically strong but expensive AI models are attracting fewer users as competitors offer simpler pricing and more accessible products. The discussion highlights the tension between frontier-model capability, token-based usage costs, and consumer adoption. The case illustrates that technical leadership alone may not produce widespread adoption when inference costs and pricing complexity make products difficult to understand or use. It could influence how AI companies balance premium enterprise offerings, consumer access, privacy expectations, and sustainable model economics. The reported challenge is not simply model quality: users also weigh subscription tiers, usage limits, token-based charges, and the predictability of access. Community commenters additionally raised concerns about submitting sensitive organizational data to AI providers and about whether restrictions or pricing changes reduce the practical value of advanced models.
-
-hackernews · naves · Aug 23, 18:16 · [Discussion](https://news.ycombinator.com/item?id=49411102)
-
-**Background**: Frontier AI models are the most advanced models available at a given time, generally trained on very large datasets and designed to deliver state-of-the-art performance across tasks. Inference is the process of using a trained model to generate an answer, and its computational cost can be charged according to input and output tokens. Token-based pricing means that customers pay for the amount of text processed or generated, which can make long or intensive workloads expensive and harder to budget.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.nvidia.com/en-us/glossary/frontier-models/">What Are Frontier AI Models and How They Work - NVIDIA</a></li>
-<li><a href="https://www.mindstudio.ai/blog/token-based-pricing">What Is Token-Based Pricing for AI Models | MindStudio</a></li>
-
-</ul>
-</details>
-
-**Discussion**: Commenters broadly agreed that Anthropic’s monetization and access policies may be undermining strong model capabilities, citing confusing plans, usage caps, and high token costs. Others focused on data governance and privacy, arguing that organizations may hesitate to send sensitive code or business information to AI providers; some also compared Anthropic unfavorably with competing services on usability and access.
-
-**Tags**: `#AI industry`, `#frontier models`, `#AI economics`, `#model pricing`, `#data privacy`
-
----
-
-<a id="item-14"></a>
-## [How Complex Systems Fail: Why Resilience Requires Learning From Failure](https://how.complexsystems.fail/) ⭐️ 8.0/10
-
-The 1998 essay “How Complex Systems Fail” presents a systems-level account of failure, arguing that accidents emerge from interacting and evolving conditions rather than from a single defective component. It emphasizes that reliable operation requires learning from failures and deliberately exercising systems under failure conditions. Its argument remains important for distributed systems, safety engineering, reliability work, and chaos engineering because local fixes may not address failures caused by system-wide interactions. It also challenges organizations to treat resilience as an ongoing learning and testing practice rather than as the result of eliminating every possible fault. The essay’s perspective contrasts with simplistic root-cause analysis: a distributed-lock problem, for example, can interact with deployment components and produce a metastable failure state. The community discussion also highlights redundancy, degraded operating conditions, prior near-accidents, and deliberate failure experiments as important evidence about where systems reach their limits.
+This influential 1998 essay explains that complex systems often fail through interacting conditions rather than a single root cause. It argues that resilience depends on understanding failure modes and actively testing how systems behave under stress. The essay remains highly relevant to distributed systems, reliability engineering, incident response, and chaos engineering because failures can emerge from interactions among otherwise functioning components. Its perspective encourages teams to prepare for degraded conditions instead of relying exclusively on simplified root-cause explanations after an incident. The discussion highlights metastable failure states, redundancy, prior near-accidents, and the practical knowledge of operators who keep systems working despite degraded conditions. Community members connect this perspective to chaos engineering, where controlled failures are introduced to reveal weaknesses and identify a system’s tipping points.
 
 hackernews · shortcrct · Aug 23, 15:13 · [Discussion](https://news.ycombinator.com/item?id=49409473)
 
-**Background**: A complex system contains many interacting components whose combined behavior can be difficult to predict from any single part. In distributed systems, independent services and coordination mechanisms can produce cascading effects when timing, state, or dependencies change. Chaos engineering applies this lesson through controlled experiments that test whether a system can withstand turbulent conditions and reveal weaknesses before real incidents do.
+**Background**: A complex system contains many components and interactions, so its overall behavior may not be explained by examining one component in isolation. Redundancy can allow a system to continue operating while flaws accumulate, but changing conditions and interactions can eventually produce a cascading or metastable failure. Chaos engineering applies this lesson by deliberately introducing failures and observing whether the system maintains its expected behavior.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Chaos_engineering">Chaos engineering - Wikipedia</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Complex_adaptive_system">Complex adaptive system - Wikipedia</a></li>
+<li><a href="https://helpmetest.com/blog/chaos-engineering-principles/">Chaos Engineering Principles Explained (2026)</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0951832024008378">Failure dependence and cascading failures: A literature review and ...</a></li>
 
 </ul>
 </details>
 
-**Discussion**: The discussion is strongly supportive and connects the essay to economic systems, distributed locks, metastable failures, redundancy, and chaos engineering. Commenters agree that experience with real failures is essential, while their examples also stress that operators often normalize degraded conditions and rely on informal workarounds that can hide accumulating risk.
+**Discussion**: The discussion is strongly supportive of the essay and emphasizes that conventional root-cause analysis can be misleading for complex systems. Commenters also stress that operators’ tacit knowledge, redundancy, recurring proto-accidents, and deliberate failure testing are essential for understanding and improving resilience.
 
-**Tags**: `#complex systems`, `#systems engineering`, `#reliability and safety`, `#distributed systems`, `#chaos engineering`
+**Tags**: `#complex systems`, `#distributed systems`, `#reliability engineering`, `#chaos engineering`, `#systems failure`
 
 ---
 
-<a id="item-15"></a>
-## [Malware Infects Android Automotive Head Unit Firmware](https://securelist.com/android-head-unit-malware/121106/) ⭐️ 8.0/10
+<a id="item-2" class="hz-item-anchor" data-hz-url="https://schlarp.com/posts/everything-i-own-owned/" data-hz-title="Reclaiming Control of Consumer Hardware" data-hz-tags="right-to-repair,firmware,hardware-hacking,Linux,vendor-lock-in" data-hz-section="other"></a>
+## [Reclaiming Control of Consumer Hardware](https://schlarp.com/posts/everything-i-own-owned/) ⭐️ 8.0/10
 
-Malware has reportedly been distributed through official OTA updates for some low-cost, aftermarket Android automotive head units. The incident shows that the devices’ own firmware-update channel can become the infection mechanism, potentially turning compromised units into proxy or botnet nodes. First-party updates are normally trusted, so compromising or misusing that channel can affect many embedded devices at once and undermine the security assumptions of connected vehicles. The risk is especially important for head units that connect to phones, external networks, or a vehicle’s CAN bus, although the available discussion does not establish that this incident caused vehicle-control attacks. Community discussion indicates that the malware targets certain cheap Chinese aftermarket head units rather than every Android-based head unit, and it does not infect Android Auto because Android Auto primarily mirrors software running on the connected phone. The malware’s apparent botnet or proxy use is a more immediate concern, while lateral propagation through paired phones and direct CAN-bus abuse are described as possible future or adjacent risks rather than confirmed outcomes.
+The article documents attempts to reverse-engineer and liberate consumer devices by modifying or replacing vendor firmware and software. It presents practical examples of extending hardware control while recognizing legal, security, and compatibility constraints. The work illustrates how right-to-repair efforts can counter vendor lock-in, extend device lifetimes, and preserve hardware after manufacturers stop supporting it. It is especially relevant to Linux users, embedded-systems developers, and hardware owners who want greater control over devices they purchased. Community examples include developing a modern Linux driver for a Silicon Motion SM750 graphics device, enabling wider resolutions and DRM and DKMS support, and exploring firmware changes for an ASUS ROG Swift PG42UQ monitor and a WiFi relay. Modified firmware may be blocked by signed-update or secure-boot mechanisms, while unsupported changes can introduce security risks, device failures, or regulatory issues.
 
-hackernews · campuscodi · Aug 23, 13:05 · [Discussion](https://news.ycombinator.com/item?id=49408550)
+hackernews · schlarpc · Aug 23, 22:41 · [Discussion](https://news.ycombinator.com/item?id=49413320)
 
-**Background**: An OTA update is software or firmware delivered over a network rather than installed manually, so its update client is a powerful and highly trusted component of an embedded device. An automotive head unit is the vehicle’s infotainment and connectivity computer, and some models can communicate with the CAN bus, the in-vehicle network used by electronic control systems. Android Auto is different from a full Android installation on the head unit because much of its application software runs on the connected phone.
+**Background**: Firmware is the low-level software that controls a device's hardware, while drivers let an operating system communicate with that hardware. Reverse engineering can involve extracting firmware, disassembling it, debugging it, and examining the device's circuitry or communication protocols. Firmware signing and secure boot establish a chain of trust that can prevent modified code from running, even when the device owner has physical access.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.elseif.net/stories/malware-infects-android-based-automotive-head-unit-firmware-c599dc5">Multi-stage Android malware spread through DoFun head unit ...</a></li>
-<li><a href="https://overcentral.com/en/badbox-malware-car-head-units-77447/">BadBox Malware Turns Car Head Units into Proxy Botnet</a></li>
+<li><a href="https://bugprove.com/firmware-reverse-engineering/">Firmware reverse engineering for embedded systems and security research 🔍🔧</a></li>
+<li><a href="https://www.apriorit.com/dev-blog/hardware-reverse-engineering">Hardware Reverse Engineering: Use Cases and Benefits - Apriorit</a></li>
+<li><a href="https://elintacharge.com/glossary/firmware-signing/">Firmware Signing : Ensuring Secure Updates - Elinta Charge</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Commenters generally viewed the incident as serious but emphasized its limited scope: it affects specific aftermarket head units, cannot automatically spread to every Android head unit, and is separate from Android Auto. They also raised concerns that compromised units could become proxy or botnet infrastructure, potentially spread laterally through connected phones, or create safety risks when connected to the CAN bus, while noting that these broader scenarios were not demonstrated by the report.
+**Discussion**: The discussion was strongly supportive of the article's spirit, with commenters sharing successful work on Linux graphics drivers, WiFi-device firmware, and monitor behavior. Others cautioned that regulations such as the European RED framework, signed firmware, and security requirements may limit owner modifications, creating tension between user control and secure device operation.
 
-**Tags**: `#Automotive cybersecurity`, `#Android malware`, `#Embedded systems`, `#OTA updates`, `#CAN bus security`
+**Tags**: `#right-to-repair`, `#firmware`, `#hardware-hacking`, `#Linux`, `#vendor-lock-in`
 
 ---
 
-<a id="item-16"></a>
-## [Testing CUDA’s Moat in Agentic Inference](https://newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat) ⭐️ 8.0/10
+<a id="item-3" class="hz-item-anchor" data-hz-url="https://earendil.com/posts/what-is-a-harness/" data-hz-title="What an AI Agent Harness Does" data-hz-tags="AI agents,developer tooling,LLM interfaces,agent workflows,software engineering" data-hz-section="other"></a>
+## [What an AI Agent Harness Does](https://earendil.com/posts/what-is-a-harness/) ⭐️ 8.0/10
 
-The article evaluates whether NVIDIA’s CUDA advantage persists for advanced agentic inference across GB300 NVL72, MI355, and B200 systems. Its evaluation framework includes an open $3 million dataset, contexts exceeding one million tokens, multiturn and sub-agent workloads, and KV-cache hit rates above 95%. Agentic inference can depend heavily on repeated context reuse, long-context handling, and coordination among multiple inference steps, so conventional single-request benchmarks may not capture real deployment economics. The comparison could clarify whether CUDA’s software and scaling ecosystem continues to outweigh competing accelerator capabilities for these workloads. The supplied excerpt identifies the workload dimensions and systems but does not provide the article’s detailed performance results, cost measurements, or conclusions. High KV-cache hit rates are important because keeping cached blocks warm and routable can reduce repeated computation and data movement in distributed agentic inference.
+The article explains how an AI agent harness makes agents more capable and usable by organizing their tools, interfaces, and operating context. It presents the harness as the layer that connects an underlying model with the practical environment in which the agent works. The framing helps distinguish an agent’s underlying language model from the surrounding developer tooling and workflows that determine what the agent can actually accomplish. As agents are used across terminals, web interfaces, business systems, and multiple communication modalities, this surrounding layer may become an important source of reliability and usability. The discussion emphasizes that a harness can include tools, interfaces, skills, and operating context, while community members also highlight internal command-line tools and the difficulty of handing work off between users, interfaces, models, and providers. A key caveat is that narrowly prescriptive skills may limit agents rather than make them more capable.
+
+hackernews · tosh · Aug 23, 14:24 · [Discussion](https://news.ycombinator.com/item?id=49409092)
+
+**Background**: An AI agent is a system in which a language model can use tools and participate in a broader workflow rather than merely generate a single response. An agent harness is the surrounding runtime layer that manages the agent loop, tool interfaces, context, and control mechanisms. This layer can also provide memory and access to external data, helping the agent operate beyond the information contained in one context window.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://www.databricks.com/blog/ai-harness">What is an AI Agent Harness? | Databricks Blog</a></li>
+<li><a href="https://www.langchain.com/blog/the-anatomy-of-an-agent-harness">The Anatomy of an Agent Harness</a></li>
+<li><a href="https://parallel.ai/articles/what-is-an-agent-harness">What is an agent harness in the context of large-language models? | Parallel</a></li>
+
+</ul>
+</details>
+
+**Discussion**: The discussion is broadly positive but exploratory: commenters praise internal CLIs as useful agent interfaces, debate analogies such as a tool belt or vehicle chassis, and ask whether a harness can support handoffs across terminals, web UIs, team members, modalities, models, and providers. Other comments suggest that extensibility could be a major source of value, while also noting that the right abstraction remains unsettled.
+
+**Tags**: `#AI agents`, `#developer tooling`, `#LLM interfaces`, `#agent workflows`, `#software engineering`
+
+---
+
+<a id="item-4" class="hz-item-anchor" data-hz-url="https://newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat" data-hz-title="InferenceXv3 Tests CUDA’s Moat in Agentic Workloads" data-hz-tags="AI inference,Agentic AI,CUDA,GPU systems,Long-context models" data-hz-section="other"></a>
+## [InferenceXv3 Tests CUDA’s Moat in Agentic Workloads](https://newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat) ⭐️ 8.0/10
+
+AgentX’s InferenceXv3 analysis evaluates whether CUDA maintains a decisive advantage for agentic inference across long-context, multiturn, and sub-agent workloads. The comparison covers NVIDIA’s GB300 NVL72 and B200 platforms alongside AMD’s MI355, using contexts exceeding one million tokens and workloads reporting more than 95% KV-cache hit rates. Agentic systems repeatedly reuse context across turns and sub-agents, so their performance may depend as much on cache management and interconnects as on raw accelerator throughput. The open-sourcing of a dataset valued at $3 million could make comparisons between NVIDIA and AMD more reproducible and sharpen the debate over whether CUDA remains a durable competitive moat. KV-cache memory requirements grow with batch size and sequence length, making efficient cache handling particularly important for million-token inputs. The results should be interpreted as workload-specific: high cache reuse can reduce repeated prefill work, but it does not by itself establish that one accelerator or software stack is universally faster.
 
 rss · Semianalysis（半导体·AI 风向标） · Aug 24, 00:19
 
-**Background**: Agentic inference refers to workloads in which a model performs multiple related reasoning or tool-use steps, often across turns and sub-agents. A KV cache stores intermediate attention data from earlier tokens so that reused context does not need to be recomputed. In long-context and distributed systems, cache placement, reuse, and interconnect performance can materially affect throughput and latency.
+**Background**: The KV cache stores intermediate attention data from previously processed tokens so that later turns can reuse that work instead of recomputing the entire prefix. This is especially valuable in long-context and multiturn inference, where repeated prefixes can otherwise consume substantial memory and compute. NVIDIA’s GB300 NVL72 is a liquid-cooled rack-scale system integrating 72 Blackwell Ultra GPUs and 36 Grace CPUs, while AMD’s MI355 is an Instinct accelerator used for generative-AI and large-language-model inference.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://developer.nvidia.com/blog/full-stack-optimizations-for-agentic-inference-with-nvidia-dynamo/">Full-Stack Optimizations for Agentic Inference with NVIDIA Dynamo</a></li>
-<li><a href="https://pantheon.run/hardware/nvidia-gb300-nvl72-lenovo">NVIDIA GB 300 NVL 72 Rack (Lenovo) — Specs | Pantheon</a></li>
+<li><a href="https://developer.nvidia.com/blog/mastering-llm-techniques-inference-optimization/">Mastering LLM Techniques: Inference Optimization | NVIDIA Technical...</a></li>
+<li><a href="https://www.nvidia.com/en-us/data-center/gb300-nvl72/">Designed for AI Reasoning Performance & Efficiency | NVIDIA GB300 NVL72</a></li>
+<li><a href="https://www.guru3d.com/story/amd-details-singlenode-and-distributed-inference-performance-on-instinct-mi355x/">AMD Details Single-Node and Distributed Inference Performance on...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI inference`, `#Agentic AI`, `#CUDA ecosystem`, `#Long-context models`, `#KV-cache optimization`
+**Tags**: `#AI inference`, `#Agentic AI`, `#CUDA`, `#GPU systems`, `#Long-context models`
 
 ---
 
-<a id="item-17"></a>
-## [Tyler Cowen Joins Anthropic’s Claude Constitution Rewrite Workshop](https://marginalrevolution.com/marginalrevolution/2026/08/my-recent-visit-to-anthropic.html?utm_source=rss&utm_medium=rss&utm_campaign=my-recent-visit-to-anthropic) ⭐️ 8.0/10
+<a id="item-5" class="hz-item-anchor" data-hz-url="https://www.ft.com/content/5ee49718-c258-4f01-aa32-7e5b76ae5245" data-hz-title="Anthropic’s Strongest Model Struggles Against Cheaper AI Tools" data-hz-tags="AI industry,AI monetization,LLM pricing,data privacy,model adoption" data-hz-section="other"></a>
+## [Anthropic’s Strongest Model Struggles Against Cheaper AI Tools](https://www.ft.com/content/5ee49718-c258-4f01-aa32-7e5b76ae5245) ⭐️ 7.0/10
 
-Tyler Cowen reports that he recently took part in a two-day session at Anthropic focused on rewriting Claude’s constitution. The small group received substantial time with key decision-makers and discussed guidance for Claude’s model behavior. The session offers a rare first-hand view into how Anthropic develops the principles that shape Claude’s alignment, safety, and responses. Because constitutional guidance can influence behavior across many situations, its design is relevant to wider debates about AI governance and model accountability. The reported meeting lasted two days, involved a small group described as highly qualified, and gave participants serious access to Anthropic’s key decision-makers. Anthropic describes Claude’s constitution as a broad account of desired values and behavior rather than a rigid legal document, while more specific guidelines and hard constraints may address particular high-stakes cases.
+Anthropic is reportedly struggling to turn its strongest model into broad user adoption, as high costs, confusing pricing, and trust concerns make cheaper AI tools more appealing. The debate highlights a gap between frontier-model capability and the ability to monetize that capability at scale. The case shows that model quality alone may not determine adoption when users also weigh token costs, pricing predictability, and data privacy. It matters for AI companies competing to recover expensive inference costs and for organizations deciding whether premium models justify their price. Community commenters described Anthropic’s consumer pricing and usage limits as unstable or difficult to understand, while some questioned whether newer models justify higher prices or match the quality of earlier ones. The discussion also raised concerns about sending sensitive code and organizational information to an internet-based AI provider.
+
+hackernews · naves · Aug 23, 18:16 · [Discussion](https://news.ycombinator.com/item?id=49411102)
+
+**Background**: AI model providers commonly charge according to usage, including the number of input and output tokens processed. Inference is the computing required to generate a model’s response, and its cost affects whether providers can offer powerful models cheaply. As inference costs fall across the industry, users may have more low-cost alternatives when comparing premium services.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://openrouter.ai/models">Compare AI Models : Pricing , Context & Benchmarks | OpenRouter</a></li>
+<li><a href="https://a16z.com/llmflation-llm-inference-cost/">Welcome to LLMflation - LLM inference cost is going down fast</a></li>
+<li><a href="https://www.geeksforgeeks.org/artificial-intelligence/what-is-ai-model/">What is AI Model ? - GeeksforGeeks</a></li>
+
+</ul>
+</details>
+
+**Discussion**: The discussion was broadly critical of Anthropic’s pricing, access limits, and model strategy. Commenters disagreed on the relative quality of newer and older models, but several independently emphasized that unpredictable monetization and concerns about sharing proprietary data could push users toward cheaper or alternative providers.
+
+**Tags**: `#AI industry`, `#AI monetization`, `#LLM pricing`, `#data privacy`, `#model adoption`
+
+---
+
+<a id="item-6" class="hz-item-anchor" data-hz-url="https://lalitm.com/post/find-problems-staff-engineer/" data-hz-title="How Staff Engineers Find High-Impact Problems" data-hz-tags="staff engineering,technical leadership,problem prioritization,engineering management,organizational design" data-hz-section="other"></a>
+## [How Staff Engineers Find High-Impact Problems](https://lalitm.com/post/find-problems-staff-engineer/) ⭐️ 7.0/10
+
+The article presents a systematic approach for staff engineers to discover, evaluate, and select high-impact problems within complex organizations. It emphasizes problem prioritization, organizational autonomy, and the different expectations associated with senior technical roles. Staff engineers often influence outcomes beyond a single project, so choosing the right problem can create more value than simply delivering another isolated feature. The approach is especially relevant to engineers working in large organizations where roadmaps, teams, and priorities are interdependent. The perspective is based mainly on infrastructure and developer-tools work at large companies where engineers have substantial bottom-up influence over team roadmaps. The article’s approach may be less applicable in more top-down environments, and the discussion also highlights the need to distinguish urgent problems from opportunities to solve several problems at once.
+
+hackernews · vanpra · Aug 23, 19:23 · [Discussion](https://news.ycombinator.com/item?id=49411643)
+
+**Background**: A staff engineer is a senior technical role whose responsibilities typically extend beyond implementing tasks on one team. In the context of this article, the role involves identifying important problems, influencing priorities, and using technical judgment to improve outcomes across a broader organization. Bottom-up autonomy means that engineers can meaningfully shape their teams’ roadmaps rather than only executing centrally assigned work.
+
+**Discussion**: The comments broadly valued the article but challenged how widely its assumptions apply. One commenter from startups said the main challenge is usually prioritizing among too many problems, while another argued that successful staff engineers generally demonstrate this behavior before receiving the title; others questioned whether large technology companies are reducing engineers’ bottom-up autonomy and suggested that some organizations simply have too little meaningful work.
+
+**Tags**: `#staff engineering`, `#technical leadership`, `#problem prioritization`, `#engineering management`, `#organizational design`
+
+---
+
+<a id="item-7" class="hz-item-anchor" data-hz-url="https://pantel.is/projects/ai-gaming-companion/" data-hz-title="A Low-Latency AI Companion Joins Skyrim Adventures" data-hz-tags="AI gaming,NPCs,low-latency inference,voice interfaces,local AI" data-hz-section="other"></a>
+## [A Low-Latency AI Companion Joins Skyrim Adventures](https://pantel.is/projects/ai-gaming-companion/) ⭐️ 7.0/10
+
+An experimental project adds a low-latency AI companion that follows the player, reacts to game events, and interacts through voice during Skyrim gameplay. The demonstration combines game context, a distinct personality, and real-time conversation rather than treating the game as a simple prompt source. The project points toward NPCs that respond more dynamically to what players are doing, potentially making companions and other characters feel less scripted. If similar systems become fast and efficient enough to run locally, they could support richer game experiences without requiring every interaction to depend on a remote service. According to the discussion, the game runs on Windows while the audio processing and AI system run on an M4 MacBook; the creator suggested that an all-Windows setup could require roughly 12 GB or more of dedicated GPU memory. It remains an experimental demonstration, and commenters were unsure how completely local the system is compared with related projects such as Mantella.
+
+hackernews · pantelisk · Aug 23, 23:18 · [Discussion](https://news.ycombinator.com/item?id=49413561)
+
+**Background**: Low-latency inference means processing an AI request quickly enough to preserve the flow of an interactive experience, which is especially important for spoken dialogue. In a game, an AI companion can use gameplay context to decide what to say or how to react, while a voice interface converts spoken input and generated responses into a more natural conversation. Existing AI-driven follower projects show that this concept can also be applied to individual NPCs.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://www.agora.io/">Real - Time Engagement & Conversational AI Platform | Agora</a></li>
+<li><a href="https://www.nexusmods.com/fallout4/mods/108257">AI Follower Jessica - Fully Local AI -driven NPC at Fallout 4 Nexus...</a></li>
+
+</ul>
+</details>
+
+**Discussion**: Discussion was broadly enthusiastic, particularly about the companion’s humorous dog persona, the possibility of a companion that follows players across games, and the potential for future console applications. Commenters also raised practical concerns about local inference, GPU memory, and whether the system is fully local, while one commenter compared its lower apparent latency favorably with Mantella.
+
+**Tags**: `#AI gaming`, `#NPCs`, `#low-latency inference`, `#voice interfaces`, `#local AI`
+
+---
+
+<a id="item-8" class="hz-item-anchor" data-hz-url="https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/" data-hz-title="Copyrighted Books and AI Training: A Complicated Legal Question" data-hz-tags="AI law,copyright,AI training data,generative AI,authors' rights" data-hz-section="other"></a>
+## [Copyrighted Books and AI Training: A Complicated Legal Question](https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/) ⭐️ 7.0/10
+
+The TechCrunch analysis examines whether AI companies may train models on copyrighted books without authors’ knowledge or permission. It highlights that the answer remains legally complicated: some courts have treated certain AI training uses as fair use, while other uses involving direct competition have not received the same protection. The legal outcome could affect AI companies that rely on large collections of books, as well as authors and publishers concerned about consent, compensation, and competition. It may also shape how courts distinguish model training from AI-generated content and from services that compete with the works used for training. The search results describe Judge Bibas’s finding that training on Reuters content to create a directly competing platform was not fair use, while noting that the argument that chatbots compete with authors by generating synthetic books has not yet prevailed in court. Companies also invoke fair use and text-and-data-mining exceptions, but those defenses may depend on the purpose, jurisdiction, and competitive effect of the use.
+
+rss · TechCrunch AI · Aug 23, 15:00
+
+**Background**: Copyright gives creators legal rights over protected works such as books, but some legal systems allow limited uses without permission under doctrines such as fair use or text-and-data-mining exceptions. AI training typically involves processing large quantities of text so a model can learn patterns from it, which has raised questions about whether that processing is an authorized use of the underlying works. The legal analysis is separate from the question of whether AI-generated content itself can receive copyright protection.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/">Is it legal to train AI models on copyrighted books? It’s complicated | TechCrunch</a></li>
+<li><a href="https://www.cambridge.org/core/journals/european-journal-of-risk-regulation/article/copyright-exceptions-and-fair-use-defences-for-ai-training-done-for-research-and-learning-or-the-inescapable-licensing-horizon/752DF1DB564AD1EDFE23BA8BB1110802">Copyright Exceptions and Fair Use Defences for AI Training Done for “Research” and “Learning,” or the Inescapable Licensing Horizon | European Journal of Risk Regulation | Cambridge Core</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#AI law`, `#copyright`, `#AI training data`, `#generative AI`, `#authors' rights`
+
+---
+
+<a id="item-9" class="hz-item-anchor" data-hz-url="https://simonwillison.net/2026/Aug/22/linus-torvalds/" data-hz-title="Linus Torvalds Says AI Helped Solve a Difficult Linux Graphics Bug" data-hz-tags="AI-assisted programming,Linux kernel,debugging,software engineering" data-hz-section="other"></a>
+## [Linus Torvalds Says AI Helped Solve a Difficult Linux Graphics Bug](https://simonwillison.net/2026/Aug/22/linus-torvalds/) ⭐️ 7.0/10
+
+Linus Torvalds said an AI substantially helped debug a difficult Linux graphics-driver problem that led to commit 818bebeb63dd, “drm/xe: Don't hand out the flat CCS storage as usable VRAM.” Although the AI repeatedly called the problem impossible, it continued adding debugging code and analyzing the results when Torvalds insisted, and it ultimately wrote the commit message. The account offers a concrete example of AI assisting with low-level Linux kernel debugging rather than merely generating routine application code. It also shows that current AI tools may provide valuable investigative labor while still needing persistent human direction and judgment. The issue involved the Linux drm/xe driver and incorrectly treating flat CCS storage as usable video memory, and the related discussion connects the fix to an earlier CCS offset-calculation problem. Torvalds described the result as an anecdotal debugging success, not evidence that AI can independently solve difficult kernel problems.
+
+rss · Simon Willison · Aug 22, 21:04
+
+**Background**: The drm/xe driver is a Linux kernel graphics driver for Intel Xe graphics hardware and supports rendering, display, compute, and media functions. CCS refers to a graphics-memory-related storage structure, while VRAM is memory available for graphics workloads; incorrectly exposing storage as usable VRAM can contribute to driver failures and difficult debugging sessions.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://docs.kernel.org/gpu/xe/index.html">drm / xe Intel GFX Driver — The Linux Kernel documentation</a></li>
+<li><a href="https://lists.freedesktop.org/archives/dri-devel/2026-August/590630.html">drm: xe: Kernel-submitted job timed out</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#AI-assisted programming`, `#Linux kernel`, `#debugging`, `#software engineering`
+
+---
+
+<a id="item-10" class="hz-item-anchor" data-hz-url="https://marginalrevolution.com/marginalrevolution/2026/08/my-recent-visit-to-anthropic.html?utm_source=rss&utm_medium=rss&utm_campaign=my-recent-visit-to-anthropic" data-hz-title="Tyler Cowen Advises Anthropic on Claude’s Revised Constitution" data-hz-tags="AI alignment,AI governance,Anthropic,Claude,AI safety" data-hz-section="other"></a>
+## [Tyler Cowen Advises Anthropic on Claude’s Revised Constitution](https://marginalrevolution.com/marginalrevolution/2026/08/my-recent-visit-to-anthropic.html?utm_source=rss&utm_medium=rss&utm_campaign=my-recent-visit-to-anthropic) ⭐️ 7.0/10
+
+Tyler Cowen says he recently joined a two-day session with a small group to advise Anthropic on rewriting Claude’s constitution. He describes receiving substantial time with key decision-makers and participating in high-quality discussions, but provides only a brief excerpt of his recommendations. The account offers a rare first-person glimpse into how Anthropic is thinking about the principles that shape Claude’s values, behavior, and oversight. Such constitutional design could influence broader debates about AI alignment, governance, and how models should reason about ethical decisions. The reported session involved a small, selectively invited group and lasted two days, while the published account does not disclose the full constitution or the detailed points Cowen raised. Anthropic’s related January 22, 2026 announcement describes the new constitution as a holistic account of Claude’s operating context, values, and desired behavior.
 
 rss · Marginal Revolution · Aug 23, 06:32
 
-**Background**: Claude is a family of large language models developed by Anthropic. Constitutional AI uses a written set of principles to guide a model toward safer, more helpful, and more consistent behavior. Anthropic’s published constitution describes goals including broad safety, ethical conduct, honesty, and compliance with relevant company guidelines.
+**Background**: Anthropic’s constitution is a document intended to describe the values and behavior that guide Claude, rather than merely listing isolated rules. Constitutional AI is therefore connected to alignment: the effort to make an AI system behave in ways that are safe, ethical, and consistent with intended human oversight.
 
 <details><summary>References</summary>
 <ul>
@@ -473,513 +263,362 @@ rss · Marginal Revolution · Aug 23, 06:32
 </ul>
 </details>
 
-**Tags**: `#AI安全`, `#模型对齐`, `#AI治理`, `#Anthropic`, `#大语言模型`
+**Tags**: `#AI alignment`, `#AI governance`, `#Anthropic`, `#Claude`, `#AI safety`
 
 ---
 
-<a id="item-18"></a>
-## [Ultralytics v8.4.127 Improves Exported Model Reliability](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.127) ⭐️ 7.0/10
-
-Ultralytics v8.4.127 makes exported YOLO models identify their task and architecture from embedded metadata across 20 formats, rather than relying on filenames or directory paths. It also improves OpenVINO inference stability, safer training resumption, result indexing, CoreML exports, tracking, and documentation. The update reduces deployment failures when models are renamed or moved, while preserving segmentation masks, pose keypoints, and RT-DETR outputs through the correct predictors. OpenVINO and checkpoint-resume fixes can also reduce interrupted inference and training runs for production users, especially on supported Intel hardware. The release fixes segmentation exports being loaded as detection models, pose exports losing keypoints, and RT-DETR outputs being interpreted incorrectly; it also addresses INT8 dynamic-shape segmentation faults on Intel AMX CPUs. CoreML now supports non-maximum suppression for segmentation and pose exports, while resumed training preserves the state stored in last.pt instead of replacing it with a custom pretrained model.
-
-github · github-actions[bot] · Aug 23, 18:39
-
-**Background**: YOLO export formats package a trained model for use in different inference runtimes and deployment environments, so identifying the task correctly is essential for returning boxes, masks, or keypoints. OpenVINO is Intel's toolkit for optimizing and deploying neural-network inference, with throughput and latency settings that affect performance. RT-DETR is a real-time detection transformer whose output handling differs from standard YOLO detection models.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://docs.ultralytics.com/guides/optimizing-openvino-latency-vs-throughput-modes/?h=inference+open">OpenVINO Inference Optimization for YOLO - Ultralytics YOLO Docs</a></li>
-<li><a href="https://docs.ultralytics.com/models/rtdetr">RT-DETR: Real-Time Detection Transformer | Ultralytics</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#计算机视觉`, `#YOLO`, `#模型部署`, `#OpenVINO`, `#深度学习`
-
----
-
-<a id="item-19"></a>
-## [Reclaiming Control Over the Hardware We Own](https://schlarp.com/posts/everything-i-own-owned/) ⭐️ 7.0/10
-
-The essay "Everything I own, owned" examines how reverse engineering, firmware modification, repair, and Linux driver development can restore practical control over personally owned devices. Community examples include a new Silicon Motion SM750 driver with DRM and DKMS support, firmware replacement on a Wi-Fi relay, and attempts to modify an ASUS OLED monitor. The article frames ownership as more than physical possession: users also need the ability to repair, configure, and operate devices without being constrained by manufacturers. These practices could extend hardware lifetimes and strengthen software freedom, while also highlighting the broader risk that vendors may respond with tighter supply-chain and firmware lock-downs. The examples show that autonomy often requires specialized technical work: the SM750 driver expanded display support beyond the manufacturer's apparent kernel limit, while the Wi-Fi relay firmware effort relied on an existing flashing library and several command approvals. Firmware changes can be risky, and the OLED monitor discussion also reflects a genuine maintenance trade-off because disabling pixel-cleaning reminders may affect panel-care behavior.
-
-hackernews · schlarpc · Aug 23, 22:41 · [Discussion](https://news.ycombinator.com/item?id=49413320)
-
-**Background**: Firmware is software embedded in a device that helps initialize hardware and control its basic functions. Open-source firmware is published under an open-source license, unlike proprietary firmware, which is controlled by a vendor's license or EULA. Reverse engineering and custom drivers can help users understand or replace parts of this software stack, reducing dependence on manufacturer updates and configuration tools.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Open-source_firmware">Open-source firmware - Wikipedia</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Open_Firmware">Open Firmware - Wikipedia</a></li>
-
-</ul>
-</details>
-
-**Discussion**: Discussion was strongly engaged but divided on the long-term outlook. Commenters shared concrete successes in Linux driver development and firmware replacement, while others warned that these individual victories may be temporary and that manufacturers could respond with even stricter device lock-down; the monitor example also raised concerns about the consequences of disabling built-in maintenance features.
-
-**Tags**: `#right to repair`, `#firmware`, `#reverse engineering`, `#Linux hardware`, `#software freedom`
-
----
-
-<a id="item-20"></a>
-## [Agent.md Improves LLM-Assisted Code Quality](https://fabiensanglard.net/agent.md/index.html) ⭐️ 7.0/10
-
-Fabien Sanglard presents an agent.md file that encodes coding standards and project guidance for LLM coding agents. The approach aims to make generated code more reliable, consistent, and maintainable. As developers increasingly use LLMs to write and modify software, explicit repository guidance can reduce inconsistent decisions and improve the quality of agent-produced changes. It also connects AI-assisted programming with established engineering practices such as style rules, documentation, testing, and linting. The article’s method relies on written instructions for conventions such as naming, comments, and project-specific practices, but guidance alone does not automatically enforce every rule. Community discussion therefore emphasizes combining agent instructions with linting and other automated checks so that both AI-generated and hand-written code receive consistent feedback.
-
-hackernews · ibobev · Aug 23, 17:59 · [Discussion](https://news.ycombinator.com/item?id=49410932)
-
-**Background**: An agent.md or AGENTS.md file is a Markdown document placed in a software repository to give AI coding agents project-specific context and instructions. It can complement a human-oriented README by describing the technology stack, repository structure, build and test commands, coding conventions, and permitted workflows. The format is intended to provide the context an agent needs before making code changes.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://github.com/agentsmd/agents.md">GitHub - agentsmd/agents.md: AGENTS.md — a simple, open format for guiding coding agents</a></li>
-<li><a href="https://agents.md/">AGENTS.md</a></li>
-
-</ul>
-</details>
-
-**Discussion**: The discussion is broadly positive but practical: commenters support concise instructions while questioning which rules should be automated through linting. Examples include overly long generated function names, possible churn from excessive comments, and shared AGENTS.md files that add task-completion or convergence rules.
-
-**Tags**: `#LLM-assisted programming`, `#AI coding agents`, `#Software engineering practices`, `#Code quality`, `#Developer tooling`
-
----
-
-<a id="item-21"></a>
-## [AI Training on Copyrighted Books Faces Unsettled Legal Questions](https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/) ⭐️ 7.0/10
-
-The article examines whether using copyrighted books to train AI models without authors’ knowledge or consent is legal. It highlights that many published authors may have unknowingly contributed to tools that could threaten their livelihoods. The answer could affect how AI companies obtain training data, how authors and publishers protect or license their works, and how the generative AI industry manages copyright compliance. It also exposes a direct tension between expanding AI capabilities and the economic interests of creators. The legal outcome is fact-dependent and unsettled: AI companies may invoke fair use or text-and-data-mining exceptions, while rights holders may argue that large-scale use of unlicensed books supports services that compete with the original content. The available material does not identify a definitive ruling that resolves the issue for all AI training.
-
-rss · TechCrunch AI · Aug 23, 15:00
-
-**Background**: Copyright law generally gives rights holders control over protected works, including books, but some legal systems recognize exceptions such as fair use or text-and-data-mining provisions. The dispute is whether copying books into AI training datasets qualifies for such an exception, especially when the resulting system is offered commercially or may compete with the works used for training. The answer can vary by jurisdiction and by the details of the use.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.skadden.com/insights/publications/2025/07/fair-use-and-ai-training">Fair Use and AI Training: Two Recent Decisions Highlight the ...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#生成式AI`, `#版权法`, `#AI模型训练`, `#科技政策`, `#出版业`
-
----
-
-<a id="item-22"></a>
-## [Inherent Says Faraday Outperformed Leading AI Models at Research Replication](https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/) ⭐️ 7.0/10
-
-British AI lab Inherent, founded by DeepMind alumni, released Faraday, an AI agent designed to replicate scientific papers. Inherent says Faraday outperformed Claude Opus 4.8 and GPT-5.5 on its research-replication task. Reliable research replication is a foundation of scientific progress, so stronger agents could help researchers test published methods and accelerate experimentation. The result also suggests that agent design and research workflows may matter alongside general-purpose model capability, although the claim has not yet received substantial independent validation. Faraday is intended to reproduce a paper’s experiments, data, and findings without being given the expected answer in advance. Inherent’s published comparison reports mean replication scores for Faraday and other systems on a machine-learning training split and a held-out AI-for-science split, but the available report provides limited detail about the evaluation and its limitations.
-
-rss · TechCrunch AI · Aug 22, 19:00
-
-**Background**: Research replication means reconstructing the methods and experiments described in a paper to determine whether its results can be reproduced. AI research-replication benchmarks such as PaperBench evaluate agents on rebuilding machine-learning research pipelines through code development and experiment execution, rather than merely summarizing papers. AI scientists are agent systems that extend language models with planning, reasoning, and actions toward research goals.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://inherentlabs.ai/research/training-to-replicate">Training AI Scientists to Replicate Research · inherent</a></li>
-<li><a href="https://www.emergentmind.com/topics/paperbench-benchmark">PaperBench: AI Research Replication Benchmark</a></li>
-<li><a href="https://deepmind.google/public-policy/conjecture-machines-ai-agents-and-the-new-validation-bottleneck-in-science/">How AI Agents are transforming scientific discovery</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI agents`, `#automated scientific discovery`, `#AI research evaluation`, `#DeepMind alumni`
-
----
-
-<a id="item-23"></a>
-## [Linus Torvalds on AI-Assisted Linux Graphics Debugging](https://simonwillison.net/2026/Aug/22/linus-torvalds/) ⭐️ 7.0/10
-
-Linus Torvalds described a difficult Linux graphics debugging session in which an AI performed substantial grunt work and helped add and analyze debugging code. The AI repeatedly declared the problem impossible, but continued investigating when Torvalds pushed it, and ultimately wrote the commit message for the fix “drm/xe: Don't hand out the flat CCS storage as usable VRAM.” The account shows that AI can materially accelerate complex Linux kernel debugging while still producing premature conclusions and expressing unjustified uncertainty. It highlights a practical human-AI collaboration model in which an experienced developer supplies persistence, judgment, and direction while the AI handles repetitive investigation. The issue involved the Linux graphics driver code identified as drm/xe and the incorrect treatment of flat CCS storage as usable VRAM. Torvalds credited the AI for faithfully adding and analyzing debugging code, but his account makes clear that human oversight was necessary to continue past the system’s repeated claims that the problem was unsolvable.
-
-rss · Simon Willison · Aug 22, 21:04
-
-**Background**: Linux kernel debugging involves investigating problems in the operating system’s core code, often by adding diagnostic code and examining the resulting behavior. A graphics driver connects the kernel with graphics hardware, while VRAM is memory used by that hardware; the commit title indicates that the fix changed which storage the driver exposed as usable VRAM. AI-assisted programming means using an AI system to generate code, analyze results, or perform other development tasks under a human developer’s direction.
-
-**Tags**: `#AI-assisted programming`, `#Linux kernel`, `#debugging`, `#human-AI collaboration`
-
----
-
-<a id="item-24"></a>
+<a id="item-11" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMijwFBVV95cUxOVlBTZGM1NndWR1JRZzlJYy1TN2d2VjVJWXVSNENKRUtWaHVyNWpDYjdkSTY3NXd4OXJKTzJRT3BickRhNUFpZW4xejJrb0NQajJvek5iZFpXaGZyZEJiU1ZJVW9iNE16WmZSbXJ1VG9oTVh2a0RUc3F4bnBmajI2VlhmbS0yUW00TEFvSjdjcw?oc=5" data-hz-title="Roblox Contributes Open-Source Safety Models to ROOST" data-hz-tags="AI safety,open source,content moderation,machine learning,Roblox" data-hz-section="other"></a>
 ## [Roblox Contributes Open-Source Safety Models to ROOST](https://news.google.com/rss/articles/CBMijwFBVV95cUxOVlBTZGM1NndWR1JRZzlJYy1TN2d2VjVJWXVSNENKRUtWaHVyNWpDYjdkSTY3NXd4OXJKTzJRT3BickRhNUFpZW4xejJrb0NQajJvek5iZFpXaGZyZEJiU1ZJVW9iNE16WmZSbXJ1VG9oTVh2a0RUc3F4bnBmajI2VlhmbS0yUW00TEFvSjdjcw?oc=5) ⭐️ 7.0/10
 
-Roblox is contributing three open-source safety models to the Robust Open Online Safety Tools (ROOST) Model Community: updates to its open-source PII Classifier and Roblox Sentinel, plus its latest voice safety classifier. The contribution is intended to support collaborative development and experimentation in online safety. Releasing these models gives safety researchers and platform developers additional tools for building and evaluating content-moderation systems. It could broaden collaboration around safer online platforms, although the available announcement provides limited evidence about real-world performance or adoption. The contribution covers personally identifiable information detection, Roblox Sentinel, and voice safety classification, but the provided announcement does not specify model sizes, licenses, benchmark results, or deployment requirements. The ROOST Model Community organizes voluntary project sprints and discussions focused on open safety models and broader safety problems.
+Roblox is contributing open-source safety models to the ROOST Model Community, supporting collaborative development of online safety and content-moderation technology. The announcement does not specify the models’ versions, architectures, training data, or evaluation results. The contribution could give researchers and smaller platform developers access to reusable safety components that are often costly and difficult to build independently. It also supports ROOST’s broader goal of making safety infrastructure more open, shared, and auditable rather than limiting it to major technology companies. ROOST describes itself as a nonprofit building and maintaining modular, open-source tools for online safety, including capabilities intended to address rapidly scaling threats such as AI-generated child sexual abuse material and autonomous scams. However, the available announcement provides limited technical detail, so the models’ practical effectiveness and deployment requirements cannot yet be assessed.
 
 google_news · Roblox · Aug 23, 16:53
 
-**Background**: A safety model is a machine-learning model used to identify or classify potentially harmful, sensitive, or policy-violating content. The ROOST Model Community is a group of safety practitioners working on open-source AI models and collaborative resources for protecting online spaces, including project sprints and model-usage discussions.
+**Background**: ROOST, or Robust Open Online Safety Tools, is an initiative focused on making online-safety technology accessible beyond large technology companies. Its model community is intended to support collaboration around content safeguards, including vetted training datasets and the identification of gaps in existing safety systems. Open-source safety models can be inspected, adapted, and integrated by other organizations, although their performance still depends on data quality, evaluation, and deployment practices.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://github.com/roostorg/model-community">GitHub - roostorg/ model - community : Making open safety AI models ...</a></li>
-<li><a href="https://about.roblox.com/nl/newsroom/2026/08/roblox-open-source-safety-models-roost">Roblox Brings Open - Source Safety Models to ROOST... | Roblox</a></li>
+<li><a href="https://roost.tools/">Robust Open Online Safety Tools</a></li>
+<li><a href="https://blog.mozilla.org/en/mozilla/ai/roost-launch-ai-safety-tools-nonprofit/">ROOST : Open source AI safety for everyone</a></li>
+<li><a href="https://www.theverge.com/news/609367/roblox-discord-openai-google-roost-online-safety-tools">Roblox, Discord, OpenAI, and Google found new child safety group</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI safety`, `#Open-source models`, `#Content moderation`, `#Machine learning`, `#Platform safety`
+**Tags**: `#AI safety`, `#open source`, `#content moderation`, `#machine learning`, `#Roblox`
 
 ---
 
-<a id="item-25"></a>
-## [Google’s Backstory Speeds Up Image Fact-Checking](https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMDRRM2NZZHREUFk0VVI3bHF5M2xuby1adkl6VUd5UzM5TTV1Q25IbS00eDkzbTMxSDJrWU1UVFFiRV9PeWJvekNNRTdQY0lkTzBaUE9RNW00aFEzVGNvVk1uaFVaNndFdE5jS2syRlNCWGF4NGZjZ0V4TW02V0Z3Zy0xZmlpUThqR0pV?oc=5) ⭐️ 7.0/10
+<a id="item-12" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMiZkFVX3lxTE95cUlMNC0wRmlTeXRaT3dUVWlqYjV3dDUzbm9RclR0bV93VmhFMDZETDVVQmdMN0dtNkk4ZVpSUzFYQlBtbTN3QkxfQWNXNndtUmJrSUJTbnZ4YW8yZ1BEOEliVkczUQ?oc=5" data-hz-title="Hugging Face Reportedly Weighs a $13 Billion Sale." data-hz-tags="Hugging Face,AI industry,Acquisitions,Open-source ML" data-hz-section="other"></a>
+## [Hugging Face Reportedly Weighs a $13 Billion Sale.](https://news.google.com/rss/articles/CBMiZkFVX3lxTE95cUlMNC0wRmlTeXRaT3dUVWlqYjV3dDUzbm9RclR0bV93VmhFMDZETDVVQmdMN0dtNkk4ZVpSUzFYQlBtbTN3QkxfQWNXNndtUmJrSUJTbnZ4YW8yZ1BEOEliVkczUQ?oc=5) ⭐️ 7.0/10
 
-Google’s Backstory uses AI to assess whether an image is synthetic and investigate its origin and online context. Built with Gemini, the tool is intended to help journalists verify visual information more efficiently. The tool could shorten media fact-checking workflows and help news organizations respond to misleading or AI-generated images. Its focus on both authenticity and provenance reflects the growing need for multimodal tools that evaluate digital content in context. Backstory combines image-detection technologies with contextual signals such as how an image has been used online and available metadata, rather than relying only on a visual classification. Its detection features can also check SynthID watermarks embedded in images created with Google’s Nano Banana image-generation model.
-
-google_news · GIGAZINE · Aug 23, 23:00
-
-**Background**: AI-generated image detection attempts to determine whether visual content was created or altered by a generative AI system. Image provenance adds information about an image’s origin, metadata, and circulation history, helping investigators judge its trustworthiness in context. Backstory brings these signals together for media verification.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://deepmind.google/blog/exploring-the-context-of-online-images-with-backstory/">Exploring the context of online images with Backstory</a></li>
-<li><a href="https://www.niemanlab.org/2026/08/googles-new-ai-tool-helps-fact-checkers-investigate-ai-fakes/">Google’s new AI tool helps fact-checkers investigate AI fakes</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI-generated content detection`, `#Image provenance`, `#Computer vision`, `#Multimodal AI`, `#Media fact-checking`
-
----
-
-<a id="item-26"></a>
-## [Trustworthy Hardware and Manufacturing Drive Physical AI](https://news.google.com/rss/articles/CBMiuAFBVV95cUxQcFFxa05oZU9uWTQ0MFpER0FMLVNSNGZMZEZ2SlU5Q1k0QUlRZ29rVmlwMHdnZms4S2dxbDZKOFdJSktCTUhCTGdtTTBkeGZScHNlZXAwbU1Pa0lVZC1WZEZVWThoclFQQVV1WWtiRU9Ybnd5MlJ2eTQ2VVIzUU1pc0JVczlDSFJENEE5ZkZZTmlvUTNDQnVlRGdYV2QxWGFHZC14OVlhVFFpc25iM0tCZnhBTUIxUDFL?oc=5) ⭐️ 7.0/10
-
-A DigitalToday article argues that the development of physical AI depends on trustworthy hardware and that manufacturing will provide an important source of demand. The available material does not identify a specific product, technical breakthrough, or implementation date. Reliable hardware is important when AI systems must perceive physical environments, plan actions, and execute them through robots or other machines. Manufacturing could become an early and influential market because industrial systems place strong demands on safety, reliability, and repeatable performance. The report is a high-level argument rather than a detailed technical account, and the provided content offers no hardware specifications, performance measurements, or examples of manufacturing deployments. Physical AI generally combines environmental perception, motion planning, and physical execution, so hardware reliability affects the complete system rather than only its computing component.
-
-google_news · 디지털투데이 · Aug 24, 04:38
-
-**Background**: Physical AI refers to AI systems that interact with and operate in the physical world instead of existing only as software. In robotics, such systems must perceive their surroundings, decide how to move or act, and execute those actions through physical machines. Trustworthy hardware therefore includes the dependable computing, sensing, motion-control, and safety capabilities needed for those actions.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Physical_artificial_intelligence">Physical artificial intelligence - Wikipedia</a></li>
-<li><a href="https://www.nvidia.com/en-us/glossary/generative-physical-ai/">What is Physical AI? | NVIDIA Glossary</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#Physical AI`, `#Robotics`, `#Trustworthy Hardware`, `#Intelligent Manufacturing`, `#System Safety`
-
----
-
-<a id="item-27"></a>
-## [AI Model Gaps Make Coding Workflow Design More Important](https://simonwillison.net/2026/Aug/23/drew-breunig/) ⭐️ 6.0/10
-
-Drew Breunig argues that the arrival of the exceptionally capable but expensive Fable model changed how teams allocate coding tasks. Because Opus, 5.6, K3, and GLM were good enough for most code at lower cost, teams began deciding which work should go to which model. As differences in model capability and inference cost become more significant, software teams may gain more from routing tasks strategically than from using one model for everything. This also increases the value of coding harnesses and context strategies that help models inspect repositories, use tools, and verify changes efficiently. The excerpt does not provide comparative benchmarks or exact prices, so its conclusion is a practical observation rather than a quantified model-evaluation result. An AI coding harness generally combines the model with context, tools, execution loops, and interfaces that support repository-level work.
-
-rss · Simon Willison · Aug 23, 19:55
-
-**Background**: A coding harness is the surrounding runtime and scaffolding that lets a language model inspect a repository, edit files, run commands, preserve context, and verify its work. Context strategies determine which project information and prior steps are supplied to the model. Together, they can affect how reliably a model completes coding tasks, especially when teams use different models for different kinds of work.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.anthropic.com/claude/fable">Claude Fable \ Anthropic</a></li>
-<li><a href="https://docs.bswen.com/blog/2026-06-26-what-is-an-ai-coding-harness/">What Is an AI Coding Harness and Why Are Developers... | BSWEN</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI coding assistants`, `#large language models`, `#inference costs`, `#context engineering`, `#software engineering`
-
----
-
-<a id="item-28"></a>
-## [Technical Clues Link Anonymous Model to GLM](https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247914338&idx=2&sn=2ff9bfd49e1df185bba2332ffe2db8de) ⭐️ 6.0/10
-
-The article examines whether an anonymous large model may share technical lineage with Zhipu AI's GLM models, using clues from its tokenizer, video encoding, and API error behavior. It also raises the possibility that Cursor used an open-source GLM model for training, but presents this as speculation rather than a confirmed finding. Technical fingerprints can help researchers assess whether a model was built from, fine-tuned from, or otherwise influenced by an existing open-source model. However, if the clues are incomplete, such analysis can also lead to incorrect conclusions about commercial products and model provenance. The available material does not provide reproducible tests, model weights, benchmark results, or direct statements from Cursor or Zhipu AI. A tokenizer or API error can suggest similarity, but neither clue alone proves shared training data, model weights, or a direct derivative relationship.
-
-rss · 量子位 · Aug 23, 05:30
-
-**Background**: A tokenizer converts text into the token units that a language model processes, and different tokenizers can leave distinctive patterns in tokenization behavior. GLM is a family of language models jointly developed by Tsinghua University's Knowledge Engineering Group and Zhipu AI, while multimodal models combine information such as text and video. These technical components can provide comparison points when investigating model provenance, but they are not conclusive evidence by themselves.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://blog.csdn.net/qq_28790663/article/details/115374855">transformers库的使用【二】 tokenizer ...</a></li>
-<li><a href="https://baike.baidu.com/item/GLM系列/67944630">GLM系列 - 百度百科</a></li>
-<li><a href="https://juejin.cn/post/7674862491856781355">juejin.cn/post/7674862491856781355</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#大语言模型`, `#模型血缘分析`, `#开源模型`, `#Tokenizer`, `#多模态技术`
-
----
-
-<a id="item-29"></a>
-## [Agentic AI Creates a New O-Ring Economy](https://marginalrevolution.com/marginalrevolution/2026/08/the-new-agentic-o-ring-world.html?utm_source=rss&utm_medium=rss&utm_campaign=the-new-agentic-o-ring-world) ⭐️ 6.0/10
-
-The article examines how increasingly autonomous AI agents may still require frequent human guidance and additional context while completing tasks. It highlights Sharma, 27, who feels compelled to remain available around the clock because he cannot reliably monitor his agents remotely through a phone or smartwatch. The example suggests that agent autonomy may shift human work from direct execution toward continuous supervision, intervention, and context provision rather than eliminating human involvement. That could affect productivity, work schedules, and the design of human-in-the-loop systems as AI agents become more widely used. The excerpt emphasizes a practical limitation: agents can proceed through tasks but may pause or need clarification, creating pressure for humans to remain constantly reachable. It also notes that remote monitoring through phones or smartwatches was not previously available to Sharma, while the provided excerpt does not specify which agents or tasks were involved.
-
-rss · Marginal Revolution · Aug 23, 04:56
-
-**Background**: The O-ring theory, proposed by economist Michael Kremer, describes production processes in which several tasks must be completed competently together, because a mistake in one task can reduce the value of the whole process. Applied to AI agents, the idea suggests that successful automation may depend on many linked steps, including human guidance, monitoring, and intervention. Agentic AI refers here to systems that can act on a user's behalf rather than merely respond to isolated prompts.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/O-ring_theory_of_economic_development">O-ring theory of economic development - Wikipedia</a></li>
-<li><a href="https://www.microsoft.com/en-us/research/publication/the-agentic-economy/">The Agentic Economy - Microsoft Research</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI agents`, `#human-in-the-loop systems`, `#future of work`, `#autonomous systems`
-
----
-
-<a id="item-30"></a>
-## [AI Coding Harnesses Have Blind Spots in Bug Detection](https://news.google.com/rss/articles/CBMinwFBVV95cUxPZU9NRjNSdVJESDU5TGF3b3NzTk1xWXJfbE9mMnlqcWhlTmUzckgxTXZnTFVreW80NzBSSi1HdTREN1Z4MUtuWkM2Mm01ZHFORGlOc0p3YTZEWDFuek5aRFhJS1pCSlNQanJmTE1rbHVPUkVEOHRmN296V0dZc2ZtMXEzOGVySWJXYm1FRV9YS25HZmlTaFNXdHJpVVBBc0U?oc=5) ⭐️ 6.0/10
-
-The article examines failure modes in AI coding harnesses that detect or prevent software bugs, using GStack and related tools as examples. Search-result excerpts describe 28 debugging experiments and suggest that these systems can struggle particularly when important information is missing. AI coding agents are increasingly used to implement and debug software, so blind spots in their testing and verification workflows can allow defects to pass into production. The issue is important for engineers evaluating whether an agent can handle routine fixes as well as complex, cross-file, or edge-case failures. The available excerpts contrast routine bugs, which agents may handle effectively, with deep internals, numerical edge cases, and cross-file invariants that often remain difficult. They also emphasize that the main challenge may be incomplete information rather than raw problem complexity, although the supplied material does not provide enough detail to independently verify the article's full experimental methodology.
-
-google_news · Towards Data Science · Aug 23, 13:00
-
-**Background**: An AI coding harness is the surrounding workflow that gives a coding agent tools, instructions, context, and checks for modifying and validating software. GStack is presented in the search results as a setup for AI coding agents, with support for multiple agents and features such as automatic agent detection. Bug detection is therefore not only a model-capability issue; it also depends on what code, tests, architectural context, and failure signals the harness makes available.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://zoviai.com/bug-detection-blind-spots-in-ai-coding-harnesses-gstack-and-beyond/">Bug Detection Blind Spots in AI Coding Harnesses ( GStack and...)</a></li>
-<li><a href="https://github.com/garrytan/gstack">GitHub - garrytan/ gstack : Use Garry Tan's exact Claude Code setup...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI coding agents`, `#bug detection`, `#software testing`, `#developer tools`, `#AI reliability`
-
----
-
-<a id="item-31"></a>
-## [Texas Student Builds a High-Precision Robot Sensor for Under $25](https://news.google.com/rss/articles/CBMiygJBVV95cUxNTnlhNGU1ZXRkV2J0TzhQWHo2YW5OczA1ZmVUZjdXR0lJR21fYS1Rbld5X1Q1MXR3bFpEcFBub3ZBUXVnb2pWeFRqQXpfYlFwZlRfcFQtdV9lVUdFVWlDYm4zbU9OUll4NDdiZUJfRXozLTZpZWwzQ0tUSG9ZcEx1MjdNVWZ4ZGhfeHlVMjFFQ3c5NXFic0FwTWs1Q25qUG85d21RdDhyUzFiUk9nNWFoamF5VDBVV0RZZlQ1Yi1sN091R1kwUTBpZFJzd2d2SUhCUnZoY3Y3eUxoYmoxUlhDMVd1WS1QcTVoQnF5YXlkVzFkZnd2YW5tWUI0a1VVZUlxUFZ5VXZjLVF2aXZ4ZHJnTm5MMzYyQjVfNnVvR1J2aXpBMXFEa3NnM0lxNkpLUnBoTmNVMlFxS3Rhbm1jN0NGLW1KLVA2MVFEN0HSAcoCQVVfeXFMTU55YTRlNWV0ZFdidE84UFh6NmFuTnMwNWZlVGY3V0dJSUdtX2EtUW5XeV9UNTF0d2xaRHBQbm92QVF1Z29qVnhUakF6X2JRcGZUX3BULXVfZVVHRVVpQ2JuM21PTlJZeDQ3YmVCX0V6My02aWVsM0NLVEhvWXBMdTI3TVVmeGRoX3h5VTIxRUN3OTVxYnNBcE1rNUNualBvOXdtUXQ4clMxYlJPZzVhaGpheVQwVVdEWWZUNWItbDdPdUdZMFEwaWRSc3dndklIQlJ2aGN2N3lMaGJqMVJYQzFXdVktUHE1aEJxeWF5ZFcxZGZ3dmFubVlCNGtVVWVJcVBWeVV2Yy1Rdml2eGRyZ05uTDM2MkI1XzZ1b0dSdml6QTFxRGtzZzNJcTZKS1JwaE5jVTJRcUt0YW5tYzdDRi1tSi1QNjFRRDdB?oc=5) ⭐️ 6.0/10
-
-Eighteen-year-old Texas student Frank Lucci developed SubArc, an open-source, high-resolution rotary encoder for robotic motion sensing that costs less than $25 to manufacture. The reported price is nearly 20 times lower than existing options. SubArc could reduce the cost barrier to precise robotic movement and make advanced sensing more accessible to students, researchers, and smaller robotics developers. Lower-cost encoders may also support broader experimentation with robotic systems that require accurate motion feedback. A rotary encoder converts mechanical motion into digital signals so a robot can monitor position or movement accurately. The available reports identify the under-$25 cost and high-resolution design, but do not provide detailed specifications, test results, or independent validation of performance in different operating conditions.
-
-google_news · The Times of India · Aug 23, 07:30
-
-**Background**: Robotic systems use motion sensors to determine how far components have rotated or moved, allowing controllers to correct errors and execute precise actions. A rotary encoder performs this measurement by tracking rotational motion and reporting it electronically. High-precision encoders are important in robotics, but their cost can limit access to advanced projects.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.societyforscience.org/regeneron-sts/2026-student-finalists/frank-lucci/">Frank Lucci - Society for Science</a></li>
-<li><a href="https://timesofindia.indiatimes.com/world/us/meet-frank-lucci-the-18-year-old-texas-student-who-built-a-high-precision-robot-sensor-for-under-25-it-is-nearly-20-times-cheaper-than-existing-options/articleshow/133434736.cms">Meet Frank Lucci, the 18-year-old Texas student who built a ...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#机器人感知`, `#智能传感`, `#低成本硬件`, `#精密测量`, `#工程创新`
-
----
-
-<a id="item-32"></a>
-## [South Korea’s Humanoid Industry Depends on Chinese Hardware and U.S. AI](https://news.google.com/rss/articles/CBMiiAFBVV95cUxNQnVocnA3OHF6MC1GMmtqRlJrV0ppcGpUckIybm94TUNFY0U0LS1nSUY5NVEyRGhlWmR4Z0lKLTNJMXZJU0lWT185RUkxX29vaVR3U2Z5Q3dVRnJ1Y2hwdGNCYzhwaTJzMkUyc3BsU1RJTWJ5Z3p1V0dNRUM2bzd6d0g5a3NXU003?oc=5) ⭐️ 6.0/10
-
-The Chosun Ilbo article examines South Korea’s humanoid-robot industry and its reliance on Chinese robot bodies and U.S. artificial-intelligence technologies. The available material does not provide specific companies, models, dates, or quantitative estimates. This dependence could affect South Korea’s ability to build a self-reliant humanoid-robot supply chain and may create concerns about supply-chain security and industrial competitiveness. It also highlights how humanoid robots combine physical hardware with AI capabilities developed across different countries. Humanoid robots generally combine a human-like body, including a torso, head, arms, and legs, with cameras, sensors, and AI or machine-learning systems. The report’s summary identifies the hardware and AI dependencies, but it does not establish how extensive they are or describe their specific technical limitations.
-
-google_news · 조선일보 · Aug 23, 05:26
-
-**Background**: A humanoid robot is designed to resemble the human form so that it can move and operate in environments built for people. Its physical body provides movement and sensing capabilities, while embodied AI helps the system perceive its surroundings, make decisions, and perform tasks in the real world. This makes humanoid robotics an engineering field that depends on both mechanical platforms and AI software.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Humanoid_robot">Humanoid robot - Wikipedia</a></li>
-<li><a href="https://robotspoint.com/embodied-ai-explained/">Embodied AI explained: why humanoid robots are not just ...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#人形机器人`, `#机器人产业`, `#人工智能`, `#供应链安全`, `#智能制造`
-
----
-
-<a id="item-33"></a>
-## [Hugging Face Explores Potential $13B Sale](https://news.google.com/rss/articles/CBMiZkFVX3lxTE95cUlMNC0wRmlTeXRaT3dUVWlqYjV3dDUzbm9RclR0bV93VmhFMDZETDVVQmdMN0dtNkk4ZVpSUzFYQlBtbTN3QkxfQWNXNndtUmJrSUJTbnZ4YW8yZ1BEOEliVkczUQ?oc=5) ⭐️ 6.0/10
-
-Hugging Face is reportedly exploring a potential sale valued at about $13 billion amid acquisition discussions. The report describes preliminary talks rather than a confirmed transaction. A transaction of this size could influence the direction of a major platform for open-source AI models, datasets, and developer tools. It could also affect how the platform serves organizations and the broader open-source machine-learning ecosystem. The available report provides no confirmed buyer, deal structure, or closing timeline, so the $13 billion figure should be treated as a reported potential valuation rather than a finalized price. Hugging Face’s platform includes a model and dataset repository organized around Git-style version control, while its Transformers library supports the use and fine-tuning of pre-trained models.
+Hugging Face is reportedly exploring a potential sale valued at $13 billion while holding discussions with prospective acquirers. The available report does not identify the interested parties or confirm that a transaction will occur. An acquisition at this scale could influence how Hugging Face's widely used open-source machine-learning platform, models, datasets, and applications are governed and distributed. Any change in ownership could therefore affect developers, researchers, and companies that depend on its ecosystem. The $13 billion figure is reported as a potential sale valuation rather than an agreed purchase price. With no named bidder, deal terms, timetable, or official confirmation in the supplied material, the report remains preliminary and speculative.
 
 google_news · Crypto Briefing · Aug 23, 19:17
 
-**Background**: Hugging Face is an open platform where developers and organizations share AI models, datasets, code, and demonstrations. Its Model Hub and Transformers library are widely used to find, publish, and run pre-trained models for tasks such as text generation, translation, and classification.
+**Background**: Hugging Face operates a collaboration platform where the machine-learning community hosts and works on models, datasets, and applications. Its open-source stack and Hub make it a central distribution and collaboration point for open-source machine learning. This role is why the platform's ownership and governance can matter beyond the company itself.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://ifttt.com/explore/what-is-hugging-face">What is Hugging Face ? A complete guide to features, pricing, and use</a></li>
-<li><a href="https://pub.aimind.so/an-in-depth-look-at-hugging-face-transformers-and-publishing-models-fc8800a0a6d3">An In-Depth Look at Hugging Face Transformers and... | AI Mind</a></li>
+<li><a href="https://huggingface.co/">Hugging Face – The AI community building the future.</a></li>
+<li><a href="https://www.salttechno.ai/glossary/hugging-face/">What Is Hugging Face ? | AI Glossary | Salt Technologies AI</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Hugging Face`, `#AI industry`, `#Open-source AI`, `#Acquisitions`, `#Machine learning platforms`
+**Tags**: `#Hugging Face`, `#AI industry`, `#Acquisitions`, `#Open-source ML`
 
 ---
 
-<a id="item-34"></a>
-## [OpenAI and Anthropic Expand Washington Lobbying Efforts](https://news.google.com/rss/articles/CBMid0FVX3lxTFB1ZTNVeFlmZ0VkcW9vZW5PWlBQVm5tcnJkZEFvck5KZExGcUN0UG0tZzlpMHdmdUVmZFJZU3l0RnhzTC04S3I0TmhuN1NxMGJLYnVmcHhQdUM3aWxmUlZjcGVGek1NRzdYazRMZ3MzQjBBNHJrcVRz?oc=5) ⭐️ 6.0/10
+<a id="item-13" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMid0FVX3lxTFB1ZTNVeFlmZ0VkcW9vZW5PWlBQVm5tcnJkZEFvck5KZExGcUN0UG0tZzlpMHdmdUVmZFJZU3l0RnhzTC04S3I0TmhuN1NxMGJLYnVmcHhQdUM3aWxmUlZjcGVGek1NRzdYazRMZ3MzQjBBNHJrcVRz?oc=5" data-hz-title="OpenAI and Anthropic Expand Washington Lobbying" data-hz-tags="AI policy,AI regulation,OpenAI,Anthropic,technology lobbying" data-hz-section="other"></a>
+## [OpenAI and Anthropic Expand Washington Lobbying](https://news.google.com/rss/articles/CBMid0FVX3lxTFB1ZTNVeFlmZ0VkcW9vZW5PWlBQVm5tcnJkZEFvck5KZExGcUN0UG0tZzlpMHdmdUVmZFJZU3l0RnhzTC04S3I0TmhuN1NxMGJLYnVmcHhQdUM3aWxmUlZjcGVGek1NRzdYazRMZ3MzQjBBNHJrcVRz?oc=5) ⭐️ 7.0/10
 
-OpenAI and Anthropic are expanding their lobbying operations in Washington to influence the direction of forthcoming AI legislation. The available report does not provide specific figures, personnel details, or legislative proposals. Greater involvement by two prominent AI companies could shape debates over AI regulation, governance, and system safety. It also highlights the growing role of corporate lobbying in determining how policymakers address the AI industry. The item identifies lobbying expansion as the central development but offers no substantive analysis of the companies’ strategies, spending, representatives, or policy positions. Because no search results or community comments are provided, those aspects cannot be assessed from the available material.
+OpenAI and Anthropic are expanding their lobbying operations in Washington to influence the development of AI legislation. The available report does not provide specific staffing, spending, or legislative details. Greater involvement by two leading AI companies could shape how lawmakers approach AI regulation and affect technology companies, policymakers, and the public. It also highlights the growing importance of political engagement in the AI industry. The report identifies lobbying expansion as the central development, but the limited information available does not establish which proposals the companies support or oppose. No web search results or community comments were provided for additional verification or context.
 
 google_news · Crypto Briefing · Aug 23, 21:44
 
-**Background**: Lobbying is the process through which companies and other organizations communicate with policymakers to advocate for particular laws or regulatory approaches. AI legislation can affect how AI systems are developed, deployed, and governed, making Washington a significant arena for companies seeking to influence future rules.
+**Background**: Lobbying is the process through which organizations communicate with lawmakers and other government officials to influence policy. AI legislation refers to laws and regulations governing artificial intelligence, including how AI companies may develop and deploy their technologies.
 
-**Tags**: `#AI政策`, `#人工智能治理`, `#系统安全`, `#产业影响`, `#科技监管`
+**Tags**: `#AI policy`, `#AI regulation`, `#OpenAI`, `#Anthropic`, `#technology lobbying`
 
 ---
 
-<a id="item-35"></a>
-## [Flock Safety CEO Calls for Compromise Amid Surveillance Backlash](https://techcrunch.com/2026/08/23/flock-ceo-calls-for-compromise-as-surveillance-company-faces-growing-backlash/) ⭐️ 5.0/10
+<a id="item-14" class="hz-item-anchor" data-hz-url="https://techcrunch.com/2026/08/23/flock-ceo-calls-for-compromise-as-surveillance-company-faces-growing-backlash/" data-hz-title="Flock CEO Seeks Compromise Amid Surveillance Backlash" data-hz-tags="surveillance technology,privacy,technology policy,AI governance" data-hz-section="other"></a>
+## [Flock CEO Seeks Compromise Amid Surveillance Backlash](https://techcrunch.com/2026/08/23/flock-ceo-calls-for-compromise-as-surveillance-company-faces-growing-backlash/) ⭐️ 6.0/10
 
-Flock Safety CEO is calling for compromise as public opposition grows over concerns that the company’s surveillance technology could be misused. The provided report does not specify a new product, policy, or technical change. The dispute highlights the tension between public-safety tools and privacy, oversight, and corporate accountability. How Flock Safety and authorities respond could influence public trust in automated surveillance deployments. Flock cameras are described in the search results as automated license plate readers that capture passing vehicles and related details such as location, date, and time. Reported safeguards include a default 30-day data-retention period, although agency contracts may extend it and records can be retained for active investigations.
+Flock Safety CEO is calling for compromise as public backlash grows over concerns that the company’s surveillance technology could be misused. The available report does not specify the proposed compromise or identify a particular misuse case. The dispute highlights the governance and privacy challenges that arise when surveillance tools are deployed across communities. It could affect law-enforcement agencies, schools, businesses, and neighborhoods that use or encounter Flock Safety’s systems. Flock Safety is associated with automated license plate reader systems that capture and analyze passing vehicles, including location, date, and time information. The supplied material provides no technical evidence of a new product or major capability change, so the central issue is public concern about potential misuse rather than a demonstrated breakthrough.
 
 rss · TechCrunch AI · Aug 23, 15:30
 
-**Background**: Automated license plate readers use cameras and software to identify vehicle plates and record information about passing cars. Law-enforcement agencies may compare these records with sources such as stolen-vehicle databases, watchlists, and AMBER alerts. The privacy debate concerns the collection and retention of information about vehicles that are not necessarily linked to a crime.
+**Background**: Automated license plate readers, or ALPRs, are camera systems that capture and analyze images of passing vehicles. They can store information such as a vehicle’s location, date, and time, and are used by organizations including law-enforcement agencies, schools, businesses, and neighborhoods.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://trafficvision.live/blog/flock-cameras">Flock Cameras : What They Are & Can You Watch... | TrafficVision.Live</a></li>
-<li><a href="https://miamimorningstar.com/flock-safety-cameras-explained/">Flock Safety Cameras Explained: How They Work and Your Privacy...</a></li>
 <li><a href="https://deflock.org/">DeFlock is an open-source project that maps license plate readers ...</a></li>
+<li><a href="https://www.flocksafety.com/">Flock Safety</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#surveillance technology`, `#systems security`, `#AI governance`, `#privacy`, `#corporate accountability`
+**Tags**: `#surveillance technology`, `#privacy`, `#technology policy`, `#AI governance`
 
 ---
 
-<a id="item-36"></a>
-## [Humanoid Robots Compete in Beijing Sports Games](https://www.bbc.co.uk/news/videos/c7vgvj6e1emo?at_medium=RSS&at_campaign=rss) ⭐️ 5.0/10
+<a id="item-15" class="hz-item-anchor" data-hz-url="https://simonwillison.net/2026/Aug/23/drew-breunig/" data-hz-title="Expensive AI Models Make Coding Harnesses More Important" data-hz-tags="AI-assisted coding,LLMs,model economics,developer tooling,Claude" data-hz-section="other"></a>
+## [Expensive AI Models Make Coding Harnesses More Important](https://simonwillison.net/2026/Aug/23/drew-breunig/) ⭐️ 6.0/10
 
-The second World Humanoid Games began in Beijing, China, on Saturday as a five-day competition featuring humanoid robots in boxing, football, and sprinting. The event showcases how humanoid robots are being evaluated in dynamic physical tasks rather than only in controlled laboratory demonstrations. It may also encourage progress in balance, movement, perception, and autonomous control for future robotic systems. The available report provides no technical specifications, participating robot names, scores, or details about the competition rules. Sprinting and football generally require stable bipedal locomotion, balance control, visual perception, and coordinated motion, while boxing adds fast physical interaction and impact management.
+Drew Breunig argues that the arrival of Fable, a highly capable but expensive AI model, changed how his team approaches AI-assisted coding. Because Opus, 5.6, K3, and GLM were already good enough for most of their code, the team began deciding more deliberately which work should go to which model. The argument suggests that software teams may gain more from improving their coding harnesses and task-routing strategies than from simply waiting for every new model to become cheaper and better. This could make model economics, context management, and deliberate allocation central parts of developer tooling. Breunig describes Fable as incredible but too costly for routine use, while several less expensive models remained sufficient for most coding work. The excerpt does not provide specific prices, benchmarks, or a detailed routing method, so its conclusion is strategic rather than a quantified comparison.
 
-rss · BBC World News · Aug 23, 12:47
+rss · Simon Willison · Aug 23, 19:55
 
-**Background**: A humanoid robot is a robot designed with a human-like body structure, commonly including a torso, arms, and two legs. Bipedal locomotion is difficult because the robot must continuously maintain balance while moving over changing surfaces. Research on humanoid robots therefore often combines locomotion planning, balance control, computer vision, and autonomous decision-making.
+**Background**: A coding harness is the operating layer around a language model: it can determine how context is assembled, which tools are available, and how work is managed across turns. Context strategies govern which conversation history and code are shown to a model, while model-task allocation means sending different tasks to models according to their capabilities and costs. These choices can affect both the quality and expense of AI-assisted coding.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Humanoid_robot">Humanoid robot - Wikipedia</a></li>
-<li><a href="https://arxiv.org/html/2502.04692">STRIDE: Automating Reward Design, Deep Reinforcement Learning...</a></li>
+<li><a href="https://pinggy.io/blog/best_ai_harnesses_to_supercharge_llm_models/">AI Harness Engineering: The Layer That Makes Your... | Pinggy Blog</a></li>
+<li><a href="https://www.svms.in/news/ai-coding-harnesses-split-over-context-strategy">AI Coding Harnesses Split Over Context Strategy | AATMA News</a></li>
+<li><a href="https://economictimes.indiatimes.com/tech/artificial-intelligence/fable-5-anthropics-latest-ai-model-could-transform-it-but-at-a-cost/articleshow/131643111.cms">Fable 5: Anthropic's latest AI model could transform IT, but at a cost ...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#humanoid robots`, `#robotics`, `#autonomous systems`, `#robot competitions`
+**Tags**: `#AI-assisted coding`, `#LLMs`, `#model economics`, `#developer tooling`, `#Claude`
 
 ---
 
-<a id="item-37"></a>
-## [Saudi Arabia and France Deepen AI Cooperation](https://news.google.com/rss/articles/CBMiU0FVX3lxTE9YenN5OTNUYVduVmVBOW9hS1ZpMlZXT09hbkw3VlFISTFmRUt2bUxjcjFtTGVuenFySDZxRWNYOEFxa0J4el9ROVRUOUh2bk53bE4w?oc=5) ⭐️ 5.0/10
+<a id="item-16" class="hz-item-anchor" data-hz-url="https://marginalrevolution.com/marginalrevolution/2026/08/the-new-agentic-o-ring-world.html?utm_source=rss&utm_medium=rss&utm_campaign=the-new-agentic-o-ring-world" data-hz-title="The New Agentic O-Ring World" data-hz-tags="AI agents,Future of work,Automation,Technology economics" data-hz-section="other"></a>
+## [The New Agentic O-Ring World](https://marginalrevolution.com/marginalrevolution/2026/08/the-new-agentic-o-ring-world.html?utm_source=rss&utm_medium=rss&utm_campaign=the-new-agentic-o-ring-world) ⭐️ 6.0/10
 
-Saudi Arabia and France are strengthening cooperation in artificial intelligence as Saudi Arabia expands its digital economy. The available report does not provide specific agreements, projects, investment figures, or dates. Closer cooperation could support Saudi Arabia’s digital-economy development and deepen France’s engagement in the Kingdom’s technology sector. However, the available information is too limited to assess the partnership’s concrete economic or technical impact. The report identifies a broader expansion of Saudi-French AI ties but does not describe a technical breakthrough, deployment milestone, funding commitment, or institutional mechanism. No web search results or community comments were provided for additional verification or interpretation.
+The article argues that AI agents may require frequent human guidance and additional context while completing tasks, as illustrated by 27-year-old Sharma wanting to remain available around the clock. This can disrupt regular sleep schedules and conventional work routines. If agents depend on continuous human intervention, automation may shift work rather than eliminate it, creating new roles centered on monitoring, guidance, and support. The pattern could affect how organizations schedule workers and design responsibilities around agentic AI systems. The excerpt emphasizes that agents may need help as they move through tasks, and that Sharma previously lacked a way to monitor them remotely through a phone or smartwatch. The available material does not establish how widespread this problem is or quantify its effects on productivity, staffing, or sleep.
 
-google_news · Arab News · Aug 23, 16:12
+rss · Marginal Revolution · Aug 23, 04:56
 
-**Background**: Artificial intelligence refers to computer systems designed to perform tasks that typically require human intelligence, such as analyzing information or making predictions. A digital economy is an economy in which digital technologies, data, and online services play a central role. International cooperation can help countries develop these capabilities through partnerships, investment, and knowledge exchange.
-
-**Tags**: `#人工智能`, `#国际科技合作`, `#数字经济`, `#产业政策`
-
----
-
-<a id="item-38"></a>
-## [Open-Source Tool Reportedly Removes Claude Watermarks](https://news.google.com/rss/articles/CBMirwFBVV95cUxOVlB4aWJteGFXWnBIN0FLWVQzLU1teXJSeWl2emJUTXVYSlVSYmw0QkJsZGRlT191bDFlWUwzQldRQ193OV9nbnR2blJWSzBNRGpna2JhSXAzUDJ6ZXpmOEhsVGU2Y09jQnNPeDFrRDBFMXl3QVc0REN4NnRpbjBBMVJyM1V3QS1fSjA1RGNxcnVKRmpjUHN4SHZMNUNTSEgyVEdLQXhoNzZfdi15cXRv?oc=5) ⭐️ 5.0/10
-
-Startup Fortune reports that a Paris-based developer has released an open-source tool that reportedly removes Anthropic Claude’s newly introduced watermark from generated content. The available report provides no technical explanation, demonstration, or independent verification of the tool’s effectiveness. If verified, the tool could weaken watermarking as a method for identifying Claude-generated content and complicate efforts to establish AI provenance. It also highlights the tension between open-source experimentation and systems designed to support content attribution and detection. Anthropic says Claude marks can be embedded in text or files and that detection checks whether content carries a supported Claude mark, but the search results do not establish how the reported tool bypasses or removes those marks. The claim should therefore be treated cautiously because the source appears brief and promotional, with no reported testing methodology or quantified limitations.
-
-google_news · Startup Fortune · Aug 23, 03:22
-
-**Background**: A watermark is an embedded signal intended to help identify content produced by an AI system, even when the signal is not visible to readers. Anthropic’s help documentation says Claude marks can be checked in supported text or files, while broader AI-provenance efforts use technical markers and metadata to indicate origin. Removing or disrupting such signals can make automated attribution less reliable.
+**Background**: Agentic AI refers here to AI systems that carry out tasks while progressing through multiple steps, rather than merely producing a single response. Human-in-the-loop oversight means that people remain available to guide, review, or intervene in an AI system’s workflow. The search results describe this oversight as something that should be designed into agentic systems rather than added afterward.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content">How Claude marks AI -generated content | Anthropic Help Center</a></li>
+<li><a href="https://www.spear-tech.com/human-in-the-loop-is-not-optional-designing-oversight-into-agentic-ai-systems/">Human - in - the - Loop Is Not Optional</a></li>
+<li><a href="https://www.linkedin.com/pulse/agentic-ai-human-loop-hitl-shashi-theganahally-nzpkc">Agentic AI - " human in the loop " (HITL)</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI watermarking`, `#Content provenance`, `#Anthropic Claude`, `#Open source`, `#AI security`
+**Tags**: `#AI agents`, `#Future of work`, `#Automation`, `#Technology economics`
 
 ---
 
-<a id="item-39"></a>
-## [Apple Reportedly Cuts 200 Vision Pro Jobs as Smart Glasses Near](https://news.google.com/rss/articles/CBMikwFBVV95cUxNbUJFUFozQ29DYldGWjNJRlFfTE9aT1A0ZXI4cllUMHA1cTV2dm8zSDJNSEF5dXNXX1NsY1NBX05VLVhJU1NTcmdqQUhFTEtZWGxCNDdCamJYaC1rZnpGY2x1b3Q3SkdzaWcyNXUxbnRQVUZkRmNjM2pSV1RJUmhZaGJLdGRjMy12YTJwWktISk5tRWc?oc=5) ⭐️ 5.0/10
+<a id="item-17" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMiekFVX3lxTE0tYlVBSmNkUkc0NXZ5U0V5UjIzc3hCSW9qeUVpaTVsSkU5NTE2WnZKaXNkTmVVMlVYOENoZjBabUR3UXdzVHFQMFdIZDF0LWpWcGo1LVZxdDNibDlLUUtsRmhRMGdtQUJFWHRHZDUtMHFzUkhRXzVXRXln?oc=5" data-hz-title="Etnaviv Driver Adds YOLOX Support for Embedded AI" data-hz-tags="Open Source,Edge AI,GPU Drivers,YOLOX,Embedded Systems" data-hz-section="other"></a>
+## [Etnaviv Driver Adds YOLOX Support for Embedded AI](https://news.google.com/rss/articles/CBMiekFVX3lxTE0tYlVBSmNkUkc0NXZ5U0V5UjIzc3hCSW9qeUVpaTVsSkU5NTE2WnZKaXNkTmVVMlVYOENoZjBabUR3UXdzVHFQMFdIZDF0LWpWcGo1LVZxdDNibDlLUUtsRmhRMGdtQUJFWHRHZDUtMHFzUkhRXzVXRXln?oc=5) ⭐️ 6.0/10
 
-Apple is reportedly cutting about 200 positions related to Vision Pro while shifting attention toward smart glasses expected around 2027. The report provides no further details about the affected teams or the glasses’ specifications. The reported shift could signal a move from a relatively specialized spatial-computing headset toward a lighter, more everyday wearable device. It may influence Apple’s priorities in computer vision, spatial computing, and multimodal interaction, although the available information is limited. Vision Pro is Apple’s head-worn spatial computer, designed to blend digital content with the physical world. The job-cut figure and 2027 smart-glasses timeline are presented as reports in the supplied item, not as confirmed product specifications or an official Apple announcement.
+The open-source Etnaviv driver stack can now run the YOLOX object-detection model on compatible embedded hardware. This extends the stack’s accelerated AI capabilities beyond graphics support for Vivante GPUs and related hardware. YOLOX support can make real-time object detection more practical on embedded systems that use compatible Vivante GPUs or NPUs. It also demonstrates how open-source drivers can reduce reliance on proprietary acceleration software for edge AI workloads. Etnaviv is a reverse-engineered, open-source driver stack, and its hardware support depends on the specific Vivante implementation and available acceleration features. The available information confirms model support, but does not provide benchmark results, supported device lists, or details about performance and accuracy.
 
-google_news · Pasquale Pillitteri · Aug 22, 19:49
+google_news · Open Source For You · Aug 24, 07:27
 
-**Background**: Apple describes Vision Pro as a spatial computer that blends digital content with the physical world. Spatial computing uses a head-worn device to place digital experiences within the user’s surrounding environment, rather than limiting them to a conventional screen. Smart glasses would apply a more glasses-like form factor to related wearable computing ideas, but the supplied material does not establish what Apple’s proposed product would include.
+**Background**: A graphics device driver allows operating systems and applications to use particular hardware through supported programming interfaces. Etnaviv is an open-source user-space driver project for Vivante GPUs, with a broader goal of supporting the Mesa/Gallium3D graphics stack. YOLOX is an object-detection model in the YOLO family, designed to identify objects in images or video while balancing speed and accuracy.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.apple.com/newsroom/2023/06/introducing-apple-vision-pro/">Introducing Apple Vision Pro: Apple’s first spatial computer</a></li>
-<li><a href="https://www.apple.com/newsroom/2024/04/apple-vision-pro-brings-a-new-era-of-spatial-computing-to-business/">Apple Vision Pro brings a new era of spatial computing to ...</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Free_and_open-source_graphics_device_driver">Free and open - source graphics device driver - Wikipedia</a></li>
+<li><a href="https://www.phoronix.com/news/MTI3MjU">Etnaviv : An Open - Source Driver For Vivante GPUs - Phoronix</a></li>
+<li><a href="https://www.mycyber.news/stories/open-source-etnaviv-driver-now-able-to-run-yolox">Open - Source Etnaviv Driver Now Able To Run YOLOX</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Apple Vision Pro`, `#智能眼镜`, `#计算机视觉`, `#空间计算`, `#多模态感知`
+**Tags**: `#Open Source`, `#Edge AI`, `#GPU Drivers`, `#YOLOX`, `#Embedded Systems`
 
 ---
 
-<a id="item-40"></a>
-## [Türkiye’s Position in Infrared Detector Technology](https://news.google.com/rss/articles/CBMiggFBVV95cUxNeXJSY2MzalR4QkNZUG9fMXJhVXJJckxFUkhrdjlZcUg4V2pOV01VM0x5U2NRNDNOeE50ZDF6QlBpa3dLY09sTnV5NVlHeEpMX2VRcHBWNTlzYlBxSkJpNEdjVDU2djh2OWd2aER6VmpjakFWdDN2ZUFRdnhWbVZpT3RR?oc=5) ⭐️ 5.0/10
+<a id="item-18" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMinwFBVV95cUxPZU9NRjNSdVJESDU5TGF3b3NzTk1xWXJfbE9mMnlqcWhlTmUzckgxTXZnTFVreW80NzBSSi1HdTREN1Z4MUtuWkM2Mm01ZHFORGlOc0p3YTZEWDFuek5aRFhJS1pCSlNQanJmTE1rbHVPUkVEOHRmN296V0dZc2ZtMXEzOGVySWJXYm1FRV9YS25HZmlTaFNXdHJpVVBBc0U?oc=5" data-hz-title="AI Coding Harnesses Face Bug-Detection Blind Spots" data-hz-tags="AI coding agents,software testing,bug detection,developer tools" data-hz-section="other"></a>
+## [AI Coding Harnesses Face Bug-Detection Blind Spots](https://news.google.com/rss/articles/CBMinwFBVV95cUxPZU9NRjNSdVJESDU5TGF3b3NzTk1xWXJfbE9mMnlqcWhlTmUzckgxTXZnTFVreW80NzBSSi1HdTREN1Z4MUtuWkM2Mm01ZHFORGlOc0p3YTZEWDFuek5aRFhJS1pCSlNQanJmTE1rbHVPUkVEOHRmN296V0dZc2ZtMXEzOGVySWJXYm1FRV9YS25HZmlTaFNXdHJpVVBBc0U?oc=5) ⭐️ 6.0/10
 
-The Daily Sabah headline highlights Türkiye’s capabilities or competitive position in infrared detector technology. However, the provided material does not specify a particular device, performance result, project, or date. Infrared detectors support intelligent sensing and defense optoelectronics, including imaging, surveillance, and other systems that depend on detecting infrared radiation. Türkiye’s position in this field could therefore be relevant to domestic defense capabilities and the broader optoelectronics industry, although the supplied evidence is insufficient to measure its impact. Infrared focal-plane arrays integrate photoelectric conversion with signal readout, and their performance strongly affects image quality and application effectiveness. The search results distinguish cooled and uncooled arrays, but the article extract does not identify which architecture, materials, detector type, or technical benchmark underpins Türkiye’s reported edge.
+The Towards Data Science article examines situations in which AI coding harnesses such as GStack may fail to detect bugs. The available material identifies the topic and general concern but does not provide enough detail to verify specific experiments, versions, or measured results. Missed defects can undermine confidence in AI-assisted software development, especially when developers treat an agent’s workflow or review output as evidence that code is safe. The issue is relevant to teams adopting coding agents because stronger harnesses must complement, rather than replace, engineering judgment and independent testing. Search results describe GStack as a workflow layer that adds specialized skills and can include QA activities, while other discussions characterize a coding harness as orchestration around a model and deterministic tools. The central caveat is that routine fixes and visible test cases may not expose deeper internals, numerical edge cases, cross-file invariants, idle-state problems, or build-parity issues, although the supplied article content does not establish which of these cases it specifically demonstrated.
 
-google_news · Daily Sabah · Aug 23, 21:05
+google_news · Towards Data Science · Aug 23, 13:00
 
-**Background**: An infrared detector converts infrared radiation into an electrical signal, allowing systems to sense objects or scenes that may not be visible in ordinary light. An infrared focal-plane array combines many detector elements with readout circuitry to form an imaging sensor. Cooled arrays can offer different performance characteristics from uncooled arrays, so the choice depends on the intended application and system requirements.
+**Background**: An AI coding harness is the surrounding workflow and tooling that coordinates a coding model, executes tools, and checks or reviews the resulting changes. GStack is presented in the search results as a setup for Claude Code and other coding agents, with specialized skills intended to support activities such as architecture review and QA. Bug detection is therefore only one part of the system’s reliability: a harness may organize tests and reviews without proving that every important behavior has been exercised.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.raythink-tech.com/blogs/cooled-vs-uncooled-infrared-detectors-key-differences-in-thermal-imaging-camera-selection/">Cooled Vs Uncooled Infrared Detectors : Key Differences in Thermal...</a></li>
-<li><a href="https://www.sytophotonics.com/blog/trends-in-infrared-focal-plane-detector-technology.html">Trends in Infrared Focal Plane Detector Technology - SYTO...</a></li>
-<li><a href="https://www.nature.com/nature-index/topics/l4/infrared-detector-materials-and-technologies">Infrared Detector Materials and Technologies - Nature</a></li>
+<li><a href="https://github.com/garrytan/gstack">GitHub - garrytan/ gstack : Use Garry Tan's exact Claude Code setup...</a></li>
+<li><a href="https://microservices.io/post/architecture/2026/08/22/speed-limits-genai-coding-agents-autobahns-part-2.html">Speed limits , GenAI coding agents and Autobahns - part 2: raising the...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Infrared detectors`, `#Intelligent sensing`, `#Defense technology`, `#Optoelectronics`
+**Tags**: `#AI coding agents`, `#software testing`, `#bug detection`, `#developer tools`
 
 ---
 
-<a id="item-41"></a>
-## [Berkeley’s $5,000 Robot Highlights Supply-Chain Dependence](https://news.google.com/rss/articles/CBMiV0FVX3lxTE1vQnZpdTVNNWRfbDRGd3pKRG1zSl9ReWx4MVM3dmRPUHZvUzAyRHZSSkVyclRBbDh3bzZ6TFhPMGpkSnpmUVl3TDYzRk5kMkdMYnlDYjBva9IBX0FVX3lxTFA2em1NN3Y1ci0xc2h4OXRmM0UxZnBqcU5zeXVqbnBuTE5lSnpfei03WXV6YXdLTEV3NWY2bDR5UU83b2dMMHB6aHRxNkE2TmhsQmZOZE8ySVpIdVhSSmFN?oc=5) ⭐️ 5.0/10
+<a id="item-19" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMDRRM2NZZHREUFk0VVI3bHF5M2xuby1adkl6VUd5UzM5TTV1Q25IbS00eDkzbTMxSDJrWU1UVFFiRV9PeWJvekNNRTdQY0lkTzBaUE9RNW00aFEzVGNvVk1uaFVaNndFdE5jS2syRlNCWGF4NGZjZ0V4TW02V0Z3Zy0xZmlpUThqR0pV?oc=5" data-hz-title="Backstory Speeds Up Image Fact-Checking" data-hz-tags="AI,Media Fact-Checking,Image Provenance,Misinformation,Generative AI" data-hz-section="other"></a>
+## [Backstory Speeds Up Image Fact-Checking](https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMDRRM2NZZHREUFk0VVI3bHF5M2xuby1adkl6VUd5UzM5TTV1Q25IbS00eDkzbTMxSDJrWU1UVFFiRV9PeWJvekNNRTdQY0lkTzBaUE9RNW00aFEzVGNvVk1uaFVaNndFdE5jS2syRlNCWGF4NGZjZ0V4TW02V0Z3Zy0xZmlpUThqR0pV?oc=5) ⭐️ 6.0/10
 
-A Berkeley engineering project developed Berkeley Humanoid Lite, a low-cost, open-source humanoid robot built with 3D-printed parts and costing about $5,000. The project’s parts list is presented as evidence that important robotics components remain tied to Chinese manufacturing supply chains. The project lowers the cost of experimenting with humanoid robots while exposing how difficult it may be to build them entirely from domestically controlled components. This matters for robotics research, industrial automation, and debates over technological sovereignty in the United States and other Western markets. Berkeley Humanoid Lite is described as modular and open source, making its hardware and software easier to modify or replace than proprietary commercial systems. However, the available report provides no complete bill of materials, verified component-origin data, or independent measurement of how much of the robot depends on Chinese suppliers.
+Google’s experimental Backstory tool helps media organizations assess whether an image was generated by AI and investigate its origin. The tool is intended to accelerate fact-checking workflows. Faster image verification could help news organizations respond more efficiently to misleading or fabricated visual content. It may become increasingly useful as generative AI makes it easier to create and spread convincing images. Google describes Backstory as an experimental tool for exploring the context and origin of images found online, but the available information does not provide detailed accuracy results or explain how reliably it identifies AI-generated content. Its findings should therefore support, rather than replace, human fact-checking.
 
-google_news · Xpert.Digital - Konrad Wolfenstein · Aug 23, 13:52
+google_news · GIGAZINE · Aug 23, 23:00
 
-**Background**: An open-source robot makes design information available so researchers and students can study, modify, and rebuild the system. A supply chain includes the manufacturers and vendors that provide components such as motors, actuators, electronics, and mechanical parts. The Berkeley project is relevant because a low purchase price does not necessarily mean that every component can be sourced domestically.
+**Background**: Image provenance refers to information about where an image came from and how it may have been created or changed. Fact-checkers examine this context to determine whether visual material is authentic, misleading, or presented out of context. Backstory applies AI to help users investigate that context and origin.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://engineering.berkeley.edu/news/2025/11/building-bots-on-a-budget/">Building bots on a budget - Berkeley Engineering</a></li>
-<li><a href="https://xpert.digital/en/robot-supply-chain/">A DIY project from Berkeley shows who really controls the ...</a></li>
+<li><a href="https://deepmind.google/blog/exploring-the-context-of-online-images-with-backstory/">Exploring the context of online images with... — Google DeepMind</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Robotik`, `#Lieferketten`, `#Technologische Souveränität`, `#Industrielle Automatisierung`
+**Tags**: `#AI`, `#Media Fact-Checking`, `#Image Provenance`, `#Misinformation`, `#Generative AI`
 
 ---
 
-<a id="item-42"></a>
-## [Open-Source Project Brings macOS to Jailbroken M1 and M2 iPads](https://news.google.com/rss/articles/CBMigwFBVV95cUxPS0pEcXVWdzU1a0RqZDRUVWF2QU45NEdfbENXNy1sNzVYLUlWXzhWUTRRVEE5RTRpcVBsRXE0WUpDVjlDOHJtZ0dleXZWWlh4RzNwT1N0LWNBbzBEV2dqN0hGWnRxSjFQeXJtSGdfVTZsR1pTVFU2Z2hiQURwWENpTC1rTQ?oc=5) ⭐️ 5.0/10
+<a id="item-20" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMiygJBVV95cUxNTnlhNGU1ZXRkV2J0TzhQWHo2YW5OczA1ZmVUZjdXR0lJR21fYS1Rbld5X1Q1MXR3bFpEcFBub3ZBUXVnb2pWeFRqQXpfYlFwZlRfcFQtdV9lVUdFVWlDYm4zbU9OUll4NDdiZUJfRXozLTZpZWwzQ0tUSG9ZcEx1MjdNVWZ4ZGhfeHlVMjFFQ3c5NXFic0FwTWs1Q25qUG85d21RdDhyUzFiUk9nNWFoamF5VDBVV0RZZlQ1Yi1sN091R1kwUTBpZFJzd2d2SUhCUnZoY3Y3eUxoYmoxUlhDMVd1WS1QcTVoQnF5YXlkVzFkZnd2YW5tWUI0a1VVZUlxUFZ5VXZjLVF2aXZ4ZHJnTm5MMzYyQjVfNnVvR1J2aXpBMXFEa3NnM0lxNkpLUnBoTmNVMlFxS3Rhbm1jN0NGLW1KLVA2MVFEN0HSAcoCQVVfeXFMTU55YTRlNWV0ZFdidE84UFh6NmFuTnMwNWZlVGY3V0dJSUdtX2EtUW5XeV9UNTF0d2xaRHBQbm92QVF1Z29qVnhUakF6X2JRcGZUX3BULXVfZVVHRVVpQ2JuM21PTlJZeDQ3YmVCX0V6My02aWVsM0NLVEhvWXBMdTI3TVVmeGRoX3h5VTIxRUN3OTVxYnNBcE1rNUNualBvOXdtUXQ4clMxYlJPZzVhaGpheVQwVVdEWWZUNWItbDdPdUdZMFEwaWRSc3dndklIQlJ2aGN2N3lMaGJqMVJYQzFXdVktUHE1aEJxeWF5ZFcxZGZ3dmFubVlCNGtVVWVJcVBWeVV2Yy1Rdml2eGRyZ05uTDM2MkI1XzZ1b0dSdml6QTFxRGtzZzNJcTZKS1JwaE5jVTJRcUt0YW5tYzdDRi1tSi1QNjFRRDdB?oc=5" data-hz-title="Texas Student Builds High-Precision Robot Sensor for Under $25" data-hz-tags="Robotics,Sensors,DIY Hardware,Embedded Systems,Engineering Education" data-hz-section="other"></a>
+## [Texas Student Builds High-Precision Robot Sensor for Under $25](https://news.google.com/rss/articles/CBMiygJBVV95cUxNTnlhNGU1ZXRkV2J0TzhQWHo2YW5OczA1ZmVUZjdXR0lJR21fYS1Rbld5X1Q1MXR3bFpEcFBub3ZBUXVnb2pWeFRqQXpfYlFwZlRfcFQtdV9lVUdFVWlDYm4zbU9OUll4NDdiZUJfRXozLTZpZWwzQ0tUSG9ZcEx1MjdNVWZ4ZGhfeHlVMjFFQ3c5NXFic0FwTWs1Q25qUG85d21RdDhyUzFiUk9nNWFoamF5VDBVV0RZZlQ1Yi1sN091R1kwUTBpZFJzd2d2SUhCUnZoY3Y3eUxoYmoxUlhDMVd1WS1QcTVoQnF5YXlkVzFkZnd2YW5tWUI0a1VVZUlxUFZ5VXZjLVF2aXZ4ZHJnTm5MMzYyQjVfNnVvR1J2aXpBMXFEa3NnM0lxNkpLUnBoTmNVMlFxS3Rhbm1jN0NGLW1KLVA2MVFEN0HSAcoCQVVfeXFMTU55YTRlNWV0ZFdidE84UFh6NmFuTnMwNWZlVGY3V0dJSUdtX2EtUW5XeV9UNTF0d2xaRHBQbm92QVF1Z29qVnhUakF6X2JRcGZUX3BULXVfZVVHRVVpQ2JuM21PTlJZeDQ3YmVCX0V6My02aWVsM0NLVEhvWXBMdTI3TVVmeGRoX3h5VTIxRUN3OTVxYnNBcE1rNUNualBvOXdtUXQ4clMxYlJPZzVhaGpheVQwVVdEWWZUNWItbDdPdUdZMFEwaWRSc3dndklIQlJ2aGN2N3lMaGJqMVJYQzFXdVktUHE1aEJxeWF5ZFcxZGZ3dmFubVlCNGtVVWVJcVBWeVV2Yy1Rdml2eGRyZ05uTDM2MkI1XzZ1b0dSdml6QTFxRGtzZzNJcTZKS1JwaE5jVTJRcUt0YW5tYzdDRi1tSi1QNjFRRDdB?oc=5) ⭐️ 6.0/10
 
-VirtualMacOniPad, an open-source project, can run macOS as a virtual machine on iPads powered by Apple’s M1 and M2 chips. The project requires a jailbroken device and supports iPadOS versions up to 16.3.1, according to the available report. The project demonstrates that Apple-silicon iPads can technically host a desktop operating system beyond the software environment officially provided by Apple. Its practical reach remains limited because it depends on jailbreaking and compatible older iPadOS versions. VirtualMacOniPad runs macOS inside iPadOS rather than replacing the iPad’s operating system, so performance, hardware integration, and usability may differ from those of a native Mac. Jailbreaking removes Apple’s software restrictions and can introduce security, stability, update, and support risks.
+Eighteen-year-old Texas student Frank Lucci reportedly developed SubArc, a high-resolution rotary encoder for monitoring robotic movement. The unit costs less than $25 to manufacture, according to the available reports. SubArc could reduce the cost barrier for high-precision robotics, making advanced motion sensing more accessible to students, hobbyists, and smaller engineering teams. Its significance is primarily its reported affordability, although the available information does not establish how it compares with commercial products in every performance category. The sensor is described as a high-resolution rotary encoder that converts mechanical motion into digital signals, and reports say it is nearly 20 times cheaper than existing options. The available description does not provide detailed measurements of resolution, accuracy, durability, or performance under real-world robotic workloads.
+
+google_news · The Times of India · Aug 23, 07:30
+
+**Background**: A rotary encoder is a sensor that tracks the rotation or position of a mechanical component and represents that movement as an electrical or digital signal. Robots can use this information to monitor how motors, joints, or other moving parts are moving. Lower-cost encoders can make precise motion control more accessible, but practical usefulness also depends on factors such as accuracy, reliability, and compatibility with a robot's control system.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://timesofindia.indiatimes.com/world/us/meet-frank-lucci-the-18-year-old-texas-student-who-built-a-high-precision-robot-sensor-for-under-25-it-is-nearly-20-times-cheaper-than-existing-options/articleshow/133434736.cms">Meet Frank Lucci , the 18-year-old Texas student... - The Times of India</a></li>
+<li><a href="https://www.societyforscience.org/regeneron-sts/2026-student-finalists/frank-lucci/">Frank Lucci - Society for Science</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#Robotics`, `#Sensors`, `#DIY Hardware`, `#Embedded Systems`, `#Engineering Education`
+
+---
+
+<a id="item-21" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNQnVocnA3OHF6MC1GMmtqRlJrV0ppcGpUckIybm94TUNFY0U0LS1nSUY5NVEyRGhlWmR4Z0lKLTNJMXZJU0lWT185RUkxX29vaVR3U2Z5Q3dVRnJ1Y2hwdGNCYzhwaTJzMkUyc3BsU1RJTWJ5Z3p1V0dNRUM2bzd6d0g5a3NXU003?oc=5" data-hz-title="South Korea’s Humanoid Robots Depend on Chinese Hardware and U.S. AI" data-hz-tags="Humanoid Robotics,Artificial Intelligence,Supply Chains,South Korea,Technology Competition" data-hz-section="other"></a>
+## [South Korea’s Humanoid Robots Depend on Chinese Hardware and U.S. AI](https://news.google.com/rss/articles/CBMiiAFBVV95cUxNQnVocnA3OHF6MC1GMmtqRlJrV0ppcGpUckIybm94TUNFY0U0LS1nSUY5NVEyRGhlWmR4Z0lKLTNJMXZJU0lWT185RUkxX29vaVR3U2Z5Q3dVRnJ1Y2hwdGNCYzhwaTJzMkUyc3BsU1RJTWJ5Z3p1V0dNRUM2bzd6d0g5a3NXU003?oc=5) ⭐️ 6.0/10
+
+A Chosun Ilbo report says South Korea’s humanoid-robotics industry relies on Chinese robot bodies and U.S. artificial-intelligence technology. The report highlights these dependencies as a supply-chain vulnerability, but the provided material does not identify specific companies, models, or procurement volumes. The issue suggests that South Korea may face strategic constraints if access to Chinese hardware or U.S. AI technology becomes restricted or more expensive. It also shows that competitiveness in humanoid robotics depends not only on robot design, but on control software and the broader international supply chain. The available report provides no technical specifications, names of Chinese hardware suppliers, or details about which U.S. AI systems are being used, so the scale of the dependence cannot be quantified. Recent humanoid-robot research, such as NVIDIA’s 42-million-parameter SONIC model trained on more than 100 million human-motion frames, illustrates how advanced control software is becoming a distinct component of the robotics stack.
+
+google_news · 조선일보 · Aug 23, 05:26
+
+**Background**: Humanoid robots combine a physical platform, including the body, actuators, sensors, and other hardware, with software that interprets inputs and generates movement. Foundation models for humanoid control are designed to help robots produce coordinated whole-body motion, and NVIDIA’s SONIC is described in the search results as one example. A supply-chain dependency exists when a company or industry cannot easily replace a critical component or technology sourced from another country.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://rits.shanghai.nyu.edu/ai/nvidia-open-sources-sonic-a-foundation-model-for-humanoid-whole-body-control/">NVIDIA Open-Sources SONIC: A Foundation Model for Humanoid ...</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#Humanoid Robotics`, `#Artificial Intelligence`, `#Supply Chains`, `#South Korea`, `#Technology Competition`
+
+---
+
+<a id="item-22" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMigwFBVV95cUxPS0pEcXVWdzU1a0RqZDRUVWF2QU45NEdfbENXNy1sNzVYLUlWXzhWUTRRVEE5RTRpcVBsRXE0WUpDVjlDOHJtZ0dleXZWWlh4RzNwT1N0LWNBbzBEV2dqN0hGWnRxSjFQeXJtSGdfVTZsR1pTVFU2Z2hiQURwWENpTC1rTQ?oc=5" data-hz-title="Open-Source Project Runs macOS on M1 and M2 iPads" data-hz-tags="macOS,iPad,Apple Silicon,Jailbreaking,Open Source" data-hz-section="other"></a>
+## [Open-Source Project Runs macOS on M1 and M2 iPads](https://news.google.com/rss/articles/CBMigwFBVV95cUxPS0pEcXVWdzU1a0RqZDRUVWF2QU45NEdfbENXNy1sNzVYLUlWXzhWUTRRVEE5RTRpcVBsRXE0WUpDVjlDOHJtZ0dleXZWWlh4RzNwT1N0LWNBbzBEV2dqN0hGWnRxSjFQeXJtSGdfVTZsR1pTVFU2Z2hiQURwWENpTC1rTQ?oc=5) ⭐️ 6.0/10
+
+VirtualMacOniPad, an open-source project, enables macOS to run as a virtual machine inside iPadOS on supported M1 and M2 iPads. Users must jailbreak their devices to use it. The project demonstrates that Apple silicon iPads can technically host macOS, highlighting capabilities that Apple does not officially expose through iPadOS. However, the jailbreak requirement makes the setup difficult for most users and limits its practical impact. The project requires an iPad Pro with an M1 or M2 chip, or an M1 iPad Air, running iPadOS 14 through 16.3.1. Models with 1 TB or 2 TB of storage include 16 GB of RAM and are reported to provide the best performance and experience.
 
 google_news · Pasquale Pillitteri · Aug 23, 08:42
 
-**Background**: Jailbreaking uses software vulnerabilities to remove restrictions imposed by Apple on iOS-based devices and can grant elevated system access. A virtual machine runs one operating system inside another, allowing macOS to operate within iPadOS without making the iPad a native Mac. The M1 and M2 are Apple-designed chips used in some iPads and Macs, which makes this kind of software experimentation more feasible than on devices with unrelated processor architectures.
+**Background**: A jailbreak removes some of the software restrictions imposed by iPadOS, allowing users to install software that is unavailable through the App Store. VirtualMacOniPad uses that expanded access to run macOS as a virtual machine rather than replacing iPadOS outright. The project therefore represents an experimental compatibility demonstration, not an officially supported macOS release for iPad.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://pasqualepillitteri.it/en/news/12417/macos-on-ipad-open-source-project">macOS on iPad becomes available: an open source project runs it on...</a></li>
-<li><a href="https://en.wikipedia.org/wiki/IOS_jailbreaking">iOS jailbreaking - Wikipedia</a></li>
+<li><a href="https://pasqualepillitteri.it/en/news/12417/macos-on-ipad-open-source-project">macOS on iPad becomes available, an open source project runs it...</a></li>
+<li><a href="https://github.com/dr-data/virtualmaconipad">dr-data/virtualmaconipad: People have dreamed of running macOS on ...</a></li>
+<li><a href="https://www.ionos.com/digitalguide/websites/web-development/jailbreak-ios/">Jailbreak (iOS) | What is jailbreaking and how does it work? - IONOS</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#macOS`, `#iPad`, `#开源项目`, `#系统移植`, `#越狱`
+**Tags**: `#macOS`, `#iPad`, `#Apple Silicon`, `#Jailbreaking`, `#Open Source`
+
+---
+
+<a id="item-23" class="hz-item-anchor" data-hz-url="https://www.themarginalian.org/2026/08/23/oliver-sacks-identity-self-narrative/" data-hz-title="Oliver Sacks on Memory, Narrative, and Personhood" data-hz-tags="neuroscience,cognitive science,identity,Oliver Sacks,philosophy" data-hz-section="other"></a>
+## [Oliver Sacks on Memory, Narrative, and Personhood](https://www.themarginalian.org/2026/08/23/oliver-sacks-identity-self-narrative/) ⭐️ 5.0/10
+
+The piece examines Oliver Sacks’s view that human beings are biologically similar but become individually distinct through personal histories and narratives. It connects neurocognitive processes, autobiographical memory, and storytelling to the formation of identity. The analysis highlights that personhood is shaped not only by biology but also by how people remember, organize, and interpret their lives. This perspective is relevant to neuroscience, cognitive science, and philosophical debates about whether identity is a stable essence or an evolving life story. Autobiographical memory combines recollections of specific experiences with personal knowledge, and its organization can vary across individuals and life stages. The piece is a reflective synthesis rather than a new experiment or technical breakthrough, so it does not establish a single neuroscientific mechanism for identity.
+
+rss · The Marginalian · Aug 24, 03:05
+
+**Background**: Autobiographical memory refers to memories and personal knowledge about one’s own life. Research discussed in the search results describes it as a network that can support the functioning and well-being of the self. Narrative identity is the idea that people connect life episodes into an understandable story, helping them interpret who they are over time.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5744072/">The Importance of Memory Specificity and Memory Coherence for the...</a></li>
+<li><a href="https://psychologytimes.co.uk/autobiographical-memory-and-reminiscence/">Autobiographical Memory and Reminiscence - Psychology Times</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#neuroscience`, `#cognitive science`, `#identity`, `#Oliver Sacks`, `#philosophy`
+
+---
+
+<a id="item-24" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMiuAFBVV95cUxQcFFxa05oZU9uWTQ0MFpER0FMLVNSNGZMZEZ2SlU5Q1k0QUlRZ29rVmlwMHdnZms4S2dxbDZKOFdJSktCTUhCTGdtTTBkeGZScHNlZXAwbU1Pa0lVZC1WZEZVWThoclFQQVV1WWtiRU9Ybnd5MlJ2eTQ2VVIzUU1pc0JVczlDSFJENEE5ZkZZTmlvUTNDQnVlRGdYV2QxWGFHZC14OVlhVFFpc25iM0tCZnhBTUIxUDFL?oc=5" data-hz-title="Trustworthy Hardware Could Drive Physical AI Through Manufacturing" data-hz-tags="Physical AI,Robotics,Hardware Reliability,Manufacturing,AI Systems" data-hz-section="other"></a>
+## [Trustworthy Hardware Could Drive Physical AI Through Manufacturing](https://news.google.com/rss/articles/CBMiuAFBVV95cUxQcFFxa05oZU9uWTQ0MFpER0FMLVNSNGZMZEZ2SlU5Q1k0QUlRZ29rVmlwMHdnZms4S2dxbDZKOFdJSktCTUhCTGdtTTBkeGZScHNlZXAwbU1Pa0lVZC1WZEZVWThoclFQQVV1WWtiRU9Ybnd5MlJ2eTQ2VVIzUU1pc0JVczlDSFJENEE5ZkZZTmlvUTNDQnVlRGdYV2QxWGFHZC14OVlhVFFpc25iM0tCZnhBTUIxUDFL?oc=5) ⭐️ 5.0/10
+
+The article argues that physical AI depends on trustworthy hardware and that manufacturing is likely to generate its earliest demand. It presents an industry perspective rather than reporting a specific technical breakthrough, product launch, or research result. Physical AI must operate in real environments, so failures in sensors, mechanical systems, or control hardware can limit deployment even when the underlying AI models perform well. Manufacturing offers structured, commercially valuable settings where reliable robotic systems could be tested and adopted first. The supplied article content does not specify particular hardware components, performance figures, deployment dates, or manufacturing applications. Related industry discussion emphasizes that reliability involves more than computing power and includes sensors, mechanical design, safety, control, system integration, connectivity, response time, and environmental durability.
+
+google_news · 디지털투데이 · Aug 24, 04:38
+
+**Background**: Physical AI, also called embodied AI, describes AI systems that learn and act through physical interaction with their environments rather than processing static data alone. Such systems use sensors to perceive the world and effectors or mechanical components to act on it, which makes hardware performance and reliability central to their operation.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://voxel51.com/glossary/embodied-ai">What is embodied AI ? | Voxel51</a></li>
+<li><a href="https://blog.robotiq.com/why-physical-ai-needs-better-hardware-not-just-better-models">Why Physical AI needs better hardware , not just better models</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#Physical AI`, `#Robotics`, `#Hardware Reliability`, `#Manufacturing`, `#AI Systems`
+
+---
+
+<a id="item-25" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9YenN5OTNUYVduVmVBOW9hS1ZpMlZXT09hbkw3VlFISTFmRUt2bUxjcjFtTGVuenFySDZxRWNYOEFxa0J4el9ROVRUOUh2bk53bE4w?oc=5" data-hz-title="Saudi Arabia and France Deepen AI Cooperation" data-hz-tags="Artificial Intelligence,Saudi Arabia,France,Digital Economy,International Cooperation" data-hz-section="other"></a>
+## [Saudi Arabia and France Deepen AI Cooperation](https://news.google.com/rss/articles/CBMiU0FVX3lxTE9YenN5OTNUYVduVmVBOW9hS1ZpMlZXT09hbkw3VlFISTFmRUt2bUxjcjFtTGVuenFySDZxRWNYOEFxa0J4el9ROVRUOUh2bk53bE4w?oc=5) ⭐️ 5.0/10
+
+Saudi Arabia and France are deepening cooperation in artificial intelligence as the Kingdom expands its digital economy. The provided article does not specify particular agreements, projects, or technical breakthroughs. The partnership could support Saudi Arabia’s broader digital-economy ambitions while giving France a stronger role in the Kingdom’s technology development. It also reflects the growing importance of international cooperation in building artificial-intelligence capabilities. The available material provides only a broad description of closer Saudi-French AI ties and does not identify the participants, investment amounts, timelines, or specific technologies involved. Therefore, the scale and practical impact of the cooperation cannot be assessed from the supplied information.
+
+google_news · Arab News · Aug 23, 16:12
+
+**Background**: Artificial intelligence refers to computer systems designed to perform tasks that typically require human-like capabilities, such as analysis or decision-making. A digital economy is an economy in which digital technologies and services play a central role in business activity and public development. International partnerships can help countries develop these capabilities, although their results depend on concrete agreements and implementation.
+
+**Tags**: `#Artificial Intelligence`, `#Saudi Arabia`, `#France`, `#Digital Economy`, `#International Cooperation`
+
+---
+
+<a id="item-26" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMikwFBVV95cUxNbUJFUFozQ29DYldGWjNJRlFfTE9aT1A0ZXI4cllUMHA1cTV2dm8zSDJNSEF5dXNXX1NsY1NBX05VLVhJU1NTcmdqQUhFTEtZWGxCNDdCamJYaC1rZnpGY2x1b3Q3SkdzaWcyNXUxbnRQVUZkRmNjM2pSV1RJUmhZaGJLdGRjMy12YTJwWktISk5tRWc?oc=5" data-hz-title="Apple Reportedly Cuts Vision Pro Jobs as Smart Glasses Target 2027" data-hz-tags="Apple,Vision Pro,Smart Glasses,AR/VR,Tech Industry" data-hz-section="other"></a>
+## [Apple Reportedly Cuts Vision Pro Jobs as Smart Glasses Target 2027](https://news.google.com/rss/articles/CBMikwFBVV95cUxNbUJFUFozQ29DYldGWjNJRlFfTE9aT1A0ZXI4cllUMHA1cTV2dm8zSDJNSEF5dXNXX1NsY1NBX05VLVhJU1NTcmdqQUhFTEtZWGxCNDdCamJYaC1rZnpGY2x1b3Q3SkdzaWcyNXUxbnRQVUZkRmNjM2pSV1RJUmhZaGJLdGRjMy12YTJwWktISk5tRWc?oc=5) ⭐️ 5.0/10
+
+Apple reportedly plans to eliminate about 200 jobs related to Vision Pro while targeting the release of smart glasses in 2027. The report suggests a shift in emphasis within the company's spatial-computing efforts. The reported cuts could indicate that Apple is reassessing its investment and staffing priorities for Vision Pro. A move toward smart glasses would broaden Apple's ambitions in AR/VR and could affect the direction of its future wearable-device strategy. The available report provides an approximate figure of 200 jobs and a 2027 target, but it does not specify which teams would be affected or whether the smart-glasses schedule is firm. Because no search results or additional reporting are provided, these details should be treated as reported plans rather than confirmed product commitments.
+
+google_news · Pasquale Pillitteri · Aug 22, 19:49
+
+**Background**: Vision Pro is Apple's spatial-computing product, while smart glasses are a lighter wearable-device direction associated with AR/VR. The report frames the job reductions and the proposed 2027 glasses timeline as part of a possible change in Apple's priorities within this area.
+
+**Tags**: `#Apple`, `#Vision Pro`, `#Smart Glasses`, `#AR/VR`, `#Tech Industry`
+
+---
+
+<a id="item-27" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMib0FVX3lxTE9pWDhfVHlneEhWRmhHb2hqUFljUm5nTWp3TFYwdThNRmdYNHpEVF9PbG16WktoNUhvX21mdWVnb1hHVjZNLURsOHRqeHgxcmxzdjR6RFlHSXdzZzBMRjRzSGFDVURCUDFJektJRFEycw?oc=5" data-hz-title="Roboflow Playground Offers Free Vision Model Comparison" data-hz-tags="computer vision,AI models,model evaluation,Roboflow,developer tools" data-hz-section="other"></a>
+## [Roboflow Playground Offers Free Vision Model Comparison](https://news.google.com/rss/articles/CBMib0FVX3lxTE9pWDhfVHlneEhWRmhHb2hqUFljUm5nTWp3TFYwdThNRmdYNHpEVF9PbG16WktoNUhvX21mdWVnb1hHVjZNLURsOHRqeHgxcmxzdjR6RFlHSXdzZzBMRjRzSGFDVURCUDFJektJRFEycw?oc=5) ⭐️ 5.0/10
+
+Roboflow Playground is a free online tool that lets users test and compare more than 130 vision AI models on their own images. It supports 25 tasks, including object detection, OCR, captioning, and segmentation. The tool lowers the barrier for developers and researchers who need to explore different vision models before choosing one for an application. Comparing models through a common interface can make early experimentation more efficient, although the available information does not establish how its results compare with formal benchmarks. Users can run models on their own images, while the Playground covers a broad range of vision tasks rather than only object detection. The search results describe model access and comparison capabilities but provide limited information about evaluation metrics, reproducibility, usage limits, or production performance.
+
+google_news · GIGAZINE · Aug 23, 03:00
+
+**Background**: Vision AI models analyze images for tasks such as identifying objects, generating captions, or dividing an image into regions. Object detection identifies items and their locations, OCR extracts text from images, captioning describes image content, and segmentation assigns pixels or regions to categories. A comparison tool allows users to apply multiple models to similar inputs and inspect their outputs before selecting a model.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://playground.roboflow.com/">Roboflow Playground : Test & Compare Vision AI Models Free</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#computer vision`, `#AI models`, `#model evaluation`, `#Roboflow`, `#developer tools`
+
+---
+
+<a id="item-28" class="hz-item-anchor" data-hz-url="https://news.google.com/rss/articles/CBMiggFBVV95cUxNeXJSY2MzalR4QkNZUG9fMXJhVXJJckxFUkhrdjlZcUg4V2pOV01VM0x5U2NRNDNOeE50ZDF6QlBpa3dLY09sTnV5NVlHeEpMX2VRcHBWNTlzYlBxSkJpNEdjVDU2djh2OWd2aER6VmpjakFWdDN2ZUFRdnhWbVZpT3RR?oc=5" data-hz-title="Türkiye Highlights Emerging Infrared Detector Capabilities" data-hz-tags="Infrared Detectors,Defense Technology,Sensing Systems,Türkiye" data-hz-section="other"></a>
+## [Türkiye Highlights Emerging Infrared Detector Capabilities](https://news.google.com/rss/articles/CBMiggFBVV95cUxNeXJSY2MzalR4QkNZUG9fMXJhVXJJckxFUkhrdjlZcUg4V2pOV01VM0x5U2NRNDNOeE50ZDF6QlBpa3dLY09sTnV5NVlHeEpMX2VRcHBWNTlzYlBxSkJpNEdjVDU2djh2OWd2aER6VmpjakFWdDN2ZUFRdnhWbVZpT3RR?oc=5) ⭐️ 5.0/10
+
+Daily Sabah highlights Türkiye’s emerging capabilities in infrared detector technology and their potential strategic and defense applications. The available material does not specify a particular detector, product, performance figure, or development date. Infrared detectors are important components in sensing systems, so stronger domestic capabilities could support Türkiye’s defense-engineering and surveillance objectives. However, the limited technical information makes it difficult to assess the scale of any competitive advantage. Infrared focal plane arrays convert infrared radiation into electrical signals and strongly influence the performance of infrared cameras. Relevant detector technologies include InSb and HgCdTe, with HgCdTe-based systems used across portions of the mid-infrared range, but the article does not identify which technology Türkiye is pursuing.
+
+google_news · Daily Sabah · Aug 23, 21:05
+
+**Background**: An infrared detector senses radiation outside the visible-light range and converts it into an electrical signal, often through a detector material connected to a readout integrated circuit. Infrared focal plane arrays combine many detector elements to form an image. Materials such as InSb and HgCdTe are used for high-performance infrared sensing, including applications covering different infrared wavelength bands.
+
+<details><summary>References</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Mercury_cadmium_telluride">Mercury cadmium telluride - Wikipedia</a></li>
+<li><a href="https://ntrs.nasa.gov/api/citations/20100030592/downloads/20100030592.pdf">Infrared Detectors Overview in the Short Wave Infrared to Far...</a></li>
+<li><a href="https://www.techniques-ingenieur.fr/en/resources/article/ti520/infrared-matrix-detectors-e4060">Infrared focal plane arrays | Techniques de l'Ingénieur</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#Infrared Detectors`, `#Defense Technology`, `#Sensing Systems`, `#Türkiye`
 
 ---
