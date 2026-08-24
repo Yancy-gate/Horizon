@@ -41,6 +41,18 @@ def test_ai_recommendations_available_for_ollama_without_api_key():
     assert wizard._ai_recommendations_available(config) is True
 
 
+def test_build_config_uses_production_aligned_threshold():
+    ai_config = AIConfig(
+        provider=AIProvider.OPENAI,
+        model="gpt-4",
+        api_key_env="OPENAI_API_KEY",
+    )
+
+    config = wizard.build_config(ai_config=ai_config, selected_sources=[])
+
+    assert config.filtering.ai_score_threshold == 5.0
+
+
 def test_ai_recommendations_require_api_key_for_cloud_provider(monkeypatch):
     config = AIConfig(
         provider=AIProvider.OPENAI,
