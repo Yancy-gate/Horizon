@@ -42,7 +42,13 @@ try {
     Write-Log "Vault: $VaultRoot"
     Write-Log "Remote: $($remoteUrl.Out)"
 
-    $r = Invoke-GitNoProxy $VaultRoot @("pull", "--ff-only", $Remote, $Branch)
+    $r = Invoke-GitNoProxy $VaultRoot @(
+        "pull",
+        "--rebase",
+        "--autostash",
+        $Remote,
+        $Branch
+    )
     Write-Log ("Vault pull: " + $r.Out)
     if ($r.Code -ne 0) { throw "vault git pull failed: $($r.Code)" }
 
