@@ -237,28 +237,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.hz-feedback-export {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 1000;
-  padding: 0.45em 1em;
-  border: 1px solid var(--hz-border);
-  border-radius: 999px;
-  background: var(--hz-surface);
-  color: var(--hz-text);
-  font-size: 0.82em;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-
-.hz-feedback-export:hover {
-  border-color: var(--hz-accent);
-}
-
 .hz-feedback-toast {
   position: fixed;
-  bottom: 56px;
+  bottom: 16px;
   right: 16px;
   z-index: 1001;
   padding: 0.5em 0.9em;
