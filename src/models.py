@@ -141,6 +141,7 @@ class RSSSourceConfig(BaseModel):
     url: HttpUrl
     enabled: bool = True
     category: Optional[str] = None
+    metadata: Dict[str, Any] = Field(default_factory=dict)
     # Optional per-source lookback; when set, overrides global filtering.time_window_hours.
     time_window_hours: Optional[int] = Field(default=None, gt=0)
 

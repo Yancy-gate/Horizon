@@ -1,0 +1,1359 @@
+{
+  "schema_version": 1,
+  "institution": "华中科技大学人工智能与自动化学院",
+  "selection_rule": "学院官网中具有公开研究主页且可提取研究方向的教学科研人员",
+  "official_index_urls": [
+    "https://aia.hust.edu.cn/szdw/xysz/axlb/zzznyznkzx.htm",
+    "https://aia.hust.edu.cn/szdw/xysz/axlb/zngzyclkxx.htm",
+    "https://aia.hust.edu.cn/szdw/xysz/axlb/znxtyxtgcx.htm",
+    "https://aia.hust.edu.cn/szdw/xysz/axlb/txsbyznkxx.htm"
+  ],
+  "researched_at": "2026-08-24T06:30:29.370186+00:00",
+  "review_interval_days": 90,
+  "next_review_due": "2026-11-22",
+  "listed_profile_count": 120,
+  "included_teacher_count": 100,
+  "excluded_without_direction_count": 20,
+  "research_groups": [
+    {
+      "id": "vision-perception",
+      "name": "计算机视觉与多模态感知",
+      "query": "computer vision, multimodal perception, medical imaging, 3D reconstruction, object detection",
+      "match_keywords": [
+        "计算机视觉",
+        "图像",
+        "视觉",
+        "成像",
+        "模式识别",
+        "多模态",
+        "目标检测",
+        "三维重建",
+        "医学影像",
+        "遥感",
+        "computer vision"
+      ],
+      "teachers": [
+        "刘文中",
+        "刘禹良",
+        "唐朝清",
+        "姜军",
+        "孙志刚",
+        "左峥嵘",
+        "张新宇",
+        "张钧",
+        "彭刚",
+        "昌毅",
+        "明德烈",
+        "曹治国",
+        "李炜",
+        "杨卫东",
+        "桑红石",
+        "汪国有",
+        "田甜",
+        "田金文",
+        "程晶晶",
+        "肖力",
+        "肖阳",
+        "胡汉平",
+        "胡若澜",
+        "胡静",
+        "蔡超",
+        "谭山",
+        "谭毅华",
+        "邹腊梅",
+        "钟胜",
+        "陆昊",
+        "陈立群",
+        "陶文兵",
+        "颜露新",
+        "高常鑫",
+        "黎云"
+      ]
+    },
+    {
+      "id": "robotics-autonomy",
+      "name": "机器人与自主智能",
+      "query": "autonomous systems, robot control, multi-agent systems, swarm intelligence, embodied intelligence, SLAM",
+      "match_keywords": [
+        "机器人",
+        "无人系统",
+        "自主智能",
+        "群体智能",
+        "集群",
+        "多智能体",
+        "多智能系统",
+        "多自主体",
+        "具身智能",
+        "导航",
+        "制导",
+        "SLAM",
+        "robot"
+      ],
+      "teachers": [
+        "何顶新",
+        "刘智伟",
+        "刘磊",
+        "卢仁智",
+        "姜艺",
+        "岳作功",
+        "左峥嵘",
+        "张新宇",
+        "张海涛",
+        "彭刚",
+        "曾志刚",
+        "朱力军",
+        "来金钢",
+        "池明",
+        "汪国有",
+        "王博",
+        "王燕舞",
+        "王苗苗",
+        "田甜",
+        "盛银",
+        "程骋",
+        "罗欣",
+        "肖力",
+        "肖强",
+        "肖江文",
+        "苏厚胜",
+        "蔡超",
+        "邰若晨",
+        "陶文兵",
+        "黄剑"
+      ]
+    },
+    {
+      "id": "brain-computational-intelligence",
+      "name": "类脑与计算智能",
+      "query": "brain-inspired intelligence, computational intelligence, neural dynamics, spiking neural networks",
+      "match_keywords": [
+        "类脑",
+        "计算智能",
+        "神经动力学",
+        "脉冲神经",
+        "神经网络",
+        "机器学习",
+        "深度学习",
+        "生物计算",
+        "分子计算",
+        "DNA",
+        "brain-inspired",
+        "computational intelligence"
+      ],
+      "teachers": [
+        "万一鸣",
+        "伍冬睿",
+        "卢仁智",
+        "叶林涛",
+        "周凯波",
+        "唐朝清",
+        "姜军",
+        "张征",
+        "张钧",
+        "彭刚",
+        "徐飞",
+        "曾志刚",
+        "李炜",
+        "李远征",
+        "来金钢",
+        "潘林强",
+        "王小平",
+        "王燕舞",
+        "田金文",
+        "谭毅华",
+        "邹腊梅",
+        "陶文兵"
+      ]
+    },
+    {
+      "id": "industrial-ai-security",
+      "name": "工业智能与系统安全",
+      "query": "industrial AI, industrial internet, cyber-physical security, digital twins",
+      "match_keywords": [
+        "工业人工智能",
+        "工业互联网",
+        "信息物理",
+        "系统安全",
+        "网络安全",
+        "人工智能安全",
+        "数字孪生",
+        "故障诊断",
+        "工业控制",
+        "物联网",
+        "城市智能",
+        "industrial"
+      ],
+      "teachers": [
+        "周纯杰",
+        "张征",
+        "彭刚",
+        "来金钢",
+        "王卓",
+        "秦肖臻",
+        "程骋",
+        "胡晓娅",
+        "郑英"
+      ]
+    },
+    {
+      "id": "control-complex-systems",
+      "name": "智能控制与复杂系统",
+      "query": "intelligent control, nonlinear control, networked control, complex systems, model predictive control",
+      "match_keywords": [
+        "智能控制",
+        "非线性",
+        "复杂系统",
+        "网络化控制",
+        "预测控制",
+        "鲁棒控制",
+        "自适应控制",
+        "运动控制",
+        "控制理论",
+        "控制系统",
+        "系统辨识"
+      ],
+      "teachers": [
+        "万一鸣",
+        "刘智伟",
+        "叶林涛",
+        "唐其鹏",
+        "姜艺",
+        "孙志刚",
+        "徐金榜",
+        "曾志刚",
+        "朱力军",
+        "李叶松",
+        "来金钢",
+        "樊慧津",
+        "池明",
+        "沈安文",
+        "洪流",
+        "王博",
+        "盛银",
+        "程善美",
+        "罗欣",
+        "肖人彬",
+        "肖力",
+        "赵金",
+        "邓忠华",
+        "陈曦",
+        "黄剑"
+      ]
+    },
+    {
+      "id": "sensing-measurement",
+      "name": "智能感知与测量",
+      "query": "intelligent sensing, measurement science, biosensors, signal processing, wireless sensing",
+      "match_keywords": [
+        "智能感知",
+        "检测",
+        "测量",
+        "传感",
+        "信号处理",
+        "生物传感",
+        "医疗器件",
+        "仪器",
+        "多相流",
+        "sensing"
+      ],
+      "teachers": [
+        "万一鸣",
+        "刘文中",
+        "唐其鹏",
+        "唐朝清",
+        "岳作功",
+        "张洪",
+        "彭刚",
+        "徐琦",
+        "曹治国",
+        "桂康",
+        "桑红石",
+        "秦肖臻",
+        "肖阳",
+        "胡若澜",
+        "葛俊锋",
+        "谭毅华",
+        "黎云"
+      ]
+    },
+    {
+      "id": "systems-decision",
+      "name": "系统工程与决策优化",
+      "query": "systems engineering, decision support, operations research, supply-chain optimization, emergency management",
+      "match_keywords": [
+        "系统工程",
+        "决策",
+        "博弈",
+        "优化",
+        "运筹",
+        "供应链",
+        "应急管理",
+        "物流",
+        "生产运作",
+        "数智化",
+        "关键基础设施",
+        "城市韧性",
+        "城市科学",
+        "社会经济系统",
+        "systems engineering"
+      ],
+      "teachers": [
+        "余明晖",
+        "俞耀文",
+        "刘振元",
+        "刘智伟",
+        "刘磊",
+        "刘骁康",
+        "卢仁智",
+        "叶林涛",
+        "周剑岚",
+        "周洪涛",
+        "岳作功",
+        "彭刚",
+        "曾伟",
+        "李远征",
+        "来金钢",
+        "欧阳敏",
+        "池明",
+        "沈吟东",
+        "王燕舞",
+        "程骋",
+        "罗云峰",
+        "肖人彬",
+        "蔡超",
+        "赵勇",
+        "陈曦"
+      ]
+    },
+    {
+      "id": "energy-manufacturing",
+      "name": "能源电子与智能制造",
+      "query": "power electronics, motor control, smart grids, energy management, intelligent manufacturing",
+      "match_keywords": [
+        "电力电子",
+        "电机",
+        "伺服",
+        "新能源",
+        "电网",
+        "电能质量",
+        "变换器",
+        "交流传动",
+        "微电网",
+        "能源",
+        "智能制造",
+        "智能装备",
+        "数字化控制",
+        "power electronics"
+      ],
+      "teachers": [
+        "俞耀文",
+        "刘智伟",
+        "刘骁康",
+        "卢仁智",
+        "叶杰",
+        "唐其鹏",
+        "尹泉",
+        "彭刚",
+        "徐金榜",
+        "李远征",
+        "来金钢",
+        "池明",
+        "沈安文",
+        "王卓",
+        "程善美",
+        "程骋",
+        "罗慧",
+        "罗欣",
+        "肖江文",
+        "赵金",
+        "邓忠华"
+      ]
+    }
+  ],
+  "teachers": [
+    {
+      "name": "万一鸣",
+      "department": "自主智能与智能控制系",
+      "research_direction": "状态估计、多传感器融合 预测控制、容错控制 机器学习、异常检测",
+      "profile_url": "http://faculty.hust.edu.cn/wanyiming/zh_CN/index.htm",
+      "research_groups": [
+        "brain-computational-intelligence",
+        "control-complex-systems",
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "伍冬睿",
+      "department": "图像识别与智能科学系",
+      "research_direction": "脑机接口、机器学习、智慧医疗、情感计算",
+      "profile_url": "http://faculty.hust.edu.cn/drwu/zh_CN/index.htm",
+      "research_groups": [
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "何顶新",
+      "department": "自主智能与智能控制系",
+      "research_direction": "计算机控制技术、嵌入式系统、机器人控制技术等",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10424.htm",
+      "research_groups": [
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "余明晖",
+      "department": "智能系统与系统工程系",
+      "research_direction": "决策支持系统、复杂工程系统以及物流系统",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10405.htm",
+      "research_groups": [
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "俞耀文",
+      "department": "自主智能与智能控制系",
+      "research_direction": "电力市场策略竞价与机制设计 电力系统优化调度 人工智能与电网大数据",
+      "profile_url": "http://faculty.hust.edu.cn/YuYaowen/zh_CN/index.htm",
+      "research_groups": [
+        "systems-decision",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "刘振元",
+      "department": "智能系统与系统工程系",
+      "research_direction": "生产运作分析与服务智能 企业数智化转型",
+      "profile_url": "http://faculty.hust.edu.cn/liuzhenyuan/zh_CN/index.htm",
+      "research_groups": [
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "刘文中",
+      "department": "智能感知与测量科学系",
+      "research_direction": "涉及光学精密测量、干涉散射显微成像、X射线成像、弱信号检测、电磁场设计、光学精密机械设计。 博士硕士",
+      "profile_url": "http://faculty.hust.edu.cn/liuwenzhong/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "刘智伟",
+      "department": "自主智能与智能控制系",
+      "research_direction": "人工智能在电力系统和无人集群系统的应用、基于人工智能的电力数据分析与预测、电力需求侧管理、 智能电网优化与控制、无人集群系统优化与控制、 多智能体分布式协同、混杂控制系统",
+      "profile_url": "http://faculty.hust.edu.cn/zwliu",
+      "research_groups": [
+        "robotics-autonomy",
+        "control-complex-systems",
+        "systems-decision",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "刘磊",
+      "department": "图像识别与智能科学系",
+      "research_direction": "飞行器控制、制导和轨迹优化，协同控制与决策，无人机飞行控制等",
+      "profile_url": "http://faculty.hust.edu.cn/liulei4aia/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "刘禹良",
+      "department": "图像识别与智能科学系",
+      "research_direction": "聚焦文本图像智能，围绕解析，理解，推理，生成，安全及文档+科学开展相关工作。 教学指导： 获中国大学生“互联网+”创新大赛高教主/产业/红旅赛道全国金奖 获挑战杯全国特等奖、挑战杯揭榜挂帅专项赛全国擂主 本科生一作",
+      "profile_url": "http://faculty.hust.edu.cn/liuyuliang/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "刘骁康",
+      "department": "自主智能与智能控制系",
+      "research_direction": "智能电网的控制与优化；分布式协同与群集智能 团队",
+      "profile_url": "http://faculty.hust.edu.cn/~uqaUne/zh_CN/index.htm",
+      "research_groups": [
+        "systems-decision",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "卢仁智",
+      "department": "自主智能与智能控制系",
+      "research_direction": "人工智能-Artificial Intelligence 深度强化学习-Deep Reinforcement Learning 强化学习-Reinforcement Learning 序贯决策-Sequential Decision Making 深度学习-Deep Learning 时序预测-Time Series Forecasting 智能制造-Smart Manufacturing 低碳能源-Lowcarbon Energy 多智能体学习-Multiagent Learning 无人系统集群-Unmanned Systems Coordination",
+      "profile_url": "http://faculty.hust.edu.cn/lurenzhi/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "brain-computational-intelligence",
+        "systems-decision",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "叶杰",
+      "department": "自主智能与智能控制系",
+      "research_direction": "柔性直流电网建模与稳定性分析 电能质量治理 并网变换器的稳定性控制",
+      "profile_url": "http://faculty.hust.edu.cn/yejie/zh_CN/index.htm",
+      "research_groups": [
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "叶林涛",
+      "department": "自主智能与智能控制系",
+      "research_direction": "包括：优化算法、控制理论、机器学习、强化学习等。近年来，在IEEE Transactions on Automatic Control (TAC)、Automatica、SIAM Journal on Control and Optimization (SICON) 等国际期刊",
+      "profile_url": "http://faculty.hust.edu.cn/yelintao/zh_CN/index.htm",
+      "research_groups": [
+        "brain-computational-intelligence",
+        "control-complex-systems",
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "周凯波",
+      "department": "智能感知与测量科学系",
+      "research_direction": "信息感知与处理、人工智能与机器学习、智能集成系统。 先后",
+      "profile_url": "http://faculty.hust.edu.cn/zhoukaibo/zh_CN/index.htm",
+      "research_groups": [
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "周剑岚",
+      "department": "智能系统与系统工程系",
+      "research_direction": "人工智能 决策理论 风险管理",
+      "profile_url": "http://faculty.hust.edu.cn/zhoujianlan/zh_CN/index.htm",
+      "research_groups": [
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "周洪涛",
+      "department": "智能系统与系统工程系",
+      "research_direction": "复杂社会经济系统建模...",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10407.htm",
+      "research_groups": [
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "周纯杰",
+      "department": "自主智能与智能控制系",
+      "research_direction": "包括工业通信网络及工业互联网技... More+",
+      "profile_url": "http://faculty.hust.edu.cn/zhouchunjie/zh_CN/index.htm",
+      "research_groups": [
+        "industrial-ai-security"
+      ]
+    },
+    {
+      "name": "唐其鹏",
+      "department": "自主智能与智能控制系",
+      "research_direction": "· 交流电机无传感器控制技术 · 电力电子与运动控制",
+      "profile_url": "http://faculty.hust.edu.cn/TangQipeng/zh_CN/index.htm",
+      "research_groups": [
+        "control-complex-systems",
+        "sensing-measurement",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "唐朝清",
+      "department": "智能感知与测量科学系",
+      "research_direction": "深度学习、机器视觉和计算成像等，理论研究与实践并重，主要应用于无损检测/... More+",
+      "profile_url": "http://faculty.hust.edu.cn/TANGCHAOQING/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "brain-computational-intelligence",
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "姜军",
+      "department": "图像识别与智能科学系",
+      "research_direction": "机器学习及其在图像检索和处理中的应用、生物特征识别",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10332.htm",
+      "research_groups": [
+        "vision-perception",
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "姜艺",
+      "department": "智能系统与系统工程系",
+      "research_direction": "基于学习的控制、输出调节、事件触发控制、集群协同控制、非线性与随机系统分析与综合。具体论文列表见如下链接： GitHub 主页 论文列表链 接 https://yijiang1992.github.io/publications.html GoogleScholar 主页 https://scholar.google.com/citations?user=HhoLzRAAAAAJ&hl=zh-CN Researchgate 主页 https://www.researchgate.net/profile/Yi-Jiang/research 常年招收对以上研究方向感兴趣的自动化、人工智能、机器人、数学和计算机等专业的硕士、博士研究生、博士后。如有兴趣请附材料发送邮件至 auto_yijiang@hust.edu.cn",
+      "profile_url": "http://faculty.hust.edu.cn/JIANGYI/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "孙志刚",
+      "department": "自主智能与智能控制系",
+      "research_direction": "计算机实时控制、网络化控制、机器视觉与图像处理等",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10438.htm",
+      "research_groups": [
+        "vision-perception",
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "尹泉",
+      "department": "自主智能与智能控制系",
+      "research_direction": "全数字交流伺服系统、广义变频电源的数字化控制等",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10449.htm",
+      "research_groups": [
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "岳作功",
+      "department": "自主智能与智能控制系",
+      "research_direction": "物理AI理论与优化算法 研究数据驱动学习中引入高维动力学、网络拓扑等物理内蕴性质的模型表征，并设计优化算法 解决有限时序数据下的 可靠训练 与辨识问题 ，为复杂物理系统、高自由度机器人系统提供了 建模 理论与算法基础。 仿人机器手的灵巧操作与优化 主要关注高自由度仿人机器手的动力学建模、灵巧操作控制算法研究，以及在灵巧操作反馈下的本体 优化 设计（除AI与控制专业外，也诚招对本体机电设计有兴趣的学生）。 交叉应用研究：航空智能装配 当前主要在研方向： 1）航空部件形性协同装配优化算法研究： 在超高精度装配场景中 ，考虑由于复杂结构、材料异质导致的复杂物理形变，设计AI算法对装配参数与工艺进行优化设计。 2）狭缝高精度测量 的光纤传感器设计及学习算法（华中科技大学交叉研究计划，与光电学院合作研究）",
+      "profile_url": "http://faculty.hust.edu.cn/yuezuogong/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "sensing-measurement",
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "左峥嵘",
+      "department": "图像识别与智能科学系",
+      "research_direction": "模式识别、图像分析、图像制导、计算机视觉、自动目标识别等",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10314.htm",
+      "research_groups": [
+        "vision-perception",
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "张征",
+      "department": "图像识别与智能科学系",
+      "research_direction": "普适计算、物联网与城市智能化、分子计算",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10344.htm",
+      "research_groups": [
+        "brain-computational-intelligence",
+        "industrial-ai-security"
+      ]
+    },
+    {
+      "name": "张新宇",
+      "department": "图像识别与智能科学系",
+      "research_direction": "多谱多模成像探测与制导、微纳光学与光电技术、光学图像处理、光学天线、光学射频一体化探测等",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10359.htm",
+      "research_groups": [
+        "vision-perception",
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "张洪",
+      "department": "智能感知与测量科学系",
+      "research_direction": "飞机结冰防护技术、多相流检测技术和智能检测技术等",
+      "profile_url": "https://aia.hust.edu.cn/info/1600/10416.htm",
+      "research_groups": [
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "张海涛",
+      "department": "自主智能与智能控制系",
+      "research_direction": "人工智能、群体智能、群体机器人协同制造、全自主无人艇集群协同控制 团队主页：http://imds.aia.hust.edu.cn/",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10453.htm",
+      "research_groups": [
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "张钧",
+      "department": "图像识别与智能科学系",
+      "research_direction": "机器学习、机器视觉、图像处理等.",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10358.htm",
+      "research_groups": [
+        "vision-perception",
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "彭刚",
+      "department": "自主智能与智能控制系",
+      "research_direction": "智能机器人、低速自动驾驶与智能巡检、多自由度机械臂柔性控制、基于多传感器融合的智能感知与 SLAM 、基于视觉和力觉的多模态感知、工业大数据智能分析与智能制造系统 科研成果 围绕复杂场景智能机器人多模态感知、移动机器人 SLAM 与导航、低速无人驾驶系统、工程机械自动驾驶与智能作业规划控制、变电站智能巡检机器人、轨道交通智能巡检机器人、智能巡检图像识别、基于深度学习的多目标检测识别与无序分拣、智能物流 AGV 、基于视觉 / 力觉融合的机器人抓取 / 装配 / 清洗 / 打磨系统、人机协作智能移动机械臂系统、基于显微视觉的微装配机器人系统、多自由度驱控一体化特种机械臂本体研制、基于工业大数据的智能制造执行系统、故障诊断预测与设备健康评估系统",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10435.htm",
+      "research_groups": [
+        "vision-perception",
+        "robotics-autonomy",
+        "brain-computational-intelligence",
+        "industrial-ai-security",
+        "sensing-measurement",
+        "systems-decision",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "徐琦",
+      "department": "智能感知与测量科学系",
+      "research_direction": "生物传感与信号处理、植入式医疗器件、功能电刺激等",
+      "profile_url": "https://aia.hust.edu.cn/info/1600/10415.htm",
+      "research_groups": [
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "徐金榜",
+      "department": "自主智能与智能控制系",
+      "research_direction": "数字化平台建设、低碳相关技术、新一代电力电子技术 主要包括： 1)智慧城市、智慧社区数字化平台的研究与开发 2)数字低碳节能相关技术的研究与开发 3)电能质量治理相关技术的研究与开发 4)新一代电力电子控制技术的研究与开发 5）电力电子网络化控制相关技术的研究与开发 6）智能微电网谐振抑制关键技术研究 7）电力电子装备的智能控制算法研究； 三、近年",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10445.htm",
+      "research_groups": [
+        "control-complex-systems",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "徐飞",
+      "department": "图像识别与智能科学系",
+      "research_direction": "生物计算",
+      "profile_url": "http://faculty.hust.edu.cn/xufei12/zh_CN/index.htm",
+      "research_groups": [
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "昌毅",
+      "department": "图像识别与智能科学系",
+      "research_direction": "计算机视觉、图像处理、计算成像",
+      "profile_url": "http://faculty.hust.edu.cn/YiChang/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "明德烈",
+      "department": "图像识别与智能科学系",
+      "research_direction": "图像分析与机器视觉、...",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10340.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "曹治国",
+      "department": "图像识别与智能科学系",
+      "research_direction": "图像理解与分析、平面图像与视频的深度信息估计与提取、运动检测与行为分析等",
+      "profile_url": "http://faculty.hust.edu.cn/caozhiguo1/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "曾伟",
+      "department": "智能系统与系统工程系",
+      "research_direction": "决策理论与方法、安全与应...",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10409.htm",
+      "research_groups": [
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "曾志刚",
+      "department": "智能系统与系统工程系",
+      "research_direction": "类脑智能、计算智能、无人系统集群控制、复杂系统渐近行为理论与应用个人主页：http://aia.hust.edu.cn/zhigangzeng/Home.htm",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10410.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "brain-computational-intelligence",
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "朱力军",
+      "department": "自主智能与智能控制系",
+      "research_direction": "仿生机器人智能控制与集群协同，包括人形机器人、四足机器人 等仿生机器人智能控制、强化学习在机器人领域的应用，以及机器人 集群协同控制等",
+      "profile_url": "http://faculty.hust.edu.cn/ZHULIJUN/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "李叶松",
+      "department": "自主智能与智能控制系",
+      "research_direction": "运动控制与自动化",
+      "profile_url": "http://faculty.hust.edu.cn/liyesong/zh_CN/index.htm",
+      "research_groups": [
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "李炜",
+      "department": "图像识别与智能科学系",
+      "research_direction": "机器学习 ​医学图像分析 智能体设计 脑机接口",
+      "profile_url": "http://faculty.hust.edu.cn/liwei33/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "李远征",
+      "department": "智能系统与系统工程系",
+      "research_direction": "基于深度学习的大数据分析、优化及预测；人工智能及其在 电力和能源系统中的应用； 系统风险辨识与管控；智能电网/微电网优化与运行； 代表论著： (1) Y. Z. Li , Y. Z. Ding, S. Y. He, F. Hu, J. T. Duan, et al , Artificial Intelligence-based Methods for Renewable Power System Operation, Nature Reviews Electrical Engineering , 2024, 1: 163-179. (2) Y. Z. Li, C. F. Yu, M. Shahidehpour, T. Yang, Z. G. Zeng, T. Y. Chai, Deep Reinforcement Learning for Smart Grid Operations: Algorithms, Applications, and Prospects. Proceedings of the IEEE , 2023, 111(9):1055-1096. (Selected as a Feature Paper) (3) Y. Z. Li , Y. Ding, Y. Liu, T. Yang, P. Wang, J. Wang, W. Yao, Dense Skip Att",
+      "profile_url": "http://faculty.hust.edu.cn/liyuanzheng2/zh_CN/index.htm",
+      "research_groups": [
+        "brain-computational-intelligence",
+        "systems-decision",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "来金钢",
+      "department": "智能系统与系统工程系",
+      "research_direction": "包括但不限于类脑计算、群体智能控制 和优化 、多智能体 智能决策与博弈 、 自主无人 信息物理 （无人机群、无人车群等） 系统和 数字化信息物理社会新能源系统（分布式能源与储能、微电网 / 微电网集群、能源互联网）安全控制与智能优化等",
+      "profile_url": "http://faculty.hust.edu.cn/laijingang1/zh_CN/index/2406056/list/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "brain-computational-intelligence",
+        "industrial-ai-security",
+        "control-complex-systems",
+        "systems-decision",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "杨卫东",
+      "department": "图像识别与智能科学系",
+      "research_direction": "多模成像目标识别、多谱图像分析与融合、匹配参考图制备等",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10357.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "桂康",
+      "department": "图像识别与智能科学系",
+      "research_direction": "多光谱特性测量 复阻抗谱测量技术",
+      "profile_url": "http://faculty.hust.edu.cn/~qYFZFz/zh_CN/index.htm",
+      "research_groups": [
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "桑红石",
+      "department": "图像识别与智能科学系",
+      "research_direction": "专用数字集成电路设计 单光子激光雷达实时成像技术 图像与激光雷达多源融合智能目标检测识别方法 嵌入式系统智能信息实时处理技术",
+      "profile_url": "http://faculty.hust.edu.cn/sanghongshi/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "樊慧津",
+      "department": "图像识别与智能科学系",
+      "research_direction": "非线性不确定系统的分析与控制、多维系统的分析与控制",
+      "profile_url": "http://faculty.hust.edu.cn/fanhuijin/zh_CN/index.htm",
+      "research_groups": [
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "欧阳敏",
+      "department": "智能系统与系统工程系",
+      "research_direction": "关键基础设施与城市韧性、城市科学等跨学科交叉领域",
+      "profile_url": "http://faculty.hust.edu.cn/ouyangmin/zh_CN/index.htm",
+      "research_groups": [
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "池明",
+      "department": "自主智能与智能控制系",
+      "research_direction": "主要为网络控制系统性能优化、多机器人协同控制、智能电网控制与优化等",
+      "profile_url": "http://faculty.hust.edu.cn/chiming/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "control-complex-systems",
+        "systems-decision",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "汪国有",
+      "department": "图像识别与智能科学系",
+      "research_direction": "成像精确制导、数字图像压缩、医学影像分析、生物特征识别等",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10350.htm",
+      "research_groups": [
+        "vision-perception",
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "沈吟东",
+      "department": "智能系统与系统工程系",
+      "research_direction": "运筹与管理；组合优化；人工智能；智能公共交通学术兼职/组织成员：中国运筹学会 常务理事湖北省运筹学会 副理事长中国运筹学会排序专业委员会 副理事长中国运筹学会医疗运作管理分会 常务理事湖北省公路学会 常务理事中国人工智能学会智能交通专委会 委员中...",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10393.htm",
+      "research_groups": [
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "沈安文",
+      "department": "自主智能与智能控制系",
+      "research_direction": "先进运动控制、电力电子、新能源、电动汽车控制等",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10437.htm",
+      "research_groups": [
+        "control-complex-systems",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "洪流",
+      "department": "智能系统与系统工程系",
+      "research_direction": "交通基础设施系统的脆弱性、弹性及保护，复杂系统的建模与仿真等。 近年来",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10385.htm",
+      "research_groups": [
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "潘林强",
+      "department": "图像识别与智能科学系",
+      "research_direction": "生物计算 DNA纳米技术 人工智能",
+      "profile_url": "http://faculty.hust.edu.cn/panlinqiang/zh_CN/index.htm",
+      "research_groups": [
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "王卓",
+      "department": "自主智能与智能控制系",
+      "research_direction": "聚焦氢能、智能电网、航空航天自动化测试系统、电力储能系统四大领域，致力于交叉学科探索与\"理论—工程\"深度融合，推动前沿技术从实验室走向产业落地，服务于新能源发展与航空、降碳的国家战略需求。 近年来在 IEEE Transactions on Power Electronics、IEEE Transactions on Industrial Electronics、International Journal of Hydrogen Energy、Applied Energy、Energy Conversion and Management、Journal of Cleaner Production 等国际顶级期刊",
+      "profile_url": "http://faculty.hust.edu.cn/wangzhuo/zh_CN/index.htm",
+      "research_groups": [
+        "industrial-ai-security",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "王博",
+      "department": "智能系统与系统工程系",
+      "research_direction": "智能控制与飞行器制导控制",
+      "profile_url": "http://faculty.hust.edu.cn/WANGBo/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "王小平",
+      "department": "智能系统与系统工程系",
+      "research_direction": "情感计算 机器学习、深度学习、迁移学习等 忆阻系统及其应用",
+      "profile_url": "http://faculty.hust.edu.cn/wangxiaoping4/zh_CN/index.htm",
+      "research_groups": [
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "王燕舞",
+      "department": "自主智能与智能控制系",
+      "research_direction": "基于深度学习的混杂数据挖掘、分析与预测 基于强化学习的分布式协同优化调度 基于群体智能的多尺度分布式协同控制",
+      "profile_url": "http://faculty.hust.edu.cn/wangyanwu/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "brain-computational-intelligence",
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "王苗苗",
+      "department": "智能系统与系统工程系",
+      "research_direction": "无人系统状态估计、SLAM和导航控制 ， 无人机集群协同控制， 人工智能驱动的 无人系统",
+      "profile_url": "http://faculty.hust.edu.cn/mmwang/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "田甜",
+      "department": "图像识别与智能科学系",
+      "research_direction": "计算机视觉、多谱图像解译、图像导航与制导等",
+      "profile_url": "http://faculty.hust.edu.cn/ttian/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "田金文",
+      "department": "图像识别与智能科学系",
+      "research_direction": "计算机视觉及其应用、机器学习及其应用、遥感图像信息处理等",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10348.htm",
+      "research_groups": [
+        "vision-perception",
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "盛银",
+      "department": "智能系统与系统工程系",
+      "research_direction": "包括自主无人系统、强化学习、智能控制等",
+      "profile_url": "http://faculty.hust.edu.cn/ShengYin/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "秦肖臻",
+      "department": "自主智能与智能控制系",
+      "research_direction": "计算机集成控制与网络技术、信号处理与故障诊断等",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10436.htm",
+      "research_groups": [
+        "industrial-ai-security",
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "程善美",
+      "department": "自主智能与智能控制系",
+      "research_direction": "新型功率变换器 电力电子装置与系统 交流电动机控制理论与应用 嵌入式微控制器(DSP、ARM、FPGA)的应用",
+      "profile_url": "http://faculty.hust.edu.cn/chengshanmei1/zh_CN/index.htm",
+      "research_groups": [
+        "control-complex-systems",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "程晶晶",
+      "department": "智能感知与测量科学系",
+      "research_direction": "计算光学成像 高温微系统技术",
+      "profile_url": "http://faculty.hust.edu.cn/~bI3UNv/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "程骋",
+      "department": "自主智能与智能控制系",
+      "research_direction": "信息物理系统建模、演化分析与优化方法及其在智能制造 中的应用研究； 机器人化智能制造中的灵巧操作研究",
+      "profile_url": "http://faculty.hust.edu.cn/~uQb2Mf/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "industrial-ai-security",
+        "systems-decision",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "罗云峰",
+      "department": "智能系统与系统工程系",
+      "research_direction": "决策分析、博弈论和社会选择理论",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10391.htm",
+      "research_groups": [
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "罗慧",
+      "department": "自主智能与智能控制系",
+      "research_direction": "全数字化交流驱动技术、新型交流传动系统理论与应用等",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10433.htm",
+      "research_groups": [
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "罗欣",
+      "department": "自主智能与智能控制系",
+      "research_direction": "包括先进运动控制、电力电子、新能源、电动汽车控制、集成数字化控制、机器人、生产过程控制等。 近年来",
+      "profile_url": "http://faculty.hust.edu.cn/luoxin6/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "control-complex-systems",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "肖人彬",
+      "department": "智能系统与系统工程系",
+      "research_direction": "复杂系统建模与分析、群集智能、涌现计算、供应链管理等",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10403.htm",
+      "research_groups": [
+        "control-complex-systems",
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "肖力",
+      "department": "自主智能与智能控制系",
+      "research_direction": "网络控制系统、机器视觉与图像处理、导航与控制",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10444.htm",
+      "research_groups": [
+        "vision-perception",
+        "robotics-autonomy",
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "肖强",
+      "department": "智能系统与系统工程系",
+      "research_direction": "主要包括多智能系统编队控制、车辆队列控制、强化学习。以第一作者在IEEE汇刊、Automatica、SIAM期刊共",
+      "profile_url": "http://faculty.hust.edu.cn/qxiao/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "肖江文",
+      "department": "智能系统与系统工程系",
+      "research_direction": "人工智能及在电力和能源系统中的应用 基于群体智能的多尺度分布式协同控制",
+      "profile_url": "http://faculty.hust.edu.cn/xiaojiangwen/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "肖阳",
+      "department": "图像识别与智能科学系",
+      "research_direction": "基于多模感知信息的人体行为分析与理解 三维人体与手部姿态估计与关节点提取 非受限场景条件下的人体实时眨眼检测 面向智能医护的人体跌倒与坠床实时检测 面向无人艇与无人机应用的目标检测识别与跟踪",
+      "profile_url": "http://faculty.hust.edu.cn/xiaoyang/zh_CN/index/1037129/list/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "胡晓娅",
+      "department": "自主智能与智能控制系",
+      "research_direction": "人工智能及人工智能安全",
+      "profile_url": "http://faculty.hust.edu.cn/huxiaoya/zh_CN/index.htm",
+      "research_groups": [
+        "industrial-ai-security"
+      ]
+    },
+    {
+      "name": "胡汉平",
+      "department": "图像识别与智能科学系",
+      "research_direction": "网络信息安全、模式识别与智能系统",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10328.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "胡若澜",
+      "department": "图像识别与智能科学系",
+      "research_direction": "数字图像处理、目标检测与跟踪",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10330.htm",
+      "research_groups": [
+        "vision-perception",
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "胡静",
+      "department": "图像识别与智能科学系",
+      "research_direction": "模图像处理与模式识别",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10329.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "苏厚胜",
+      "department": "智能系统与系统工程系",
+      "research_direction": "多自主体系统的一致性和蜂拥控制及其应用、复杂网络等",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10395.htm",
+      "research_groups": [
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "葛俊锋",
+      "department": "图像识别与智能科学系",
+      "research_direction": "结冰传感器及探测技术、光纤式燃油液位传感器等",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10327.htm",
+      "research_groups": [
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "蔡超",
+      "department": "图像识别与智能科学系",
+      "research_direction": "计算机视觉 导航与制导 智能决策与群体智能 智能医学",
+      "profile_url": "http://faculty.hust.edu.cn/caichaocv/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "robotics-autonomy",
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "谭山",
+      "department": "图像识别与智能科学系",
+      "research_direction": "图像处理、计算机视觉、智能医疗生物医学成像及其中的反问题生物医学影像分析",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10345.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "谭毅华",
+      "department": "图像识别与智能科学系",
+      "research_direction": "人体行为和表情识别 机器学习 目标检测和识别 遥感图像处理和分析",
+      "profile_url": "http://faculty.hust.edu.cn/tanyihua/zh_CN/index/1529049/list/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "brain-computational-intelligence",
+        "sensing-measurement"
+      ]
+    },
+    {
+      "name": "赵勇",
+      "department": "智能系统与系统工程系",
+      "research_direction": "决策理论、方法及应用、大型工程项目管理、系统分析与集成等",
+      "profile_url": "https://aia.hust.edu.cn/info/1601/10406.htm",
+      "research_groups": [
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "赵金",
+      "department": "自主智能与智能控制系",
+      "research_direction": "电力电子与运动控制、控制系统故障预测与容错技术、医学中的人工智能应用、船舶无人智能航行技术",
+      "profile_url": "http://faculty.hust.edu.cn/zhaojin1/zh_CN/index.htm",
+      "research_groups": [
+        "control-complex-systems",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "邓忠华",
+      "department": "自主智能与智能控制系",
+      "research_direction": "套印智能控制，电气传动系统数字化控制，多轴联动智能装备控制",
+      "profile_url": "https://aia.hust.edu.cn/info/1599/10423.htm",
+      "research_groups": [
+        "control-complex-systems",
+        "energy-manufacturing"
+      ]
+    },
+    {
+      "name": "邰若晨",
+      "department": "自主智能与智能控制系",
+      "research_direction": "智能机器人与群体智能系统、安全自主可信的无人系统",
+      "profile_url": "http://faculty.hust.edu.cn/tairuochen/zh_CN/index.htm",
+      "research_groups": [
+        "robotics-autonomy"
+      ]
+    },
+    {
+      "name": "邹腊梅",
+      "department": "图像识别与智能科学系",
+      "research_direction": "图像处理、模式识别、机器学习",
+      "profile_url": "http://faculty.hust.edu.cn/~vuq6zm/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "郑英",
+      "department": "智能感知与测量科学系",
+      "research_direction": "故障诊断 工业制造过程监控 工业数据分析 过程控制",
+      "profile_url": "http://faculty.hust.edu.cn/zhengying2/zh_CN/index.htm",
+      "research_groups": [
+        "industrial-ai-security"
+      ]
+    },
+    {
+      "name": "钟胜",
+      "department": "图像识别与智能科学系",
+      "research_direction": "人工智能机器视觉方向",
+      "profile_url": "http://faculty.hust.edu.cn/zhongsheng/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "陆昊",
+      "department": "图像识别与智能科学系",
+      "research_direction": "稠密预测 图像抠图 目标计数 语义分割",
+      "profile_url": "http://faculty.hust.edu.cn/hlu/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "陈曦",
+      "department": "智能系统与系统工程系",
+      "research_direction": "制造系统工程 决策支持理论与方法 复杂系统建模、仿真",
+      "profile_url": "http://faculty.hust.edu.cn/chenxi10/zh_CN/index.htm",
+      "research_groups": [
+        "control-complex-systems",
+        "systems-decision"
+      ]
+    },
+    {
+      "name": "陈立群",
+      "department": "图像识别与智能科学系",
+      "research_direction": "计算机视觉 嵌入式智能计算",
+      "profile_url": "http://faculty.hust.edu.cn/ChenLiQun/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "陶文兵",
+      "department": "图像识别与智能科学系",
+      "research_direction": "计算机视觉，机器人目标识别，大场景三维重建，机器学习",
+      "profile_url": "http://faculty.hust.edu.cn/taowenbing/zh_CN/index/1485744/list/index.htm",
+      "research_groups": [
+        "vision-perception",
+        "robotics-autonomy",
+        "brain-computational-intelligence"
+      ]
+    },
+    {
+      "name": "颜露新",
+      "department": "图像识别与智能科学系",
+      "research_direction": "成像探测与处理",
+      "profile_url": "http://faculty.hust.edu.cn/yanluxin/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "高常鑫",
+      "department": "图像识别与智能科学系",
+      "research_direction": "计算机视觉 模式识别 智能视频分析",
+      "profile_url": "http://faculty.hust.edu.cn/cgao/zh_CN/index.htm",
+      "research_groups": [
+        "vision-perception"
+      ]
+    },
+    {
+      "name": "黄剑",
+      "department": "图像识别与智能科学系",
+      "research_direction": "智能机器人，生物信息学，网络化控制",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10331.htm",
+      "research_groups": [
+        "robotics-autonomy",
+        "control-complex-systems"
+      ]
+    },
+    {
+      "name": "黎云",
+      "department": "图像识别与智能科学系",
+      "research_direction": "图像处理与分析、成像目标检测、识别与跟踪等",
+      "profile_url": "https://aia.hust.edu.cn/info/1602/10333.htm",
+      "research_groups": [
+        "vision-perception",
+        "sensing-measurement"
+      ]
+    }
+  ]
+}

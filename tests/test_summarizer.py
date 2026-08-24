@@ -119,8 +119,8 @@ def test_generate_summary_zh_uses_localized_selection_header_and_numeric_date():
     )
 
     assert "> 从 10 条内容中筛选出 1 条重要资讯。" in result
-    assert "## CSIG Camera 备赛雷达" in result
-    assert "近 14 天仍无相关动态。" in result
+    assert "## 华科人工智能与自动化学院研究雷达" in result
+    assert "本期没有达到相关性门槛的内容。" in result
     assert "## 其他资讯" in result
     assert "rss · tester · 4月25日 08:00" in result
     assert "From 10 items" not in result
@@ -140,34 +140,41 @@ def test_generate_empty_summary_zh_uses_localized_analyzed_line():
     )
 
     assert "> 已分析 10 条内容，但没有达到重要性阈值的条目。" in result
-    assert "## CSIG Camera 备赛雷达" in result
-    assert "近 14 天仍无相关动态。" in result
+    assert "## 华科人工智能与自动化学院研究雷达" in result
+    assert "本期没有达到相关性门槛的内容。" in result
     assert "Analyzed 10 items" not in result
 
 
-def test_generate_summary_puts_csig_items_in_dedicated_section():
+def test_generate_summary_groups_hust_items_by_research_direction():
     summarizer = DailySummarizer()
-    csig = _make_item(1)
-    csig.title = "OSEDiff Speedup Paper"
-    csig.metadata["category"] = "csig-camera"
+    hust = _make_item(1)
+    hust.title = "New Multi-Agent Control Paper"
+    hust.metadata.update(
+        {
+            "category": "hust-aia",
+            "research_direction": "机器人与自主智能",
+            "related_teachers": ["何顶新", "曾志刚"],
+        }
+    )
     other = _make_item(2)
     other.title = "Unrelated News"
     other.metadata["category"] = "tech-trends"
 
     result = _run_async(
         summarizer.generate_summary(
-            [csig, other],
+            [hust, other],
             date="2026-04-25",
             total_fetched=20,
             language="zh",
         )
     )
 
-    assert "## CSIG Camera 备赛雷达" in result
-    assert "OSEDiff Speedup Paper" in result
+    assert "## 华科人工智能与自动化学院研究雷达" in result
+    assert "### 机器人与自主智能" in result
+    assert "New Multi-Agent Control Paper" in result
+    assert "**匹配依据**: 定向研究检索命中 **机器人与自主智能**。" in result
+    assert "**关联教师**: 何顶新、曾志刚" in result
     assert "## 其他资讯" in result
     assert "Unrelated News" in result
-    # CSIG section should appear before the general TOC
-    assert result.index("CSIG Camera 备赛雷达") < result.index("其他资讯")
-    assert "近 14 天仍无相关动态。" not in result
-    assert "今日无相关动态。" not in result
+    assert result.index("华科人工智能与自动化学院研究雷达") < result.index("其他资讯")
+    assert "本期没有达到相关性门槛的内容。" not in result
