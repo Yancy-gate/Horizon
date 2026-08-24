@@ -2,6 +2,12 @@ name: Publish Horizon retrospective to Obsidian
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - cursor/publish-horizon-retro-6b63
+    paths:
+      - .github/workflows/publish-learning-log.yml
+      - docs/retrospectives/horizon-obsidian-automation-2026-08-24.md
 
 jobs:
   publish:
@@ -21,7 +27,7 @@ jobs:
             "https://x-access-token:${OBSIDIAN_SYNC_TOKEN}@github.com/Yancy-gate/obsidian-jiudebuqu-xindebulai.git" \
             obsidian-vault
 
-      - name: Append numbered daily learning entry
+      - name: Upsert numbered daily learning entry
         run: |
           python - <<'PY'
           import re
@@ -38,15 +44,33 @@ jobs:
 
           existing = target.read_text(encoding="utf-8") if target.exists() else ""
           heading = "## Horizon 日报恢复与 Obsidian 自动同步：一次端到端排障复盘"
-          if heading in existing:
-              print(f"Learning entry already exists in {target}")
+          entry_pattern = re.compile(
+              rf"(?ms)^# (?P<number>\d+)[^\S\r\n]*\r?\n\r?\n"
+              rf"(?={re.escape(heading)}[^\S\r\n]*$)"
+              rf".*?(?=^# \d+[^\S\r\n]*$|\Z)"
+          )
+          match = entry_pattern.search(existing)
+          source_text = source.read_text(encoding="utf-8")
+
+          if match:
+              entry_number = int(match.group("number"))
+              entry = source_text.replace(
+                  "{{ENTRY_NUMBER}}",
+                  str(entry_number),
+                  1,
+              ).rstrip()
+              tail = existing[match.end():]
+              separator = "\n\n" if tail else "\n"
+              updated = existing[:match.start()] + entry + separator + tail
+              target.write_text(updated, encoding="utf-8")
+              print(f"Updated learning entry #{entry_number} in {target}")
           else:
               numbers = [
                   int(value)
                   for value in re.findall(r"(?m)^# (\d+)\s*$", existing)
               ]
               entry_number = max(numbers, default=0) + 1
-              entry = source.read_text(encoding="utf-8").replace(
+              entry = source_text.replace(
                   "{{ENTRY_NUMBER}}",
                   str(entry_number),
                   1,
