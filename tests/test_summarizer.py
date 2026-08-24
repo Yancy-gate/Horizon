@@ -154,6 +154,7 @@ def test_generate_summary_groups_hust_items_by_research_direction():
             "category": "hust-aia",
             "research_direction": "机器人与自主智能",
             "related_teachers": ["何顶新", "曾志刚"],
+            "matched_paper_keyword": "formation control",
         }
     )
     other = _make_item(2)
@@ -172,7 +173,7 @@ def test_generate_summary_groups_hust_items_by_research_direction():
     assert "## 华科人工智能与自动化学院研究雷达" in result
     assert "### 机器人与自主智能" in result
     assert "New Multi-Agent Control Paper" in result
-    assert "**匹配依据**: 定向研究检索命中 **机器人与自主智能**。" in result
+    assert "**匹配依据**: 论文关键词命中 **formation control**（机器人与自主智能）。" in result
     assert "**关联教师**: 何顶新、曾志刚" in result
     assert "## 其他资讯" in result
     assert "Unrelated News" in result

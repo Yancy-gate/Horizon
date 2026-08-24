@@ -328,11 +328,19 @@ class DailySummarizer:
         if meta.get("category") == HUST_AIA_CATEGORY:
             direction = str(meta.get("research_direction") or "")
             if direction:
-                reason = (
-                    f"Targeted research feed matched **{direction}**."
-                    if language == "en"
-                    else f"定向研究检索命中 **{direction}**。"
-                )
+                matched = str(meta.get("matched_paper_keyword") or "").strip()
+                if matched:
+                    reason = (
+                        f"Paper keyword **{matched}** matched under **{direction}**."
+                        if language == "en"
+                        else f"论文关键词命中 **{matched}**（{direction}）。"
+                    )
+                else:
+                    reason = (
+                        f"Targeted research feed matched **{direction}**."
+                        if language == "en"
+                        else f"定向研究检索命中 **{direction}**。"
+                    )
                 lines.extend(["", f"**{labels['match_reason']}**: {reason}"])
             teachers = [str(name) for name in meta.get("related_teachers", [])]
             if teachers:
