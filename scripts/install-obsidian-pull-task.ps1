@@ -1,6 +1,6 @@
 param(
     [string]$VaultRoot = "D:\Data\旧的不去新的不来",
-    [string]$DailyAt = "07:30",
+    [string]$DailyAt = "12:00",
     [string]$TaskName = "Horizon Obsidian Daily Pull"
 )
 
