@@ -129,6 +129,10 @@ def test_filter_items_uses_public_topic_dedup_api(tmp_path: Path, monkeypatch) -
     monkeypatch.setattr("src.mcp.service.make_storage", lambda runtime, config_path: object())
 
     class FakeOrchestrator:
+        def ensure_category_floors(self, important_items, analyzed_items, log=True):  # type: ignore[no-untyped-def]
+            assert log is False
+            return important_items
+
         async def merge_topic_duplicates(self, items):  # type: ignore[no-untyped-def]
             return items[:1]
 
@@ -140,6 +144,7 @@ def test_filter_items_uses_public_topic_dedup_api(tmp_path: Path, monkeypatch) -
     result = asyncio.run(service.filter_items(run_id="run-topic-dedup", topic_dedup=True))
 
     assert result["kept"] == 1
+    assert result["category_floors_added"] == 0
     assert result["removed_by_topic_dedup"] == 1
     assert service.run_store.load_items("run-topic-dedup", "filtered")[0]["id"] == "item-1"
 
@@ -168,6 +173,10 @@ def test_filter_items_applies_balanced_digest(tmp_path: Path, monkeypatch) -> No
     monkeypatch.setattr("src.mcp.service.make_storage", lambda runtime, config_path: object())
 
     class FakeOrchestrator:
+        def ensure_category_floors(self, important_items, analyzed_items, log=True):  # type: ignore[no-untyped-def]
+            assert log is False
+            return important_items
+
         def apply_balanced_digest(self, items, log=True):  # type: ignore[no-untyped-def]
             assert log is False
             return SimpleNamespace(items=items[:1], group_counts={"other": 1})
@@ -185,3 +194,53 @@ def test_filter_items_applies_balanced_digest(tmp_path: Path, monkeypatch) -> No
     assert result["removed_by_balanced_digest"] == 1
     assert result["balanced_digest_enabled"] is True
     assert result["group_counts"] == {"other": 1}
+
+
+def test_filter_items_applies_category_floors(tmp_path: Path, monkeypatch) -> None:
+    service = HorizonPipelineService(runs_root=tmp_path / "mcp-runs")
+    service.run_store.create_run("run-floors")
+    backfilled = make_item("item-backfill", score=4.0)
+    backfilled.metadata["category"] = "oss-discovery"
+
+    monkeypatch.setattr(
+        service,
+        "_load_stage_items",
+        lambda **kwargs: (
+            [make_item("item-1", score=9.0), backfilled],
+            SimpleNamespace(
+                runtime=SimpleNamespace(),
+                config_path=tmp_path / "config.json",
+                config=SimpleNamespace(
+                    filtering=SimpleNamespace(ai_score_threshold=7.0),
+                ),
+            ),
+        ),
+    )
+    monkeypatch.setattr("src.mcp.service.make_storage", lambda runtime, config_path: object())
+
+    class FakeOrchestrator:
+        def ensure_category_floors(self, important_items, analyzed_items, log=True):  # type: ignore[no-untyped-def]
+            assert log is False
+            assert len(analyzed_items) == 2
+            assert len(important_items) == 1
+            return important_items + [backfilled]
+
+        async def merge_topic_duplicates(self, items):  # type: ignore[no-untyped-def]
+            return items
+
+        def apply_balanced_digest(self, items, log=True):  # type: ignore[no-untyped-def]
+            return SimpleNamespace(items=items, group_counts={})
+
+    monkeypatch.setattr(
+        "src.mcp.service.make_orchestrator",
+        lambda runtime, config, storage: FakeOrchestrator(),
+    )
+
+    result = asyncio.run(
+        service.filter_items(run_id="run-floors", topic_dedup=True)
+    )
+
+    assert result["kept"] == 2
+    assert result["category_floors_added"] == 1
+    filtered = service.run_store.load_items("run-floors", "filtered")
+    assert {row["id"] for row in filtered} == {"item-1", "item-backfill"}

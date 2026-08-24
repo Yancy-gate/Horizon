@@ -7,7 +7,7 @@ substring (case-insensitive). Without keywords, all trending repos in the
 configured languages flow through.
 """
 
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import List, Optional
 
 import httpx
@@ -20,6 +20,10 @@ class OSSInsightScraper(BaseScraper):
     """Scraper for OSS Insight trending repositories endpoint."""
 
     BASE_URL = "https://api.ossinsight.io/v1/trends/repos"
+    _PERIOD_HOURS = {
+        "past_24_hours": 24,
+        "past_28_days": 28 * 24,
+    }
 
     def __init__(self, config: OSSInsightConfig, http_client: httpx.AsyncClient):
         """Initialize scraper.
@@ -114,7 +118,7 @@ class OSSInsightScraper(BaseScraper):
             url=url,
             content="\n".join(content_lines),
             author=repo_name.split("/")[0] if "/" in repo_name else None,
-            published_at=datetime.now(timezone.utc),
+            published_at=self._period_start(),
             metadata={
                 "repo": repo_name,
                 "stars_gained": stars_gained,
@@ -128,6 +132,11 @@ class OSSInsightScraper(BaseScraper):
                 "category": self.cfg.category,
             },
         )
+
+    def _period_start(self) -> datetime:
+        """Approximate when trending activity began for the configured period."""
+        hours = self._PERIOD_HOURS.get(self.cfg.period, 24)
+        return datetime.now(timezone.utc) - timedelta(hours=hours)
 
     @staticmethod
     def _stars_int(row: dict) -> int:

@@ -309,10 +309,10 @@
     },
     "google_news": {
       "enabled": true,
-      "query": "(open source OR github OR huggingface) AND (vision OR robotics OR detection OR SLAM OR \"computer vision\")",
+      "query": "(github OR \"open source\") AND (\"computer vision\" OR robotics OR SLAM OR detection)",
       "language": "en",
       "country": "US",
-      "max_results": 40,
+      "max_results": 25,
       "category": "oss-discovery"
     }
   },

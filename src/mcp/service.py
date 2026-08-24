@@ -333,11 +333,19 @@ class HorizonPipelineService:
         important_items = [item for item in items if item.ai_score and item.ai_score >= effective_threshold]
         important_items.sort(key=lambda x: x.ai_score or 0, reverse=True)
 
+        storage = make_storage(ctx.runtime, ctx.config_path)
+        orchestrator = make_orchestrator(ctx.runtime, ctx.config, storage)
+
+        before_floors = len(important_items)
+        important_items = orchestrator.ensure_category_floors(
+            important_items,
+            items,
+            log=False,
+        )
+        floors_added = len(important_items) - before_floors
+
         before_dedup = len(important_items)
-        orchestrator = None
         if topic_dedup and important_items:
-            storage = make_storage(ctx.runtime, ctx.config_path)
-            orchestrator = make_orchestrator(ctx.runtime, ctx.config, storage)
             important_items = await orchestrator.merge_topic_duplicates(important_items)
         after_dedup = len(important_items)
 
@@ -348,9 +356,6 @@ class HorizonPipelineService:
         )
         balanced_group_counts: dict[str, int] = {}
         if balanced_enabled:
-            if orchestrator is None:
-                storage = make_storage(ctx.runtime, ctx.config_path)
-                orchestrator = make_orchestrator(ctx.runtime, ctx.config, storage)
             balanced_result = orchestrator.apply_balanced_digest(
                 important_items,
                 log=False,
@@ -364,6 +369,7 @@ class HorizonPipelineService:
             {
                 "filtered_count": len(important_items),
                 "filter_threshold": effective_threshold,
+                "category_floors_added": floors_added,
                 "topic_dedup_enabled": topic_dedup,
                 "topic_dedup_removed": before_dedup - after_dedup,
                 "balanced_digest_enabled": balanced_enabled,
@@ -376,6 +382,7 @@ class HorizonPipelineService:
             "run_id": run_id,
             "kept": len(important_items),
             "threshold": effective_threshold,
+            "category_floors_added": floors_added,
             "removed_by_topic_dedup": before_dedup - after_dedup,
             "removed_by_balanced_digest": after_dedup - len(important_items),
             "balanced_digest_enabled": balanced_enabled,
