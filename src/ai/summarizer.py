@@ -128,6 +128,7 @@ class DailySummarizer:
         language: str,
         start_index: int,
         always_show: bool = False,
+        section_slug: str = "other",
     ) -> tuple[str, int]:
         """Render a named digest section; returns markdown and next index."""
         if not section_items and not always_show:
@@ -155,7 +156,13 @@ class DailySummarizer:
         lines.append("---")
         lines.append("")
         body = "".join(
-            self._format_item(item, labels, language, start_index + i)
+            self._format_item(
+                item,
+                labels,
+                language,
+                start_index + i,
+                section_slug=section_slug,
+            )
             for i, item in enumerate(section_items)
         )
         return "\n".join(lines) + body, start_index + len(section_items)
@@ -212,6 +219,7 @@ class DailySummarizer:
             language=language,
             start_index=next_index,
             always_show=True,
+            section_slug=PREFERENCE_RADAR_CATEGORY,
         )
         hust_md, next_index = self._render_section(
             title_key="hust_section_title",
@@ -222,6 +230,7 @@ class DailySummarizer:
             language=language,
             start_index=next_index,
             always_show=False,
+            section_slug=HUST_RESEARCH_CATEGORY,
         )
 
         if not items and not pref_items and not hust_section_items:
@@ -246,7 +255,13 @@ class DailySummarizer:
             + "\n\n---\n\n"
         )
         parts = [
-            self._format_item(item, labels, language, next_index + i)
+            self._format_item(
+                item,
+                labels,
+                language,
+                next_index + i,
+                section_slug="other",
+            )
             for i, item in enumerate(rest_items)
         ]
 
@@ -299,13 +314,24 @@ class DailySummarizer:
         prefix = f"第 {index}/{total} 条\n\n" if language == "zh" else f"Item {index}/{total}\n\n"
         return prefix + self._format_item(item, labels, language, index).rstrip("-\n ")
 
-    def _format_item(self, item: ContentItem, labels: dict, language: str, index: int) -> str:
+    def _format_item(
+        self,
+        item: ContentItem,
+        labels: dict,
+        language: str,
+        index: int,
+        *,
+        section_slug: str = "other",
+    ) -> str:
         """Format a single ContentItem into Markdown."""
         _title = item.metadata.get(f"title_{language}") or item.title
         title = str(_title).replace("[", "(").replace("]", ")")
         url = str(item.url)
         score = item.ai_score or "?"
         meta = item.metadata
+        tag_list = item.ai_tags or []
+        tags_attr = ",".join(tag.replace('"', "") for tag in tag_list)
+        title_attr = str(_title).replace('"', "&quot;")
 
         summary = (
             meta.get(f"detailed_summary_{language}")
@@ -353,7 +379,11 @@ class DailySummarizer:
                 source_line += f' · [{labels["discussion"]}]({discussion_url})'
 
         lines = [
-            f'<a id="item-{index}"></a>',
+            (
+                f'<a id="item-{index}" class="hz-item-anchor" '
+                f'data-hz-url="{url}" data-hz-title="{title_attr}" '
+                f'data-hz-tags="{tags_attr}" data-hz-section="{section_slug}"></a>'
+            ),
             f"## [{title}]({url}) \u2b50\ufe0f {score}/10",  # ⭐️
             "",
             summary,

@@ -2,10 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from datetime import datetime, timezone
 from typing import Iterable, List, Set
-from urllib.parse import urlparse
 
 import httpx
 from rich.console import Console
@@ -19,16 +17,11 @@ from .models import (
     PreferenceProfile,
     PreferenceSourcesConfig,
 )
+from .feedback import FeedbackService
 from .storage import PreferenceRadarStorage
 
 
-def normalize_url(url: str) -> str:
-    parsed = urlparse(str(url))
-    host = parsed.hostname or ""
-    if host.startswith("www."):
-        host = host[4:]
-    path = parsed.path.rstrip("/")
-    return f"{host}{path}"
+from .utils import normalize_url
 
 
 def collect_keywords(profile: PreferenceProfile) -> List[str]:
@@ -68,6 +61,7 @@ class PreferenceRadarService:
         self.config = config
         self.storage = storage or PreferenceRadarStorage()
         self.console = console or Console()
+        self.feedback = FeedbackService(self.storage)
 
     def is_active(self) -> bool:
         sources = self.storage.load_sources()
@@ -123,13 +117,18 @@ class PreferenceRadarService:
             persona_summary=profile.persona_summary or None,
         )
         scored = await analyzer.analyze_batch(candidates)
+        feedback_state = self.storage.load_feedback_state()
 
         threshold = sources.score_threshold
-        selected = [
-            item
-            for item in scored
-            if item.ai_score is not None and item.ai_score >= threshold
-        ]
+        selected: List[ContentItem] = []
+        for item in scored:
+            if self.feedback.should_exclude_url(str(item.url), feedback_state):
+                continue
+            adjusted = (item.ai_score or 0) + self.feedback.score_adjustment(item, feedback_state)
+            if adjusted >= threshold:
+                item.ai_score = round(min(adjusted, 10.0), 1)
+                selected.append(item)
+
         selected.sort(key=lambda item: item.ai_score or 0, reverse=True)
         selected = selected[: sources.max_items]
 

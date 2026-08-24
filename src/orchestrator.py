@@ -34,6 +34,7 @@ from .ai.summarizer import DailySummarizer
 from .ai.enricher import ContentEnricher
 from .ai.tokens import get_usage_snapshot
 from .preference_radar.models import HUST_RESEARCH_CATEGORY
+from .preference_radar.feedback import FeedbackService
 from .preference_radar.service import PreferenceRadarService
 
 
@@ -106,6 +107,27 @@ class HorizonOrchestrator:
                     f"🔗 Merged {len(all_items) - len(merged_items)} cross-source duplicates "
                     f"→ {len(merged_items)} unique items\n"
                 )
+
+            # 3.5 Import/apply digest feedback → profile.json
+            feedback_service = FeedbackService()
+            feedback_imported = feedback_service.import_inbox_exports()
+            feedback_applied = feedback_service.apply_pending()
+            if feedback_imported or feedback_applied.applied:
+                self.console.print(
+                    f"💬 Feedback synced: imported {feedback_imported} entries, "
+                    f"applied {feedback_applied.applied} "
+                    f"(+{feedback_applied.interests_added} interests, "
+                    f"+{feedback_applied.negative_added} negative).\n"
+                )
+            disliked_urls = feedback_service.disliked_urls()
+
+            if disliked_urls:
+                before_disliked = len(merged_items)
+                merged_items = FeedbackService.filter_disliked_items(merged_items, disliked_urls)
+                if len(merged_items) < before_disliked:
+                    self.console.print(
+                        f"   Skipped {before_disliked - len(merged_items)} previously disliked URLs\n"
+                    )
 
             # 4. Analyze with AI
             analyzed_items = await self._analyze_content(merged_items)

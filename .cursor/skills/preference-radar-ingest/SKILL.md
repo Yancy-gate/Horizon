@@ -66,6 +66,23 @@ uv run horizon-preference-ingest --list-drafts
 - 偏好雷达是**独立 sidecar 流水线**，读 `data/preference-radar/`
 - 日报结构：偏好雷达（置顶）→ 华科研究方向（外部流水线，`hust-research`）→ 其他资讯
 
+## 反馈闭环（阅读 👍 / 👎）
+
+日报 GitHub Pages 每条资讯下方有 **👍 有用 / 👎 不太相关**：
+
+1. 浏览器 localStorage 即时记录
+2. 点右下角 **导出偏好反馈** 下载 JSON
+3. 放入 `data/preference-radar/feedback-inbox/`
+4. 导入并回写 profile：
+   ```bash
+   uv run horizon-preference-ingest --import-feedback-inbox
+   ```
+   或指定文件 `--import-feedback path/to/export.json`
+
+下次 `horizon` 日报跑时会 **自动** 导入 inbox + 应用 feedback.jsonl：
+- 👍 → `raw_keywords` / `interests`
+- 👎 → `negative_interests`，并在全流程跳过该 URL
+
 ## 禁止事项
 
 - 不要跳过草案直接改 `profile.json` / `sources.json`（除非用户明确要求紧急覆盖且已知情）

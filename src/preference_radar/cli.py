@@ -14,6 +14,7 @@ from rich.table import Table
 from ..models import Config
 from ..storage.manager import ConfigError, StorageManager
 from .ingest import PreferenceIngestService
+from .feedback import FeedbackService
 from .storage import PreferenceRadarStorage
 
 
@@ -50,6 +51,38 @@ async def _run_async(args: argparse.Namespace) -> int:
     storage = PreferenceRadarStorage()
     storage.ensure_layout()
     service = PreferenceIngestService(config, storage)
+
+    if args.apply_feedback:
+        result = FeedbackService(storage).apply_pending()
+        console.print(
+            f"[green]Applied {result.applied} feedback entries[/green] — "
+            f"+{result.interests_added} interests, "
+            f"+{result.keywords_added} keywords, "
+            f"+{result.negative_added} negative."
+        )
+        return 0
+
+    if args.import_feedback_inbox:
+        imported = FeedbackService(storage).import_inbox_exports()
+        result = FeedbackService(storage).apply_pending()
+        console.print(
+            f"[green]Imported {imported} feedback entries[/green], "
+            f"applied {result.applied}."
+        )
+        return 0
+
+    if args.import_feedback:
+        path = Path(args.import_feedback)
+        if not path.exists():
+            console.print(f"[red]File not found: {path}[/red]")
+            return 1
+        imported = FeedbackService(storage).import_file(str(path))
+        result = FeedbackService(storage).apply_pending()
+        console.print(
+            f"[green]Imported {imported} feedback entries[/green], "
+            f"applied {result.applied}."
+        )
+        return 0
 
     if args.list_drafts:
         drafts = storage.list_drafts()
@@ -99,7 +132,10 @@ async def _run_async(args: argparse.Namespace) -> int:
         _print_draft_summary(draft)
         return 0
 
-    console.print("Use --inbox, --file, --text, --apply, or --list-drafts.")
+    console.print(
+        "Use --inbox, --file, --text, --apply, --list-drafts, "
+        "--import-feedback, --import-feedback-inbox, or --apply-feedback."
+    )
     return 1
 
 
@@ -113,6 +149,22 @@ def main() -> None:
     parser.add_argument("--text", type=str, help="Process inline text (chat-style input)")
     parser.add_argument("--apply", type=str, metavar="DRAFT_ID", help="Apply a confirmed draft")
     parser.add_argument("--list-drafts", action="store_true", help="List pending drafts")
+    parser.add_argument(
+        "--import-feedback",
+        type=str,
+        metavar="FILE",
+        help="Import a browser feedback export JSON into feedback.jsonl and apply",
+    )
+    parser.add_argument(
+        "--import-feedback-inbox",
+        action="store_true",
+        help="Import all JSON files from data/preference-radar/feedback-inbox/",
+    )
+    parser.add_argument(
+        "--apply-feedback",
+        action="store_true",
+        help="Apply pending rows from feedback.jsonl to profile.json",
+    )
     args = parser.parse_args()
 
     try:

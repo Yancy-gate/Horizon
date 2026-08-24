@@ -9,6 +9,9 @@ from typing import List
 
 from .models import (
     PreferenceChangelogEntry,
+    PreferenceFeedbackEntry,
+    PreferenceFeedbackExport,
+    PreferenceFeedbackState,
     PreferenceIngestDraft,
     PreferenceProfile,
     PreferenceSourcesConfig,
@@ -26,12 +29,18 @@ class PreferenceRadarStorage:
         self.processed_dir = self.inbox_dir / "processed"
         self.drafts_dir = self.base_dir / "drafts"
         self.changelog_path = self.base_dir / "changelog.jsonl"
+        self.feedback_path = self.base_dir / "feedback.jsonl"
+        self.feedback_state_path = self.base_dir / "feedback_state.json"
+        self.feedback_inbox_dir = self.base_dir / "feedback-inbox"
+        self.feedback_processed_dir = self.feedback_inbox_dir / "processed"
 
     def ensure_layout(self) -> None:
         """Create directory layout if missing."""
         self.inbox_dir.mkdir(parents=True, exist_ok=True)
         self.processed_dir.mkdir(parents=True, exist_ok=True)
         self.drafts_dir.mkdir(parents=True, exist_ok=True)
+        self.feedback_inbox_dir.mkdir(parents=True, exist_ok=True)
+        self.feedback_processed_dir.mkdir(parents=True, exist_ok=True)
 
     def load_profile(self) -> PreferenceProfile:
         if not self.profile_path.exists():
@@ -105,3 +114,54 @@ class PreferenceRadarStorage:
     @staticmethod
     def utc_now_iso() -> str:
         return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+    def append_feedback_entries(self, entries: List[PreferenceFeedbackEntry]) -> int:
+        if not entries:
+            return 0
+        self.ensure_layout()
+        with self.feedback_path.open("a", encoding="utf-8") as handle:
+            for entry in entries:
+                handle.write(entry.model_dump_json(exclude_none=True) + "\n")
+        return len(entries)
+
+    def load_feedback_entries(self) -> List[PreferenceFeedbackEntry]:
+        if not self.feedback_path.exists():
+            return []
+        entries: List[PreferenceFeedbackEntry] = []
+        for line in self.feedback_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            entries.append(PreferenceFeedbackEntry.model_validate(json.loads(line)))
+        return entries
+
+    def load_feedback_state(self) -> PreferenceFeedbackState:
+        if not self.feedback_state_path.exists():
+            return PreferenceFeedbackState()
+        return PreferenceFeedbackState.model_validate(
+            json.loads(self.feedback_state_path.read_text(encoding="utf-8"))
+        )
+
+    def save_feedback_state(self, state: PreferenceFeedbackState) -> None:
+        self.ensure_layout()
+        self.feedback_state_path.write_text(
+            state.model_dump_json(indent=2, exclude_none=True) + "\n",
+            encoding="utf-8",
+        )
+
+    def list_feedback_inbox_files(self) -> List[Path]:
+        self.ensure_layout()
+        return sorted(
+            p
+            for p in self.feedback_inbox_dir.iterdir()
+            if p.is_file() and not p.name.startswith(".")
+        )
+
+    def archive_feedback_inbox_file(self, source_path: Path) -> Path:
+        self.ensure_layout()
+        dest = self.feedback_processed_dir / source_path.name
+        if dest.exists():
+            stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
+            dest = self.feedback_processed_dir / f"{source_path.stem}-{stamp}{source_path.suffix}"
+        source_path.rename(dest)
+        return dest

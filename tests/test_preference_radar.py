@@ -5,7 +5,8 @@ from datetime import datetime, timezone
 from src.models import ContentItem, SourceType
 from src.preference_radar.ingest import _dedupe_strings
 from src.preference_radar.models import PreferenceProfile
-from src.preference_radar.service import collect_keywords, item_matches_keywords, normalize_url
+from src.preference_radar.service import collect_keywords, item_matches_keywords
+from src.preference_radar.utils import normalize_url
 
 
 def _item(title: str, content: str = "") -> ContentItem:
