@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "score_threshold": 7.0,
+  "max_items": 5,
+  "time_window_hours": null,
+  "google_news_queries": []
+}

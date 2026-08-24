@@ -33,6 +33,8 @@ from .ai.analyzer import ContentAnalyzer
 from .ai.summarizer import DailySummarizer
 from .ai.enricher import ContentEnricher
 from .ai.tokens import get_usage_snapshot
+from .preference_radar.models import HUST_RESEARCH_CATEGORY
+from .preference_radar.service import PreferenceRadarService
 
 
 @dataclass
@@ -109,10 +111,26 @@ class HorizonOrchestrator:
             analyzed_items = await self._analyze_content(merged_items)
             self.console.print(f"🤖 Analyzed {len(analyzed_items)} items with AI\n")
 
+            # 4.5 Preference radar sidecar (independent profile + search)
+            preference_service = PreferenceRadarService(self.config, console=self.console)
+            async with httpx.AsyncClient() as pref_client:
+                preference_items = await preference_service.run(
+                    analyzed_items,
+                    since,
+                    pref_client,
+                )
+            excluded_urls = PreferenceRadarService.excluded_urls(preference_items)
+            main_analyzed = PreferenceRadarService.filter_out_urls(analyzed_items, excluded_urls)
+            main_analyzed = [
+                item
+                for item in main_analyzed
+                if item.metadata.get("category") != HUST_RESEARCH_CATEGORY
+            ]
+
             # 5. Filter by score threshold
             threshold = self.config.filtering.ai_score_threshold
             important_items = [
-                item for item in analyzed_items
+                item for item in main_analyzed
                 if item.ai_score and item.ai_score >= threshold
             ]
             important_items.sort(key=lambda x: x.ai_score or 0, reverse=True)
@@ -121,8 +139,8 @@ class HorizonOrchestrator:
                 f"⭐️ {len(important_items)} items scored ≥ {threshold}\n"
             )
 
-            # 5.4 Category floors (e.g. CSIG): backfill sparse groups below min_items
-            important_items = self.ensure_category_floors(important_items, analyzed_items)
+            # 5.4 Category floors: backfill sparse groups below min_items
+            important_items = self.ensure_category_floors(important_items, main_analyzed)
 
             # 5.5 Semantic deduplication: drop items covering the same topic
             deduped_items = await self.merge_topic_duplicates(important_items)
@@ -150,13 +168,23 @@ class HorizonOrchestrator:
             self.console.print("")
 
             # 6. Search related stories + enrich with background knowledge (2nd AI pass)
+            hust_items = self._select_hust_items(analyzed_items, excluded_urls, threshold)
+            await self._enrich_important_items(preference_items)
+            await self._enrich_important_items(hust_items)
             await self._enrich_important_items(important_items)
 
             # 7. Generate and save daily summaries for each configured language
             today = datetime.now(_BRIEFING_TZ).strftime("%Y-%m-%d")
             for lang in self.config.ai.languages:
                 summarizer = DailySummarizer()
-                summary = await summarizer.generate_summary(important_items, today, len(all_items), language=lang)
+                summary = await summarizer.generate_summary(
+                    important_items,
+                    today,
+                    len(all_items),
+                    language=lang,
+                    preference_items=preference_items,
+                    hust_items=hust_items,
+                )
 
                 # Save to data/summaries/
                 summary_path = self.storage.save_daily_summary(today, summary, language=lang)
@@ -206,9 +234,10 @@ class HorizonOrchestrator:
 
                 # Send webhook notification if configured
                 if self.webhook_notifier:
+                    all_display_items = preference_items + hust_items + important_items
                     await self.webhook_notifier.send_daily_summary(
                         summary=summary,
-                        important_items=important_items,
+                        important_items=all_display_items,
                         all_items_count=len(all_items),
                         date=today,
                         lang=lang,
@@ -519,9 +548,9 @@ class HorizonOrchestrator:
     ) -> List[ContentItem]:
         """Backfill category groups that declare ``min_items``.
 
-        Used for sparse topics (e.g. CSIG Camera prep) so the daily digest
-        still surfaces at least one relevant item when the global threshold
-        would otherwise leave the section empty.
+        Used for sparse category groups so the daily digest still surfaces
+        at least one relevant item when the global threshold would otherwise
+        leave the section empty.
         """
         groups = self.config.filtering.category_groups
         if not groups:
@@ -742,14 +771,26 @@ class HorizonOrchestrator:
             f"   Re-analyzing {len(expanded)} Twitter items with reply context...\n"
         )
         ai_client = create_ai_client(self.config.ai)
-        # INTEREST_BOOST: pass user interests from filtering config
-        analyzer = ContentAnalyzer(
-            ai_client,
-            user_interests=self.config.filtering.user_interests,
-            negative_interests=self.config.filtering.negative_interests or None,
-            persona_summary=self.config.filtering.persona_summary,
-        )
+        analyzer = ContentAnalyzer(ai_client)
         await analyzer.analyze_batch(expanded)
+
+    def _select_hust_items(
+        self,
+        analyzed_items: List[ContentItem],
+        excluded_urls: set[str],
+        threshold: float,
+    ) -> List[ContentItem]:
+        """Pick HUST research items injected by an external pipeline."""
+        candidates = [
+            item
+            for item in analyzed_items
+            if item.metadata.get("category") == HUST_RESEARCH_CATEGORY
+            and item.ai_score is not None
+            and item.ai_score >= threshold
+        ]
+        candidates = PreferenceRadarService.filter_out_urls(candidates, excluded_urls)
+        candidates.sort(key=lambda item: item.ai_score or 0, reverse=True)
+        return candidates
 
     async def _enrich_important_items(self, items: List[ContentItem]) -> None:
         """Enrich items with background knowledge (2nd AI pass).
@@ -781,13 +822,7 @@ class HorizonOrchestrator:
         self.console.print("🤖 Analyzing content with AI...")
 
         ai_client = create_ai_client(self.config.ai)
-        # INTEREST_BOOST: pass user interests from filtering config
-        analyzer = ContentAnalyzer(
-            ai_client,
-            user_interests=self.config.filtering.user_interests,
-            negative_interests=self.config.filtering.negative_interests or None,
-            persona_summary=self.config.filtering.persona_summary,
-        )
+        analyzer = ContentAnalyzer(ai_client)
 
         return await analyzer.analyze_batch(items)
 

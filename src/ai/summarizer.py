@@ -1,9 +1,10 @@
 """Daily summary generation — pure programmatic rendering."""
 
 import re
-from typing import List, Dict
+from typing import List, Optional
 
 from ..models import ContentItem
+from ..preference_radar.models import HUST_RESEARCH_CATEGORY, PREFERENCE_RADAR_CATEGORY
 
 
 _CJK = r"[\u4e00-\u9fff\u3400-\u4dbf]"
@@ -16,8 +17,6 @@ def _pangu(text: str) -> str:
     text = re.sub(rf"({_ASCII})({_CJK})", r"\1 \2", text)
     return text
 
-
-CSIG_CATEGORY = "csig-camera"
 
 LABELS = {
     "en": {
@@ -39,12 +38,17 @@ LABELS = {
             "2. Adding more diverse information sources\n"
             "3. Checking if the AI model is working correctly\n"
         ),
-        "csig_section_title": "CSIG Camera Prep Radar",
-        "csig_section_blurb": (
-            "For CSIG Camera Academic Star: Diffusion 4K enhancement / "
-            "lightweight models / contest updates (≈14-day window, ≥1 item floor)"
+        "preference_section_title": "Preference Radar",
+        "preference_section_blurb": (
+            "Personalized picks from your maintained preference profile "
+            "(data/preference-radar/profile.json)."
         ),
-        "csig_section_empty": "No related updates in the last 14 days.",
+        "preference_section_empty": "No preference-matched updates today.",
+        "hust_section_title": "HUST Research Directions",
+        "hust_section_blurb": (
+            "Research-direction highlights from the external HUST pipeline "
+            "(category: hust-research)."
+        ),
         "general_toc_title": "Other highlights",
     },
     "zh": {
@@ -66,12 +70,16 @@ LABELS = {
             "2. 添加更多多样化的信息源\n"
             "3. 检查 AI 模型是否正常工作\n"
         ),
-        "csig_section_title": "CSIG Camera 备赛雷达",
-        "csig_section_blurb": (
-            "面向 CSIG「Camera学术之星」：Diffusion 4K 增强 / 轻量模型 / 赛事动态"
-            "（检索窗口约 14 天，保底 ≥1 条）"
+        "preference_section_title": "偏好雷达",
+        "preference_section_blurb": (
+            "基于你维护的偏好档案（data/preference-radar/profile.json）"
+            "独立筛选的个性化内容。"
         ),
-        "csig_section_empty": "近 14 天仍无相关动态。",
+        "preference_section_empty": "今日暂无符合偏好的更新。",
+        "hust_section_title": "华科研究方向",
+        "hust_section_blurb": (
+            "由外部华科研究方向流水线注入（metadata.category=hust-research）。"
+        ),
         "general_toc_title": "其他资讯",
     },
 }
@@ -84,16 +92,22 @@ class DailySummarizer:
         pass
 
     @staticmethod
-    def _split_csig_items(items: List[ContentItem]) -> tuple[List[ContentItem], List[ContentItem]]:
-        """Split digest items into CSIG prep radar vs the rest."""
-        csig: List[ContentItem] = []
+    def _split_sidecar_items(
+        items: List[ContentItem],
+    ) -> tuple[List[ContentItem], List[ContentItem], List[ContentItem]]:
+        """Split main digest items from preference and HUST sidecar items."""
+        preference: List[ContentItem] = []
+        hust: List[ContentItem] = []
         rest: List[ContentItem] = []
         for item in items:
-            if item.metadata.get("category") == CSIG_CATEGORY:
-                csig.append(item)
+            category = item.metadata.get("category")
+            if category == PREFERENCE_RADAR_CATEGORY:
+                preference.append(item)
+            elif category == HUST_RESEARCH_CATEGORY:
+                hust.append(item)
             else:
                 rest.append(item)
-        return csig, rest
+        return preference, hust, rest
 
     def _toc_line(self, item: ContentItem, language: str, index: int) -> str:
         _t = item.metadata.get(f"title_{language}") or item.title
@@ -103,22 +117,30 @@ class DailySummarizer:
         score = item.ai_score or "?"
         return f"{index}. [{t}](#item-{index}) \u2b50\ufe0f {score}/10"
 
-    def _render_csig_section(
+    def _render_section(
         self,
-        csig_items: List[ContentItem],
+        *,
+        title_key: str,
+        blurb_key: str,
+        empty_key: str,
+        section_items: List[ContentItem],
         labels: dict,
         language: str,
-        start_index: int = 1,
+        start_index: int,
+        always_show: bool = False,
     ) -> tuple[str, int]:
-        """Render the fixed CSIG prep radar block; returns markdown and next index."""
+        """Render a named digest section; returns markdown and next index."""
+        if not section_items and not always_show:
+            return "", start_index
+
         lines = [
-            f"## {labels['csig_section_title']}",
+            f"## {labels[title_key]}",
             "",
-            f"> {labels['csig_section_blurb']}",
+            f"> {labels[blurb_key]}",
             "",
         ]
-        if not csig_items:
-            lines.append(labels["csig_section_empty"])
+        if not section_items:
+            lines.append(labels[empty_key])
             lines.append("")
             lines.append("---")
             lines.append("")
@@ -126,7 +148,7 @@ class DailySummarizer:
 
         toc_entries = [
             self._toc_line(item, language, start_index + i)
-            for i, item in enumerate(csig_items)
+            for i, item in enumerate(section_items)
         ]
         lines.extend(toc_entries)
         lines.append("")
@@ -134,9 +156,9 @@ class DailySummarizer:
         lines.append("")
         body = "".join(
             self._format_item(item, labels, language, start_index + i)
-            for i, item in enumerate(csig_items)
+            for i, item in enumerate(section_items)
         )
-        return "\n".join(lines) + body, start_index + len(csig_items)
+        return "\n".join(lines) + body, start_index + len(section_items)
 
     async def generate_summary(
         self,
@@ -144,44 +166,75 @@ class DailySummarizer:
         date: str,
         total_fetched: int,
         language: str = "en",
+        *,
+        preference_items: Optional[List[ContentItem]] = None,
+        hust_items: Optional[List[ContentItem]] = None,
     ) -> str:
         """Generate daily summary in Markdown format.
 
-        Always opens with a fixed CSIG Camera prep-radar section, then the
-        remaining items in score-descending order (already sorted by orchestrator).
+        Layout:
+        1. Preference radar (sidecar pipeline)
+        2. HUST research directions (external pipeline; hidden when empty)
+        3. Other highlights (main balanced digest)
 
         Args:
-            items: High-scoring content items (already enriched)
+            items: Main digest items (already enriched)
             date: Date string (YYYY-MM-DD)
             total_fetched: Total number of items fetched before filtering
             language: Output language, either "en" or "zh"
+            preference_items: Optional override for preference radar block
+            hust_items: Optional override for HUST research block
 
         Returns:
             str: Markdown formatted summary
         """
         labels = LABELS.get(language, LABELS["en"])
-        csig_items, rest_items = self._split_csig_items(items)
+
+        embedded_preference, embedded_hust, rest_items = self._split_sidecar_items(items)
+        pref_items = preference_items if preference_items is not None else embedded_preference
+        hust_section_items = hust_items if hust_items is not None else embedded_hust
+
+        selected_count = len(pref_items) + len(hust_section_items) + len(rest_items)
 
         header = (
             f"# {labels['header']} - {date}\n\n"
-            f"> {labels['selected_items'].format(total=total_fetched, selected=len(items))}\n\n"
+            f"> {labels['selected_items'].format(total=total_fetched, selected=selected_count)}\n\n"
             "---\n\n"
         )
-        csig_md, next_index = self._render_csig_section(
-            csig_items, labels, language, start_index=1
+
+        next_index = 1
+        pref_md, next_index = self._render_section(
+            title_key="preference_section_title",
+            blurb_key="preference_section_blurb",
+            empty_key="preference_section_empty",
+            section_items=pref_items,
+            labels=labels,
+            language=language,
+            start_index=next_index,
+            always_show=True,
+        )
+        hust_md, next_index = self._render_section(
+            title_key="hust_section_title",
+            blurb_key="hust_section_blurb",
+            empty_key="preference_section_empty",
+            section_items=hust_section_items,
+            labels=labels,
+            language=language,
+            start_index=next_index,
+            always_show=False,
         )
 
-        if not items:
+        if not items and not pref_items and not hust_section_items:
             return (
                 f"# {labels['header']} - {date}\n\n"
                 f"> {labels['empty_analyzed'].format(total=total_fetched)}\n\n"
                 "---\n\n"
-                + csig_md
+                + pref_md
                 + labels["empty_body"]
             )
 
         if not rest_items:
-            return header + csig_md
+            return header + pref_md + hust_md
 
         toc_entries = [
             self._toc_line(item, language, next_index + i)
@@ -197,7 +250,7 @@ class DailySummarizer:
             for i, item in enumerate(rest_items)
         ]
 
-        return header + csig_md + toc + "".join(parts)
+        return header + pref_md + hust_md + toc + "".join(parts)
 
     def generate_webhook_overview(
         self,

@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 
 from src.ai.summarizer import DailySummarizer
 from src.models import ContentItem, SourceType
+from src.preference_radar.models import HUST_RESEARCH_CATEGORY, PREFERENCE_RADAR_CATEGORY
 
 
 def _run_async(coro):
@@ -119,8 +120,8 @@ def test_generate_summary_zh_uses_localized_selection_header_and_numeric_date():
     )
 
     assert "> 从 10 条内容中筛选出 1 条重要资讯。" in result
-    assert "## CSIG Camera 备赛雷达" in result
-    assert "近 14 天仍无相关动态。" in result
+    assert "## 偏好雷达" in result
+    assert "今日暂无符合偏好的更新。" in result
     assert "## 其他资讯" in result
     assert "rss · tester · 4月25日 08:00" in result
     assert "From 10 items" not in result
@@ -140,34 +141,53 @@ def test_generate_empty_summary_zh_uses_localized_analyzed_line():
     )
 
     assert "> 已分析 10 条内容，但没有达到重要性阈值的条目。" in result
-    assert "## CSIG Camera 备赛雷达" in result
-    assert "近 14 天仍无相关动态。" in result
+    assert "## 偏好雷达" in result
+    assert "今日暂无符合偏好的更新。" in result
     assert "Analyzed 10 items" not in result
 
 
-def test_generate_summary_puts_csig_items_in_dedicated_section():
+def test_generate_summary_puts_preference_items_in_dedicated_section():
     summarizer = DailySummarizer()
-    csig = _make_item(1)
-    csig.title = "OSEDiff Speedup Paper"
-    csig.metadata["category"] = "csig-camera"
+    pref = _make_item(1)
+    pref.title = "Personalized Paper"
+    pref.metadata["category"] = PREFERENCE_RADAR_CATEGORY
     other = _make_item(2)
     other.title = "Unrelated News"
     other.metadata["category"] = "tech-trends"
 
     result = _run_async(
         summarizer.generate_summary(
-            [csig, other],
+            [other],
             date="2026-04-25",
             total_fetched=20,
             language="zh",
+            preference_items=[pref],
         )
     )
 
-    assert "## CSIG Camera 备赛雷达" in result
-    assert "OSEDiff Speedup Paper" in result
+    assert "## 偏好雷达" in result
+    assert "Personalized Paper" in result
     assert "## 其他资讯" in result
     assert "Unrelated News" in result
-    # CSIG section should appear before the general TOC
-    assert result.index("CSIG Camera 备赛雷达") < result.index("其他资讯")
-    assert "近 14 天仍无相关动态。" not in result
-    assert "今日无相关动态。" not in result
+    assert result.index("偏好雷达") < result.index("其他资讯")
+
+
+def test_generate_summary_renders_hust_section_when_items_present():
+    summarizer = DailySummarizer()
+    hust = _make_item(1)
+    hust.title = "HUST Lab Update"
+    hust.metadata["category"] = HUST_RESEARCH_CATEGORY
+
+    result = _run_async(
+        summarizer.generate_summary(
+            [],
+            date="2026-04-25",
+            total_fetched=5,
+            language="zh",
+            hust_items=[hust],
+        )
+    )
+
+    assert "## 华科研究方向" in result
+    assert "HUST Lab Update" in result
+    assert "## 偏好雷达" in result
