@@ -25,6 +25,7 @@ description: "把已完成的问题解决过程沉淀成可复习、可用于简
 5. 所有事实都要能追溯到命令输出、日志、测试、提交或用户提供的证据。
 6. 不把推测写成根因；未验证内容标为“待验证”。
 7. 写入后必须验证目标路径、编号、必备章节和 Git 状态。
+8. 同步到本地时只物化对应日志文件，不得对整个 vault 执行 `git pull`。
 
 ## 工作步骤
 
@@ -156,14 +157,55 @@ python .cursor/skills/obsidian-retrospective/scripts/upsert_daily_learning.py \
 ### 7. 云端 Agent 无法访问本地 vault 时
 
 1. 把复盘源文件提交到当前工作分支。
-2. 使用已有 Obsidian 同步 Secret 的 GitHub Actions 克隆实际 vault。
-3. 在 Action 内调用同一个 upsert 脚本。
-4. 提交并推送目标 vault。
-5. 验证目标路径、编号、变更行数和远端 commit。
-6. 删除一次性 push 触发，只保留安全的手动入口。
-7. 让用户执行 `git pull --rebase --autostash` 拉到本地。
+2. 使用 `git clone --filter=blob:none --no-checkout` 克隆仓库元数据。
+3. 用 sparse checkout 只检出 `其他/每日自主学习`。
+4. 使用已有 Obsidian 同步 Secret，并在 Action 内调用同一个 upsert 脚本。
+5. 提交并推送目标日志。
+6. 验证目标路径、编号、变更行数和远端 commit。
+7. 删除一次性 push 触发，只保留安全的手动入口。
+8. 让用户只同步对应的当天日志，不拉取整个 vault。
+
+示例：
+
+```bash
+git clone --filter=blob:none --no-checkout "$OBSIDIAN_REPO_URL" obsidian-vault
+git -C obsidian-vault sparse-checkout init --cone
+git -C obsidian-vault sparse-checkout set "其他/每日自主学习"
+git -C obsidian-vault checkout master
+```
 
 不得尝试读取或输出 GitHub Secret 的值。
+
+### 8. 只同步对应文件到本地
+
+Git 没有“pull 单文件”命令。`git pull` 会合并整个分支，因此此 Skill 禁止用它接收单篇复盘。
+
+使用目标文件同步脚本：
+
+```powershell
+python ".cursor\skills\obsidian-retrospective\scripts\sync_remote_file.py" `
+  --vault "D:\Data\旧的不去新的不来" `
+  --path "其他/每日自主学习/2026-08-24.md"
+```
+
+脚本执行两步：
+
+1. `git fetch --filter=blob:none` 更新远端提交和树信息。
+2. 从 `FETCH_HEAD` 读取指定 blob，原子写入对应本地路径。
+
+结果：
+
+- 只改目标日志文件。
+- 不 checkout、不 merge、不 rebase。
+- 不改变本地 `HEAD`。
+- 不覆盖其他本地笔记。
+
+限制：
+
+- Git 仍需获取少量提交和目录树元数据，但不会把其他文件写入本地工作区。
+- 适合由自动化生成、用户只读的日志。
+- 若用户会同时编辑同一目标文件，应先比较差异，不可直接覆盖。
+- 路径必须是仓库内相对路径，脚本会拒绝绝对路径和 `..`。
 
 ## 完成检查
 
@@ -177,6 +219,7 @@ python .cursor/skills/obsidian-retrospective/scripts/upsert_daily_learning.py \
 - [ ] 重复执行不会生成重复条目。
 - [ ] 测试或 dry-run 通过。
 - [ ] 本地或远端 Git 写入已验证。
+- [ ] 本地接收只更新对应日志，没有拉取整个 vault。
 
 ## 用户调用方式
 
@@ -194,8 +237,14 @@ python .cursor/skills/obsidian-retrospective/scripts/upsert_daily_learning.py \
 把这次 Bug 修复整理成复盘和简历素材，写进我的 Obsidian。
 ```
 
+```text
+只把今天这篇复盘同步到本地，不要拉取其他 Obsidian 文件。
+```
+
 若用户没有给 vault 路径，且仓库中也无法可靠推断，只问一个问题：
 
 ```text
 你的 Obsidian vault 根目录是什么？
 ```
+
+更完整的命令示例和故障处理见同目录 `USAGE.md`。

@@ -17,9 +17,13 @@ jobs:
         env:
           OBSIDIAN_SYNC_TOKEN: ${{ secrets.OBSIDIAN_SYNC_TOKEN }}
         run: |
-          git clone \
+          git clone --filter=blob:none --no-checkout \
             "https://x-access-token:${OBSIDIAN_SYNC_TOKEN}@github.com/Yancy-gate/obsidian-jiudebuqu-xindebulai.git" \
             obsidian-vault
+          cd obsidian-vault
+          git sparse-checkout init --cone
+          git sparse-checkout set "其他/每日自主学习"
+          git checkout master
 
       - name: Upsert numbered daily learning entry
         run: |
