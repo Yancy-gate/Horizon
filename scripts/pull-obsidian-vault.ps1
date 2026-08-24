@@ -1,5 +1,5 @@
 # Pull Obsidian vault + ensure today's Beijing-dated briefing exists.
-# Bypasses HTTP proxy. Scheduled daily at 07:00 / 07:30.
+# Run after Daily Horizon Summary (12:00 CST generation → pull ~12:30).
 
 $ErrorActionPreference = "Continue"
 $LogDir = Join-Path $env:USERPROFILE "Projects\Horizon\scripts\logs"
@@ -23,19 +23,49 @@ function Invoke-GitNoProxy {
     return @{ Code = $code; Out = $out.Trim() }
 }
 
+function Resolve-VaultRoot {
+    param([string]$PreferredPath)
+
+    if ($PreferredPath -and (Test-Path -LiteralPath (Join-Path $PreferredPath ".git"))) {
+        return $PreferredPath
+    }
+
+    $searchRoots = @(
+        "D:\Data\旧的不去新的不来",
+        "D:\Tools\editor\Obsidian"
+    )
+
+    foreach ($root in $searchRoots) {
+        if (-not (Test-Path -LiteralPath $root)) { continue }
+
+        if ((Test-Path -LiteralPath (Join-Path $root ".git"))) {
+            $remote = git -C $root remote get-url origin 2>$null
+            if ($remote -match "obsidian-jiudebuqu-xindebulai|obsidian_cloud") {
+                return $root
+            }
+        }
+
+        $vault = Get-ChildItem -LiteralPath $root -Directory -ErrorAction SilentlyContinue |
+            Where-Object {
+                (Test-Path -LiteralPath (Join-Path $_.FullName ".git")) -and
+                ((git -C $_.FullName remote get-url origin 2>$null) -match "obsidian-jiudebuqu-xindebulai|obsidian_cloud")
+            } |
+            Select-Object -First 1
+        if ($vault) { return $vault.FullName }
+    }
+
+    return $null
+}
+
 try {
-    $obsidianRoot = "D:\Tools\editor\Obsidian"
-    $vault = Get-ChildItem -LiteralPath $obsidianRoot -Directory -ErrorAction Stop |
-        Where-Object {
-            (Test-Path -LiteralPath (Join-Path $_.FullName ".git")) -and
-            ((git -C $_.FullName remote get-url origin 2>$null) -match "obsidian_cloud")
-        } |
-        Select-Object -First 1
-    if (-not $vault) { throw "No obsidian_cloud vault under $obsidianRoot" }
-    $VaultRoot = $vault.FullName
+    $preferredVault = $env:HORIZON_OBSIDIAN_VAULT
+    $VaultRoot = Resolve-VaultRoot -PreferredPath $preferredVault
+    if (-not $VaultRoot) {
+        throw "No Obsidian vault found (set HORIZON_OBSIDIAN_VAULT or clone obsidian-jiudebuqu-xindebulai)"
+    }
     Write-Log "Vault: $VaultRoot"
 
-    $r = Invoke-GitNoProxy $VaultRoot @("pull", "--ff-only", "origin", "master")
+    $r = Invoke-GitNoProxy $VaultRoot @("pull", "--rebase", "--autostash", "origin", "master")
     Write-Log ("Vault pull: " + $r.Out)
     if ($r.Code -ne 0) { throw "vault git pull failed: $($r.Code)" }
 
@@ -45,13 +75,14 @@ try {
     }
 
     $bj = Get-Date -Format "yyyy-MM-dd"
-
-    # Briefing dir = folder that already contains horizon-*.md (avoid creating a duplicate Unicode path)
-    $sample = Get-ChildItem -LiteralPath $VaultRoot -Recurse -Filter "horizon-*-zh.md" -ErrorAction SilentlyContinue |
-        Sort-Object LastWriteTime -Descending |
-        Select-Object -First 1
-    if (-not $sample) { throw "No horizon-*-zh.md found in vault; wait for Actions sync." }
-    $briefDir = $sample.DirectoryName
+    $briefDir = Join-Path $VaultRoot "其他\内参日报"
+    if (-not (Test-Path -LiteralPath $briefDir)) {
+        $sample = Get-ChildItem -LiteralPath $VaultRoot -Recurse -Filter "horizon-*-zh.md" -ErrorAction SilentlyContinue |
+            Sort-Object LastWriteTime -Descending |
+            Select-Object -First 1
+        if (-not $sample) { throw "No horizon-*-zh.md found in vault; wait for Actions sync." }
+        $briefDir = $sample.DirectoryName
+    }
     Write-Log "Briefing dir: $briefDir"
 
     $target = Join-Path $briefDir "horizon-$bj-zh.md"
@@ -78,7 +109,6 @@ try {
             Copy-Item -LiteralPath $latest.File.FullName -Destination $target -Force
             Write-Log ("Copied {0} ({1} bytes) -> horizon-{2}-zh.md" -f $latest.File.Name, $latest.File.Length, $bj)
 
-            # Push calendar-aligned copy so Obsidian Git / other devices can pull it
             $rel = $target.Substring($VaultRoot.Length).TrimStart('\', '/').Replace('\', '/')
             $add = Invoke-GitNoProxy $VaultRoot @("add", "--", $rel)
             $diff = Invoke-GitNoProxy $VaultRoot @("diff", "--cached", "--quiet")
