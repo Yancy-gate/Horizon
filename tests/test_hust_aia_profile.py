@@ -133,10 +133,17 @@ def test_github_config_loads_hust_radar_without_csig() -> None:
     groups = {source.metadata.get("research_group") for source in hust}
     news = [source for source in hust if "news.google.com" in str(source.url)]
     papers = [source for source in hust if "export.arxiv.org" in str(source.url)]
+    openalex = config.sources.openalex
 
     assert len(groups) == 8
     assert len(news) == 8
-    assert len(papers) == 8
+    assert len(papers) == 6
+    assert openalex is not None and openalex.enabled
+    assert [query.metadata.get("research_group") for query in openalex.queries] == [
+        "energy-manufacturing",
+        "systems-decision",
+    ]
+    assert all(query.author_ids for query in openalex.queries)
     assert all(source.metadata.get("related_teachers") for source in hust)
     assert all(source.metadata.get("content_match_keywords") for source in hust)
     assert all(

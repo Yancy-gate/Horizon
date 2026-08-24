@@ -19,6 +19,7 @@ class SourceType(str, Enum):
     OSSINSIGHT = "ossinsight"
     GDELT = "gdelt"
     GOOGLE_NEWS = "google_news"
+    OPENALEX = "openalex"
 
 
 class ContentItem(BaseModel):
@@ -308,6 +309,29 @@ class GoogleNewsConfig(BaseModel):
     category: Optional[str] = None
 
 
+class OpenAlexAuthorQuery(BaseModel):
+    """One OpenAlex author-set query mapped onto a Horizon category."""
+
+    name: str
+    author_ids: List[str] = Field(min_length=1)
+    category: Optional[str] = None
+    metadata: Dict[str, Any] = Field(default_factory=dict)
+    time_window_hours: Optional[int] = Field(default=None, gt=0)
+    max_items: int = Field(default=25, gt=0)
+
+
+class OpenAlexConfig(BaseModel):
+    """OpenAlex works API source for faculty journal papers.
+
+    Used for groups that publish in IEEE/Elsevier rather than arXiv.
+    No API key is required; send a mailto User-Agent for the polite pool.
+    """
+
+    enabled: bool = False
+    mailto: Optional[str] = None
+    queries: List[OpenAlexAuthorQuery] = Field(default_factory=list)
+
+
 class SourcesConfig(BaseModel):
     """All sources configuration."""
 
@@ -321,6 +345,7 @@ class SourcesConfig(BaseModel):
     ossinsight: OSSInsightConfig = Field(default_factory=OSSInsightConfig)
     gdelt: Optional[GDELTConfig] = None
     google_news: Optional[GoogleNewsConfig] = None
+    openalex: Optional[OpenAlexConfig] = None
 
 
 class WebhookConfig(BaseModel):

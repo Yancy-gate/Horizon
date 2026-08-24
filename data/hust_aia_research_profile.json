@@ -396,7 +396,7 @@
     {
       "id": "systems-decision",
       "name": "系统工程与决策优化",
-      "query": "vehicle scheduling, resource-constrained project scheduling, emergency supply allocation, infrastructure resilience, transit network",
+      "query": "vehicle/bus scheduling, driver scheduling, infrastructure resilience, resource-constrained project scheduling",
       "match_keywords": [
         "系统工程",
         "决策",
@@ -444,25 +444,45 @@
       "paper_keywords": [
         "vehicle scheduling",
         "车辆调度",
+        "bus transit",
+        "公交",
+        "timetable",
+        "driver scheduling",
         "project scheduling",
         "项目调度",
-        "emergency supplies",
-        "应急物资",
-        "infrastructure resilience",
-        "基础设施韧性",
-        "transit network",
-        "公交网络",
         "resource-constrained",
         "资源约束",
+        "infrastructure resilience",
+        "基础设施韧性",
+        "interdependent infrastructure",
+        "关键基础设施",
+        "emergency supplies",
+        "应急物资",
         "应急管理",
-        "electric vehicle scheduling",
-        "电动汽车调度"
+        "Nash equilibrium",
+        "fictitious play",
+        "evolutionary game",
+        "演化博弈",
+        "critical infrastructure",
+        "infrastructure systems",
+        "worst-case disruption",
+        "BRT",
+        "timetable synchronization",
+        "tropical cyclone"
+      ],
+      "openalex_author_ids": [
+        "A5035841835",
+        "A5090193685",
+        "A5036473194",
+        "A5035421891",
+        "A5084763638",
+        "A5100567218"
       ]
     },
     {
       "id": "energy-manufacturing",
       "name": "能源电子与智能制造",
-      "query": "PMSM drives, microgrid distributed control, sensorless motor control, dead-time compensation, grid-connected converters",
+      "query": "PMSM/SPMSM sensorless drives, islanded microgrids, electricity market bidding, grid-forming inverters, SOFC control",
       "match_keywords": [
         "电力电子",
         "电机",
@@ -504,20 +524,51 @@
       ],
       "paper_keywords": [
         "PMSM",
-        "永磁同步",
+        "SPMSM",
         "IPMSM",
-        "microgrid",
-        "微电网",
+        "永磁同步",
         "sensorless",
         "无传感器",
         "dead-time compensation",
         "死区补偿",
-        "grid-connected converter",
-        "并网变换器",
-        "DC-link",
+        "deadbeat",
+        "predictive current",
         "预测电流控制",
+        "grid-forming",
+        "grid-following",
+        "VSG",
+        "microgrid",
+        "微电网",
+        "islanded microgrid",
+        "inverter",
+        "并网变换器",
+        "grid-connected converter",
+        "electricity market",
+        "unit commitment",
+        "电力市场",
+        "SOFC",
+        "fuel cell",
+        "燃料电池",
+        "flux linkage",
         "磁链观测",
-        "电力电子"
+        "DC-link",
+        "critical infrastructure",
+        "infrastructure systems",
+        "VSG-controlled",
+        "switching frequency injection"
+      ],
+      "openalex_author_ids": [
+        "A5091834766",
+        "A5082169962",
+        "A5053403317",
+        "A5029172627",
+        "A5100610162",
+        "A5102832799",
+        "A5020235147",
+        "A5023147625",
+        "A5100781056",
+        "A5010845083",
+        "A5100754988"
       ]
     }
   ],
@@ -1507,5 +1558,5 @@
       ]
     }
   ],
-  "query_basis": "OpenAlex 2021-2026 titles for HUST-affiliated AIA faculty (Wenbing Tao, Luxin Yan, Zhiguo Cao, Yang Xiao, Yi Chang, Yihua Tan, Jingang Lai, Chunjie Zhou, Ying Zheng, Yindong Shen, Huijin Fan, Dongrui Wu, Zhigang Zeng, Linqiang Pan, and others). Google News queries require Huazhong affiliation plus those paper phrases; arXiv feeds follow distinctive author names or paper phrases; RSS then keeps an item only if title/body hits content_match_keywords."
+  "query_basis": "OpenAlex 2021-2026 titles for HUST AIA faculty. Vision/robotics/brain groups still use arXiv author feeds. Energy and scheduling groups use OpenAlex author IDs for IEEE/Elsevier papers (Anwen Shen, Jingang Lai, Qipeng Tang, Yindong Shen, Min Ouyang, Zhenyuan Liu, etc.) plus Huazhong-constrained Google News. RSS/OpenAlex keep an item only if title/abstract hits content_match_keywords."
 }
