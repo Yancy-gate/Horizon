@@ -1,0 +1,79 @@
+name: Publish Horizon retrospective to Obsidian
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - cursor/publish-horizon-retro-6b63
+    paths:
+      - .github/workflows/publish-learning-log.yml
+      - docs/retrospectives/horizon-obsidian-automation-2026-08-24.md
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout retrospective
+        uses: actions/checkout@v6
+
+      - name: Clone active Obsidian vault
+        env:
+          OBSIDIAN_SYNC_TOKEN: ${{ secrets.OBSIDIAN_SYNC_TOKEN }}
+        run: |
+          git clone \
+            "https://x-access-token:${OBSIDIAN_SYNC_TOKEN}@github.com/Yancy-gate/obsidian-jiudebuqu-xindebulai.git" \
+            obsidian-vault
+
+      - name: Append numbered daily learning entry
+        run: |
+          python - <<'PY'
+          import re
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          source = Path(
+              "docs/retrospectives/horizon-obsidian-automation-2026-08-24.md"
+          )
+          today = datetime.now(ZoneInfo("Asia/Shanghai")).strftime("%Y-%m-%d")
+          target = Path("obsidian-vault/其他/每日自主学习") / f"{today}.md"
+          target.parent.mkdir(parents=True, exist_ok=True)
+
+          existing = target.read_text(encoding="utf-8") if target.exists() else ""
+          heading = "## Horizon 日报恢复与 Obsidian 自动同步：一次端到端排障复盘"
+          if heading in existing:
+              print(f"Learning entry already exists in {target}")
+          else:
+              numbers = [
+                  int(value)
+                  for value in re.findall(r"(?m)^# (\d+)\s*$", existing)
+              ]
+              entry_number = max(numbers, default=0) + 1
+              entry = source.read_text(encoding="utf-8").replace(
+                  "{{ENTRY_NUMBER}}",
+                  str(entry_number),
+                  1,
+              )
+              separator = "\n\n" if existing and not existing.endswith("\n\n") else ""
+              target.write_text(
+                  existing + separator + entry.rstrip() + "\n",
+                  encoding="utf-8",
+              )
+              print(f"Appended learning entry #{entry_number} to {target}")
+          PY
+
+      - name: Commit learning log
+        run: |
+          cd obsidian-vault
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "其他/每日自主学习"
+          if git diff --staged --quiet; then
+            echo "Learning log is already up to date."
+            exit 0
+          fi
+          git commit -m "📝 Horizon automation retrospective 2026-08-24"
+          git push origin master
