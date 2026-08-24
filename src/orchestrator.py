@@ -121,7 +121,7 @@ class HorizonOrchestrator:
                 f"⭐️ {len(important_items)} items scored ≥ {threshold}\n"
             )
 
-            # 5.4 Category floors (e.g. CSIG): backfill sparse groups below min_items
+            # 5.4 Category floors: backfill sparse groups below min_items
             important_items = self.ensure_category_floors(important_items, analyzed_items)
 
             # 5.5 Semantic deduplication: drop items covering the same topic
@@ -519,9 +519,8 @@ class HorizonOrchestrator:
     ) -> List[ContentItem]:
         """Backfill category groups that declare ``min_items``.
 
-        Used for sparse topics (e.g. CSIG Camera prep) so the daily digest
-        still surfaces at least one relevant item when the global threshold
-        would otherwise leave the section empty.
+        Used for sparse topics so the daily digest can still surface a
+        configured minimum when the global threshold would leave a group empty.
         """
         groups = self.config.filtering.category_groups
         if not groups:

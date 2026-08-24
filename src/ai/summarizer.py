@@ -17,7 +17,7 @@ def _pangu(text: str) -> str:
     return text
 
 
-CSIG_CATEGORY = "csig-camera"
+HUST_AIA_CATEGORY = "hust-aia"
 
 LABELS = {
     "en": {
@@ -39,12 +39,14 @@ LABELS = {
             "2. Adding more diverse information sources\n"
             "3. Checking if the AI model is working correctly\n"
         ),
-        "csig_section_title": "CSIG Camera Prep Radar",
-        "csig_section_blurb": (
-            "For CSIG Camera Academic Star: Diffusion 4K enhancement / "
-            "lightweight models / contest updates (≈14-day window, ≥1 item floor)"
+        "hust_section_title": "HUST AIA Research Radar",
+        "hust_section_blurb": (
+            "Grouped by the public research directions of faculty at HUST's "
+            "School of Artificial Intelligence and Automation."
         ),
-        "csig_section_empty": "No related updates in the last 14 days.",
+        "hust_section_empty": "No sufficiently relevant updates in this edition.",
+        "match_reason": "Match",
+        "related_faculty": "Related faculty",
         "general_toc_title": "Other highlights",
     },
     "zh": {
@@ -66,12 +68,13 @@ LABELS = {
             "2. 添加更多多样化的信息源\n"
             "3. 检查 AI 模型是否正常工作\n"
         ),
-        "csig_section_title": "CSIG Camera 备赛雷达",
-        "csig_section_blurb": (
-            "面向 CSIG「Camera学术之星」：Diffusion 4K 增强 / 轻量模型 / 赛事动态"
-            "（检索窗口约 14 天，保底 ≥1 条）"
+        "hust_section_title": "华科人工智能与自动化学院研究雷达",
+        "hust_section_blurb": (
+            "依据学院教师公开研究主页调研结果，按研究方向归类；教师方向每 90 天重新核验。"
         ),
-        "csig_section_empty": "近 14 天仍无相关动态。",
+        "hust_section_empty": "本期没有达到相关性门槛的内容。",
+        "match_reason": "匹配依据",
+        "related_faculty": "关联教师",
         "general_toc_title": "其他资讯",
     },
 }
@@ -84,16 +87,16 @@ class DailySummarizer:
         pass
 
     @staticmethod
-    def _split_csig_items(items: List[ContentItem]) -> tuple[List[ContentItem], List[ContentItem]]:
-        """Split digest items into CSIG prep radar vs the rest."""
-        csig: List[ContentItem] = []
+    def _split_hust_items(items: List[ContentItem]) -> tuple[List[ContentItem], List[ContentItem]]:
+        """Split digest items into HUST AIA research radar vs the rest."""
+        hust: List[ContentItem] = []
         rest: List[ContentItem] = []
         for item in items:
-            if item.metadata.get("category") == CSIG_CATEGORY:
-                csig.append(item)
+            if item.metadata.get("category") == HUST_AIA_CATEGORY:
+                hust.append(item)
             else:
                 rest.append(item)
-        return csig, rest
+        return hust, rest
 
     def _toc_line(self, item: ContentItem, language: str, index: int) -> str:
         _t = item.metadata.get(f"title_{language}") or item.title
@@ -103,40 +106,54 @@ class DailySummarizer:
         score = item.ai_score or "?"
         return f"{index}. [{t}](#item-{index}) \u2b50\ufe0f {score}/10"
 
-    def _render_csig_section(
+    def _render_hust_section(
         self,
-        csig_items: List[ContentItem],
+        hust_items: List[ContentItem],
         labels: dict,
         language: str,
         start_index: int = 1,
     ) -> tuple[str, int]:
-        """Render the fixed CSIG prep radar block; returns markdown and next index."""
+        """Render the HUST AIA radar grouped by faculty research direction."""
         lines = [
-            f"## {labels['csig_section_title']}",
+            f"## {labels['hust_section_title']}",
             "",
-            f"> {labels['csig_section_blurb']}",
+            f"> {labels['hust_section_blurb']}",
             "",
         ]
-        if not csig_items:
-            lines.append(labels["csig_section_empty"])
+        if not hust_items:
+            lines.append(labels["hust_section_empty"])
             lines.append("")
             lines.append("---")
             lines.append("")
             return "\n".join(lines), start_index
 
-        toc_entries = [
-            self._toc_line(item, language, start_index + i)
-            for i, item in enumerate(csig_items)
-        ]
-        lines.extend(toc_entries)
-        lines.append("")
-        lines.append("---")
-        lines.append("")
-        body = "".join(
-            self._format_item(item, labels, language, start_index + i)
-            for i, item in enumerate(csig_items)
-        )
-        return "\n".join(lines) + body, start_index + len(csig_items)
+        direction_groups: Dict[str, List[ContentItem]] = {}
+        for item in hust_items:
+            direction = str(
+                item.metadata.get("research_direction")
+                or ("Other research directions" if language == "en" else "其他研究方向")
+            )
+            direction_groups.setdefault(direction, []).append(item)
+
+        next_index = start_index
+        for direction, group_items in direction_groups.items():
+            lines.append(f"### {direction}")
+            lines.append("")
+            for item in group_items:
+                lines.append(self._toc_line(item, language, next_index))
+                next_index += 1
+            lines.append("")
+
+        lines.extend(["---", ""])
+        body_parts = []
+        next_index = start_index
+        for group_items in direction_groups.values():
+            for item in group_items:
+                body_parts.append(
+                    self._format_item(item, labels, language, next_index)
+                )
+                next_index += 1
+        return "\n".join(lines) + "".join(body_parts), next_index
 
     async def generate_summary(
         self,
@@ -147,7 +164,7 @@ class DailySummarizer:
     ) -> str:
         """Generate daily summary in Markdown format.
 
-        Always opens with a fixed CSIG Camera prep-radar section, then the
+        Always opens with a HUST AIA research-radar section, then the
         remaining items in score-descending order (already sorted by orchestrator).
 
         Args:
@@ -160,15 +177,15 @@ class DailySummarizer:
             str: Markdown formatted summary
         """
         labels = LABELS.get(language, LABELS["en"])
-        csig_items, rest_items = self._split_csig_items(items)
+        hust_items, rest_items = self._split_hust_items(items)
 
         header = (
             f"# {labels['header']} - {date}\n\n"
             f"> {labels['selected_items'].format(total=total_fetched, selected=len(items))}\n\n"
             "---\n\n"
         )
-        csig_md, next_index = self._render_csig_section(
-            csig_items, labels, language, start_index=1
+        hust_md, next_index = self._render_hust_section(
+            hust_items, labels, language, start_index=1
         )
 
         if not items:
@@ -176,12 +193,12 @@ class DailySummarizer:
                 f"# {labels['header']} - {date}\n\n"
                 f"> {labels['empty_analyzed'].format(total=total_fetched)}\n\n"
                 "---\n\n"
-                + csig_md
+                + hust_md
                 + labels["empty_body"]
             )
 
         if not rest_items:
-            return header + csig_md
+            return header + hust_md
 
         toc_entries = [
             self._toc_line(item, language, next_index + i)
@@ -197,7 +214,7 @@ class DailySummarizer:
             for i, item in enumerate(rest_items)
         ]
 
-        return header + csig_md + toc + "".join(parts)
+        return header + hust_md + toc + "".join(parts)
 
     def generate_webhook_overview(
         self,
@@ -307,6 +324,30 @@ class DailySummarizer:
             "",
             source_line,
         ]
+
+        if meta.get("category") == HUST_AIA_CATEGORY:
+            direction = str(meta.get("research_direction") or "")
+            if direction:
+                reason = (
+                    f"Targeted research feed matched **{direction}**."
+                    if language == "en"
+                    else f"定向研究检索命中 **{direction}**。"
+                )
+                lines.extend(["", f"**{labels['match_reason']}**: {reason}"])
+            teachers = [str(name) for name in meta.get("related_teachers", [])]
+            if teachers:
+                visible = teachers[:8]
+                teacher_text = "、".join(visible)
+                if len(teachers) > len(visible):
+                    suffix = (
+                        f" and {len(teachers) - len(visible)} more"
+                        if language == "en"
+                        else f"等 {len(teachers)} 人"
+                    )
+                    teacher_text += suffix
+                lines.extend(
+                    ["", f"**{labels['related_faculty']}**: {teacher_text}"]
+                )
 
         if background:
             lines.append("")
