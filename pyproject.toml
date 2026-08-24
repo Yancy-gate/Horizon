@@ -41,6 +41,7 @@ twitter = [
 horizon = "src.main:main"
 horizon-mcp = "src.mcp.server:main"
 horizon-wizard = "src.setup.wizard:main"
+horizon-preference-ingest = "src.preference_radar.cli:main"
 horizon-webhook = "src.services.webhook_cli:main"
 horizon-hust-aia = "src.services.hust_aia_profile:main"
 

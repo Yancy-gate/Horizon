@@ -1,9 +1,10 @@
 """Daily summary generation — pure programmatic rendering."""
 
 import re
-from typing import List, Dict
+from typing import List, Optional
 
 from ..models import ContentItem
+from ..preference_radar.models import HUST_RESEARCH_CATEGORY, PREFERENCE_RADAR_CATEGORY
 
 
 _CJK = r"[\u4e00-\u9fff\u3400-\u4dbf]"
@@ -16,8 +17,6 @@ def _pangu(text: str) -> str:
     text = re.sub(rf"({_ASCII})({_CJK})", r"\1 \2", text)
     return text
 
-
-HUST_AIA_CATEGORY = "hust-aia"
 
 LABELS = {
     "en": {
@@ -39,14 +38,17 @@ LABELS = {
             "2. Adding more diverse information sources\n"
             "3. Checking if the AI model is working correctly\n"
         ),
-        "hust_section_title": "HUST AIA Research Radar",
-        "hust_section_blurb": (
-            "Grouped by the public research directions of faculty at HUST's "
-            "School of Artificial Intelligence and Automation."
+        "preference_section_title": "Preference Radar",
+        "preference_section_blurb": (
+            "Personalized picks from your maintained preference profile "
+            "(data/preference-radar/profile.json)."
         ),
-        "hust_section_empty": "No sufficiently relevant updates in this edition.",
-        "match_reason": "Match",
-        "related_faculty": "Related faculty",
+        "preference_section_empty": "No preference-matched updates today.",
+        "hust_section_title": "HUST Research Directions",
+        "hust_section_blurb": (
+            "Research-direction highlights from the external HUST pipeline "
+            "(category: hust-research)."
+        ),
         "general_toc_title": "Other highlights",
     },
     "zh": {
@@ -68,13 +70,16 @@ LABELS = {
             "2. 添加更多多样化的信息源\n"
             "3. 检查 AI 模型是否正常工作\n"
         ),
-        "hust_section_title": "华科人工智能与自动化学院研究雷达",
-        "hust_section_blurb": (
-            "依据学院教师公开研究主页调研结果，按研究方向归类；教师方向每 90 天重新核验。"
+        "preference_section_title": "偏好雷达",
+        "preference_section_blurb": (
+            "基于你维护的偏好档案（data/preference-radar/profile.json）"
+            "独立筛选的个性化内容。"
         ),
-        "hust_section_empty": "本期没有达到相关性门槛的内容。",
-        "match_reason": "匹配依据",
-        "related_faculty": "关联教师",
+        "preference_section_empty": "今日暂无符合偏好的更新。",
+        "hust_section_title": "华科研究方向",
+        "hust_section_blurb": (
+            "由外部华科研究方向流水线注入（metadata.category=hust-research）。"
+        ),
         "general_toc_title": "其他资讯",
     },
 }
@@ -87,16 +92,22 @@ class DailySummarizer:
         pass
 
     @staticmethod
-    def _split_hust_items(items: List[ContentItem]) -> tuple[List[ContentItem], List[ContentItem]]:
-        """Split digest items into HUST AIA research radar vs the rest."""
+    def _split_sidecar_items(
+        items: List[ContentItem],
+    ) -> tuple[List[ContentItem], List[ContentItem], List[ContentItem]]:
+        """Split main digest items from preference and HUST sidecar items."""
+        preference: List[ContentItem] = []
         hust: List[ContentItem] = []
         rest: List[ContentItem] = []
         for item in items:
-            if item.metadata.get("category") == HUST_AIA_CATEGORY:
+            category = item.metadata.get("category")
+            if category == PREFERENCE_RADAR_CATEGORY:
+                preference.append(item)
+            elif category == HUST_RESEARCH_CATEGORY:
                 hust.append(item)
             else:
                 rest.append(item)
-        return hust, rest
+        return preference, hust, rest
 
     def _toc_line(self, item: ContentItem, language: str, index: int) -> str:
         _t = item.metadata.get(f"title_{language}") or item.title
@@ -106,54 +117,55 @@ class DailySummarizer:
         score = item.ai_score or "?"
         return f"{index}. [{t}](#item-{index}) \u2b50\ufe0f {score}/10"
 
-    def _render_hust_section(
+    def _render_section(
         self,
-        hust_items: List[ContentItem],
+        *,
+        title_key: str,
+        blurb_key: str,
+        empty_key: str,
+        section_items: List[ContentItem],
         labels: dict,
         language: str,
-        start_index: int = 1,
+        start_index: int,
+        always_show: bool = False,
+        section_slug: str = "other",
     ) -> tuple[str, int]:
-        """Render the HUST AIA radar grouped by faculty research direction."""
+        """Render a named digest section; returns markdown and next index."""
+        if not section_items and not always_show:
+            return "", start_index
+
         lines = [
-            f"## {labels['hust_section_title']}",
+            f"## {labels[title_key]}",
             "",
-            f"> {labels['hust_section_blurb']}",
+            f"> {labels[blurb_key]}",
             "",
         ]
-        if not hust_items:
-            lines.append(labels["hust_section_empty"])
+        if not section_items:
+            lines.append(labels[empty_key])
             lines.append("")
             lines.append("---")
             lines.append("")
             return "\n".join(lines), start_index
 
-        direction_groups: Dict[str, List[ContentItem]] = {}
-        for item in hust_items:
-            direction = str(
-                item.metadata.get("research_direction")
-                or ("Other research directions" if language == "en" else "其他研究方向")
+        toc_entries = [
+            self._toc_line(item, language, start_index + i)
+            for i, item in enumerate(section_items)
+        ]
+        lines.extend(toc_entries)
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+        body = "".join(
+            self._format_item(
+                item,
+                labels,
+                language,
+                start_index + i,
+                section_slug=section_slug,
             )
-            direction_groups.setdefault(direction, []).append(item)
-
-        next_index = start_index
-        for direction, group_items in direction_groups.items():
-            lines.append(f"### {direction}")
-            lines.append("")
-            for item in group_items:
-                lines.append(self._toc_line(item, language, next_index))
-                next_index += 1
-            lines.append("")
-
-        lines.extend(["---", ""])
-        body_parts = []
-        next_index = start_index
-        for group_items in direction_groups.values():
-            for item in group_items:
-                body_parts.append(
-                    self._format_item(item, labels, language, next_index)
-                )
-                next_index += 1
-        return "\n".join(lines) + "".join(body_parts), next_index
+            for i, item in enumerate(section_items)
+        )
+        return "\n".join(lines) + body, start_index + len(section_items)
 
     async def generate_summary(
         self,
@@ -161,44 +173,77 @@ class DailySummarizer:
         date: str,
         total_fetched: int,
         language: str = "en",
+        *,
+        preference_items: Optional[List[ContentItem]] = None,
+        hust_items: Optional[List[ContentItem]] = None,
     ) -> str:
         """Generate daily summary in Markdown format.
 
-        Always opens with a HUST AIA research-radar section, then the
-        remaining items in score-descending order (already sorted by orchestrator).
+        Layout:
+        1. Preference radar (sidecar pipeline)
+        2. HUST research directions (external pipeline; hidden when empty)
+        3. Other highlights (main balanced digest)
 
         Args:
-            items: High-scoring content items (already enriched)
+            items: Main digest items (already enriched)
             date: Date string (YYYY-MM-DD)
             total_fetched: Total number of items fetched before filtering
             language: Output language, either "en" or "zh"
+            preference_items: Optional override for preference radar block
+            hust_items: Optional override for HUST research block
 
         Returns:
             str: Markdown formatted summary
         """
         labels = LABELS.get(language, LABELS["en"])
-        hust_items, rest_items = self._split_hust_items(items)
+
+        embedded_preference, embedded_hust, rest_items = self._split_sidecar_items(items)
+        pref_items = preference_items if preference_items is not None else embedded_preference
+        hust_section_items = hust_items if hust_items is not None else embedded_hust
+
+        selected_count = len(pref_items) + len(hust_section_items) + len(rest_items)
 
         header = (
             f"# {labels['header']} - {date}\n\n"
-            f"> {labels['selected_items'].format(total=total_fetched, selected=len(items))}\n\n"
+            f"> {labels['selected_items'].format(total=total_fetched, selected=selected_count)}\n\n"
             "---\n\n"
         )
-        hust_md, next_index = self._render_hust_section(
-            hust_items, labels, language, start_index=1
+
+        next_index = 1
+        pref_md, next_index = self._render_section(
+            title_key="preference_section_title",
+            blurb_key="preference_section_blurb",
+            empty_key="preference_section_empty",
+            section_items=pref_items,
+            labels=labels,
+            language=language,
+            start_index=next_index,
+            always_show=True,
+            section_slug=PREFERENCE_RADAR_CATEGORY,
+        )
+        hust_md, next_index = self._render_section(
+            title_key="hust_section_title",
+            blurb_key="hust_section_blurb",
+            empty_key="preference_section_empty",
+            section_items=hust_section_items,
+            labels=labels,
+            language=language,
+            start_index=next_index,
+            always_show=False,
+            section_slug=HUST_RESEARCH_CATEGORY,
         )
 
-        if not items:
+        if not items and not pref_items and not hust_section_items:
             return (
                 f"# {labels['header']} - {date}\n\n"
                 f"> {labels['empty_analyzed'].format(total=total_fetched)}\n\n"
                 "---\n\n"
-                + hust_md
+                + pref_md
                 + labels["empty_body"]
             )
 
         if not rest_items:
-            return header + hust_md
+            return header + pref_md + hust_md
 
         toc_entries = [
             self._toc_line(item, language, next_index + i)
@@ -210,11 +255,17 @@ class DailySummarizer:
             + "\n\n---\n\n"
         )
         parts = [
-            self._format_item(item, labels, language, next_index + i)
+            self._format_item(
+                item,
+                labels,
+                language,
+                next_index + i,
+                section_slug="other",
+            )
             for i, item in enumerate(rest_items)
         ]
 
-        return header + hust_md + toc + "".join(parts)
+        return header + pref_md + hust_md + toc + "".join(parts)
 
     def generate_webhook_overview(
         self,
@@ -263,13 +314,24 @@ class DailySummarizer:
         prefix = f"第 {index}/{total} 条\n\n" if language == "zh" else f"Item {index}/{total}\n\n"
         return prefix + self._format_item(item, labels, language, index).rstrip("-\n ")
 
-    def _format_item(self, item: ContentItem, labels: dict, language: str, index: int) -> str:
+    def _format_item(
+        self,
+        item: ContentItem,
+        labels: dict,
+        language: str,
+        index: int,
+        *,
+        section_slug: str = "other",
+    ) -> str:
         """Format a single ContentItem into Markdown."""
         _title = item.metadata.get(f"title_{language}") or item.title
         title = str(_title).replace("[", "(").replace("]", ")")
         url = str(item.url)
         score = item.ai_score or "?"
         meta = item.metadata
+        tag_list = item.ai_tags or []
+        tags_attr = ",".join(tag.replace('"', "") for tag in tag_list)
+        title_attr = str(_title).replace('"', "&quot;")
 
         summary = (
             meta.get(f"detailed_summary_{language}")
@@ -317,38 +379,17 @@ class DailySummarizer:
                 source_line += f' · [{labels["discussion"]}]({discussion_url})'
 
         lines = [
-            f'<a id="item-{index}"></a>',
+            (
+                f'<a id="item-{index}" class="hz-item-anchor" '
+                f'data-hz-url="{url}" data-hz-title="{title_attr}" '
+                f'data-hz-tags="{tags_attr}" data-hz-section="{section_slug}"></a>'
+            ),
             f"## [{title}]({url}) \u2b50\ufe0f {score}/10",  # ⭐️
             "",
             summary,
             "",
             source_line,
         ]
-
-        if meta.get("category") == HUST_AIA_CATEGORY:
-            direction = str(meta.get("research_direction") or "")
-            if direction:
-                reason = (
-                    f"Targeted research feed matched **{direction}**."
-                    if language == "en"
-                    else f"定向研究检索命中 **{direction}**。"
-                )
-                lines.extend(["", f"**{labels['match_reason']}**: {reason}"])
-            teachers = [str(name) for name in meta.get("related_teachers", [])]
-            if teachers:
-                visible = teachers[:8]
-                separator = ", " if language == "en" else "、"
-                teacher_text = separator.join(visible)
-                remaining = len(teachers) - len(visible)
-                if remaining:
-                    teacher_text += (
-                        f" and {remaining} more"
-                        if language == "en"
-                        else f" 等共 {len(teachers)} 人"
-                    )
-                lines.extend(
-                    ["", f"**{labels['related_faculty']}**: {teacher_text}"]
-                )
 
         if background:
             lines.append("")

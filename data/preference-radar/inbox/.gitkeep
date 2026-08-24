@@ -1,0 +1,3 @@
+# Drop documents here for batch ingest.
+# Process with: uv run horizon-preference-ingest --inbox
+# Applied files move to inbox/processed/
