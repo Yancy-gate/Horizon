@@ -62,8 +62,9 @@ def upsert_entry(existing: str, source: str) -> tuple[str, int, str]:
     numbers = [int(value) for value in re.findall(r"(?m)^# (\d+)\s*$", existing)]
     number = max(numbers, default=0) + 1
     rendered = source.replace("{{ENTRY_NUMBER}}", str(number), 1).rstrip()
-    separator = "\n\n" if existing and not existing.endswith("\n\n") else ""
-    return existing + separator + rendered + "\n", number, "created"
+    base = existing.rstrip()
+    separator = "\n\n" if base else ""
+    return base + separator + rendered + "\n", number, "created"
 
 
 def atomic_write(path: Path, content: str) -> None:
