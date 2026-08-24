@@ -337,14 +337,15 @@ class DailySummarizer:
             teachers = [str(name) for name in meta.get("related_teachers", [])]
             if teachers:
                 visible = teachers[:8]
-                teacher_text = "、".join(visible)
-                if len(teachers) > len(visible):
-                    suffix = (
-                        f" and {len(teachers) - len(visible)} more"
+                separator = ", " if language == "en" else "、"
+                teacher_text = separator.join(visible)
+                remaining = len(teachers) - len(visible)
+                if remaining:
+                    teacher_text += (
+                        f" and {remaining} more"
                         if language == "en"
-                        else f"等 {len(teachers)} 人"
+                        else f" 等共 {len(teachers)} 人"
                     )
-                    teacher_text += suffix
                 lines.extend(
                     ["", f"**{labels['related_faculty']}**: {teacher_text}"]
                 )

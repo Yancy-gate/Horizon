@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+import argparse
 import asyncio
 import json
 import re
 from dataclasses import dataclass
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin, urlparse, urlunparse
@@ -157,6 +158,21 @@ def assign_research_groups(
     return matches
 
 
+def profile_is_due(
+    profile_path: Path, today: date | None = None
+) -> bool:
+    """Return whether a stored profile has reached its next review date."""
+    if not profile_path.exists():
+        return True
+    profile = json.loads(profile_path.read_text(encoding="utf-8"))
+    due_text = profile.get("next_review_due")
+    if not due_text:
+        return True
+    return (today or datetime.now(timezone.utc).date()) >= date.fromisoformat(
+        due_text
+    )
+
+
 class HustAiaProfileRefresher:
     """Scrape official public profiles and update radar teacher mappings."""
 
@@ -198,7 +214,7 @@ class HustAiaProfileRefresher:
 
     async def _research_teacher(
         self, client: httpx.AsyncClient, card: FacultyCard
-    ) -> dict[str, str] | None:
+    ) -> dict[str, Any] | None:
         direction = extract_research_direction(card.summary)
         if direction is None:
             try:
@@ -299,3 +315,46 @@ async def refresh_profile_files(
         encoding="utf-8",
     )
     return profile
+
+
+def main(argv: list[str] | None = None) -> int:
+    """CLI for the 90-day HUST AIA faculty research refresh."""
+    parser = argparse.ArgumentParser(
+        description="Refresh the HUST AIA faculty research profile"
+    )
+    parser.add_argument(
+        "--config",
+        type=Path,
+        default=Path("data/config.github.json"),
+    )
+    parser.add_argument(
+        "--profile",
+        type=Path,
+        default=Path("data/hust_aia_research_profile.json"),
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Refresh even if the 90-day review date has not arrived",
+    )
+    args = parser.parse_args(argv)
+
+    if not args.force and not profile_is_due(args.profile):
+        print(
+            "HUST AIA profile is not due yet; skip. "
+            "Use --force to refresh now."
+        )
+        return 0
+
+    profile = asyncio.run(refresh_profile_files(args.config, args.profile))
+    print(
+        "HUST AIA profile refreshed: "
+        f"{profile['included_teacher_count']} included, "
+        f"{profile['excluded_without_direction_count']} excluded, "
+        f"next review {profile['next_review_due']}"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
