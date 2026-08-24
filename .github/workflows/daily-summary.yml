@@ -92,6 +92,19 @@ jobs:
             git push
           fi
 
+      - name: Inject feedback endpoint for GitHub Pages
+        env:
+          HORIZON_FEEDBACK_ENDPOINT: ${{ vars.HORIZON_FEEDBACK_ENDPOINT }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          endpoint = os.environ.get("HORIZON_FEEDBACK_ENDPOINT", "").strip()
+          path = Path("docs/assets/feedback-endpoint.json")
+          path.write_text(json.dumps({"endpoint": endpoint}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print(f"feedback endpoint configured: {'yes' if endpoint else 'no (offline queue only)'}")
+          PY
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

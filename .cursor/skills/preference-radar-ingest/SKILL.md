@@ -66,22 +66,17 @@ uv run horizon-preference-ingest --list-drafts
 - 偏好雷达是**独立 sidecar 流水线**，读 `data/preference-radar/`
 - 日报结构：偏好雷达（置顶）→ 华科研究方向（外部流水线，`hust-research`）→ 其他资讯
 
-## 反馈闭环（阅读 👍 / 👎）
+## 反馈闭环（全自动 👍 / 👎）
 
-日报 GitHub Pages 每条资讯下方有 **👍 有用 / 👎 不太相关**：
+部署一次 Feedback Gateway 后，**只需点击**，无需导出 JSON：
 
-1. 浏览器 localStorage 即时记录
-2. 点右下角 **导出偏好反馈** 下载 JSON
-3. 放入 `data/preference-radar/feedback-inbox/`
-4. 导入并回写 profile：
-   ```bash
-   uv run horizon-preference-ingest --import-feedback-inbox
-   ```
-   或指定文件 `--import-feedback path/to/export.json`
+1. 按 `scripts/feedback-gateway/README.md` 部署 Cloudflare Worker
+2. 仓库 Variable：`HORIZON_FEEDBACK_ENDPOINT` = Worker URL
+3. 日报页点击 👍/👎 → 自动 POST → GitHub Actions 写回 `profile.json`
 
-下次 `horizon` 日报跑时会 **自动** 导入 inbox + 应用 feedback.jsonl：
-- 👍 → `raw_keywords` / `interests`
-- 👎 → `negative_interests`，并在全流程跳过该 URL
+离线或未配置 endpoint 时：暂存 localStorage，恢复后自动补传。
+
+手动导入仍可用：`uv run horizon-preference-ingest --import-feedback-inbox`
 
 ## 禁止事项
 
