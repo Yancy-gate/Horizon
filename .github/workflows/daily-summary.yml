@@ -100,10 +100,10 @@ jobs:
           import json, os
           from pathlib import Path
           endpoint = os.environ.get("HORIZON_FEEDBACK_ENDPOINT", "").strip()
-          path = Path("docs/assets/feedback-endpoint.js")
+          path = Path("docs/assets/js/feedback-endpoint.js")
           js_content = f'window.HZ_FEEDBACK_CONFIG = {{"endpoint": {endpoint!r}}};\n'
           path.write_text(js_content, encoding="utf-8")
-          json_path = Path("docs/assets/feedback-endpoint.json")
+          json_path = Path("docs/assets/js/feedback-endpoint.json")
           json_path.write_text(
               json.dumps({"endpoint": endpoint}, ensure_ascii=False, indent=2) + "\n",
               encoding="utf-8",
