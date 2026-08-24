@@ -2,8 +2,88 @@
   'use strict';
 
   var FEEDBACK_KEY = 'horizon-feedback-v1';
+  var feedbackEndpoint = '';
 
-  /** Replace ⭐️ N/10 with a colored badge in h2, h3, and li elements */
+  function feedbackConfigUrl() {
+    var script = document.querySelector('script[src*="horizon.js"]');
+    if (script && script.src) {
+      return script.src.replace(/assets\/js\/horizon\.js(\?.*)?$/, 'assets/feedback-endpoint.json');
+    }
+    return 'assets/feedback-endpoint.json';
+  }
+
+  function loadFeedbackEndpoint() {
+    return fetch(feedbackConfigUrl(), { cache: 'no-store' })
+      .then(function (res) {
+        if (!res.ok) return '';
+        return res.json();
+      })
+      .then(function (data) {
+        feedbackEndpoint = (data && data.endpoint) ? String(data.endpoint).replace(/\/$/, '') : '';
+        return feedbackEndpoint;
+      })
+      .catch(function () {
+        feedbackEndpoint = '';
+        return '';
+      });
+  }
+
+  function postFeedbackEntry(entry) {
+    if (!feedbackEndpoint) {
+      return Promise.reject(new Error('no endpoint'));
+    }
+    return fetch(feedbackEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(entry),
+      mode: 'cors',
+      keepalive: true,
+    }).then(function (res) {
+      if (!res.ok) {
+        throw new Error('sync failed: ' + res.status);
+      }
+      return res.json();
+    });
+  }
+
+  function markEntrySynced(url, synced) {
+    var entries = loadFeedbackStore();
+    var key = normalizeUrl(url);
+    entries = entries.map(function (item) {
+      if (normalizeUrl(item.url) === key) {
+        item.synced = synced;
+      }
+      return item;
+    });
+    saveFeedbackStore(entries);
+  }
+
+  function flushPendingFeedback() {
+    if (!feedbackEndpoint) return Promise.resolve();
+    var pending = loadFeedbackStore().filter(function (item) { return !item.synced; });
+    if (!pending.length) return Promise.resolve();
+
+    return pending.reduce(function (chain, entry) {
+      return chain.then(function () {
+        return postFeedbackEntry(entry).then(function () {
+          markEntrySynced(entry.url, true);
+        }).catch(function () { /* keep queued */ });
+      });
+    }, Promise.resolve());
+  }
+
+  function syncFeedbackEntry(entry) {
+    entry.synced = false;
+    upsertFeedback(entry);
+    return postFeedbackEntry(entry)
+      .then(function () {
+        markEntrySynced(entry.url, true);
+        showToast(readLang() === 'zh' ? '已同步到偏好档案' : 'Synced to preferences');
+      })
+      .catch(function () {
+        showToast(readLang() === 'zh' ? '已保存，稍后自动同步' : 'Saved — will retry sync');
+      });
+  }
   function processScoreBadges() {
     var scoreRe = /⭐️\s*(\d+(?:\.\d+)?)\/10/;
     var targets = document.querySelectorAll('.main-content h2, .main-content h3, .main-content li');
@@ -163,51 +243,21 @@
           section: anchor.getAttribute('data-hz-section') || 'other',
           lang: readLang(),
           created_at: new Date().toISOString(),
-          source: 'web'
+          source: 'web',
+          synced: false
         };
-        upsertFeedback(entry);
         paintActive(rating);
-        showToast(readLang() === 'zh' ? '已记录，记得导出同步' : 'Saved — export to sync');
+        upBtn.disabled = true;
+        downBtn.disabled = true;
+        syncFeedbackEntry(entry).finally(function () {
+          upBtn.disabled = false;
+          downBtn.disabled = false;
+        });
       }
 
       upBtn.addEventListener('click', function () { handleClick('up'); });
       downBtn.addEventListener('click', function () { handleClick('down'); });
     });
-
-    if (!document.querySelector('.hz-feedback-export')) {
-      var exportBtn = document.createElement('button');
-      exportBtn.type = 'button';
-      exportBtn.className = 'hz-feedback-export';
-      exportBtn.textContent = readLang() === 'zh' ? '导出偏好反馈' : 'Export feedback';
-      exportBtn.addEventListener('click', exportFeedback);
-      document.body.appendChild(exportBtn);
-    }
-  }
-
-  function exportFeedback() {
-    var entries = loadFeedbackStore();
-    if (!entries.length) {
-      showToast(readLang() === 'zh' ? '暂无反馈可导出' : 'No feedback yet');
-      return;
-    }
-
-    var payload = {
-      exported_at: new Date().toISOString(),
-      entries: entries
-    };
-
-    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-    var link = document.createElement('a');
-    var stamp = new Date().toISOString().slice(0, 10);
-    link.href = URL.createObjectURL(blob);
-    link.download = 'horizon-feedback-' + stamp + '.json';
-    link.click();
-    URL.revokeObjectURL(link.href);
-    showToast(
-      readLang() === 'zh'
-        ? '已下载，放入 feedback-inbox/ 后跑 ingest'
-        : 'Downloaded — drop into feedback-inbox/'
-    );
   }
 
   /** Set up EN/中文 language toggle as a page-level control */
@@ -290,6 +340,8 @@
     processScoreBadges();
     markSemanticElements();
     setupLanguageToggle();
-    setupFeedbackControls();
+    loadFeedbackEndpoint()
+      .then(function () { return flushPendingFeedback(); })
+      .finally(function () { setupFeedbackControls(); });
   });
 })();
