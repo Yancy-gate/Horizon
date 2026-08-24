@@ -29,59 +29,10 @@ jobs:
 
       - name: Upsert numbered daily learning entry
         run: |
-          python - <<'PY'
-          import re
-          from datetime import datetime
-          from pathlib import Path
-          from zoneinfo import ZoneInfo
-
-          source = Path(
-              "docs/retrospectives/horizon-obsidian-automation-2026-08-24.md"
-          )
-          today = datetime.now(ZoneInfo("Asia/Shanghai")).strftime("%Y-%m-%d")
-          target = Path("obsidian-vault/其他/每日自主学习") / f"{today}.md"
-          target.parent.mkdir(parents=True, exist_ok=True)
-
-          existing = target.read_text(encoding="utf-8") if target.exists() else ""
-          heading = "## Horizon 日报恢复与 Obsidian 自动同步：一次端到端排障复盘"
-          entry_pattern = re.compile(
-              rf"(?ms)^# (?P<number>\d+)[^\S\r\n]*\r?\n\r?\n"
-              rf"(?={re.escape(heading)}[^\S\r\n]*$)"
-              rf".*?(?=^# \d+[^\S\r\n]*$|\Z)"
-          )
-          match = entry_pattern.search(existing)
-          source_text = source.read_text(encoding="utf-8")
-
-          if match:
-              entry_number = int(match.group("number"))
-              entry = source_text.replace(
-                  "{{ENTRY_NUMBER}}",
-                  str(entry_number),
-                  1,
-              ).rstrip()
-              tail = existing[match.end():]
-              separator = "\n\n" if tail else "\n"
-              updated = existing[:match.start()] + entry + separator + tail
-              target.write_text(updated, encoding="utf-8")
-              print(f"Updated learning entry #{entry_number} in {target}")
-          else:
-              numbers = [
-                  int(value)
-                  for value in re.findall(r"(?m)^# (\d+)\s*$", existing)
-              ]
-              entry_number = max(numbers, default=0) + 1
-              entry = source_text.replace(
-                  "{{ENTRY_NUMBER}}",
-                  str(entry_number),
-                  1,
-              )
-              separator = "\n\n" if existing and not existing.endswith("\n\n") else ""
-              target.write_text(
-                  existing + separator + entry.rstrip() + "\n",
-                  encoding="utf-8",
-              )
-              print(f"Appended learning entry #{entry_number} to {target}")
-          PY
+          python \
+            .cursor/skills/obsidian-retrospective/scripts/upsert_daily_learning.py \
+            --vault obsidian-vault \
+            --source docs/retrospectives/horizon-obsidian-automation-2026-08-24.md
 
       - name: Commit learning log
         run: |
