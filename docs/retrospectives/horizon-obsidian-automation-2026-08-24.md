@@ -2,7 +2,8 @@
 
 ## Horizon 日报恢复与 Obsidian 自动同步：一次端到端排障复盘
 
-日期：2026-08-24  
+日期：2026-08-24
+
 范围：GitHub Actions、LLM 中转 API、Git 仓库同步、Obsidian、Windows 任务计划程序
 
 ### 一句话结论
