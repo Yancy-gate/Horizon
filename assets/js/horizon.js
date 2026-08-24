@@ -7,9 +7,9 @@
   function feedbackConfigUrl() {
     var script = document.querySelector('script[src*="horizon.js"]');
     if (script && script.src) {
-      return script.src.replace(/assets\/js\/horizon\.js(\?.*)?$/, 'assets/feedback-endpoint.js');
+      return script.src.replace(/assets\/js\/horizon\.js(\?.*)?$/, 'assets/js/feedback-endpoint.js');
     }
-    return 'assets/feedback-endpoint.js';
+    return 'assets/js/feedback-endpoint.js';
   }
 
   function loadFeedbackEndpoint() {
