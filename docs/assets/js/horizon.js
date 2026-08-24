@@ -7,25 +7,34 @@
   function feedbackConfigUrl() {
     var script = document.querySelector('script[src*="horizon.js"]');
     if (script && script.src) {
-      return script.src.replace(/assets\/js\/horizon\.js(\?.*)?$/, 'assets/feedback-endpoint.json');
+      return script.src.replace(/assets\/js\/horizon\.js(\?.*)?$/, 'assets/feedback-endpoint.js');
     }
-    return 'assets/feedback-endpoint.json';
+    return 'assets/feedback-endpoint.js';
   }
 
   function loadFeedbackEndpoint() {
-    return fetch(feedbackConfigUrl(), { cache: 'no-store' })
-      .then(function (res) {
-        if (!res.ok) return '';
-        return res.json();
-      })
-      .then(function (data) {
-        feedbackEndpoint = (data && data.endpoint) ? String(data.endpoint).replace(/\/$/, '') : '';
-        return feedbackEndpoint;
-      })
-      .catch(function () {
+    return new Promise(function (resolve) {
+      var existing = window.HZ_FEEDBACK_CONFIG;
+      if (existing && existing.endpoint) {
+        feedbackEndpoint = String(existing.endpoint).replace(/\/$/, '');
+        resolve(feedbackEndpoint);
+        return;
+      }
+
+      var script = document.createElement('script');
+      script.src = feedbackConfigUrl();
+      script.async = true;
+      script.onload = function () {
+        var config = window.HZ_FEEDBACK_CONFIG || {};
+        feedbackEndpoint = config.endpoint ? String(config.endpoint).replace(/\/$/, '') : '';
+        resolve(feedbackEndpoint);
+      };
+      script.onerror = function () {
         feedbackEndpoint = '';
-        return '';
-      });
+        resolve('');
+      };
+      document.head.appendChild(script);
+    });
   }
 
   function postFeedbackEntry(entry) {

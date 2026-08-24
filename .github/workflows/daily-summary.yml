@@ -100,8 +100,14 @@ jobs:
           import json, os
           from pathlib import Path
           endpoint = os.environ.get("HORIZON_FEEDBACK_ENDPOINT", "").strip()
-          path = Path("docs/assets/feedback-endpoint.json")
-          path.write_text(json.dumps({"endpoint": endpoint}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          path = Path("docs/assets/feedback-endpoint.js")
+          js_content = f'window.HZ_FEEDBACK_CONFIG = {{"endpoint": {endpoint!r}}};\n'
+          path.write_text(js_content, encoding="utf-8")
+          json_path = Path("docs/assets/feedback-endpoint.json")
+          json_path.write_text(
+              json.dumps({"endpoint": endpoint}, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
           print(f"feedback endpoint configured: {'yes' if endpoint else 'no (offline queue only)'}")
           PY
 
