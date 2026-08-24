@@ -97,17 +97,28 @@ jobs:
           HORIZON_FEEDBACK_ENDPOINT: ${{ vars.HORIZON_FEEDBACK_ENDPOINT }}
         run: |
           python - <<'PY'
-          import json, os
+          import os, re
           from pathlib import Path
           endpoint = os.environ.get("HORIZON_FEEDBACK_ENDPOINT", "").strip()
-          path = Path("docs/assets/js/feedback-endpoint.js")
-          js_content = f'window.HZ_FEEDBACK_CONFIG = {{"endpoint": {endpoint!r}}};\n'
-          path.write_text(js_content, encoding="utf-8")
-          json_path = Path("docs/assets/js/feedback-endpoint.json")
-          json_path.write_text(
-              json.dumps({"endpoint": endpoint}, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
-          )
+          path = Path("docs/assets/js/horizon.js")
+          content = path.read_text(encoding="utf-8")
+          if endpoint:
+              content, count = re.subn(
+                  r'(endpoint:\s*")[^"]*(")',
+                  rf'\1{endpoint}\2',
+                  content,
+                  count=1,
+              )
+              if count != 1:
+                  raise SystemExit("failed to inject feedback endpoint into horizon.js")
+          else:
+              content, count = re.subn(
+                  r'(endpoint:\s*")[^"]*(")',
+                  r'\1\2',
+                  content,
+                  count=1,
+              )
+          path.write_text(content, encoding="utf-8")
           print(f"feedback endpoint configured: {'yes' if endpoint else 'no (offline queue only)'}")
           PY
 
