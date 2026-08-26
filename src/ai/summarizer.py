@@ -428,7 +428,8 @@ class DailySummarizer:
                     )
                 lines.extend(["", f"**{labels['related_faculty']}**: {teacher_text}"])
 
-        if background:            lines.append("")
+        if background:
+            lines.append("")
             lines.append(f"**{labels['background']}**: {background}")
 
         sources = meta.get("sources") or []
