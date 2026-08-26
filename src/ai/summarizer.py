@@ -7,6 +7,10 @@ from ..models import ContentItem
 from ..preference_radar.models import HUST_RESEARCH_CATEGORY, PREFERENCE_RADAR_CATEGORY
 
 
+LEGACY_HUST_RESEARCH_CATEGORY = "hust-aia"
+HUST_RESEARCH_CATEGORIES = {HUST_RESEARCH_CATEGORY, LEGACY_HUST_RESEARCH_CATEGORY}
+
+
 _CJK = r"[\u4e00-\u9fff\u3400-\u4dbf]"
 _ASCII = r"[A-Za-z0-9]"
 
@@ -46,9 +50,11 @@ LABELS = {
         "preference_section_empty": "No preference-matched updates today.",
         "hust_section_title": "HUST Research Directions",
         "hust_section_blurb": (
-            "Research-direction highlights from the external HUST pipeline "
-            "(category: hust-research)."
+            "Research highlights matched to public faculty directions at HUST's "
+            "School of Artificial Intelligence and Automation."
         ),
+        "match_reason": "Match",
+        "related_faculty": "Related faculty",
         "general_toc_title": "Other highlights",
     },
     "zh": {
@@ -76,10 +82,10 @@ LABELS = {
             "独立筛选的个性化内容。"
         ),
         "preference_section_empty": "今日暂无符合偏好的更新。",
-        "hust_section_title": "华科研究方向",
-        "hust_section_blurb": (
-            "由外部华科研究方向流水线注入（metadata.category=hust-research）。"
-        ),
+        "hust_section_title": "华科老师研究方向",
+        "hust_section_blurb": "依据学院教师公开研究方向与论文关键词筛选。",
+        "match_reason": "匹配依据",
+        "related_faculty": "关联教师",
         "general_toc_title": "其他资讯",
     },
 }
@@ -103,7 +109,7 @@ class DailySummarizer:
             category = item.metadata.get("category")
             if category == PREFERENCE_RADAR_CATEGORY:
                 preference.append(item)
-            elif category == HUST_RESEARCH_CATEGORY:
+            elif category in HUST_RESEARCH_CATEGORIES:
                 hust.append(item)
             else:
                 rest.append(item)
@@ -391,8 +397,38 @@ class DailySummarizer:
             source_line,
         ]
 
-        if background:
-            lines.append("")
+        if meta.get("category") in HUST_RESEARCH_CATEGORIES:
+            direction = str(meta.get("research_direction") or "")
+            if direction:
+                matched = str(meta.get("matched_paper_keyword") or "").strip()
+                if matched:
+                    reason = (
+                        f"Paper keyword **{matched}** matched under **{direction}**."
+                        if language == "en"
+                        else f"论文关键词命中 **{matched}**（{direction}）。"
+                    )
+                else:
+                    reason = (
+                        f"Targeted research feed matched **{direction}**."
+                        if language == "en"
+                        else f"定向研究检索命中 **{direction}**。"
+                    )
+                lines.extend(["", f"**{labels['match_reason']}**: {reason}"])
+            teachers = [str(name) for name in meta.get("related_teachers", [])]
+            if teachers:
+                visible = teachers[:8]
+                separator = ", " if language == "en" else "、"
+                teacher_text = separator.join(visible)
+                remaining = len(teachers) - len(visible)
+                if remaining:
+                    teacher_text += (
+                        f" and {remaining} more"
+                        if language == "en"
+                        else f" 等共 {len(teachers)} 人"
+                    )
+                lines.extend(["", f"**{labels['related_faculty']}**: {teacher_text}"])
+
+        if background:            lines.append("")
             lines.append(f"**{labels['background']}**: {background}")
 
         sources = meta.get("sources") or []

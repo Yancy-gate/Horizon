@@ -17,6 +17,28 @@ from ..models import ContentItem, SourceType, RSSSourceConfig
 logger = logging.getLogger(__name__)
 
 
+def match_source_content_filters(
+    title: str, content: str, metadata: dict
+) -> str | None:
+    """Return the matched paper keyword, or None if the item should be dropped.
+
+    ``content_match_keywords`` is an item-level topic filter. When the source
+    declares it, the title or body must contain at least one keyword.
+    Sources without that list keep every dated item.
+    """
+    keywords = [
+        str(keyword) for keyword in metadata.get("content_match_keywords") or [] if keyword
+    ]
+    if not keywords:
+        return ""
+
+    haystack = f"{title}\n{content}".casefold()
+    for keyword in keywords:
+        if keyword.casefold() in haystack:
+            return keyword
+    return None
+
+
 class RSSScraper(BaseScraper):
     """Scraper for RSS/Atom feeds."""
 
@@ -101,11 +123,17 @@ class RSSScraper(BaseScraper):
 
                 # Extract content
                 content = self._extract_content(entry)
+                title = entry.get("title", "Untitled")
+                matched_keyword = match_source_content_filters(
+                    title, content, source.metadata
+                )
+                if matched_keyword is None:
+                    continue
 
                 item = ContentItem(
                     id=self._generate_id("rss", feed_id, entry_hash),
                     source_type=SourceType.RSS,
-                    title=entry.get("title", "Untitled"),
+                    title=title,
                     url=entry.get("link", str(source.url)),
                     content=content,
                     author=entry.get("author", source.name),
@@ -115,6 +143,11 @@ class RSSScraper(BaseScraper):
                         "feed_name": source.name,
                         "category": source.category,
                         "tags": [tag.term for tag in entry.get("tags", [])],
+                        **(
+                            {"matched_paper_keyword": matched_keyword}
+                            if matched_keyword
+                            else {}
+                        ),
                     },
                 )
                 items.append(item)

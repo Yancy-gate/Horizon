@@ -3,6 +3,7 @@
 import json
 from datetime import date
 from pathlib import Path
+from urllib.parse import unquote_plus
 
 from src.models import Config
 from src.services.hust_aia_profile import (
@@ -129,9 +130,31 @@ def test_github_config_loads_hust_radar_without_csig() -> None:
         json.loads(Path("data/config.github.json").read_text(encoding="utf-8"))
     )
     hust = [source for source in config.sources.rss if source.category == "hust-aia"]
+    groups = {source.metadata.get("research_group") for source in hust}
+    news = [source for source in hust if "news.google.com" in str(source.url)]
+    papers = [source for source in hust if "export.arxiv.org" in str(source.url)]
+    openalex = config.sources.openalex
 
-    assert len(hust) == 8
+    assert len(groups) == 8
+    assert len(news) == 8
+    assert len(papers) == 6
+    assert openalex is not None and openalex.enabled
+    assert [query.metadata.get("research_group") for query in openalex.queries] == [
+        "energy-manufacturing",
+        "systems-decision",
+    ]
+    assert all(query.author_ids for query in openalex.queries)
     assert all(source.metadata.get("related_teachers") for source in hust)
+    assert all(source.metadata.get("content_match_keywords") for source in hust)
+    assert all(
+        "Huazhong University of Science and Technology" in unquote_plus(str(source.url))
+        for source in news
+    )
+    assert all(
+        "computer vision" not in source.metadata.get("search_query", "").lower()
+        and "object detection" not in source.metadata.get("search_query", "").lower()
+        for source in news
+    )
     assert all(source.category != "csig-camera" for source in config.sources.rss)
     assert "hust-aia" in config.filtering.category_groups["hust_aia"].categories
     assert "csig_camera" not in config.filtering.category_groups

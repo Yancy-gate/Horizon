@@ -176,7 +176,14 @@ def test_generate_summary_renders_hust_section_when_items_present():
     summarizer = DailySummarizer()
     hust = _make_item(1)
     hust.title = "HUST Lab Update"
-    hust.metadata["category"] = HUST_RESEARCH_CATEGORY
+    hust.metadata.update(
+        {
+            "category": "hust-aia",
+            "research_direction": "机器人与自主智能",
+            "related_teachers": ["何顶新", "曾志刚"],
+            "matched_paper_keyword": "formation control",
+        }
+    )
 
     result = _run_async(
         summarizer.generate_summary(
@@ -188,6 +195,8 @@ def test_generate_summary_renders_hust_section_when_items_present():
         )
     )
 
-    assert "## 华科研究方向" in result
+    assert "## 华科老师研究方向" in result
     assert "HUST Lab Update" in result
     assert "## 偏好雷达" in result
+    assert "**匹配依据**: 论文关键词命中 **formation control**（机器人与自主智能）。" in result
+    assert "**关联教师**: 何顶新、曾志刚" in result

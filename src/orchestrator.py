@@ -28,6 +28,7 @@ from .scrapers.openbb import OpenBBScraper
 from .scrapers.ossinsight import OSSInsightScraper
 from .scrapers.gdelt import GDELTScraper
 from .scrapers.google_news import GoogleNewsScraper
+from .scrapers.openalex import OpenAlexScraper
 from .ai.client import create_ai_client
 from .ai.analyzer import ContentAnalyzer
 from .ai.summarizer import DailySummarizer
@@ -36,6 +37,9 @@ from .ai.tokens import get_usage_snapshot
 from .preference_radar.models import HUST_RESEARCH_CATEGORY
 from .preference_radar.feedback import FeedbackService
 from .preference_radar.service import PreferenceRadarService
+
+
+HUST_RESEARCH_CATEGORIES = {HUST_RESEARCH_CATEGORY, "hust-aia"}
 
 
 @dataclass
@@ -146,7 +150,7 @@ class HorizonOrchestrator:
             main_analyzed = [
                 item
                 for item in main_analyzed
-                if item.metadata.get("category") != HUST_RESEARCH_CATEGORY
+                if item.metadata.get("category") not in HUST_RESEARCH_CATEGORIES
             ]
 
             # 5. Filter by score threshold
@@ -369,6 +373,10 @@ class HorizonOrchestrator:
             if self.config.sources.google_news and self.config.sources.google_news.enabled:
                 gn_scraper = GoogleNewsScraper(self.config.sources.google_news, client)
                 tasks.append(self._fetch_with_progress("Google News", gn_scraper, since))
+
+            if self.config.sources.openalex and self.config.sources.openalex.enabled:
+                oa_scraper = OpenAlexScraper(self.config.sources.openalex, client)
+                tasks.append(self._fetch_with_progress("OpenAlex", oa_scraper, since))
 
             # Fetch all concurrently
             results = await asyncio.gather(*tasks, return_exceptions=True)
@@ -806,7 +814,7 @@ class HorizonOrchestrator:
         candidates = [
             item
             for item in analyzed_items
-            if item.metadata.get("category") == HUST_RESEARCH_CATEGORY
+            if item.metadata.get("category") in HUST_RESEARCH_CATEGORIES
             and item.ai_score is not None
             and item.ai_score >= threshold
         ]

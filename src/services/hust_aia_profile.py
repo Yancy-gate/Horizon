@@ -147,7 +147,12 @@ def _research_sources(config: dict[str, Any]) -> list[dict[str, Any]]:
 def assign_research_groups(
     direction: str, sources: list[dict[str, Any]]
 ) -> list[str]:
-    """Assign one public direction to configured radar groups."""
+    """Assign one public direction to configured radar groups.
+
+    Homepage ``match_keywords`` decide which group a teacher belongs to.
+    Item-level ``content_match_keywords`` are not used here; they filter
+    fetched news/papers in the RSS scraper.
+    """
     normalized = direction.casefold()
     matches = []
     for source in sources:
