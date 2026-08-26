@@ -27,6 +27,7 @@ from .scrapers.twitter_playwright import TwitterPlaywrightScraper
 from .scrapers.openbb import OpenBBScraper
 from .scrapers.ossinsight import OSSInsightScraper
 from .scrapers.gdelt import GDELTScraper
+from .ai.scoring import passes_ai_score_threshold
 from .scrapers.google_news import GoogleNewsScraper
 from .scrapers.openalex import OpenAlexScraper
 from .ai.client import create_ai_client
@@ -157,7 +158,7 @@ class HorizonOrchestrator:
             threshold = self.config.filtering.ai_score_threshold
             important_items = [
                 item for item in main_analyzed
-                if item.ai_score and item.ai_score >= threshold
+                if passes_ai_score_threshold(item, threshold)
             ]
             important_items.sort(key=lambda x: x.ai_score or 0, reverse=True)
 
